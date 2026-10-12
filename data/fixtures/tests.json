@@ -1,0 +1,88 @@
+[
+  {
+    "id": "T1",
+    "type": "Typical",
+    "scenario": "The firm's most common high-risk job, crew's first language. Desk variant: a group member plays the foreman with a synthetic job description.",
+    "expected": "Every hazard-list item relevant to the specifics is present; no unsourced control accepted unnoticed; term accuracy at least 95% after review.",
+    "where": "foreman",
+    "fixtureIds": [
+      "jd-01",
+      "jd-05",
+      "jd-06"
+    ]
+  },
+  {
+    "id": "T2",
+    "type": "Typical",
+    "scenario": "A second job reusing a template.",
+    "expected": "Signed in 10 minutes or less of foreman time (input, content review, flag resolution, sign-off; the understanding check is reported separately); flags appear only on changed lines; fewer assists than in T1.",
+    "where": "foreman",
+    "fixtureIds": [
+      "jd-02",
+      "jd-09",
+      "jd-07",
+      "jd-08"
+    ]
+  },
+  {
+    "id": "T3",
+    "type": "Edge",
+    "scenario": "Mixed Norwegian-English slang with typos.",
+    "expected": "Correct specifics, or a clarifying question in place of a guess.",
+    "where": "bench",
+    "fixtureIds": [
+      "jd-03"
+    ]
+  },
+  {
+    "id": "T4",
+    "type": "Edge or failure",
+    "scenario": "(a) Unsupported language. (b) Safety-critical term missing from the glossary.",
+    "expected": "(a) No worker-facing document; record says interpreter required. (b) Red flag; line cannot be signed as checked.",
+    "where": "bench",
+    "fixtureIds": [
+      "edge-ro",
+      "edge-term",
+      "jd-04"
+    ]
+  },
+  {
+    "id": "T5",
+    "type": "Key assumption",
+    "scenario": "Tabletop: the same people, two hypothetical jobs of comparable difficulty. One briefed the firm's usual way, one with the flagship. Order swapped for the second group or visit. After each briefing the same scenario-question set is run on its own (Home, 'Scenario questions only'), and the observer notes what each worker can explain in their own words. Time both methods from drafting through checking and correction.",
+    "expected": "Flagship gets at least as many safety-critical first answers right, in no more foreman time, and the workers' own explanations are at least as good. If the oral briefing does as well, the value case rests on time and record, and the recommendation is revised.",
+    "where": "people",
+    "fixtureIds": []
+  },
+  {
+    "id": "T6",
+    "type": "Quality",
+    "scenario": "10 seeded errors plus 10 clean controls, per language, in pair-check mode.",
+    "expected": "At least 8 of 10 seeded errors flagged; at most 2 of 10 controls flagged red; at least 2 of the 4 non-glossary errors flagged.",
+    "where": "bench",
+    "fixtureIds": [
+      "seeded-errors",
+      "controls"
+    ]
+  },
+  {
+    "id": "T7",
+    "type": "Failure",
+    "scenario": "Ambiguous Norwegian instruction on a safety-critical line.",
+    "expected": "Flagged before translation; the line is not translated until rewritten; the foreman's rewrite removes the ambiguity as judged by the technical reviewer.",
+    "where": "bench",
+    "fixtureIds": [
+      "amb-1",
+      "amb-2",
+      "jd-04"
+    ]
+  },
+  {
+    "id": "T8",
+    "type": "Comparison",
+    "scenario": "The same job done three ways: (i) a blank existing form filled in by hand in Norwegian, (ii) that text, or the firm's existing template, translated by a human who speaks the language, (iii) the flagship. All timed in the same categories, including checking and correction.",
+    "expected": "No pass mark. Report the three totals and where the time went.",
+    "where": "people",
+    "fixtureIds": []
+  }
+]

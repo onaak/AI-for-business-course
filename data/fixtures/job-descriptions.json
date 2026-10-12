@@ -1,0 +1,251 @@
+[
+  {
+    "id": "jd-01",
+    "templateId": "lifting",
+    "replay": "scripted",
+    "tests": [
+      "T1",
+      "T2"
+    ],
+    "title": {
+      "nb": "Løft av takstoler over gangvei (hovedløp)",
+      "en": "Lifting roof trusses over a walkway (happy path)"
+    },
+    "parameterValues": {
+      "weight": 850,
+      "equipment": "mobileCrane",
+      "liftHeight": 6,
+      "wind": 12
+    },
+    "languages": [
+      "pl",
+      "lt"
+    ],
+    "crewFlags": {
+      "newWorker": false,
+      "firstTimeJobType": false
+    },
+    "freeText": "Vi skal løfte 6 bunter med takstoler opp på taket. Løftet går over gangveien ved inngangen, og lasten er lang og tar vind.",
+    "note": "Three lines change. One glossary flag in Lithuanian, cleared by \"use the approved term\". Understanding check required."
+  },
+  {
+    "id": "jd-02",
+    "templateId": "work-at-height",
+    "replay": "scripted",
+    "tests": [
+      "T1",
+      "T2"
+    ],
+    "title": {
+      "nb": "Skifte takrenner fra stillas (KI-forslag og flagg)",
+      "en": "Replacing gutters from a scaffold (AI suggestion and flags)"
+    },
+    "parameterValues": {
+      "height": 6,
+      "access": "scaffold",
+      "wind": 15
+    },
+    "languages": [
+      "pl",
+      "lt"
+    ],
+    "crewFlags": {
+      "newWorker": false,
+      "firstTimeJobType": false
+    },
+    "freeText": "Vi skal skifte takrenner på østsiden. Det er en utsparing i dekket ved trappa, og stillaset står ut mot fortauet.",
+    "note": "One unsourced AI suggestion. A meaning shift in Polish found by back-translation. A Lithuanian glossary flag that survives two automatic attempts."
+  },
+  {
+    "id": "jd-03",
+    "templateId": "lifting",
+    "replay": "scripted",
+    "tests": [
+      "T3"
+    ],
+    "title": {
+      "nb": "Slang og skrivefeil (T3)",
+      "en": "Slang and typos (T3)"
+    },
+    "parameterValues": {
+      "weight": 1000,
+      "equipment": "telehandler",
+      "liftHeight": 9,
+      "wind": 12
+    },
+    "languages": [
+      "pl",
+      "lt"
+    ],
+    "crewFlags": {
+      "newWorker": false,
+      "firstTimeJobType": false
+    },
+    "freeText": "Skal heise opp noen paller m gips t 3 etg, bruker trucken. Litt trangt ved porten, må kanskje ta det over gjerdet?? fikser stroppa selv",
+    "note": "Mixed slang with typos. Two safety-relevant details are unclear, so two clarifying questions are asked. In replay mode pick \"Gjennom porten\" and \"Anhukeren kontrollerer løftestroppene før bruk\"."
+  },
+  {
+    "id": "jd-04",
+    "templateId": "work-at-height",
+    "replay": "scripted",
+    "tests": [
+      "T4",
+      "T7"
+    ],
+    "title": {
+      "nb": "Takvinduer: tvetydig linje, manglende ord, språk uten støtte (T4, T7)",
+      "en": "Roof windows: ambiguous line, missing term, unsupported language (T4, T7)"
+    },
+    "parameterValues": {
+      "height": 8,
+      "access": "scaffold",
+      "wind": 15
+    },
+    "languages": [
+      "pl",
+      "lt",
+      "ro"
+    ],
+    "crewFlags": {
+      "newWorker": true,
+      "firstTimeJobType": false
+    },
+    "freeText": "Vi skal montere takvinduer. Noen må ut på taket utenfor stillaset. Vi heiser vinduene opp med en vinsj.",
+    "note": "An ambiguous safety-critical line (\"Bruk sele ved behov\"), a safety concept with no glossary entry (\"vinsj\"), and Romanian, which is not supported. In replay mode use the suggested wording for the ambiguous line."
+  },
+  {
+    "id": "jd-05",
+    "templateId": "lifting",
+    "replay": "live-only",
+    "tests": [
+      "T1"
+    ],
+    "title": {
+      "nb": "Ventilasjonsaggregat med lastebilkran",
+      "en": "Ventilation unit with a lorry loader crane"
+    },
+    "parameterValues": {
+      "weight": 1200,
+      "equipment": "truckCrane",
+      "liftHeight": 12,
+      "wind": 10
+    },
+    "languages": [
+      "pl",
+      "lt"
+    ],
+    "crewFlags": {
+      "newWorker": false,
+      "firstTimeJobType": true
+    },
+    "freeText": "Løfte ventilasjonsaggregat opp på tak med lastebilkran. Kranen må stå i gata, og det går en kraftlinje langs fortauet.",
+    "note": "No stored responses. Needs live mode."
+  },
+  {
+    "id": "jd-06",
+    "templateId": "work-at-height",
+    "replay": "live-only",
+    "tests": [
+      "T1"
+    ],
+    "title": {
+      "nb": "Maling av fasade fra rullestillas",
+      "en": "Painting a facade from a mobile scaffold"
+    },
+    "parameterValues": {
+      "height": 5,
+      "access": "mobileScaffold",
+      "wind": 12
+    },
+    "languages": [
+      "pl",
+      "lt"
+    ],
+    "crewFlags": {
+      "newWorker": false,
+      "firstTimeJobType": false
+    },
+    "freeText": "Maling av fasade fra rullestillas. Underlaget er grus og litt skrått, og vi må flytte stillaset flere ganger.",
+    "note": "No stored responses. Needs live mode."
+  },
+  {
+    "id": "jd-07",
+    "templateId": "work-at-height",
+    "replay": "live-only",
+    "tests": [
+      "T2"
+    ],
+    "title": {
+      "nb": "Bytte lysarmatur fra stige",
+      "en": "Replacing a light fitting from a ladder"
+    },
+    "parameterValues": {
+      "height": 3,
+      "access": "ladder",
+      "wind": 15
+    },
+    "languages": [
+      "lt"
+    ],
+    "crewFlags": {
+      "newWorker": false,
+      "firstTimeJobType": false
+    },
+    "freeText": "Bytte lysarmatur i trapperom fra stige. Kort jobb, men gulvet er nybonet og glatt.",
+    "note": "No stored responses. Needs live mode."
+  },
+  {
+    "id": "jd-08",
+    "templateId": "lifting",
+    "replay": "live-only",
+    "tests": [
+      "T2"
+    ],
+    "title": {
+      "nb": "Lossing av armeringsnett med teleskoptruck",
+      "en": "Unloading reinforcement mesh with a telehandler"
+    },
+    "parameterValues": {
+      "weight": 700,
+      "equipment": "telehandler",
+      "liftHeight": 3,
+      "wind": 12
+    },
+    "languages": [
+      "pl"
+    ],
+    "crewFlags": {
+      "newWorker": true,
+      "firstTimeJobType": false
+    },
+    "freeText": "Lossing av armeringsnett fra bil med teleskoptruck. Mye folk i området fordi betongbilen kommer samtidig.",
+    "note": "No stored responses. Needs live mode."
+  },
+  {
+    "id": "jd-09",
+    "templateId": "work-at-height",
+    "replay": "no-model",
+    "tests": [
+      "T2"
+    ],
+    "title": {
+      "nb": "Bare parametere, ingen fritekst (ren gjenbruk)",
+      "en": "Parameters only, no free text (pure reuse)"
+    },
+    "parameterValues": {
+      "height": 7,
+      "access": "scaffold",
+      "wind": 12
+    },
+    "languages": [
+      "pl",
+      "lt"
+    ],
+    "crewFlags": {
+      "newWorker": false,
+      "firstTimeJobType": false
+    },
+    "freeText": "",
+    "note": "Needs no model in any mode. Every non-parameter line is reused byte for byte (AC-05)."
+  }
+]

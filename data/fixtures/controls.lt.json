@@ -1,0 +1,96 @@
+{
+  "status": "unconfirmed",
+  "note": "Written by the builder. A native speaker must confirm each seeded error is wrong, and each control is right, before any T6 result is reported. Until then results are labelled \"unconfirmed fixtures\".",
+  "pairs": [
+    {
+      "id": "lt-c01",
+      "lang": "lt",
+      "kind": "control",
+      "source": "Rekkverk skal være montert på alle åpne sider før arbeidet starter.",
+      "target": "Prieš pradedant darbą iš visų atvirų pusių turi būti sumontuoti apsauginiai turėklai.",
+      "critical": true,
+      "note": "Stored translation of template line h-08."
+    },
+    {
+      "id": "lt-c02",
+      "lang": "lt",
+      "kind": "control",
+      "source": "Bruk fallsikringssele festet til godkjent forankringspunkt der rekkverk mangler.",
+      "target": "Kur nėra apsauginių turėklų, naudokite viso kūno saugos diržus, pritvirtintus prie patvirtinto tvirtinimo taško.",
+      "critical": true,
+      "note": "Stored translation of template line h-09."
+    },
+    {
+      "id": "lt-c03",
+      "lang": "lt",
+      "kind": "control",
+      "source": "Sperr av området under arbeidsstedet.",
+      "target": "Aptverkite zoną po darbo vieta.",
+      "critical": true,
+      "note": "Stored translation of template line h-10."
+    },
+    {
+      "id": "lt-c04",
+      "lang": "lt",
+      "kind": "control",
+      "source": "Stige skal bare brukes til kortvarig arbeid og skal sikres mot å gli.",
+      "target": "Kopėčios gali būti naudojamos tik trumpalaikiam darbui ir turi būti apsaugotos nuo slydimo.",
+      "critical": true,
+      "note": "Stored translation of template line h-13."
+    },
+    {
+      "id": "lt-c05",
+      "lang": "lt",
+      "kind": "control",
+      "source": "Stans arbeidet når vindstyrken er over vindgrensen.",
+      "target": "Sustabdykite darbą, kai vėjo greitis viršija vėjo ribą.",
+      "critical": true,
+      "note": "Stored translation of template line h-18."
+    },
+    {
+      "id": "lt-c06",
+      "lang": "lt",
+      "kind": "control",
+      "source": "Kontroller at løfteredskapet har WLL som dekker lastens vekt.",
+      "target": "Patikrinkite, ar kėlimo reikmenų WLL atitinka krovinio svorį.",
+      "critical": true,
+      "note": "Stored translation of template line l-09."
+    },
+    {
+      "id": "lt-c07",
+      "lang": "lt",
+      "kind": "control",
+      "source": "Ingen skal oppholde seg under hengende last.",
+      "target": "Niekas negali būti po pakabintu kroviniu.",
+      "critical": true,
+      "note": "Stored translation of template line l-11."
+    },
+    {
+      "id": "lt-c08",
+      "lang": "lt",
+      "kind": "control",
+      "source": "Sperr av faresonen rundt løftet.",
+      "target": "Aptverkite pavojingą zoną aplink kėlimo vietą.",
+      "critical": true,
+      "note": "Stored translation of template line l-12."
+    },
+    {
+      "id": "lt-c09",
+      "lang": "lt",
+      "kind": "control",
+      "source": "Bruk styretau for å styre lasten. Ikke styr lasten med hendene.",
+      "target": "Krovinį kreipkite kreipiamąja virve. Nekreipkite krovinio rankomis.",
+      "critical": true,
+      "note": "Stored translation of template line l-14."
+    },
+    {
+      "id": "lt-c10",
+      "lang": "lt",
+      "kind": "control",
+      "source": "Hold sikkerhetsavstand til kraftlinjer.",
+      "target": "Laikykitės saugaus atstumo nuo elektros linijų.",
+      "critical": true,
+      "note": "Stored translation of template line l-16."
+    }
+  ]
+}

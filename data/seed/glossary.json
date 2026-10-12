@@ -1,0 +1,2115 @@
+[
+  {
+    "termId": "harness",
+    "conceptEn": "fall-arrest harness",
+    "definition": "A full-body harness that stops a fall. Not a waist belt.",
+    "critical": true,
+    "nbForms": [
+      "fallsikringssele",
+      "sele"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "fall-arrest harness",
+        "stems": [
+          "harness"
+        ],
+        "forbidden": [
+          "safety belt",
+          "waist belt"
+        ],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "szelki bezpieczeństwa",
+        "stems": [
+          "szel"
+        ],
+        "forbidden": [
+          "pas bezpiecz",
+          "pasa bezpiecz",
+          "pasem bezpiecz",
+          "pasy bezpiecz",
+          "pasów bezpiecz"
+        ],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "viso kūno saugos diržai",
+        "stems": [
+          "kūno",
+          "saugos dirž"
+        ],
+        "forbidden": [
+          "juosmens dirž",
+          "saugos juost"
+        ],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "anchor",
+    "conceptEn": "anchor point",
+    "definition": "The fixed point a fall-arrest lanyard is attached to.",
+    "critical": true,
+    "nbForms": [
+      "forankringspunkt",
+      "festepunkt"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "anchor point",
+        "stems": [
+          "anchor"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "punkt kotwiczenia",
+        "stems": [
+          "punkt",
+          "kotwicz"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "tvirtinimo taškas",
+        "stems": [
+          "tvirtinimo",
+          "tašk"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "lanyard",
+    "conceptEn": "fall-arrest lanyard",
+    "definition": "The line between the harness and the anchor point.",
+    "critical": true,
+    "nbForms": [
+      "fangline"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "lanyard",
+        "stems": [
+          "lanyard"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "linka bezpieczeństwa",
+        "stems": [
+          "link",
+          "bezpiecze"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "saugos lynas",
+        "stems": [
+          "saugos",
+          "lyn"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "guardrail",
+    "conceptEn": "guardrail",
+    "definition": "A fixed rail at an edge that stops a person from falling.",
+    "critical": true,
+    "nbForms": [
+      "rekkverk"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "guardrail",
+        "stems": [
+          "guardrail"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "balustrada ochronna",
+        "stems": [
+          "balustrad"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "apsauginis turėklas",
+        "stems": [
+          "turėkl"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "toeboard",
+    "conceptEn": "toe board",
+    "definition": "The low board at the edge of a platform that stops objects sliding off.",
+    "critical": false,
+    "nbForms": [
+      "fotlist"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "toe board",
+        "stems": [
+          "toe board|toeboard"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "deska krawężnikowa",
+        "stems": [
+          "krawężnik|bortnic"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "apsauginis bortelis",
+        "stems": [
+          "bortel"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "scaffold",
+    "conceptEn": "scaffold",
+    "definition": "A temporary structure to work from at height.",
+    "critical": false,
+    "nbForms": [
+      "stillas"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "scaffold",
+        "stems": [
+          "scaffold"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "rusztowanie",
+        "stems": [
+          "rusztowa"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "pastoliai",
+        "stems": [
+          "pastol"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "mobile-scaffold",
+    "conceptEn": "mobile scaffold tower",
+    "definition": "A scaffold on wheels that is moved by hand.",
+    "critical": false,
+    "nbForms": [
+      "rullestillas"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "mobile scaffold",
+        "stems": [
+          "mobile",
+          "scaffold"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "rusztowanie przejezdne",
+        "stems": [
+          "rusztowa",
+          "przejezdn"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "mobilieji pastoliai",
+        "stems": [
+          "mobil",
+          "pastol"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "ladder",
+    "conceptEn": "ladder",
+    "definition": "A portable ladder.",
+    "critical": false,
+    "nbForms": [
+      "=stige",
+      "=stigen",
+      "stigebruk"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "ladder",
+        "stems": [
+          "ladder"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "drabina",
+        "stems": [
+          "drabin"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "kopėčios",
+        "stems": [
+          "kopėči"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "working-height",
+    "conceptEn": "working height",
+    "definition": "The height above the ground or floor at which the work is done.",
+    "critical": false,
+    "nbForms": [
+      "arbeidshøyde"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "working height",
+        "stems": [
+          "working height"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "wysokość robocza",
+        "stems": [
+          "wysokoś",
+          "robocz"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "darbo aukštis",
+        "stems": [
+          "darbo",
+          "aukš"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "roof-edge",
+    "conceptEn": "roof edge",
+    "definition": "The outer edge of a roof, where a person can fall off.",
+    "critical": true,
+    "nbForms": [
+      "takkant"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "roof edge",
+        "stems": [
+          "roof edge"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "krawędź dachu",
+        "stems": [
+          "krawęd",
+          "dach"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "stogo kraštas",
+        "stems": [
+          "stog",
+          "krašt"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "floor-opening",
+    "conceptEn": "floor opening",
+    "definition": "A hole in a floor or deck that a person or an object can fall through.",
+    "critical": true,
+    "nbForms": [
+      "utsparing"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "floor opening",
+        "stems": [
+          "opening"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "otwór w stropie",
+        "stems": [
+          "otw",
+          "strop"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "anga perdangoje",
+        "stems": [
+          "ang",
+          "perdang"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "falling-objects",
+    "conceptEn": "falling objects",
+    "definition": "Tools or materials that fall from the work area and can hit people below.",
+    "critical": true,
+    "nbForms": [
+      "fallende gjenstand"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "falling objects",
+        "stems": [
+          "falling object"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "spadające przedmioty",
+        "stems": [
+          "spadając",
+          "przedmiot"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "krintantys daiktai",
+        "stems": [
+          "krintan",
+          "daikt"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "cordon",
+    "conceptEn": "cordon off",
+    "definition": "To close an area with barriers or tape so that nobody walks in.",
+    "critical": true,
+    "nbForms": [
+      "sperr"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "cordon off",
+        "stems": [
+          "cordon"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "wygrodzić",
+        "stems": [
+          "wygr"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "aptverti",
+        "stems": [
+          "aptv"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "danger-zone",
+    "conceptEn": "danger zone",
+    "definition": "The area where a person can be hit if something falls, swings or tips over.",
+    "critical": true,
+    "nbForms": [
+      "faresone",
+      "fareområde"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "danger zone",
+        "stems": [
+          "danger zone"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "strefa niebezpieczna",
+        "stems": [
+          "stref",
+          "niebezpieczn"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "pavojinga zona",
+        "stems": [
+          "pavojing",
+          "zon"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "helmet",
+    "conceptEn": "safety helmet",
+    "definition": "A hard hat that protects the head.",
+    "critical": true,
+    "nbForms": [
+      "hjelm"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "safety helmet",
+        "stems": [
+          "helmet"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "hełm ochronny",
+        "stems": [
+          "hełm"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "apsauginis šalmas",
+        "stems": [
+          "šalm"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "chin-strap",
+    "conceptEn": "chin strap",
+    "definition": "The strap that keeps the helmet on the head.",
+    "critical": false,
+    "nbForms": [
+      "hakestropp"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "chin strap",
+        "stems": [
+          "chin strap|chinstrap"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "pasek podbródkowy",
+        "stems": [
+          "podbródk"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "pasmakrės dirželis",
+        "stems": [
+          "pasmakr"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "footwear",
+    "conceptEn": "safety footwear",
+    "definition": "Shoes or boots with a protective toe cap.",
+    "critical": false,
+    "nbForms": [
+      "vernesko",
+      "vernefottøy"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "safety footwear",
+        "stems": [
+          "footwear|boots|shoes"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "obuwie ochronne",
+        "stems": [
+          "obuwi"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "apsauginė avalynė",
+        "stems": [
+          "avalyn"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "gloves",
+    "conceptEn": "protective gloves",
+    "definition": "Work gloves that protect the hands.",
+    "critical": false,
+    "nbForms": [
+      "hanske"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "protective gloves",
+        "stems": [
+          "glove"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "rękawice ochronne",
+        "stems": [
+          "rękawic"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "apsauginės pirštinės",
+        "stems": [
+          "pirštin"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "hi-vis",
+    "conceptEn": "high-visibility clothing",
+    "definition": "Clothing in a signal colour with reflective bands.",
+    "critical": false,
+    "nbForms": [
+      "synlighetstøy"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "high-visibility clothing",
+        "stems": [
+          "high-vis|hi-vis"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "odzież ostrzegawcza",
+        "stems": [
+          "odzież",
+          "ostrzegawcz"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "gerai matomi drabužiai",
+        "stems": [
+          "matom",
+          "drabuž"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "goggles",
+    "conceptEn": "safety glasses",
+    "definition": "Glasses that protect the eyes from dust and splinters.",
+    "critical": false,
+    "nbForms": [
+      "vernebrille"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "safety glasses",
+        "stems": [
+          "glasses|goggles"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "okulary ochronne",
+        "stems": [
+          "okular"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "apsauginiai akiniai",
+        "stems": [
+          "akin"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "wind-speed",
+    "conceptEn": "wind speed",
+    "definition": "How strong the wind is, measured in m/s.",
+    "critical": true,
+    "nbForms": [
+      "vindstyrke",
+      "vindhastighet"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "wind speed",
+        "stems": [
+          "wind"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "prędkość wiatru",
+        "stems": [
+          "prędkoś",
+          "wiatr"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "vėjo greitis",
+        "stems": [
+          "vėjo",
+          "grei"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "stop-work",
+    "conceptEn": "stop work",
+    "definition": "To stop the job at once and not continue until the foreman says so.",
+    "critical": true,
+    "nbForms": [
+      "stans arbeidet",
+      "stanse arbeidet",
+      "stopp arbeidet"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "stop work",
+        "stems": [
+          "stop"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "przerwać pracę",
+        "stems": [
+          "przerw",
+          "prac"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "sustabdyti darbą",
+        "stems": [
+          "sustabd",
+          "darb"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "crane",
+    "conceptEn": "crane",
+    "definition": "A machine that lifts and moves a load hanging from a hook. In formal Polish, \"dźwig\" means a passenger or goods lift, not a crane.",
+    "critical": true,
+    "nbForms": [
+      "kran"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "crane",
+        "stems": [
+          "crane"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "żuraw",
+        "stems": [
+          "żuraw"
+        ],
+        "forbidden": [
+          "dźwig"
+        ],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "kranas",
+        "stems": [
+          "kran"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "mobile-crane",
+    "conceptEn": "mobile crane",
+    "definition": "A crane on a wheeled chassis that drives to the site.",
+    "critical": false,
+    "nbForms": [
+      "mobilkran"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "mobile crane",
+        "stems": [
+          "mobile crane"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "żuraw samojezdny",
+        "stems": [
+          "żuraw",
+          "samojezdn"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "mobilusis kranas",
+        "stems": [
+          "mobil",
+          "kran"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "truck-crane",
+    "conceptEn": "lorry loader crane",
+    "definition": "A crane mounted on a lorry, used to load and unload it.",
+    "critical": false,
+    "nbForms": [
+      "lastebilkran",
+      "kranbil"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "lorry loader crane",
+        "stems": [
+          "crane"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "żuraw przeładunkowy (HDS)",
+        "stems": [
+          "żuraw|hds"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "kranas-manipuliatorius",
+        "stems": [
+          "manipuliator"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "telehandler",
+    "conceptEn": "telehandler",
+    "definition": "A truck with a telescopic boom for lifting pallets and loads.",
+    "critical": false,
+    "nbForms": [
+      "teleskoptruck"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "telehandler",
+        "stems": [
+          "telehandler"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "ładowarka teleskopowa",
+        "stems": [
+          "ładowark",
+          "teleskopow"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "teleskopinis krautuvas",
+        "stems": [
+          "teleskopin",
+          "krautuv"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "crane-operator",
+    "conceptEn": "crane operator",
+    "definition": "The person who operates the crane.",
+    "critical": true,
+    "nbForms": [
+      "kranfører"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "crane operator",
+        "stems": [
+          "operator"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "operator żurawia",
+        "stems": [
+          "operator",
+          "żuraw"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "krano operatorius",
+        "stems": [
+          "kran",
+          "operator"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "slinger",
+    "conceptEn": "slinger",
+    "definition": "The person who attaches the load to the hook and releases it.",
+    "critical": true,
+    "nbForms": [
+      "anhuker"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "slinger",
+        "stems": [
+          "slinger"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "hakowy",
+        "stems": [
+          "hakow"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "stropuotojas",
+        "stems": [
+          "stropuotoj"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "signaller",
+    "conceptEn": "signaller",
+    "definition": "The person who gives signals to the crane operator.",
+    "critical": true,
+    "nbForms": [
+      "signalgiver"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "signaller",
+        "stems": [
+          "signaller|signaler|signalman"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "sygnalista",
+        "stems": [
+          "sygnalist"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "signalininkas",
+        "stems": [
+          "signalinink"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "sling",
+    "conceptEn": "lifting sling",
+    "definition": "A certified strap, chain or wire that connects the load to the hook. Not a lashing strap for securing cargo.",
+    "critical": true,
+    "nbForms": [
+      "løftestropp",
+      "stropp"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "lifting sling",
+        "stems": [
+          "sling"
+        ],
+        "forbidden": [
+          "ratchet strap",
+          "lashing"
+        ],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "zawiesie",
+        "stems": [
+          "zawies"
+        ],
+        "forbidden": [
+          "pas transportow",
+          "pasy transportow",
+          "pasów transportow"
+        ],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "kėlimo stropas",
+        "stems": [
+          "strop"
+        ],
+        "forbidden": [
+          "tvirtinimo dirž"
+        ],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "shackle",
+    "conceptEn": "shackle",
+    "definition": "A U-shaped metal link with a pin, used to connect lifting slings.",
+    "critical": false,
+    "nbForms": [
+      "sjakkel",
+      "sjakler"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "shackle",
+        "stems": [
+          "shackle"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "szekla",
+        "stems": [
+          "szekl"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "apkaba",
+        "stems": [
+          "apkab"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "hook",
+    "conceptEn": "hook",
+    "definition": "The crane hook the load hangs from.",
+    "critical": false,
+    "nbForms": [
+      "=krok",
+      "=kroken",
+      "løftekrok"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "hook",
+        "stems": [
+          "hook"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "hak",
+        "stems": [
+          "hak"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "kablys",
+        "stems": [
+          "kabl"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "suspended-load",
+    "conceptEn": "suspended load",
+    "definition": "A load that hangs from the crane and is off the ground.",
+    "critical": true,
+    "nbForms": [
+      "hengende last"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "suspended load",
+        "stems": [
+          "suspended load"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "podwieszony ładunek",
+        "stems": [
+          "podwiesz",
+          "ładun"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "pakabintas krovinys",
+        "stems": [
+          "pakabint",
+          "krovin"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "wll",
+    "conceptEn": "working load limit (WLL)",
+    "definition": "The heaviest load a piece of lifting gear is marked to carry.",
+    "critical": true,
+    "nbForms": [
+      "wll",
+      "arbeidslastgrense"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "working load limit (WLL)",
+        "stems": [
+          "wll|working load limit"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "dopuszczalne obciążenie robocze (DOR)",
+        "stems": [
+          "dor|wll|dopuszczaln"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "leistina darbinė apkrova (WLL)",
+        "stems": [
+          "wll|leistin"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "tag-line",
+    "conceptEn": "tag line",
+    "definition": "A rope tied to the load so it can be guided from a distance.",
+    "critical": false,
+    "nbForms": [
+      "styretau"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "tag line",
+        "stems": [
+          "tag line|tagline"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "lina kierunkowa",
+        "stems": [
+          "lin",
+          "kierunkow"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "kreipiamoji virvė",
+        "stems": [
+          "kreipiam",
+          "virv"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "outrigger",
+    "conceptEn": "outriggers",
+    "definition": "The extendable legs that keep a crane from tipping over.",
+    "critical": true,
+    "nbForms": [
+      "støtteben",
+      "støttebein"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "outriggers",
+        "stems": [
+          "outrigger"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "podpory",
+        "stems": [
+          "podpor|podpór"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "atramos",
+        "stems": [
+          "atram"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "outrigger-pad",
+    "conceptEn": "outrigger pads",
+    "definition": "Plates placed under the outriggers to spread the load on the ground.",
+    "critical": false,
+    "nbForms": [
+      "underlagsplate",
+      "labbeplate"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "outrigger pads",
+        "stems": [
+          "pad|mat"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "podkłady pod podpory",
+        "stems": [
+          "podkład"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "atramų padėklai",
+        "stems": [
+          "padėkl"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "power-line",
+    "conceptEn": "overhead power line",
+    "definition": "An electric line in the air that a crane or load can touch.",
+    "critical": true,
+    "nbForms": [
+      "kraftlinje",
+      "høyspent"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "overhead power line",
+        "stems": [
+          "power line"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "linia energetyczna",
+        "stems": [
+          "lini",
+          "energetyczn"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "elektros linija",
+        "stems": [
+          "elektros",
+          "linij"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "safety-distance",
+    "conceptEn": "safety distance",
+    "definition": "The smallest distance that must be kept from a hazard.",
+    "critical": true,
+    "nbForms": [
+      "sikkerhetsavstand"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "safety distance",
+        "stems": [
+          "distance"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "bezpieczna odległość",
+        "stems": [
+          "bezpieczn",
+          "odległoś"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "saugus atstumas",
+        "stems": [
+          "saug",
+          "atstum"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "crush",
+    "conceptEn": "crush hazard",
+    "definition": "The danger of being squeezed between the load and something fixed.",
+    "critical": true,
+    "nbForms": [
+      "klemfare"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "crush hazard",
+        "stems": [
+          "crush"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "ryzyko przygniecenia",
+        "stems": [
+          "przygniec"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "prispaudimo pavojus",
+        "stems": [
+          "prispaud"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "radio",
+    "conceptEn": "radio contact",
+    "definition": "Two-way radio between the crane operator and the signaller.",
+    "critical": false,
+    "nbForms": [
+      "radiosamband"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "radio contact",
+        "stems": [
+          "radio"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "łączność radiowa",
+        "stems": [
+          "łącznoś",
+          "radiow"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "radijo ryšys",
+        "stems": [
+          "radij",
+          "ryš"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "lifting-accessories",
+    "conceptEn": "lifting accessories",
+    "definition": "Slings, shackles and other gear between the hook and the load.",
+    "critical": true,
+    "nbForms": [
+      "løfteredskap"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "lifting accessories",
+        "stems": [
+          "lifting accessor|lifting gear"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "osprzęt do podnoszenia",
+        "stems": [
+          "osprzęt"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "kėlimo reikmenys",
+        "stems": [
+          "kėlimo reikmen"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "first-aid",
+    "conceptEn": "first aid",
+    "definition": "Immediate help to an injured person, and the equipment for it.",
+    "critical": false,
+    "nbForms": [
+      "førstehjelp"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "first aid",
+        "stems": [
+          "first aid|first-aid"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "pierwsza pomoc",
+        "stems": [
+          "pierwsz",
+          "pomoc"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "pirmoji pagalba",
+        "stems": [
+          "pirm",
+          "pagalb"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "assembly-point",
+    "conceptEn": "assembly point",
+    "definition": "The agreed place where everyone gathers in an emergency.",
+    "critical": false,
+    "nbForms": [
+      "møteplass"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "assembly point",
+        "stems": [
+          "assembly point"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "miejsce zbiórki",
+        "stems": [
+          "miejsc",
+          "zbiórk"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "susirinkimo vieta",
+        "stems": [
+          "susirinkim",
+          "viet"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "foreman",
+    "conceptEn": "foreman",
+    "definition": "The person who leads the crew on site and signs the SJA.",
+    "critical": false,
+    "nbForms": [
+      "=bas",
+      "=basen",
+      "arbeidsleder"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "foreman",
+        "stems": [
+          "foreman"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "brygadzista",
+        "stems": [
+          "brygadzi"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "brigadininkas",
+        "stems": [
+          "brigadinink"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "rescue-plan",
+    "conceptEn": "rescue plan",
+    "definition": "The agreed way to get a person down who hangs in a harness after a fall.",
+    "critical": true,
+    "nbForms": [
+      "redningsplan"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "rescue plan",
+        "stems": [
+          "rescue plan"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "plan ratunkowy",
+        "stems": [
+          "plan",
+          "ratunk"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "gelbėjimo planas",
+        "stems": [
+          "gelbėjim",
+          "plan"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  }
+]

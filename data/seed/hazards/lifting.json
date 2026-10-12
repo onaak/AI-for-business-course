@@ -1,0 +1,62 @@
+{
+  "templateId": "lifting",
+  "note": "References were drafted by the builder from public pages on arbeidstilsynet.no (read 5 October 2026), at the level of paragraph headings. No technical reviewer has checked that each line matches its reference. EBA guidance was not available to the builder. Lines with no entry here show as \"unsourced\".",
+  "sources": [
+    {
+      "sourceId": "FUA-18",
+      "title": "Forskrift om utførelse av arbeid, kapittel 18: Arbeid med løfteutstyr",
+      "publisher": "Arbeidstilsynet (regelverk)",
+      "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/18/"
+    }
+  ],
+  "entries": [
+    {
+      "hazardId": "lh-01",
+      "section": "steps",
+      "textNb": "Planlegg løfteoperasjonen og avtal roller og kommunikasjon.",
+      "critical": true,
+      "sourceId": "FUA-18",
+      "sourceDetail": "§ 18-6 Tiltak ved løfteoperasjoner"
+    },
+    {
+      "hazardId": "lh-02",
+      "section": "controls",
+      "textNb": "Ingen under hengende last; hold faresonen avsperret.",
+      "critical": true,
+      "sourceId": "FUA-18",
+      "sourceDetail": "§ 18-3 Fare når last løftes"
+    },
+    {
+      "hazardId": "lh-03",
+      "section": "controls",
+      "textNb": "Løfteutstyret skal stå stabilt og ha tilstrekkelig styrke for lasten.",
+      "critical": true,
+      "sourceId": "FUA-18",
+      "sourceDetail": "§ 18-1 Styrke og stabilitet; § 18-4 Mobilt eller flyttbart arbeidsutstyr som løfter last"
+    },
+    {
+      "hazardId": "lh-04",
+      "section": "controls",
+      "textNb": "Løfteredskap skal være merket med kapasitet og kontrolleres før bruk.",
+      "critical": true,
+      "sourceId": "FUA-18",
+      "sourceDetail": "§ 18-2 Merking av arbeidsutstyr til løfting av last"
+    },
+    {
+      "hazardId": "lh-05",
+      "section": "controls",
+      "textNb": "Fritt hengende last skal styres og sikres under løftet.",
+      "critical": true,
+      "sourceId": "FUA-18",
+      "sourceDetail": "§ 18-5 Bruk av arbeidsutstyr til å løfte fritt hengende last"
+    },
+    {
+      "hazardId": "lh-06",
+      "section": "controls",
+      "textNb": "Løft over personer eller arbeidsplasser i bruk skal unngås.",
+      "critical": true,
+      "sourceId": "FUA-18",
+      "sourceDetail": "§ 18-3 Fare når last løftes"
+    }
+  ]
+}

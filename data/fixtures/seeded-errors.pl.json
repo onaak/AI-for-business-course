@@ -1,0 +1,116 @@
+{
+  "status": "unconfirmed",
+  "note": "Written by the builder. A native speaker must confirm each seeded error is wrong, and each control is right, before any T6 result is reported. Until then results are labelled \"unconfirmed fixtures\".",
+  "pairs": [
+    {
+      "id": "pl-s01",
+      "lang": "pl",
+      "kind": "seeded",
+      "source": "Fare: kranen velter på grunn av svakt underlag eller for tung last.",
+      "target": "Zagrożenie: dźwig przewraca się z powodu słabego podłoża lub zbyt ciężkiego ładunku.",
+      "critical": true,
+      "errorType": "forbidden term",
+      "glossaryCatchable": true,
+      "note": "\"dźwig\" (lift) where \"żuraw\" (crane) is meant."
+    },
+    {
+      "id": "pl-s02",
+      "lang": "pl",
+      "kind": "seeded",
+      "source": "Bruk fallsikringssele festet til godkjent forankringspunkt der rekkverk mangler.",
+      "target": "Tam, gdzie nie ma balustrady ochronnej, używaj pasa bezpieczeństwa przypiętego do zatwierdzonego punktu kotwiczenia.",
+      "critical": true,
+      "errorType": "forbidden term",
+      "glossaryCatchable": true,
+      "note": "A safety belt where a fall-arrest harness is meant."
+    },
+    {
+      "id": "pl-s03",
+      "lang": "pl",
+      "kind": "seeded",
+      "source": "Kontroller løftestropper og sjakler for skader før bruk.",
+      "target": "Sprawdź przed użyciem, czy liny i szekle nie są uszkodzone.",
+      "critical": true,
+      "errorType": "glossary term",
+      "glossaryCatchable": true,
+      "note": "\"liny\" (ropes) where lifting slings are meant."
+    },
+    {
+      "id": "pl-s04",
+      "lang": "pl",
+      "kind": "seeded",
+      "source": "Sperr av faresonen rundt løftet.",
+      "target": "Wygrodź miejsce wokół podnoszenia.",
+      "critical": true,
+      "errorType": "glossary term",
+      "glossaryCatchable": true,
+      "note": "\"the place\" where the danger zone is meant."
+    },
+    {
+      "id": "pl-s05",
+      "lang": "pl",
+      "kind": "seeded",
+      "source": "Minst 2 personer skal være til stede under arbeidet.",
+      "target": "Podczas pracy muszą być obecne co najmniej 3 osoby.",
+      "critical": true,
+      "errorType": "number",
+      "glossaryCatchable": false,
+      "note": "2 changed to 3."
+    },
+    {
+      "id": "pl-s06",
+      "lang": "pl",
+      "kind": "seeded",
+      "source": "Ingen skal oppholde seg under hengende last.",
+      "target": "Każdy może przebywać pod podwieszonym ładunkiem.",
+      "critical": true,
+      "errorType": "negation",
+      "glossaryCatchable": false,
+      "note": "Negation dropped: \"anyone may\" for \"nobody may\"."
+    },
+    {
+      "id": "pl-s07",
+      "lang": "pl",
+      "kind": "seeded",
+      "source": "Hjelm med hakestropp skal brukes hele tiden.",
+      "target": "Hełm ochronny z paskiem podbródkowym można nosić przez cały czas.",
+      "critical": true,
+      "errorType": "obligation",
+      "glossaryCatchable": false,
+      "note": "\"must\" turned into \"may\"."
+    },
+    {
+      "id": "pl-s08",
+      "lang": "pl",
+      "kind": "seeded",
+      "source": "Stige skal bare brukes til kortvarig arbeid og skal sikres mot å gli.",
+      "target": "Drabina może być używana i musi być zabezpieczona przed poślizgiem.",
+      "critical": true,
+      "errorType": "omitted condition",
+      "glossaryCatchable": false,
+      "note": "The condition \"only for short work\" is omitted."
+    },
+    {
+      "id": "pl-s09",
+      "lang": "pl",
+      "kind": "seeded",
+      "source": "Sperr av området under arbeidsstedet.",
+      "target": "Wygrodź teren nad miejscem pracy.",
+      "critical": true,
+      "errorType": "direction",
+      "glossaryCatchable": false,
+      "note": "\"above\" for \"below\"."
+    },
+    {
+      "id": "pl-s10",
+      "lang": "pl",
+      "kind": "seeded",
+      "source": "Sikre verktøy og materialer slik at de ikke kan falle ned.",
+      "target": "Ubezpiecz narzędzia i materiały tak, aby nie mogły spaść.",
+      "critical": true,
+      "errorType": "similar word",
+      "glossaryCatchable": false,
+      "note": "\"ubezpiecz\" (insure) for \"zabezpiecz\" (secure). A wrong word that translates back to the original word."
+    }
+  ]
+}

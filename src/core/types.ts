@@ -1,0 +1,381 @@
+// Shared data model. Follows implementation_plan.md section 6, with the small
+// additions listed in ASSUMPTIONS.md (parameter defaults, per-language check state).
+
+export type Lang = 'nb' | 'en' | 'pl' | 'lt';
+/** A crew language. May be a code outside Lang, which D4 then reports as unsupported. */
+export type CrewLang = string;
+
+export type Role = 'language' | 'technical';
+
+export interface KeyState {
+  given: boolean;
+  role?: Role;
+  outsideGroup?: boolean;
+  date?: string;
+}
+
+export type VerificationState = 'draft' | 'languageChecked' | 'technicallyChecked' | 'verified';
+
+export interface DataPack {
+  version: number; // raised by hand when a revision is complete (SC-10)
+  hash: string; // content hash, stored in every run
+  languages: Lang[]; // supported target languages = listed here (SC-03)
+  glossary: GlossaryTerm[];
+  templates: Template[];
+}
+
+export interface GlossaryLangEntry {
+  approved: string;
+  /** All must appear in the line (SC-07). "a|b" means either alternative. Matched at word start. */
+  stems: string[];
+  /** Known wrong terms, as stems. */
+  forbidden: string[];
+  keyLanguage: KeyState;
+}
+
+export interface GlossaryTerm {
+  termId: string;
+  conceptEn: string;
+  definition: string;
+  critical: boolean;
+  /** Matched as substrings so compounds are found. A leading "=" means whole word only. */
+  nbForms: string[];
+  byLang: Partial<Record<Lang, GlossaryLangEntry>>;
+  keyTechnical: KeyState;
+}
+
+export type LangText = Partial<Record<Lang, string>>;
+
+export type Parameter =
+  | { key: string; label: LangText; type: 'number'; unitSymbol: string; min: number; max: number; default: number }
+  | { key: string; label: LangText; type: 'choice'; options: { key: string; label: LangText }[]; default: string };
+
+export type Section = 'steps' | 'hazards' | 'controls' | 'ppe' | 'stop' | 'emergency';
+export const SECTIONS: Section[] = ['steps', 'hazards', 'controls', 'ppe', 'stop', 'emergency'];
+
+export interface TemplateLine {
+  lineId: string;
+  section: Section;
+  textNb: string; // parameters only after a colon (SC-05)
+  parameterRefs: string[];
+  dependsOnParameters: string[]; // drives TECH_RECHECK
+  critical: boolean;
+  sourceRef: string | null; // hazard-list id; null shows as "unsourced"
+  termIds: string[];
+  keyTechnical: KeyState;
+  translations: Partial<Record<Lang, { text: string; keyLanguage: KeyState }>>;
+}
+
+export interface Question {
+  questionId: string;
+  linkedLineIds: string[];
+  critical: boolean;
+  byLang: Partial<Record<Lang, { text: string; options: string[]; keyLanguage: KeyState }>>;
+  correctIndex: number;
+  keyTechnical: KeyState;
+}
+
+export interface Template {
+  templateId: string;
+  jobType: LangText;
+  parameters: Parameter[];
+  lines: TemplateLine[];
+  questions: Question[];
+}
+
+export interface HazardSource {
+  sourceId: string;
+  title: string;
+  publisher: string;
+  url: string;
+}
+
+export interface HazardEntry {
+  hazardId: string;
+  section: Section;
+  textNb: string;
+  critical: boolean;
+  sourceId: string;
+  sourceDetail: string;
+}
+
+export interface HazardList {
+  templateId: string;
+  note: string;
+  sources: HazardSource[];
+  entries: HazardEntry[];
+}
+
+export type Origin = 'reused' | 'parameterFilled' | 'changed' | 'new' | 'removed';
+
+export type FlagType =
+  | 'GLOSSARY_MISMATCH'
+  | 'FORBIDDEN_TERM'
+  | 'TERM_NOT_IN_GLOSSARY'
+  | 'NUMBER_UNIT_MISMATCH'
+  | 'MEANING_SHIFT'
+  | 'OMISSION_ADDITION'
+  | 'SOURCE_AMBIGUOUS'
+  | 'UNSUPPORTED_LANGUAGE'
+  | 'AI_ADDED_CONTENT'
+  | 'CRITICAL_LINE_REMOVED'
+  | 'TECH_RECHECK';
+
+export type Severity = 'red' | 'amber' | 'marker';
+export type Layer = 'D1' | 'D2' | 'D3' | 'D4' | 'P3' | 'P4' | 'P6';
+export type Route = 'approvedTerm' | 'rewrite' | 'reviewer' | 'oral' | 'acknowledged';
+
+export interface Flag {
+  flagId: string;
+  lineId: string; // '*' for a flag on the whole SJA in one language
+  lang: CrewLang | 'nb';
+  type: FlagType;
+  severity: Severity;
+  raisedBy: Layer; // SC-16
+  explanation: { nb: string; en: string };
+  evidence: {
+    source?: string;
+    target?: string;
+    backTranslation?: string;
+    expected?: string;
+    found?: string;
+    suggestion?: string;
+  };
+  status: 'open' | 'resolved';
+  route?: Route;
+  resolvedBy?: 'foreman' | 'reviewer' | 'system';
+  resolvedAt?: string;
+  reason?: string;
+  autoAttempts: number; // approved-term route disabled at 2
+  reviewerVerdict?: { kind: 'confirmed' | 'falseAlarm'; reason: string };
+  termId?: string;
+}
+
+export type TargetSource = 'verifiedReuse' | 'draftReuse' | 'machineNew' | 'reviewerCorrected';
+export type CheckState = 'reused' | 'pending' | 'checked' | 'error' | 'blocked';
+
+export interface SjaLineLang {
+  text: string;
+  source: TargetSource;
+  /** Verification state copied from the template at the moment of reuse. */
+  verification: VerificationState;
+  oralFallback: boolean;
+  flags: Flag[];
+  checkState: CheckState;
+  /** The Norwegian text this target was produced and checked from. */
+  checkedSource?: string;
+  backTranslation?: string;
+  error?: string;
+  missingConcepts?: string[];
+}
+
+export interface SjaLine {
+  lineId: string;
+  templateLineId: string | null;
+  section: Section;
+  origin: Origin;
+  textNb: string;
+  /** Text of the template line with parameters filled in (null for new lines). */
+  baselineNb: string | null;
+  critical: boolean;
+  addedBy: 'template' | 'ai' | 'foreman';
+  hazardRef: string | null;
+  techRecheck: 'none' | 'open' | 'confirmed';
+  aiSuggestion: 'none' | 'open' | 'accepted';
+  /** Norwegian text that last passed through the ambiguity check (P3). */
+  ambiguityCheckedNb?: string;
+  plainSuggestion?: string; // F-22
+  removalReason?: string;
+  flags: Flag[]; // flags on the Norwegian source (lang 'nb')
+  byLang: Record<string, SjaLineLang>;
+}
+
+export interface Specific {
+  text: string;
+  status: 'clear' | 'unclear';
+}
+
+export interface ClarifyingQuestion {
+  id: string;
+  question: string;
+  options: string[];
+  answer?: string;
+}
+
+export type SjaStatus =
+  | 'draft'
+  | 'contentConfirmed'
+  | 'flagsOpen'
+  | 'readyToSign'
+  | 'signed'
+  | 'signedWithFallback'
+  | 'escalated';
+
+/**
+ * The understanding check (brief v3, step 4): each worker explains the key hazard and
+ * the safety measure in their own words (teach-back) and answers one "what do you do
+ * if …" question. Counts only: no names, no per-person results.
+ */
+export interface UnderstandingResult {
+  required: boolean;
+  reason: string[];
+  /** One pre-approved scenario question. */
+  questionIds: string[];
+  /** The lines a correct explanation should cover: today's key hazard and measure. */
+  keyLineIds: string[];
+  /** Workers checked. */
+  respondents: number;
+  /** Teach-back: one outcome per worker checked. */
+  teachBack: { ok: number; rebriefed: number };
+  /** Points a worker got wrong in the teach-back, as counts per line. */
+  misunderstood: { lineId: string; count: number }[];
+  perQuestion: { questionId: string; respondents: number; correctFirst: number; rebriefConfirmed: boolean }[];
+  completed: boolean;
+  /** What the recorded checks covered: the key lines with their Norwegian text, and the question. */
+  basis?: string;
+  /** True when the SJA changed after workers were checked, so the earlier checks were set aside. */
+  recheck?: boolean;
+  /** Only on runs signed before the v3 check: the earlier line-level teach-back, kept as recorded. */
+  legacyTeachBack?: { lineId: string; outcome: string }[];
+}
+
+/** What the foreman saw when the job started (brief v3, step 4). An empty list means nothing was misunderstood. */
+export interface StartObservation {
+  at: string;
+  lineIds: string[];
+}
+
+export interface Sja {
+  sjaId: string;
+  templateId: string;
+  packVersion: number;
+  packHash: string;
+  createdAt: string;
+  testId?: string;
+  fixtureId?: string;
+  header: { siteLabel: string; date: string; foremanRole: string }; // local only (D6)
+  parameterValues: Record<string, number | string>;
+  freeText: string;
+  specifics: Specific[];
+  questions: ClarifyingQuestion[];
+  questionsAsked: number;
+  specificsConfirmed: boolean;
+  languages: CrewLang[];
+  crewFlags: { newWorker: boolean; firstTimeJobType: boolean };
+  lines: SjaLine[];
+  sjaFlags: Flag[]; // flags on the whole SJA (unsupported language)
+  contentConfirmed: boolean;
+  languageCheckDone: boolean;
+  understanding: UnderstandingResult;
+  step: number; // 1..6
+  status: SjaStatus;
+  signoff?: { role: string; at: string };
+  /** Recorded after sign-off, once the job has started. */
+  observation?: StartObservation;
+  versions: { prompts: Record<string, string>; models: Record<string, string>; mode: string; fixtureOrigins: string[] };
+  assists: number;
+}
+
+export type TimeCategory =
+  | 'input'
+  | 'machine'
+  | 'contentReview'
+  | 'flagResolution'
+  | 'understanding'
+  | 'signoff'
+  | 'reviewer';
+
+/** Anonymous log: no names, no text content (PR-08). */
+export interface LogEvent {
+  eventId: string;
+  runId: string;
+  testId?: string;
+  arm: 'flagship' | 'baseline';
+  at: string;
+  actor: 'foreman' | 'worker' | 'reviewer' | 'system' | 'ai' | 'observer';
+  type: string;
+  step?: string;
+  timeCategory?: TimeCategory;
+  durationMs?: number;
+  lineId?: string;
+  /** Set on misunderstanding events, so they can be fed back to the template. */
+  templateId?: string;
+  languagePair?: string;
+  flagType?: FlagType;
+  route?: string;
+  packVersion: number;
+  promptVersion?: string;
+  modelId?: string;
+  count?: number;
+}
+
+export type Task = 'P1' | 'P2' | 'P3' | 'P4' | 'P5' | 'P6';
+
+/** Evidence store: synthetic content only. */
+export interface ModelCall {
+  callId: string;
+  runId: string;
+  task: Task;
+  promptVersion: string;
+  model: string;
+  mode: 'live' | 'record' | 'replay';
+  /** For replay: 'recorded' from a live model, or 'scripted' (written by the builder). */
+  fixtureOrigin?: 'recorded' | 'scripted';
+  input: unknown;
+  rawOutput: string;
+  parsed: unknown;
+  durationMs: number;
+  retries: number;
+  at: string;
+  error?: string;
+}
+
+/** One entry of the per-run trace (F-17). Content is synthetic. */
+export interface TraceEntry {
+  seq: number;
+  at: string;
+  kind: 'model' | 'rule' | 'human' | 'system';
+  step: string;
+  title: string;
+  detail?: string;
+  call?: ModelCall;
+  data?: unknown;
+}
+
+export interface ModelClient {
+  call<T = unknown>(task: Task, input: unknown, meta: { runId: string }): Promise<{ parsed: T; call: ModelCall }>;
+}
+
+export interface ReviewerSession {
+  role: Role;
+  lang: Lang;
+  outsideGroup: boolean;
+}
+
+export interface RunRecord {
+  runId: string;
+  savedAt: string;
+  banner: string;
+  sja: Sja;
+  templateJobType: LangText;
+  events: LogEvent[];
+  trace: TraceEntry[];
+  timings: Record<TimeCategory, number>;
+  metrics: { reuseRate: { reused: number; total: number } };
+  judgements?: ReviewerJudgements;
+  note?: string;
+}
+
+export interface ReviewerJudgements {
+  /** key `${lineId}|${lang}|${termId}` → correct? (term accuracy, C2) */
+  terms: Record<string, boolean>;
+  /** key `${lineId}|${lang}` → a safety-critical error remains after review (C2, C3) */
+  residual: Record<string, boolean>;
+  /** key flagId → the foreman's route led to a correct outcome (C3) */
+  routes: Record<string, boolean>;
+  by?: { role: Role; lang: Lang; outsideGroup: boolean; date: string };
+}
+
+export const BANNER_EN = 'Student prototype. Synthetic content. Not a valid SJA. Do not use to plan or carry out real work.';
+export const BANNER_NB =
+  'Studentprototype. Syntetisk innhold. Ikke en gyldig SJA. Skal ikke brukes til å planlegge eller utføre reelt arbeid.';

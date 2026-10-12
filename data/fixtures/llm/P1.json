@@ -1,0 +1,163 @@
+{
+ "0a42f4da7708db481a323dc4": {
+  "task": "P1",
+  "promptVersion": "1.0.0",
+  "inputHash": "0a42f4da7708db481a323dc4",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.810Z",
+  "input": {
+   "jobType": "Løfteoperasjon med kran",
+   "parameters": [
+    {
+     "label": "Lastens vekt",
+     "value": "850 kg"
+    },
+    {
+     "label": "Løfteutstyr",
+     "value": "Mobilkran"
+    },
+    {
+     "label": "Løftehøyde",
+     "value": "6 m"
+    },
+    {
+     "label": "Vindgrense",
+     "value": "12 m/s"
+    }
+   ],
+   "freeText": "Vi skal løfte 6 bunter med takstoler opp på taket. Løftet går over gangveien ved inngangen, og lasten er lang og tar vind.",
+   "answers": []
+  },
+  "rawOutput": "{\"specifics\":[{\"text\":\"Løft av 6 bunter takstoler opp på taket.\",\"status\":\"clear\"},{\"text\":\"Løftet går over gangveien ved inngangen.\",\"status\":\"clear\"},{\"text\":\"Lasten er lang og utsatt for vind.\",\"status\":\"clear\"}],\"questions\":[]}"
+ },
+ "2ecdce11a4d30c13b8f5f9d6": {
+  "task": "P1",
+  "promptVersion": "1.0.0",
+  "inputHash": "2ecdce11a4d30c13b8f5f9d6",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.907Z",
+  "input": {
+   "jobType": "Arbeid i høyden",
+   "parameters": [
+    {
+     "label": "Arbeidshøyde",
+     "value": "8 m"
+    },
+    {
+     "label": "Atkomst",
+     "value": "Stillas"
+    },
+    {
+     "label": "Vindgrense",
+     "value": "15 m/s"
+    }
+   ],
+   "freeText": "Vi skal montere takvinduer. Noen må ut på taket utenfor stillaset. Vi heiser vinduene opp med en vinsj.",
+   "answers": []
+  },
+  "rawOutput": "{\"specifics\":[{\"text\":\"Montering av takvinduer.\",\"status\":\"clear\"},{\"text\":\"Arbeid på taket utenfor stillaset.\",\"status\":\"clear\"},{\"text\":\"Vinduene heises opp med vinsj.\",\"status\":\"clear\"}],\"questions\":[]}"
+ },
+ "3459fcbe729fc244f3324956": {
+  "task": "P1",
+  "promptVersion": "1.0.0",
+  "inputHash": "3459fcbe729fc244f3324956",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.892Z",
+  "input": {
+   "jobType": "Løfteoperasjon med kran",
+   "parameters": [
+    {
+     "label": "Lastens vekt",
+     "value": "1000 kg"
+    },
+    {
+     "label": "Løfteutstyr",
+     "value": "Teleskoptruck"
+    },
+    {
+     "label": "Løftehøyde",
+     "value": "9 m"
+    },
+    {
+     "label": "Vindgrense",
+     "value": "12 m/s"
+    }
+   ],
+   "freeText": "Skal heise opp noen paller m gips t 3 etg, bruker trucken. Litt trangt ved porten, må kanskje ta det over gjerdet?? fikser stroppa selv",
+   "answers": []
+  },
+  "rawOutput": "{\"specifics\":[{\"text\":\"Løft av paller med gipsplater til 3. etasje.\",\"status\":\"clear\"},{\"text\":\"Trang plass ved porten.\",\"status\":\"clear\"},{\"text\":\"Uklart om lasten skal løftes over gjerdet eller tas gjennom porten.\",\"status\":\"unclear\"},{\"text\":\"Uklart hvem som kontrollerer løftestroppene før bruk.\",\"status\":\"unclear\"}],\"questions\":[{\"question\":\"Skal lasten løftes over gjerdet, eller tas den gjennom porten?\",\"options\":[\"Over gjerdet\",\"Gjennom porten\"]},{\"question\":\"Hva betyr «fikser stroppa selv»? Hvem kontrollerer løftestroppene før bruk?\",\"options\":[\"Anhukeren kontrollerer løftestroppene før bruk\",\"De er ikke kontrollert ennå\"]}]}"
+ },
+ "53f7cb2fecb812196b476175": {
+  "task": "P1",
+  "promptVersion": "1.0.0",
+  "inputHash": "53f7cb2fecb812196b476175",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.860Z",
+  "input": {
+   "jobType": "Arbeid i høyden",
+   "parameters": [
+    {
+     "label": "Arbeidshøyde",
+     "value": "6 m"
+    },
+    {
+     "label": "Atkomst",
+     "value": "Stillas"
+    },
+    {
+     "label": "Vindgrense",
+     "value": "15 m/s"
+    }
+   ],
+   "freeText": "Vi skal skifte takrenner på østsiden. Det er en utsparing i dekket ved trappa, og stillaset står ut mot fortauet.",
+   "answers": []
+  },
+  "rawOutput": "{\"specifics\":[{\"text\":\"Skifte av takrenner på østsiden.\",\"status\":\"clear\"},{\"text\":\"Det er en utsparing i dekket ved trappa.\",\"status\":\"clear\"},{\"text\":\"Stillaset står ut mot fortauet.\",\"status\":\"clear\"}],\"questions\":[]}"
+ },
+ "5c04f4a834838518e7d3e622": {
+  "task": "P1",
+  "promptVersion": "1.0.0",
+  "inputHash": "5c04f4a834838518e7d3e622",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.895Z",
+  "input": {
+   "jobType": "Løfteoperasjon med kran",
+   "parameters": [
+    {
+     "label": "Lastens vekt",
+     "value": "1000 kg"
+    },
+    {
+     "label": "Løfteutstyr",
+     "value": "Teleskoptruck"
+    },
+    {
+     "label": "Løftehøyde",
+     "value": "9 m"
+    },
+    {
+     "label": "Vindgrense",
+     "value": "12 m/s"
+    }
+   ],
+   "freeText": "Skal heise opp noen paller m gips t 3 etg, bruker trucken. Litt trangt ved porten, må kanskje ta det over gjerdet?? fikser stroppa selv",
+   "answers": [
+    {
+     "question": "Skal lasten løftes over gjerdet, eller tas den gjennom porten?",
+     "answer": "Gjennom porten"
+    },
+    {
+     "question": "Hva betyr «fikser stroppa selv»? Hvem kontrollerer løftestroppene før bruk?",
+     "answer": "Anhukeren kontrollerer løftestroppene før bruk"
+    }
+   ]
+  },
+  "rawOutput": "{\"specifics\":[{\"text\":\"Løft av paller med gipsplater til 3. etasje.\",\"status\":\"clear\"},{\"text\":\"Trang plass ved porten. Lasten tas gjennom porten, ikke over gjerdet.\",\"status\":\"clear\"},{\"text\":\"Anhukeren kontrollerer løftestroppene før bruk.\",\"status\":\"clear\"}],\"questions\":[]}"
+ }
+}

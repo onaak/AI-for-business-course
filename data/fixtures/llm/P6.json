@@ -1,0 +1,618 @@
+{
+ "006874cca78394421dcc2054": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "006874cca78394421dcc2054",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:53.016Z",
+  "input": {
+   "source": "Vinsjen skal ha lastbrems og være festet til bærende konstruksjon.",
+   "backTranslation": "Vinsjen skal ha lastbrems og være festet til bærende konstruksjon.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "085fdf66bb8816898f47a4a1": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "085fdf66bb8816898f47a4a1",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.952Z",
+  "input": {
+   "source": "Sperr av faresonen rundt løftet.",
+   "backTranslation": "Sperr av stedet rundt løftet.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "16aa88ce8009a694b5aeff34": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "16aa88ce8009a694b5aeff34",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.951Z",
+  "input": {
+   "source": "Kontroller løftestropper og sjakler for skader før bruk.",
+   "backTranslation": "Kontroller lastestropper og sjakler for skader før bruk.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "190b2023df79144ca647a409": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "190b2023df79144ca647a409",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.960Z",
+  "input": {
+   "source": "Hjelm med hakestropp skal brukes hele tiden.",
+   "backTranslation": "Hjelm med hakestropp kan brukes hele tiden.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"different\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"MEANING_SHIFT\",\"explanationNb\":\"Originalen sier «skal brukes». Tilbakeoversettelsen sier «kan brukes».\",\"explanationEn\":\"The original says \\\"must be worn\\\". The back-translation says \\\"may be worn\\\".\"}"
+ },
+ "1d2100efdecd7411f7f45cc3": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "1d2100efdecd7411f7f45cc3",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.929Z",
+  "input": {
+   "source": "Fare: kranen velter på grunn av svakt underlag eller for tung last.",
+   "backTranslation": "Fare: kranen velter på grunn av svakt underlag eller for tung last.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "230b5b918063869936f86356": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "230b5b918063869936f86356",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.948Z",
+  "input": {
+   "source": "Bruk fallsikringssele festet til godkjent forankringspunkt der rekkverk mangler.",
+   "backTranslation": "Bruk hoftebelte festet til godkjent forankringspunkt der rekkverk mangler.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"different\"},\"category\":\"MEANING_SHIFT\",\"explanationNb\":\"Originalen sier «fallsikringssele». Tilbakeoversettelsen sier «hoftebelte».\",\"explanationEn\":\"The original says \\\"fall-arrest harness\\\". The back-translation says \\\"waist belt\\\".\"}"
+ },
+ "2b5defdc5d2de388c265a9c4": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "2b5defdc5d2de388c265a9c4",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.878Z",
+  "input": {
+   "source": "Sperr av fortauet under stillaset før arbeidet starter.",
+   "backTranslation": "Sperr av fortauet under stillaset før arbeidet starter.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "31eeaff7db73cb91ef36c0fa": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "31eeaff7db73cb91ef36c0fa",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.891Z",
+  "input": {
+   "source": "Sperr av fortauet under stillaset før dere begynner.",
+   "backTranslation": "Sperr av fortauet under stillaset før dere begynner.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "324cabbc5e96968bbb86dcc5": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "324cabbc5e96968bbb86dcc5",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.962Z",
+  "input": {
+   "source": "Stige skal bare brukes til kortvarig arbeid og skal sikres mot å gli.",
+   "backTranslation": "Stige kan brukes og skal sikres mot å gli.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"different\",\"omission\":\"different\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"MEANING_SHIFT\",\"explanationNb\":\"Originalen sier «bare til kortvarig arbeid». Det mangler i tilbakeoversettelsen.\",\"explanationEn\":\"The original says \\\"only for short work\\\". That is missing from the back-translation.\"}"
+ },
+ "36282e71964c7145ef1a46fb": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "36282e71964c7145ef1a46fb",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:53.013Z",
+  "input": {
+   "source": "Hold sikkerhetsavstand til kraftlinjer.",
+   "backTranslation": "Hold sikkerhetsavstand til kraftlinjer.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "37aff395057366eaf1a9af2b": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "37aff395057366eaf1a9af2b",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.954Z",
+  "input": {
+   "source": "Fare: kranen velter på grunn av svakt underlag eller for tung last.",
+   "backTranslation": "Fare: heisen velter på grunn av svakt underlag eller for tung last.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"different\"},\"category\":\"MEANING_SHIFT\",\"explanationNb\":\"Originalen sier «kranen». Tilbakeoversettelsen sier «heisen».\",\"explanationEn\":\"The original says \\\"the crane\\\". The back-translation says \\\"the hoist\\\".\"}"
+ },
+ "3ce58815a87c9efe8116c4c3": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "3ce58815a87c9efe8116c4c3",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.883Z",
+  "input": {
+   "source": "Utsparingen i dekket ved trappa skal dekkes til og merkes.",
+   "backTranslation": "Hullet i dekket ved trappa skal dekkes til og merkes.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "3de216449a1300ad393ca0e9": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "3de216449a1300ad393ca0e9",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.878Z",
+  "input": {
+   "source": "Utsparingen i dekket ved trappa skal dekkes til og merkes.",
+   "backTranslation": "Åpningen i dekket ved trappa skal dekkes til og merkes.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "4f28e74ed1450453e13538f0": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "4f28e74ed1450453e13538f0",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.958Z",
+  "input": {
+   "source": "Ingen skal oppholde seg under hengende last.",
+   "backTranslation": "Alle kan være under hengende last.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"different\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"MEANING_SHIFT\",\"explanationNb\":\"Originalen sier «ingen skal». Tilbakeoversettelsen sier «alle kan».\",\"explanationEn\":\"The original says \\\"nobody may\\\". The back-translation says \\\"anyone may\\\".\"}"
+ },
+ "4fa5b6c85a72b158eda1c668": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "4fa5b6c85a72b158eda1c668",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.852Z",
+  "input": {
+   "source": "Bruk to styretau fordi lasten er lang.",
+   "backTranslation": "Bruk to styretau fordi lasten er lang.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "537fa0c47f218b0bb6792597": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "537fa0c47f218b0bb6792597",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:53.009Z",
+  "input": {
+   "source": "Sperr av faresonen rundt løftet.",
+   "backTranslation": "Sperr av faresonen rundt løftet.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "54e776f21bc33ae8e78e16ff": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "54e776f21bc33ae8e78e16ff",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.934Z",
+  "input": {
+   "source": "Kontroller løftestropper og sjakler for skader før bruk.",
+   "backTranslation": "Kontroller tau og sjakler for skader før bruk.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"different\"},\"category\":\"MEANING_SHIFT\",\"explanationNb\":\"Originalen sier «løftestropper». Tilbakeoversettelsen sier «tau».\",\"explanationEn\":\"The original says \\\"lifting slings\\\". The back-translation says \\\"ropes\\\".\"}"
+ },
+ "600dcf5ebabc2429313b8aaa": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "600dcf5ebabc2429313b8aaa",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:53.003Z",
+  "input": {
+   "source": "Stans arbeidet når vindstyrken er over vindgrensen.",
+   "backTranslation": "Stans arbeidet når vindstyrken er over vindgrensen.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "655be9de4405e143e9577f72": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "655be9de4405e143e9577f72",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.878Z",
+  "input": {
+   "source": "Alle som går opp på stillaset skal ha fått opplæring.",
+   "backTranslation": "Alle som går opp på stillaset bør ha fått opplæring.",
+   "critical": false
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"different\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"MEANING_SHIFT\",\"explanationNb\":\"Originalen sier «skal». Tilbakeoversettelsen sier «bør».\",\"explanationEn\":\"The original says \\\"must\\\". The back-translation says \\\"should\\\".\"}"
+ },
+ "67c98bf80e166851049991cd": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "67c98bf80e166851049991cd",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.842Z",
+  "input": {
+   "source": "Sperr av faresonen rundt løftet, også gangveien ved inngangen.",
+   "backTranslation": "Sperr av farestedet rundt løftestedet, også gangveien ved inngangen.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "6c0c052040d408466cbe4572": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "6c0c052040d408466cbe4572",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.852Z",
+  "input": {
+   "source": "Bruk to styretau fordi lasten er lang.",
+   "backTranslation": "Bruk to styretau, fordi lasten er lang.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "6fefe3636172294b45ff7b99": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "6fefe3636172294b45ff7b99",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:53.010Z",
+  "input": {
+   "source": "Bruk styretau for å styre lasten. Ikke styr lasten med hendene.",
+   "backTranslation": "Bruk styretau for å styre lasten. Ikke styr lasten med hendene.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "739ed6b26579d26911f71555": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "739ed6b26579d26911f71555",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.858Z",
+  "input": {
+   "source": "Sperr av faresonen rundt løftet, også gangveien ved inngangen.",
+   "backTranslation": "Sperr av faresonen rundt løftestedet, også gangveien ved inngangen.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "7f74ae5e9cb42fcbc016fcf9": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "7f74ae5e9cb42fcbc016fcf9",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:53.005Z",
+  "input": {
+   "source": "Kontroller at løfteredskapet har WLL som dekker lastens vekt.",
+   "backTranslation": "Kontroller at løfteredskapet har WLL som dekker lastens vekt.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "820ea00bb0974a60edfadb92": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "820ea00bb0974a60edfadb92",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.955Z",
+  "input": {
+   "source": "Minst 2 personer skal være til stede under arbeidet.",
+   "backTranslation": "Minst 3 personer skal være til stede under arbeidet.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"different\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"MEANING_SHIFT\",\"explanationNb\":\"Originalen sier «minst 2 personer». Tilbakeoversettelsen sier «minst 3 personer».\",\"explanationEn\":\"The original says \\\"at least 2 people\\\". The back-translation says \\\"at least 3 people\\\".\"}"
+ },
+ "90fa6a3dba4276d05af735b9": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "90fa6a3dba4276d05af735b9",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.997Z",
+  "input": {
+   "source": "Bruk fallsikringssele festet til godkjent forankringspunkt der rekkverk mangler.",
+   "backTranslation": "Bruk fallsikringssele festet til godkjent forankringspunkt der rekkverk mangler.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "935aab933581cb6160e45a44": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "935aab933581cb6160e45a44",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.931Z",
+  "input": {
+   "source": "Bruk fallsikringssele festet til godkjent forankringspunkt der rekkverk mangler.",
+   "backTranslation": "Bruk sikkerhetsbelte festet til godkjent forankringspunkt der rekkverk mangler.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"different\"},\"category\":\"MEANING_SHIFT\",\"explanationNb\":\"Originalen sier «fallsikringssele». Tilbakeoversettelsen sier «sikkerhetsbelte».\",\"explanationEn\":\"The original says \\\"fall-arrest harness\\\". The back-translation says \\\"safety belt\\\".\"}"
+ },
+ "9c575daeece978fe92109f00": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "9c575daeece978fe92109f00",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.878Z",
+  "input": {
+   "source": "Sperr av fortauet under stillaset før arbeidet starter.",
+   "backTranslation": "Sperr av fortauet under stillaset etter at arbeidet har startet.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"different\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"MEANING_SHIFT\",\"explanationNb\":\"Originalen sier «før arbeidet starter». Tilbakeoversettelsen sier «etter at arbeidet har startet».\",\"explanationEn\":\"The original says \\\"before work starts\\\". The back-translation says \\\"after work has started\\\".\"}"
+ },
+ "9cb9951e6ef4cd7d09e63616": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "9cb9951e6ef4cd7d09e63616",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.842Z",
+  "input": {
+   "source": "Ikke løft over gangveien mens personer oppholder seg der.",
+   "backTranslation": "Ikke løft over gangveien mens det er folk der.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "9ea9eeff38750673340f6c1e": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "9ea9eeff38750673340f6c1e",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.886Z",
+  "input": {
+   "source": "Utsparingen i dekket ved trappa skal dekkes til og merkes.",
+   "backTranslation": "Hullet i gulvet ved trappa skal dekkes til og merkes.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "a4ecda9b5a36e1cc87a08e41": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "a4ecda9b5a36e1cc87a08e41",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.965Z",
+  "input": {
+   "source": "Sperr av området under arbeidsstedet.",
+   "backTranslation": "Sperr av området over arbeidsstedet.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"different\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"MEANING_SHIFT\",\"explanationNb\":\"Originalen sier «under arbeidsstedet». Tilbakeoversettelsen sier «over arbeidsstedet».\",\"explanationEn\":\"The original says \\\"below the work area\\\". The back-translation says \\\"above the work area\\\".\"}"
+ },
+ "ae44606f02b034738cf40877": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "ae44606f02b034738cf40877",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.925Z",
+  "input": {
+   "source": "Bruk fallsikringssele festet til forankringspunkt hele tiden du er utenfor stillaset.",
+   "backTranslation": "Bruk fallsikringssele festet til forankringspunkt hele tiden du er utenfor stillaset.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "b6db284e5356e6ce83b04841": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "b6db284e5356e6ce83b04841",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:53.000Z",
+  "input": {
+   "source": "Stige skal bare brukes til kortvarig arbeid og skal sikres mot å gli.",
+   "backTranslation": "Stige skal bare brukes til kortvarig arbeid og skal sikres mot å gli.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "c9cec608a0dabe680f2832ae": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "c9cec608a0dabe680f2832ae",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.906Z",
+  "input": {
+   "source": "Sperr av faresonen rundt løftet og hold porten stengt under løftet.",
+   "backTranslation": "Sperr av faresonen rundt løftestedet og hold porten stengt under løftet.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "db86e2b55268e8076f09b950": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "db86e2b55268e8076f09b950",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.842Z",
+  "input": {
+   "source": "Ikke løft over gangveien mens personer oppholder seg der.",
+   "backTranslation": "Ikke løft last over gangveien mens det er folk der.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "de43f2e8c93ac742b9d58aef": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "de43f2e8c93ac742b9d58aef",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.966Z",
+  "input": {
+   "source": "Sikre verktøy og materialer slik at de ikke kan falle ned.",
+   "backTranslation": "Sikre verktøy og materialer slik at de ikke kan falle ned.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "e10dff931d3e566ce7c13be2": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "e10dff931d3e566ce7c13be2",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.998Z",
+  "input": {
+   "source": "Sperr av området under arbeidsstedet.",
+   "backTranslation": "Sperr av området under arbeidsstedet.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "e84fed728f9349823e6252fe": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "e84fed728f9349823e6252fe",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.939Z",
+  "input": {
+   "source": "Ingen skal oppholde seg under hengende last.",
+   "backTranslation": "Alle kan oppholde seg under hengende last.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"different\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"MEANING_SHIFT\",\"explanationNb\":\"Originalen sier «ingen skal». Tilbakeoversettelsen sier «alle kan».\",\"explanationEn\":\"The original says \\\"nobody may\\\". The back-translation says \\\"anyone may\\\".\"}"
+ },
+ "f0c6abf674eeb60fb06e096b": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "f0c6abf674eeb60fb06e096b",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.852Z",
+  "input": {
+   "source": "Bruk to styretau fordi lasten er lang.",
+   "backTranslation": "Bruk to styreliner fordi lasten er lang.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "f2a02c234ca78dc2b6cffd49": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "f2a02c234ca78dc2b6cffd49",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.878Z",
+  "input": {
+   "source": "Alle som går opp på stillaset skal ha fått opplæring.",
+   "backTranslation": "Alle som går opp på stillaset skal være opplært.",
+   "critical": false
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "f415635500a32d98d02d5fba": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "f415635500a32d98d02d5fba",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.842Z",
+  "input": {
+   "source": "Sperr av faresonen rundt løftet, også gangveien ved inngangen.",
+   "backTranslation": "Sperr av faresonen rundt løftet, inkludert gangveien ved inngangen.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "f8454b151b64c5e81305cbc5": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "f8454b151b64c5e81305cbc5",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.842Z",
+  "input": {
+   "source": "Ikke løft over gangveien mens personer oppholder seg der.",
+   "backTranslation": "Ikke løft last over gangveien når det oppholder seg folk der.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "fdb4eb757c82241439e69f84": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "fdb4eb757c82241439e69f84",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.994Z",
+  "input": {
+   "source": "Rekkverk skal være montert på alle åpne sider før arbeidet starter.",
+   "backTranslation": "Rekkverk skal være montert på alle åpne sider før arbeidet starter.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "ff758f94dbd09b0f8301c829": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "ff758f94dbd09b0f8301c829",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:53.007Z",
+  "input": {
+   "source": "Ingen skal oppholde seg under hengende last.",
+   "backTranslation": "Ingen skal oppholde seg under hengende last.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ }
+}

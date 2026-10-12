@@ -1,0 +1,32 @@
+// Polish worker-facing strings.
+// DRAFT: written by the builder. No native Polish speaker has checked this table.
+import type { workerEn } from './en';
+
+export const workerPl: Record<keyof typeof workerEn, string> = {
+  banner: 'Prototyp studencki. Treść syntetyczna. To nie jest ważna analiza SJA. Nie używać do planowania ani wykonywania rzeczywistej pracy.',
+  readFirst: 'Najpierw to przeczytaj. Potem wyjaśnisz to brygadziście własnymi słowami i odpowiesz na jedno pytanie.',
+  newToday: 'Nowe lub zmienione dzisiaj',
+  wholeSja: 'Cała analiza SJA',
+  section_steps: 'Etapy pracy',
+  section_hazards: 'Zagrożenia',
+  section_controls: 'Co robimy, żeby było bezpiecznie',
+  section_ppe: 'Środki ochrony indywidualnej',
+  section_stop: 'Kiedy przerywamy pracę',
+  section_emergency: 'W razie wypadku',
+  important: 'Ważne dla bezpieczeństwa',
+  oralPoint: 'Ten punkt wyjaśni ci brygadzista.',
+  readDone: 'Przeczytane. Dalej.',
+  explainTitle: 'Wyjaśnij brygadziście własnymi słowami:',
+  explainHazard: 'Co jest dziś najbardziej niebezpieczne w tej pracy?',
+  explainMeasure: 'Co robimy, żeby było bezpiecznie?',
+  explainHint: 'To nie jest egzamin. Jeśli coś jest niejasne, brygadzista wyjaśni to jeszcze raz.',
+  oneQuestion: 'Jedno pytanie',
+  questionOf: 'Pytanie {n} z {total}',
+  correct: 'Dobrze.',
+  talkToForeman: 'Zanim zaczniesz pracę, porozmawiaj o tym punkcie z brygadzistą.',
+  next: 'Dalej',
+  done: 'Gotowe. Dziękujemy.',
+  passOn: 'Przekaż urządzenie następnej osobie.',
+  passBack: 'Oddaj telefon brygadziście.',
+  nextWorker: 'Następny pracownik',
+};

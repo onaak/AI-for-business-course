@@ -1,0 +1,100 @@
+{
+  "templateId": "work-at-height",
+  "note": "References were drafted by the builder from public pages on arbeidstilsynet.no (read 5 October 2026), at the level of paragraph headings. No technical reviewer has checked that each line matches its reference. EBA guidance was not available to the builder. Lines with no entry here show as \"unsourced\".",
+  "sources": [
+    {
+      "sourceId": "FUA-17",
+      "title": "Forskrift om utførelse av arbeid, kapittel 17: Arbeid i høyden",
+      "publisher": "Arbeidstilsynet (regelverk)",
+      "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/17/"
+    },
+    {
+      "sourceId": "AT-TAK",
+      "title": "Unngå fall fra høyden ved arbeid på tak",
+      "publisher": "Arbeidstilsynet",
+      "url": "https://www.arbeidstilsynet.no/risikofylt-arbeid/arbeid-i-hoyden/unnga-fall-ved-arbeid-pa-tak/"
+    }
+  ],
+  "entries": [
+    {
+      "hazardId": "hh-01",
+      "section": "steps",
+      "textNb": "Risikovurder arbeidet på stedet sammen med laget før oppstart.",
+      "critical": false,
+      "sourceId": "FUA-17",
+      "sourceDetail": "§ 17-1 Risikovurdering av arbeid i høyden"
+    },
+    {
+      "hazardId": "hh-02",
+      "section": "controls",
+      "textNb": "Stillas skal kontrolleres før bruk, og atkomsten skal være sikker.",
+      "critical": true,
+      "sourceId": "FUA-17",
+      "sourceDetail": "§ 17-9 Kontroll av stillas; § 17-12 Atkomst og sikker bruk av stillas"
+    },
+    {
+      "hazardId": "hh-03",
+      "section": "hazards",
+      "textNb": "Fall fra høyde.",
+      "critical": true,
+      "sourceId": "FUA-17",
+      "sourceDetail": "§ 17-1 Risikovurdering av arbeid i høyden; § 17-6 Krav til arbeid i høyden"
+    },
+    {
+      "hazardId": "hh-04",
+      "section": "controls",
+      "textNb": "Hindre at gjenstander faller ned, og hold området under arbeidsstedet avsperret.",
+      "critical": true,
+      "sourceId": "AT-TAK",
+      "sourceDetail": "Avsnitt om fallende gjenstander og avsperring på bakken"
+    },
+    {
+      "hazardId": "hh-05",
+      "section": "controls",
+      "textNb": "Rekkverk som kollektiv sikring mot fall.",
+      "critical": true,
+      "sourceId": "FUA-17",
+      "sourceDetail": "§ 17-7 Dimensjonering av stillaser og rekkverk"
+    },
+    {
+      "hazardId": "hh-06",
+      "section": "controls",
+      "textNb": "Personlig fallsikringsutstyr festet til godkjent forankringspunkt, med plan for redning.",
+      "critical": true,
+      "sourceId": "AT-TAK",
+      "sourceDetail": "Avsnitt om fallsikringsutstyr, forankring og redning (viser til forskrift om utførelse av arbeid § 17-25)"
+    },
+    {
+      "hazardId": "hh-07",
+      "section": "controls",
+      "textNb": "Stige bare til kortvarig arbeid, sikret mot å gli.",
+      "critical": true,
+      "sourceId": "FUA-17",
+      "sourceDetail": "§ 17-21 Bruk av stiger; § 17-22 Begrensning i bruk av stige"
+    },
+    {
+      "hazardId": "hh-08",
+      "section": "controls",
+      "textNb": "Minst to personer i laget ved arbeid med fallsikringsutstyr.",
+      "critical": true,
+      "sourceId": "AT-TAK",
+      "sourceDetail": "Avsnitt om lagets størrelse og redning"
+    },
+    {
+      "hazardId": "hh-09",
+      "section": "controls",
+      "textNb": "Rullestillas skal sikres mot velting og låses før bruk.",
+      "critical": true,
+      "sourceId": "FUA-17",
+      "sourceDetail": "§ 17-17 Bruk av rullestillas"
+    },
+    {
+      "hazardId": "hh-10",
+      "section": "controls",
+      "textNb": "Brukere av stillas skal ha fått opplæring.",
+      "critical": false,
+      "sourceId": "FUA-17",
+      "sourceDetail": "§ 17-5 Krav til opplæring av bruker av stillas"
+    }
+  ]
+}

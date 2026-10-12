@@ -1,0 +1,1091 @@
+{
+  "templateId": "work-at-height",
+  "jobType": {
+    "nb": "Arbeid i høyden",
+    "en": "Work at height",
+    "pl": "Praca na wysokości",
+    "lt": "Darbas aukštyje"
+  },
+  "parameters": [
+    {
+      "key": "height",
+      "label": {
+        "nb": "Arbeidshøyde",
+        "en": "Working height",
+        "pl": "Wysokość robocza",
+        "lt": "Darbo aukštis"
+      },
+      "type": "number",
+      "unitSymbol": "m",
+      "min": 2,
+      "max": 30,
+      "default": 4
+    },
+    {
+      "key": "access",
+      "label": {
+        "nb": "Atkomst",
+        "en": "Access",
+        "pl": "Dostęp",
+        "lt": "Patekimas"
+      },
+      "type": "choice",
+      "default": "scaffold",
+      "options": [
+        {
+          "key": "scaffold",
+          "label": {
+            "nb": "Stillas",
+            "en": "Scaffold",
+            "pl": "Rusztowanie",
+            "lt": "Pastoliai"
+          }
+        },
+        {
+          "key": "mobileScaffold",
+          "label": {
+            "nb": "Rullestillas",
+            "en": "Mobile scaffold",
+            "pl": "Rusztowanie przejezdne",
+            "lt": "Mobilieji pastoliai"
+          }
+        },
+        {
+          "key": "ladder",
+          "label": {
+            "nb": "Stige",
+            "en": "Ladder",
+            "pl": "Drabina",
+            "lt": "Kopėčios"
+          }
+        }
+      ]
+    },
+    {
+      "key": "wind",
+      "label": {
+        "nb": "Vindgrense",
+        "en": "Wind limit",
+        "pl": "Limit wiatru",
+        "lt": "Vėjo riba"
+      },
+      "type": "number",
+      "unitSymbol": "m/s",
+      "min": 5,
+      "max": 20,
+      "default": 15
+    }
+  ],
+  "lines": [
+    {
+      "lineId": "h-01",
+      "section": "steps",
+      "textNb": "Arbeidshøyde: {height} m",
+      "parameterRefs": [
+        "height"
+      ],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": null,
+      "termIds": [
+        "working-height"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Working height: {height} m",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Wysokość robocza: {height} m",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Darbo aukštis: {height} m",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-02",
+      "section": "steps",
+      "textNb": "Atkomst: {access}",
+      "parameterRefs": [
+        "access"
+      ],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": null,
+      "termIds": [],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Access: {access}",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Dostęp: {access}",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Patekimas: {access}",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-03",
+      "section": "steps",
+      "textNb": "Gå gjennom denne SJA-en med hele laget før arbeidet starter.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": "hh-01",
+      "termIds": [],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Go through this SJA with the whole crew before work starts.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Przed rozpoczęciem pracy omów tę analizę SJA z całą brygadą.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Prieš pradėdami darbą aptarkite šią SJA su visa brigada.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-04",
+      "section": "steps",
+      "textNb": "Kontroller atkomsten og arbeidsstedet før dere går opp.",
+      "parameterRefs": [],
+      "dependsOnParameters": [
+        "access"
+      ],
+      "critical": false,
+      "sourceRef": "hh-02",
+      "termIds": [],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Check the access and the work area before you go up.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Sprawdź dostęp i miejsce pracy przed wejściem na górę.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Prieš lipdami aukštyn patikrinkite patekimo kelią ir darbo vietą.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-05",
+      "section": "hazards",
+      "textNb": "Fare: fall fra høyde.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "hh-03",
+      "termIds": [],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Hazard: fall from height.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Zagrożenie: upadek z wysokości.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Pavojus: kritimas iš aukščio.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-06",
+      "section": "hazards",
+      "textNb": "Fare: fallende gjenstander treffer personer under arbeidsstedet.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "hh-04",
+      "termIds": [
+        "falling-objects"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Hazard: falling objects hit people below the work area.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Zagrożenie: spadające przedmioty uderzają w osoby pod miejscem pracy.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Pavojus: krintantys daiktai pataiko į žmones po darbo vieta.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-07",
+      "section": "hazards",
+      "textNb": "Fare: glatt eller ustabilt underlag.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": null,
+      "termIds": [],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Hazard: slippery or unstable surface.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Zagrożenie: śliskie lub niestabilne podłoże.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Pavojus: slidus arba nestabilus pagrindas.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-08",
+      "section": "controls",
+      "textNb": "Rekkverk skal være montert på alle åpne sider før arbeidet starter.",
+      "parameterRefs": [],
+      "dependsOnParameters": [
+        "access"
+      ],
+      "critical": true,
+      "sourceRef": "hh-05",
+      "termIds": [
+        "guardrail"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Guardrails must be fitted on all open sides before work starts.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Balustrada ochronna musi być zamontowana po wszystkich otwartych stronach przed rozpoczęciem pracy.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Prieš pradedant darbą iš visų atvirų pusių turi būti sumontuoti apsauginiai turėklai.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-09",
+      "section": "controls",
+      "textNb": "Bruk fallsikringssele festet til godkjent forankringspunkt der rekkverk mangler.",
+      "parameterRefs": [],
+      "dependsOnParameters": [
+        "height"
+      ],
+      "critical": true,
+      "sourceRef": "hh-06",
+      "termIds": [
+        "harness",
+        "anchor",
+        "guardrail"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Use a fall-arrest harness attached to an approved anchor point where there is no guardrail.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Tam, gdzie nie ma balustrady ochronnej, używaj szelek bezpieczeństwa przypiętych do zatwierdzonego punktu kotwiczenia.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Kur nėra apsauginių turėklų, naudokite viso kūno saugos diržus, pritvirtintus prie patvirtinto tvirtinimo taško.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-10",
+      "section": "controls",
+      "textNb": "Sperr av området under arbeidsstedet.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "hh-04",
+      "termIds": [
+        "cordon"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Cordon off the area below the work area.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Wygrodź teren pod miejscem pracy.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Aptverkite zoną po darbo vieta.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-11",
+      "section": "controls",
+      "textNb": "Sikre verktøy og materialer slik at de ikke kan falle ned.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "hh-04",
+      "termIds": [],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Secure tools and materials so that they cannot fall.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Zabezpiecz narzędzia i materiały tak, aby nie mogły spaść.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Pritvirtinkite įrankius ir medžiagas, kad jie negalėtų nukristi.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-12",
+      "section": "controls",
+      "textNb": "Stillaset skal være kontrollert og godkjent før bruk.",
+      "parameterRefs": [],
+      "dependsOnParameters": [
+        "access"
+      ],
+      "critical": true,
+      "sourceRef": "hh-02",
+      "termIds": [
+        "scaffold"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "The scaffold must be inspected and approved before use.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Rusztowanie musi być sprawdzone i dopuszczone przed użyciem.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Prieš naudojimą pastoliai turi būti patikrinti ir patvirtinti.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-13",
+      "section": "controls",
+      "textNb": "Stige skal bare brukes til kortvarig arbeid og skal sikres mot å gli.",
+      "parameterRefs": [],
+      "dependsOnParameters": [
+        "access"
+      ],
+      "critical": true,
+      "sourceRef": "hh-07",
+      "termIds": [
+        "ladder"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "A ladder may only be used for short work and must be secured against slipping.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Drabina może być używana tylko do krótkotrwałej pracy i musi być zabezpieczona przed poślizgiem.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Kopėčios gali būti naudojamos tik trumpalaikiam darbui ir turi būti apsaugotos nuo slydimo.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-14",
+      "section": "controls",
+      "textNb": "Minst 2 personer skal være til stede under arbeidet.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "hh-08",
+      "termIds": [],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "At least 2 people must be present during the work.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Podczas pracy muszą być obecne co najmniej 2 osoby.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Darbo metu turi būti ne mažiau kaip 2 asmenys.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-15",
+      "section": "ppe",
+      "textNb": "Hjelm med hakestropp skal brukes hele tiden.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": null,
+      "termIds": [
+        "helmet",
+        "chin-strap"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "A helmet with chin strap must be worn at all times.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Hełm ochronny z paskiem podbródkowym musi być noszony przez cały czas.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Apsauginis šalmas su pasmakrės dirželiu turi būti dėvimas visą laiką.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-16",
+      "section": "ppe",
+      "textNb": "Bruk vernesko og hansker.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": null,
+      "termIds": [
+        "footwear",
+        "gloves"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Wear safety footwear and gloves.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Noś obuwie ochronne i rękawice ochronne.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Avėkite apsauginę avalynę ir mūvėkite apsaugines pirštines.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-17",
+      "section": "stop",
+      "textNb": "Vindgrense: {wind} m/s",
+      "parameterRefs": [
+        "wind"
+      ],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": null,
+      "termIds": [],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Wind limit: {wind} m/s",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Limit wiatru: {wind} m/s",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Vėjo riba: {wind} m/s",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-18",
+      "section": "stop",
+      "textNb": "Stans arbeidet når vindstyrken er over vindgrensen.",
+      "parameterRefs": [],
+      "dependsOnParameters": [
+        "wind"
+      ],
+      "critical": true,
+      "sourceRef": null,
+      "termIds": [
+        "stop-work",
+        "wind-speed"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Stop work when the wind speed is above the wind limit.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Przerwij pracę, gdy prędkość wiatru przekracza limit wiatru.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Sustabdykite darbą, kai vėjo greitis viršija vėjo ribą.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-19",
+      "section": "stop",
+      "textNb": "Stans arbeidet hvis rekkverk eller forankringspunkt er skadet eller mangler.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "hh-05",
+      "termIds": [
+        "stop-work",
+        "guardrail",
+        "anchor"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Stop work if a guardrail or anchor point is damaged or missing.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Przerwij pracę, jeśli balustrada ochronna lub punkt kotwiczenia jest uszkodzony albo go brakuje.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Sustabdykite darbą, jei apsauginis turėklas arba tvirtinimo taškas yra pažeistas arba jo nėra.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-20",
+      "section": "stop",
+      "textNb": "Ingen skal arbeide alene i høyden.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "hh-08",
+      "termIds": [],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Nobody may work alone at height.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Nikt nie może pracować sam na wysokości.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Niekas negali dirbti aukštyje vienas.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-21",
+      "section": "emergency",
+      "textNb": "Ved ulykke: ring 113 og varsle basen.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": null,
+      "termIds": [
+        "foreman"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "In an accident: call 113 and alert the foreman.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "W razie wypadku: zadzwoń pod 113 i powiadom brygadzistę.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Įvykus nelaimingam atsitikimui: skambinkite 113 ir praneškite brigadininkui.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "lineId": "h-22",
+      "section": "emergency",
+      "textNb": "Redningsplan for person som henger i fallsikringssele skal være kjent for alle.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "hh-06",
+      "termIds": [
+        "rescue-plan",
+        "harness"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "The rescue plan for a person hanging in a fall-arrest harness must be known to everyone.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Plan ratunkowy dla osoby wiszącej w szelkach bezpieczeństwa musi być znany wszystkim.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Gelbėjimo planas asmeniui, kabančiam viso kūno saugos diržuose, turi būti žinomas visiems.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    }
+  ],
+  "questions": [
+    {
+      "questionId": "q-h1",
+      "linkedLineIds": [
+        "h-09"
+      ],
+      "critical": true,
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      },
+      "byLang": {
+        "nb": {
+          "text": "Du skal arbeide ved en kant der rekkverket mangler. Hva gjør du?",
+          "options": [
+            "Jeg arbeider forsiktig og holder meg unna kanten.",
+            "Jeg bruker fallsikringssele festet til godkjent forankringspunkt.",
+            "Jeg ber en kollega holde meg."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "You are going to work at an edge where the guardrail is missing. What do you do?",
+          "options": [
+            "I work carefully and keep away from the edge.",
+            "I use a fall-arrest harness attached to an approved anchor point.",
+            "I ask a colleague to hold me."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Masz pracować przy krawędzi, na której brakuje balustrady ochronnej. Co robisz?",
+          "options": [
+            "Pracuję ostrożnie i trzymam się z dala od krawędzi.",
+            "Używam szelek bezpieczeństwa przypiętych do zatwierdzonego punktu kotwiczenia.",
+            "Proszę kolegę, żeby mnie przytrzymał."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Turite dirbti prie krašto, kur nėra apsauginio turėklo. Ką darote?",
+          "options": [
+            "Dirbu atsargiai ir laikausi atokiau nuo krašto.",
+            "Naudoju viso kūno saugos diržus, pritvirtintus prie patvirtinto tvirtinimo taško.",
+            "Paprašau kolegos, kad mane prilaikytų."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "questionId": "q-h2",
+      "linkedLineIds": [
+        "h-18",
+        "h-17"
+      ],
+      "critical": true,
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      },
+      "byLang": {
+        "nb": {
+          "text": "Vinden øker mens du står på stillaset, og den er nå over vindgrensen. Hva gjør du?",
+          "options": [
+            "Jeg gjør ferdig det jeg holder på med først.",
+            "Jeg stanser arbeidet og går ned.",
+            "Jeg fortsetter, men holder meg fast."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "The wind picks up while you are on the scaffold, and it is now above the wind limit. What do you do?",
+          "options": [
+            "I finish what I am doing first.",
+            "I stop work and go down.",
+            "I continue, but hold on tight."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Wiatr się wzmaga, gdy stoisz na rusztowaniu, i przekracza już limit wiatru. Co robisz?",
+          "options": [
+            "Najpierw kończę to, co robię.",
+            "Przerywam pracę i schodzę na dół.",
+            "Pracuję dalej, ale mocno się trzymam."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Jums stovint ant pastolių vėjas sustiprėja ir jau viršija vėjo ribą. Ką darote?",
+          "options": [
+            "Pirmiausia pabaigiu tai, ką darau.",
+            "Sustabdau darbą ir nulipu žemyn.",
+            "Dirbu toliau, bet tvirtai laikausi."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "questionId": "q-h3",
+      "linkedLineIds": [
+        "h-10",
+        "h-11"
+      ],
+      "critical": true,
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      },
+      "byLang": {
+        "nb": {
+          "text": "En kollega vil gå under arbeidsstedet for å hente noe mens dere arbeider over. Hva gjør du?",
+          "options": [
+            "Jeg lar ham gå hvis han har hjelm.",
+            "Jeg stopper ham. Området under skal være sperret av.",
+            "Jeg roper at han må skynde seg."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "A colleague wants to walk under the work area to fetch something while you are working above. What do you do?",
+          "options": [
+            "I let him go if he wears a helmet.",
+            "I stop him. The area below must be cordoned off.",
+            "I shout that he must hurry."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Kolega chce przejść pod miejscem pracy, żeby coś zabrać, podczas gdy pracujecie na górze. Co robisz?",
+          "options": [
+            "Pozwalam mu przejść, jeśli ma hełm.",
+            "Zatrzymuję go. Teren poniżej musi być wygrodzony.",
+            "Krzyczę, żeby się pospieszył."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Kolega nori praeiti po darbo vieta ko nors pasiimti, kol jūs dirbate viršuje. Ką darote?",
+          "options": [
+            "Leidžiu jam eiti, jei jis su šalmu.",
+            "Sustabdau jį. Zona apačioje turi būti aptverta.",
+            "Šaukiu, kad paskubėtų."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    },
+    {
+      "questionId": "q-h4",
+      "linkedLineIds": [
+        "h-19"
+      ],
+      "critical": true,
+      "correctIndex": 0,
+      "keyTechnical": {
+        "given": false
+      },
+      "byLang": {
+        "nb": {
+          "text": "Du ser at et rekkverk på stillaset er løst. Hva gjør du?",
+          "options": [
+            "Jeg stanser arbeidet og sier fra til basen.",
+            "Jeg fester det selv så godt jeg kan og fortsetter.",
+            "Jeg holder meg unna den siden og fortsetter."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "You see that a guardrail on the scaffold is loose. What do you do?",
+          "options": [
+            "I stop work and tell the foreman.",
+            "I fix it myself as well as I can and continue.",
+            "I keep away from that side and continue."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Widzisz, że balustrada na rusztowaniu jest luźna. Co robisz?",
+          "options": [
+            "Przerywam pracę i zgłaszam to brygadziście.",
+            "Sam ją mocuję, jak umiem, i pracuję dalej.",
+            "Trzymam się z dala od tej strony i pracuję dalej."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Matote, kad pastolių turėklas atsilaisvinęs. Ką darote?",
+          "options": [
+            "Sustabdau darbą ir pranešu brigadininkui.",
+            "Pats jį pritvirtinu, kaip moku, ir dirbu toliau.",
+            "Laikausi atokiau nuo tos pusės ir dirbu toliau."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      }
+    }
+  ]
+}

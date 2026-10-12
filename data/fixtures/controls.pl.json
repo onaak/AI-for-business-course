@@ -1,0 +1,96 @@
+{
+  "status": "unconfirmed",
+  "note": "Written by the builder. A native speaker must confirm each seeded error is wrong, and each control is right, before any T6 result is reported. Until then results are labelled \"unconfirmed fixtures\".",
+  "pairs": [
+    {
+      "id": "pl-c01",
+      "lang": "pl",
+      "kind": "control",
+      "source": "Rekkverk skal være montert på alle åpne sider før arbeidet starter.",
+      "target": "Balustrada ochronna musi być zamontowana po wszystkich otwartych stronach przed rozpoczęciem pracy.",
+      "critical": true,
+      "note": "Stored translation of template line h-08."
+    },
+    {
+      "id": "pl-c02",
+      "lang": "pl",
+      "kind": "control",
+      "source": "Bruk fallsikringssele festet til godkjent forankringspunkt der rekkverk mangler.",
+      "target": "Tam, gdzie nie ma balustrady ochronnej, używaj szelek bezpieczeństwa przypiętych do zatwierdzonego punktu kotwiczenia.",
+      "critical": true,
+      "note": "Stored translation of template line h-09."
+    },
+    {
+      "id": "pl-c03",
+      "lang": "pl",
+      "kind": "control",
+      "source": "Sperr av området under arbeidsstedet.",
+      "target": "Wygrodź teren pod miejscem pracy.",
+      "critical": true,
+      "note": "Stored translation of template line h-10."
+    },
+    {
+      "id": "pl-c04",
+      "lang": "pl",
+      "kind": "control",
+      "source": "Stige skal bare brukes til kortvarig arbeid og skal sikres mot å gli.",
+      "target": "Drabina może być używana tylko do krótkotrwałej pracy i musi być zabezpieczona przed poślizgiem.",
+      "critical": true,
+      "note": "Stored translation of template line h-13."
+    },
+    {
+      "id": "pl-c05",
+      "lang": "pl",
+      "kind": "control",
+      "source": "Stans arbeidet når vindstyrken er over vindgrensen.",
+      "target": "Przerwij pracę, gdy prędkość wiatru przekracza limit wiatru.",
+      "critical": true,
+      "note": "Stored translation of template line h-18."
+    },
+    {
+      "id": "pl-c06",
+      "lang": "pl",
+      "kind": "control",
+      "source": "Kontroller at løfteredskapet har WLL som dekker lastens vekt.",
+      "target": "Sprawdź, czy osprzęt do podnoszenia ma DOR (WLL) odpowiednie do masy ładunku.",
+      "critical": true,
+      "note": "Stored translation of template line l-09."
+    },
+    {
+      "id": "pl-c07",
+      "lang": "pl",
+      "kind": "control",
+      "source": "Ingen skal oppholde seg under hengende last.",
+      "target": "Nikt nie może przebywać pod podwieszonym ładunkiem.",
+      "critical": true,
+      "note": "Stored translation of template line l-11."
+    },
+    {
+      "id": "pl-c08",
+      "lang": "pl",
+      "kind": "control",
+      "source": "Sperr av faresonen rundt løftet.",
+      "target": "Wygrodź strefę niebezpieczną wokół miejsca podnoszenia.",
+      "critical": true,
+      "note": "Stored translation of template line l-12."
+    },
+    {
+      "id": "pl-c09",
+      "lang": "pl",
+      "kind": "control",
+      "source": "Bruk styretau for å styre lasten. Ikke styr lasten med hendene.",
+      "target": "Używaj liny kierunkowej do prowadzenia ładunku. Nie prowadź ładunku rękami.",
+      "critical": true,
+      "note": "Stored translation of template line l-14."
+    },
+    {
+      "id": "pl-c10",
+      "lang": "pl",
+      "kind": "control",
+      "source": "Hold sikkerhetsavstand til kraftlinjer.",
+      "target": "Zachowaj bezpieczną odległość od linii energetycznych.",
+      "critical": true,
+      "note": "Stored translation of template line l-16."
+    }
+  ]
+}

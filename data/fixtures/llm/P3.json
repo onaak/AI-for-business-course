@@ -1,0 +1,236 @@
+{
+ "0905c9b7d8cb78ee10ddd881": {
+  "task": "P3",
+  "promptVersion": "1.0.0",
+  "inputHash": "0905c9b7d8cb78ee10ddd881",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.862Z",
+  "input": {
+   "lines": [
+    {
+     "lineId": "h-10",
+     "text": "Sperr av fortauet under stillaset før arbeidet starter.",
+     "critical": true
+    }
+   ]
+  },
+  "rawOutput": "{\"lines\":[{\"lineId\":\"h-10\",\"status\":\"clear\",\"plain\":\"Sperr av fortauet under stillaset før dere begynner.\"}]}"
+ },
+ "102b8274330ccafd2b69a7ef": {
+  "task": "P3",
+  "promptVersion": "1.0.0",
+  "inputHash": "102b8274330ccafd2b69a7ef",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.913Z",
+  "input": {
+   "lines": [
+    {
+     "lineId": "ny-1",
+     "text": "Bruk fallsikringssele festet til forankringspunkt hele tiden du er utenfor stillaset.",
+     "critical": true
+    }
+   ]
+  },
+  "rawOutput": "{\"lines\":[{\"lineId\":\"ny-1\",\"status\":\"clear\"}]}"
+ },
+ "11965640bbdea675cd75fd82": {
+  "task": "P3",
+  "promptVersion": "1.0.0",
+  "inputHash": "11965640bbdea675cd75fd82",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.816Z",
+  "input": {
+   "lines": [
+    {
+     "lineId": "ny-2",
+     "text": "Bruk to styretau fordi lasten er lang.",
+     "critical": true
+    }
+   ]
+  },
+  "rawOutput": "{\"lines\":[{\"lineId\":\"ny-2\",\"status\":\"clear\"}]}"
+ },
+ "13fb27e2fa21c5de175eed17": {
+  "task": "P3",
+  "promptVersion": "1.0.0",
+  "inputHash": "13fb27e2fa21c5de175eed17",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.862Z",
+  "input": {
+   "lines": [
+    {
+     "lineId": "ny-1",
+     "text": "Utsparingen i dekket ved trappa skal dekkes til og merkes.",
+     "critical": true
+    }
+   ]
+  },
+  "rawOutput": "{\"lines\":[{\"lineId\":\"ny-1\",\"status\":\"clear\"}]}"
+ },
+ "381b9c2b7c21654f7c09c543": {
+  "task": "P3",
+  "promptVersion": "1.0.0",
+  "inputHash": "381b9c2b7c21654f7c09c543",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:53.017Z",
+  "input": {
+   "lines": [
+    {
+     "lineId": "amb-1",
+     "text": "Sikre området før løft.",
+     "critical": true
+    }
+   ]
+  },
+  "rawOutput": "{\"lines\":[{\"lineId\":\"amb-1\",\"status\":\"ambiguous\",\"category\":\"unclear_actor\",\"reasonNb\":\"Teksten sier ikke hvordan området skal sikres, hvem som gjør det, eller hvor stort området er.\",\"reasonEn\":\"The text does not say how the area is to be secured, who does it, or how large the area is.\",\"suggestion\":\"Anhukeren sperrer av faresonen rundt løftet med sperrebånd før løftet starter.\"}]}"
+ },
+ "42fc8ca31794c68fc235707a": {
+  "task": "P3",
+  "promptVersion": "1.0.0",
+  "inputHash": "42fc8ca31794c68fc235707a",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.910Z",
+  "input": {
+   "lines": [
+    {
+     "lineId": "ny-1",
+     "text": "Bruk sele ved behov.",
+     "critical": true
+    }
+   ]
+  },
+  "rawOutput": "{\"lines\":[{\"lineId\":\"ny-1\",\"status\":\"ambiguous\",\"category\":\"undefined_condition\",\"reasonNb\":\"«Ved behov» sier ikke når selen skal brukes. Arbeideren kan ikke vite om det gjelder ham.\",\"reasonEn\":\"\\\"If needed\\\" does not say when the harness must be used. The worker cannot tell whether it applies to him.\",\"suggestion\":\"Bruk fallsikringssele festet til forankringspunkt hele tiden du er utenfor stillaset.\"}]}"
+ },
+ "5b13f3bef8d0e4bd8ff3c25a": {
+  "task": "P3",
+  "promptVersion": "1.0.0",
+  "inputHash": "5b13f3bef8d0e4bd8ff3c25a",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.816Z",
+  "input": {
+   "lines": [
+    {
+     "lineId": "ny-1",
+     "text": "Ikke løft over gangveien mens personer oppholder seg der.",
+     "critical": true
+    }
+   ]
+  },
+  "rawOutput": "{\"lines\":[{\"lineId\":\"ny-1\",\"status\":\"clear\"}]}"
+ },
+ "6021dc0ea461853647dc13e8": {
+  "task": "P3",
+  "promptVersion": "1.0.0",
+  "inputHash": "6021dc0ea461853647dc13e8",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.862Z",
+  "input": {
+   "lines": [
+    {
+     "lineId": "ny-2",
+     "text": "Alle som går opp på stillaset skal ha fått opplæring.",
+     "critical": false
+    }
+   ]
+  },
+  "rawOutput": "{\"lines\":[{\"lineId\":\"ny-2\",\"status\":\"clear\"}]}"
+ },
+ "96dcfcaf2f641a4ca2a98a53": {
+  "task": "P3",
+  "promptVersion": "1.0.0",
+  "inputHash": "96dcfcaf2f641a4ca2a98a53",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.887Z",
+  "input": {
+   "lines": [
+    {
+     "lineId": "h-10",
+     "text": "Sperr av fortauet under stillaset før dere begynner.",
+     "critical": true
+    }
+   ]
+  },
+  "rawOutput": "{\"lines\":[{\"lineId\":\"h-10\",\"status\":\"clear\"}]}"
+ },
+ "99d8549fb01eebf3584cc914": {
+  "task": "P3",
+  "promptVersion": "1.0.0",
+  "inputHash": "99d8549fb01eebf3584cc914",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.816Z",
+  "input": {
+   "lines": [
+    {
+     "lineId": "l-12",
+     "text": "Sperr av faresonen rundt løftet, også gangveien ved inngangen.",
+     "critical": true
+    }
+   ]
+  },
+  "rawOutput": "{\"lines\":[{\"lineId\":\"l-12\",\"status\":\"clear\"}]}"
+ },
+ "9e2a8d3a1d698df2e354d85c": {
+  "task": "P3",
+  "promptVersion": "1.0.0",
+  "inputHash": "9e2a8d3a1d698df2e354d85c",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.897Z",
+  "input": {
+   "lines": [
+    {
+     "lineId": "l-12",
+     "text": "Sperr av faresonen rundt løftet og hold porten stengt under løftet.",
+     "critical": true
+    }
+   ]
+  },
+  "rawOutput": "{\"lines\":[{\"lineId\":\"l-12\",\"status\":\"clear\"}]}"
+ },
+ "b1b85226ab9f4e5d57d06881": {
+  "task": "P3",
+  "promptVersion": "1.0.0",
+  "inputHash": "b1b85226ab9f4e5d57d06881",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:53.017Z",
+  "input": {
+   "lines": [
+    {
+     "lineId": "amb-2",
+     "text": "Bruk sele ved behov.",
+     "critical": true
+    }
+   ]
+  },
+  "rawOutput": "{\"lines\":[{\"lineId\":\"amb-2\",\"status\":\"ambiguous\",\"category\":\"undefined_condition\",\"reasonNb\":\"«Ved behov» sier ikke når selen skal brukes. Arbeideren kan ikke vite om det gjelder ham.\",\"reasonEn\":\"\\\"If needed\\\" does not say when the harness must be used. The worker cannot tell whether it applies to him.\",\"suggestion\":\"Bruk fallsikringssele festet til forankringspunkt hele tiden du er utenfor stillaset.\"}]}"
+ },
+ "dee90b577664fb538e7f26f1": {
+  "task": "P3",
+  "promptVersion": "1.0.0",
+  "inputHash": "dee90b577664fb538e7f26f1",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-05T13:30:52.910Z",
+  "input": {
+   "lines": [
+    {
+     "lineId": "ny-2",
+     "text": "Vinsjen skal ha lastbrems og være festet til bærende konstruksjon.",
+     "critical": true
+    }
+   ]
+  },
+  "rawOutput": "{\"lines\":[{\"lineId\":\"ny-2\",\"status\":\"clear\"}]}"
+ }
+}
