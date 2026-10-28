@@ -5,12 +5,17 @@ import type { GateCondition } from '../core/rules/gate';
 import type { Flag, HazardList, Origin, Route, Sja, SjaLine, VerificationState } from '../core/types';
 import { LANG_NAMES } from '../core/util';
 import { useT, useUiLang } from '../i18n';
-import { useApp } from '../state/stores';
+import { useApp, useFieldMode } from '../state/stores';
 import { HelpEn } from './HelpEn';
 import { Button, Card, Chip, Icon, inputClass } from './ui';
 
 export function OriginBadge({ origin }: { origin: Origin }) {
   const t = useT();
+  // Clean view: no line is "reused" or "changed" (that would show a template behind it). Lines
+  // written for today's job are marked as such; the others carry no mark.
+  const clean = useFieldMode();
+  if (clean && origin === 'reused') return null;
+  if (clean && (origin === 'changed' || origin === 'new')) return <Chip tone="amber">{t('clean.today')}</Chip>;
   const tone = { reused: 'slate', parameterFilled: 'blue', changed: 'amber', new: 'amber', removed: 'red' }[origin] as 'slate' | 'blue' | 'amber' | 'red';
   return <Chip tone={tone}>{t(`origin.${origin}`)}</Chip>;
 }
@@ -347,6 +352,7 @@ export function SummaryBar({ sja, redOpen }: { sja: Sja; redOpen: number }) {
   for (const l of sja.lines) c[l.origin] += 1;
   const total = sja.lines.length - c.removed;
   const fresh = c.changed + c.new;
+  const clean = useFieldMode();
   const item = (n: number, label: string, strong = false) => (
     <span className={`whitespace-nowrap ${strong ? 'font-bold text-slate-900' : ''}`}>
       {n} {label}
@@ -358,10 +364,19 @@ export function SummaryBar({ sja, redOpen }: { sja: Sja; redOpen: number }) {
         {fresh === 0 ? t('summary.leadNone', { total }) : fresh === 1 ? t('summary.lead.one', { same: total - fresh, total }) : t('summary.lead', { same: total - fresh, total, fresh })}
       </p>
       <div data-testid="summary-bar" className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-sm text-slate-700">
-        {item(c.reused, t(c.reused === 1 ? 'summary.reused.one' : 'summary.reused'))}
-        {item(c.parameterFilled, t(c.parameterFilled === 1 ? 'summary.parameterFilled.one' : 'summary.parameterFilled'))}
-        {item(c.changed, t(c.changed === 1 ? 'summary.changed.one' : 'summary.changed'), c.changed > 0)}
-        {item(c.new, t(c.new === 1 ? 'summary.new.one' : 'summary.new'), c.new > 0)}
+        {clean ? (
+          <>
+            {item(fresh, t(fresh === 1 ? 'clean.summaryToday.one' : 'clean.summaryToday'), fresh > 0)}
+            {item(c.parameterFilled, t(c.parameterFilled === 1 ? 'summary.parameterFilled.one' : 'summary.parameterFilled'))}
+          </>
+        ) : (
+          <>
+            {item(c.reused, t(c.reused === 1 ? 'summary.reused.one' : 'summary.reused'))}
+            {item(c.parameterFilled, t(c.parameterFilled === 1 ? 'summary.parameterFilled.one' : 'summary.parameterFilled'))}
+            {item(c.changed, t(c.changed === 1 ? 'summary.changed.one' : 'summary.changed'), c.changed > 0)}
+            {item(c.new, t(c.new === 1 ? 'summary.new.one' : 'summary.new'), c.new > 0)}
+          </>
+        )}
         {c.removed > 0 && item(c.removed, t('summary.removed'), true)}
         <span className={`whitespace-nowrap font-bold ${redOpen ? 'text-rose-800' : 'text-emerald-800'}`}>
           <Icon name={redOpen ? 'flag' : 'check'} className="h-4 w-4" /> {redOpen} {t(redOpen === 1 ? 'summary.redFlags.one' : 'summary.redFlags')}

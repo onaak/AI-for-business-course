@@ -5,7 +5,7 @@
   "inputHash": "082255834796f3c463a461c4",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.308Z",
+  "recordedAt": "2026-10-28T23:39:00.731Z",
   "input": {
    "jobType": "Maling og overflatebehandling innendørs",
    "parameters": [
@@ -33,7 +33,7 @@
   "inputHash": "0a42f4da7708db481a323dc4",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.170Z",
+  "recordedAt": "2026-10-28T23:39:00.451Z",
   "input": {
    "jobType": "Løfteoperasjon med kran",
    "parameters": [
@@ -65,7 +65,7 @@
   "inputHash": "2ecdce11a4d30c13b8f5f9d6",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.282Z",
+  "recordedAt": "2026-10-28T23:39:00.702Z",
   "input": {
    "jobType": "Arbeid i høyden",
    "parameters": [
@@ -93,7 +93,7 @@
   "inputHash": "3459fcbe729fc244f3324956",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.269Z",
+  "recordedAt": "2026-10-28T23:39:00.675Z",
   "input": {
    "jobType": "Løfteoperasjon med kran",
    "parameters": [
@@ -125,7 +125,7 @@
   "inputHash": "53f7cb2fecb812196b476175",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.236Z",
+  "recordedAt": "2026-10-28T23:39:00.531Z",
   "input": {
    "jobType": "Arbeid i høyden",
    "parameters": [
@@ -147,13 +147,54 @@
   },
   "rawOutput": "{\"specifics\":[{\"text\":\"Skifte av takrenner på østsiden.\",\"status\":\"clear\"},{\"text\":\"Det er en utsparing i dekket ved trappa.\",\"status\":\"clear\"},{\"text\":\"Stillaset står ut mot fortauet.\",\"status\":\"clear\"}],\"questions\":[]}"
  },
+ "549668dac6e0e77519367465": {
+  "task": "P1",
+  "promptVersion": "1.0.0",
+  "inputHash": "549668dac6e0e77519367465",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-28T23:39:00.643Z",
+  "input": {
+   "jobType": "Løfteoperasjon med kran",
+   "parameters": [
+    {
+     "label": "Lastens vekt",
+     "value": "1000 kg"
+    },
+    {
+     "label": "Løfteutstyr",
+     "value": "Teleskoptruck"
+    },
+    {
+     "label": "Løftehøyde",
+     "value": "9 m"
+    },
+    {
+     "label": "Vindgrense",
+     "value": "12 m/s"
+    }
+   ],
+   "freeText": "Skal heise opp noen paller m gips t 3 etg, bruker trucken. Litt trangt ved porten, må kanskje ta det over gjerdet?? fikser stroppa selv",
+   "answers": [
+    {
+     "question": "Skal lasten løftes over gjerdet, eller tas den gjennom porten?",
+     "answer": "Gjennom porten"
+    },
+    {
+     "question": "Hva betyr «fikser stroppa selv»? Hvem kontrollerer løftestroppene før bruk?",
+     "answer": "De er ikke kontrollert ennå"
+    }
+   ]
+  },
+  "rawOutput": "{\"specifics\":[{\"text\":\"Løft av paller med gipsplater til 3. etasje.\",\"status\":\"clear\"},{\"text\":\"Trang plass ved porten. Lasten tas gjennom porten, ikke over gjerdet.\",\"status\":\"clear\"},{\"text\":\"Løftestroppene er ikke kontrollert ennå.\",\"status\":\"clear\"}],\"questions\":[]}"
+ },
  "5c04f4a834838518e7d3e622": {
   "task": "P1",
   "promptVersion": "1.0.0",
   "inputHash": "5c04f4a834838518e7d3e622",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.271Z",
+  "recordedAt": "2026-10-28T23:39:00.596Z",
   "input": {
    "jobType": "Løfteoperasjon med kran",
    "parameters": [
@@ -188,13 +229,95 @@
   },
   "rawOutput": "{\"specifics\":[{\"text\":\"Løft av paller med gipsplater til 3. etasje.\",\"status\":\"clear\"},{\"text\":\"Trang plass ved porten. Lasten tas gjennom porten, ikke over gjerdet.\",\"status\":\"clear\"},{\"text\":\"Anhukeren kontrollerer løftestroppene før bruk.\",\"status\":\"clear\"}],\"questions\":[]}"
  },
+ "6ff1070053dc50780ab01359": {
+  "task": "P1",
+  "promptVersion": "1.0.0",
+  "inputHash": "6ff1070053dc50780ab01359",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-28T23:39:00.677Z",
+  "input": {
+   "jobType": "Løfteoperasjon med kran",
+   "parameters": [
+    {
+     "label": "Lastens vekt",
+     "value": "1000 kg"
+    },
+    {
+     "label": "Løfteutstyr",
+     "value": "Teleskoptruck"
+    },
+    {
+     "label": "Løftehøyde",
+     "value": "9 m"
+    },
+    {
+     "label": "Vindgrense",
+     "value": "12 m/s"
+    }
+   ],
+   "freeText": "Skal heise opp noen paller m gips t 3 etg, bruker trucken. Litt trangt ved porten, må kanskje ta det over gjerdet?? fikser stroppa selv",
+   "answers": [
+    {
+     "question": "Skal lasten løftes over gjerdet, eller tas den gjennom porten?",
+     "answer": "Over gjerdet"
+    },
+    {
+     "question": "Hva betyr «fikser stroppa selv»? Hvem kontrollerer løftestroppene før bruk?",
+     "answer": "De er ikke kontrollert ennå"
+    }
+   ]
+  },
+  "rawOutput": "{\"specifics\":[{\"text\":\"Løft av paller med gipsplater til 3. etasje.\",\"status\":\"clear\"},{\"text\":\"Trang plass ved porten. Lasten løftes over gjerdet.\",\"status\":\"clear\"},{\"text\":\"Løftestroppene er ikke kontrollert ennå.\",\"status\":\"clear\"}],\"questions\":[]}"
+ },
+ "aaa4ebc8e20c250ab200e50d": {
+  "task": "P1",
+  "promptVersion": "1.0.0",
+  "inputHash": "aaa4ebc8e20c250ab200e50d",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-28T23:39:00.622Z",
+  "input": {
+   "jobType": "Løfteoperasjon med kran",
+   "parameters": [
+    {
+     "label": "Lastens vekt",
+     "value": "1000 kg"
+    },
+    {
+     "label": "Løfteutstyr",
+     "value": "Teleskoptruck"
+    },
+    {
+     "label": "Løftehøyde",
+     "value": "9 m"
+    },
+    {
+     "label": "Vindgrense",
+     "value": "12 m/s"
+    }
+   ],
+   "freeText": "Skal heise opp noen paller m gips t 3 etg, bruker trucken. Litt trangt ved porten, må kanskje ta det over gjerdet?? fikser stroppa selv",
+   "answers": [
+    {
+     "question": "Skal lasten løftes over gjerdet, eller tas den gjennom porten?",
+     "answer": "Over gjerdet"
+    },
+    {
+     "question": "Hva betyr «fikser stroppa selv»? Hvem kontrollerer løftestroppene før bruk?",
+     "answer": "Anhukeren kontrollerer løftestroppene før bruk"
+    }
+   ]
+  },
+  "rawOutput": "{\"specifics\":[{\"text\":\"Løft av paller med gipsplater til 3. etasje.\",\"status\":\"clear\"},{\"text\":\"Trang plass ved porten. Lasten løftes over gjerdet.\",\"status\":\"clear\"},{\"text\":\"Anhukeren kontrollerer løftestroppene før bruk.\",\"status\":\"clear\"}],\"questions\":[]}"
+ },
  "e979ddc98774c7a47ec5de4d": {
   "task": "P1",
   "promptVersion": "1.0.0",
   "inputHash": "e979ddc98774c7a47ec5de4d",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.330Z",
+  "recordedAt": "2026-10-28T23:39:00.755Z",
   "input": {
    "jobType": "Betongstøp",
    "parameters": [

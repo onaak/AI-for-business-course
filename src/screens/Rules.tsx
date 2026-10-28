@@ -6,12 +6,12 @@ import { useMemo, useState } from 'react';
 import { GhsRow } from '../components/Ghs';
 import { CriticalMark, VerificationChip } from '../components/sja';
 import { Button, Card, Chip, download, Icon, inputClass, Layout, Notice } from '../components/ui';
-import { misunderstandingCounts } from '../core/metrics';
+import { feedbackEvents, misunderstandingCounts } from '../core/metrics';
 import { EMPTY_FILTER, filterRules, ruleRows, rulesCsv, usedTags, type RuleFilter } from '../core/rules/library';
 import { BANNER_EN, BANNER_NB, TAGS, type RiskLevel, type Tag } from '../core/types';
 import { LANG_NAMES } from '../core/util';
 import { useT, useUiLang } from '../i18n';
-import { useApp, useLog } from '../state/stores';
+import { useApp, useLog, useSjas } from '../state/stores';
 
 const RISK_TONE: Record<RiskLevel, 'red' | 'amber' | 'green'> = { red: 'red', yellow: 'amber', green: 'green' };
 
@@ -29,7 +29,9 @@ export default function RulesLibrary() {
   const ui = useUiLang();
   const pack = useApp((s) => s.pack);
   const hazards = useApp((s) => s.hazards);
-  const events = useLog((s) => s.events);
+  const sjas = useSjas((s) => s.sjas);
+  const all = useLog((s) => s.events);
+  const events = useMemo(() => feedbackEvents(all, sjas), [all, sjas]);
   const [f, setF] = useState<RuleFilter>(EMPTY_FILTER);
 
   const rows = useMemo(

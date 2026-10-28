@@ -5,7 +5,7 @@
   "inputHash": "0905c9b7d8cb78ee10ddd881",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.238Z",
+  "recordedAt": "2026-10-28T23:39:00.534Z",
   "input": {
    "lines": [
     {
@@ -23,7 +23,7 @@
   "inputHash": "102b8274330ccafd2b69a7ef",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.290Z",
+  "recordedAt": "2026-10-28T23:39:00.711Z",
   "input": {
    "lines": [
     {
@@ -41,7 +41,7 @@
   "inputHash": "11965640bbdea675cd75fd82",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.187Z",
+  "recordedAt": "2026-10-28T23:39:00.461Z",
   "input": {
    "lines": [
     {
@@ -59,7 +59,7 @@
   "inputHash": "13fb27e2fa21c5de175eed17",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.238Z",
+  "recordedAt": "2026-10-28T23:39:00.534Z",
   "input": {
    "lines": [
     {
@@ -77,7 +77,7 @@
   "inputHash": "149f73e0f4d10eb8ab1af05c",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.311Z",
+  "recordedAt": "2026-10-28T23:39:00.734Z",
   "input": {
    "lines": [
     {
@@ -95,7 +95,7 @@
   "inputHash": "1871fce5fcb3815f1edc99ed",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.333Z",
+  "recordedAt": "2026-10-28T23:39:00.758Z",
   "input": {
    "lines": [
     {
@@ -113,7 +113,7 @@
   "inputHash": "381b9c2b7c21654f7c09c543",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.526Z",
+  "recordedAt": "2026-10-28T23:39:01.025Z",
   "input": {
    "lines": [
     {
@@ -131,7 +131,7 @@
   "inputHash": "42fc8ca31794c68fc235707a",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.284Z",
+  "recordedAt": "2026-10-28T23:39:00.707Z",
   "input": {
    "lines": [
     {
@@ -149,7 +149,7 @@
   "inputHash": "5b13f3bef8d0e4bd8ff3c25a",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.186Z",
+  "recordedAt": "2026-10-28T23:39:00.461Z",
   "input": {
    "lines": [
     {
@@ -167,7 +167,7 @@
   "inputHash": "6021dc0ea461853647dc13e8",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.238Z",
+  "recordedAt": "2026-10-28T23:39:00.534Z",
   "input": {
    "lines": [
     {
@@ -185,7 +185,7 @@
   "inputHash": "7c486bbb607f77dade4169db",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.312Z",
+  "recordedAt": "2026-10-28T23:39:00.734Z",
   "input": {
    "lines": [
     {
@@ -197,13 +197,31 @@
   },
   "rawOutput": "{\"lines\":[{\"lineId\":\"ny-2\",\"status\":\"clear\"}]}"
  },
+ "902d94eb278ee4078ad7812a": {
+  "task": "P3",
+  "promptVersion": "1.0.0",
+  "inputHash": "902d94eb278ee4078ad7812a",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-28T23:39:00.680Z",
+  "input": {
+   "lines": [
+    {
+     "lineId": "ny-1",
+     "text": "Løftestroppene er ikke kontrollert ennå: anhukeren skal kontrollere stropper og sjakler før løftet starter, og skadet utstyr skal ikke brukes.",
+     "critical": true
+    }
+   ]
+  },
+  "rawOutput": "{\"lines\":[{\"lineId\":\"ny-1\",\"status\":\"clear\"}]}"
+ },
  "96dcfcaf2f641a4ca2a98a53": {
   "task": "P3",
   "promptVersion": "1.0.0",
   "inputHash": "96dcfcaf2f641a4ca2a98a53",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.263Z",
+  "recordedAt": "2026-10-28T23:39:00.578Z",
   "input": {
    "lines": [
     {
@@ -221,7 +239,7 @@
   "inputHash": "99d8549fb01eebf3584cc914",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.186Z",
+  "recordedAt": "2026-10-28T23:39:00.461Z",
   "input": {
    "lines": [
     {
@@ -239,7 +257,7 @@
   "inputHash": "9e2a8d3a1d698df2e354d85c",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.274Z",
+  "recordedAt": "2026-10-28T23:39:00.647Z",
   "input": {
    "lines": [
     {
@@ -257,7 +275,7 @@
   "inputHash": "b1b85226ab9f4e5d57d06881",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.526Z",
+  "recordedAt": "2026-10-28T23:39:01.027Z",
   "input": {
    "lines": [
     {
@@ -269,13 +287,31 @@
   },
   "rawOutput": "{\"lines\":[{\"lineId\":\"amb-2\",\"status\":\"ambiguous\",\"category\":\"undefined_condition\",\"reasonNb\":\"«Ved behov» sier ikke når selen skal brukes. Arbeideren kan ikke vite om det gjelder ham.\",\"reasonEn\":\"\\\"If needed\\\" does not say when the harness must be used. The worker cannot tell whether it applies to him.\",\"suggestion\":\"Bruk fallsikringssele festet til forankringspunkt hele tiden du er utenfor stillaset.\"}]}"
  },
+ "b7940d49ef3cce0478239a30": {
+  "task": "P3",
+  "promptVersion": "1.0.0",
+  "inputHash": "b7940d49ef3cce0478239a30",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-28T23:39:00.680Z",
+  "input": {
+   "lines": [
+    {
+     "lineId": "l-12",
+     "text": "Sperr av faresonen på begge sider av gjerdet, og ingen skal stå ved gjerdet når lasten føres over.",
+     "critical": true
+    }
+   ]
+  },
+  "rawOutput": "{\"lines\":[{\"lineId\":\"l-12\",\"status\":\"clear\"}]}"
+ },
  "dee90b577664fb538e7f26f1": {
   "task": "P3",
   "promptVersion": "1.0.0",
   "inputHash": "dee90b577664fb538e7f26f1",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.285Z",
+  "recordedAt": "2026-10-28T23:39:00.707Z",
   "input": {
    "lines": [
     {

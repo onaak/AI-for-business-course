@@ -5,7 +5,7 @@
   "inputHash": "019bef045b949a91aa51af4f",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.217Z",
+  "recordedAt": "2026-10-28T23:39:00.494Z",
   "input": {
    "lang": "lt",
    "text": "Aptverkite pavojaus vietą aplink kėlimo vietą, taip pat pėsčiųjų taką prie įėjimo."
@@ -18,7 +18,7 @@
   "inputHash": "020fe45707a4cf68feac5a39",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.344Z",
+  "recordedAt": "2026-10-28T23:39:00.770Z",
   "input": {
    "lang": "pl",
    "text": "Zagrożenie: dźwig przewraca się z powodu słabego podłoża lub zbyt ciężkiego ładunku."
@@ -31,7 +31,7 @@
   "inputHash": "02cf4b2dde1f039260e39941",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.378Z",
+  "recordedAt": "2026-10-28T23:39:00.802Z",
   "input": {
    "lang": "lt",
    "text": "Aptverkite vietą aplink kėlimą."
@@ -44,7 +44,7 @@
   "inputHash": "042f064fb108dd1b27e94ceb",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.352Z",
+  "recordedAt": "2026-10-28T23:39:00.776Z",
   "input": {
    "lang": "pl",
    "text": "Sprawdź przed użyciem, czy liny i szekle nie są uszkodzone."
@@ -57,7 +57,7 @@
   "inputHash": "06eaf210307c40d504539eb1",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.375Z",
+  "recordedAt": "2026-10-28T23:39:00.800Z",
   "input": {
    "lang": "lt",
    "text": "Prieš naudodami patikrinkite, ar tvirtinimo diržai ir apkabos nepažeisti."
@@ -70,7 +70,7 @@
   "inputHash": "0a650aace081f46bc6d52743",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.354Z",
+  "recordedAt": "2026-10-28T23:39:00.778Z",
   "input": {
    "lang": "pl",
    "text": "Wygrodź miejsce wokół podnoszenia."
@@ -83,7 +83,7 @@
   "inputHash": "0b30d5e67428f94bc66c0e7e",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.249Z",
+  "recordedAt": "2026-10-28T23:39:00.548Z",
   "input": {
    "lang": "lt",
    "text": "Visi, kurie lipa ant pastolių, turi būti apmokyti."
@@ -96,7 +96,7 @@
   "inputHash": "10d061985a4ff4fe0428d1a4",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.432Z",
+  "recordedAt": "2026-10-28T23:39:00.878Z",
   "input": {
    "lang": "pl",
    "text": "Wygrodź teren pod miejscem pracy."
@@ -109,7 +109,7 @@
   "inputHash": "13364b69adc72862dbc28cf4",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.465Z",
+  "recordedAt": "2026-10-28T23:39:00.946Z",
   "input": {
    "lang": "lt",
    "text": "Kopėčios gali būti naudojamos tik trumpalaikiam darbui ir turi būti apsaugotos nuo slydimo."
@@ -122,7 +122,7 @@
   "inputHash": "168caccc73b004fe93f91937",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.439Z",
+  "recordedAt": "2026-10-28T23:39:00.890Z",
   "input": {
    "lang": "pl",
    "text": "Przerwij pracę, gdy prędkość wiatru przekracza limit wiatru."
@@ -135,7 +135,7 @@
   "inputHash": "18c9ce273dcdbf865a86867d",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.328Z",
+  "recordedAt": "2026-10-28T23:39:00.753Z",
   "input": {
    "lang": "ru",
    "text": "Перед началом лакирования установите механическую вентиляцию, потому что в помещении только одно маленькое окно."
@@ -148,7 +148,7 @@
   "inputHash": "1b99b394d44dc43cfa6810e3",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.458Z",
+  "recordedAt": "2026-10-28T23:39:00.929Z",
   "input": {
    "lang": "lt",
    "text": "Prieš pradedant darbą iš visų atvirų pusių turi būti sumontuoti apsauginiai turėklai."
@@ -161,7 +161,7 @@
   "inputHash": "1c911c3dc91dc59c05d8294e",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.408Z",
+  "recordedAt": "2026-10-28T23:39:00.847Z",
   "input": {
    "lang": "ru",
    "text": "Опасность: подъёмник опрокидывается из-за слабого основания или слишком тяжёлого груза."
@@ -174,7 +174,7 @@
   "inputHash": "25d3d74af9e75fb3fd8be07b",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.362Z",
+  "recordedAt": "2026-10-28T23:39:00.787Z",
   "input": {
    "lang": "pl",
    "text": "Hełm ochronny z paskiem podbródkowym można nosić przez cały czas."
@@ -187,7 +187,7 @@
   "inputHash": "295766f188a3518fe247bbde",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.481Z",
+  "recordedAt": "2026-10-28T23:39:00.967Z",
   "input": {
    "lang": "lt",
    "text": "Krovinį kreipkite kreipiamąja virve. Nekreipkite krovinio rankomis."
@@ -200,7 +200,7 @@
   "inputHash": "2d7c897af85d73f34e767276",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.302Z",
+  "recordedAt": "2026-10-28T23:39:00.724Z",
   "input": {
    "lang": "lt",
    "text": "Visą laiką, kol esate už pastolių ribų, naudokite viso kūno saugos diržus, pritvirtintus prie tvirtinimo taško."
@@ -213,7 +213,7 @@
   "inputHash": "321a45f256ff48bc2483f411",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.476Z",
+  "recordedAt": "2026-10-28T23:39:00.962Z",
   "input": {
    "lang": "lt",
    "text": "Niekas negali būti po pakabintu kroviniu."
@@ -226,7 +226,7 @@
   "inputHash": "327974e70282290d9f5229bf",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.434Z",
+  "recordedAt": "2026-10-28T23:39:00.883Z",
   "input": {
    "lang": "pl",
    "text": "Drabina może być używana tylko do krótkotrwałej pracy i musi być zabezpieczona przed poślizgiem."
@@ -239,7 +239,7 @@
   "inputHash": "3547b78e335beda79a282c73",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.299Z",
+  "recordedAt": "2026-10-28T23:39:00.722Z",
   "input": {
    "lang": "pl",
    "text": "Przez cały czas, gdy jesteś poza rusztowaniem, używaj szelek bezpieczeństwa przypiętych do punktu kotwiczenia."
@@ -252,7 +252,7 @@
   "inputHash": "35720cbcfd0cf6837f9c5577",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.214Z",
+  "recordedAt": "2026-10-28T23:39:00.489Z",
   "input": {
    "lang": "pl",
    "text": "Nie podnoś ładunku nad chodnikiem, gdy przebywają tam ludzie."
@@ -265,12 +265,25 @@
   "inputHash": "3fffce1605e4fbc629c23a8d",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.395Z",
+  "recordedAt": "2026-10-28T23:39:00.830Z",
   "input": {
    "lang": "lt",
    "text": "Apdrauskite įrankius ir medžiagas, kad jie negalėtų nukristi."
   },
   "rawOutput": "{\"text\":\"Sikre verktøy og materialer slik at de ikke kan falle ned.\"}"
+ },
+ "4144435eccb76503ca02218d": {
+  "task": "P5",
+  "promptVersion": "1.0.0",
+  "inputHash": "4144435eccb76503ca02218d",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-28T23:39:00.694Z",
+  "input": {
+   "lang": "pl",
+   "text": "Wygrodź strefę niebezpieczną po obu stronach ogrodzenia i nikt nie może stać przy ogrodzeniu, gdy ładunek jest przenoszony nad nim."
+  },
+  "rawOutput": "{\"text\":\"Sperr av faresonen på begge sider av gjerdet, og ingen skal stå ved gjerdet når lasten føres over det.\"}"
  },
  "4229f5106054d9690c60ab07": {
   "task": "P5",
@@ -278,7 +291,7 @@
   "inputHash": "4229f5106054d9690c60ab07",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.399Z",
+  "recordedAt": "2026-10-28T23:39:00.835Z",
   "input": {
    "lang": "ru",
    "text": "Там, где нет защитного ограждения, используйте предохранительный пояс, пристёгнутый к утверждённой точке крепления."
@@ -291,7 +304,7 @@
   "inputHash": "44c4b958bdffbaed66c957f0",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.405Z",
+  "recordedAt": "2026-10-28T23:39:00.844Z",
   "input": {
    "lang": "ru",
    "text": "Оградите место вокруг подъёма."
@@ -304,7 +317,7 @@
   "inputHash": "46b401850286cf3c6abb7ac8",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.486Z",
+  "recordedAt": "2026-10-28T23:39:00.972Z",
   "input": {
    "lang": "lt",
    "text": "Laikykitės saugaus atstumo nuo elektros linijų."
@@ -317,7 +330,7 @@
   "inputHash": "4ef4e067e31165b9e5de8418",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.512Z",
+  "recordedAt": "2026-10-28T23:39:00.999Z",
   "input": {
    "lang": "ru",
    "text": "Оградите опасную зону вокруг места подъёма."
@@ -330,7 +343,7 @@
   "inputHash": "4f08c68c2741cf183563c7c0",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.214Z",
+  "recordedAt": "2026-10-28T23:39:00.490Z",
   "input": {
    "lang": "lt",
    "text": "Nekelkite krovinio virš pėsčiųjų tako, kol ten yra žmonių."
@@ -343,7 +356,7 @@
   "inputHash": "52d73e485fda8980a999e9b3",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.260Z",
+  "recordedAt": "2026-10-28T23:39:00.573Z",
   "input": {
    "lang": "lt",
    "text": "Skylė grindyse prie laiptų turi būti uždengta ir pažymėta."
@@ -356,7 +369,7 @@
   "inputHash": "5339298e8ab8c4ce1bf8f265",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.279Z",
+  "recordedAt": "2026-10-28T23:39:00.667Z",
   "input": {
    "lang": "lt",
    "text": "Aptverkite pavojingą zoną aplink kėlimo vietą ir laikykite vartus uždarytus kėlimo metu."
@@ -369,7 +382,7 @@
   "inputHash": "55e92aa40c308c157ee7f75d",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.413Z",
+  "recordedAt": "2026-10-28T23:39:00.853Z",
   "input": {
    "lang": "ru",
    "text": "Каждый может находиться под подвешенным грузом."
@@ -382,7 +395,7 @@
   "inputHash": "57b59d875396758d1017d9d9",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.266Z",
+  "recordedAt": "2026-10-28T23:39:00.584Z",
   "input": {
    "lang": "lt",
    "text": "Aptverkite šaligatvį po pastoliais prieš pradėdami."
@@ -395,7 +408,7 @@
   "inputHash": "57bb5de40e55b3f9835e3101",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.401Z",
+  "recordedAt": "2026-10-28T23:39:00.838Z",
   "input": {
    "lang": "ru",
    "text": "Перед использованием проверьте стяжные ремни и скобы на повреждения."
@@ -408,12 +421,25 @@
   "inputHash": "595e5b77f574c74d7a9b1e45",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.248Z",
+  "recordedAt": "2026-10-28T23:39:00.547Z",
   "input": {
    "lang": "lt",
    "text": "Aptverkite šaligatvį po pastoliais prieš pradedant darbą."
   },
   "rawOutput": "{\"text\":\"Sperr av fortauet under stillaset før arbeidet starter.\"}"
+ },
+ "60bb29687a78358b88b18ecd": {
+  "task": "P5",
+  "promptVersion": "1.0.0",
+  "inputHash": "60bb29687a78358b88b18ecd",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-28T23:39:00.692Z",
+  "input": {
+   "lang": "pl",
+   "text": "Zawiesia nie zostały jeszcze sprawdzone: hakowy musi sprawdzić zawiesia i szekle przed rozpoczęciem podnoszenia, a uszkodzonego sprzętu nie wolno używać."
+  },
+  "rawOutput": "{\"text\":\"Løftestroppene er ikke kontrollert ennå: anhukeren må kontrollere stroppene og sjaklene før løftet starter, og skadet utstyr skal ikke brukes.\"}"
  },
  "63fe682dfd79c691687f97cd": {
   "task": "P5",
@@ -421,7 +447,7 @@
   "inputHash": "63fe682dfd79c691687f97cd",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.245Z",
+  "recordedAt": "2026-10-28T23:39:00.545Z",
   "input": {
    "lang": "pl",
    "text": "Otwór w stropie przy schodach należy zakryć i oznakować."
@@ -434,7 +460,7 @@
   "inputHash": "6415ff53d8a550c1d72f1eba",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.365Z",
+  "recordedAt": "2026-10-28T23:39:00.790Z",
   "input": {
    "lang": "pl",
    "text": "Drabina może być używana i musi być zabezpieczona przed poślizgiem."
@@ -447,7 +473,7 @@
   "inputHash": "67a8992a7f3c5a2684cf3ddf",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.455Z",
+  "recordedAt": "2026-10-28T23:39:00.918Z",
   "input": {
    "lang": "pl",
    "text": "Zachowaj bezpieczną odległość od linii energetycznych."
@@ -460,7 +486,7 @@
   "inputHash": "6a378d71f02673223ab53cf2",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.359Z",
+  "recordedAt": "2026-10-28T23:39:00.784Z",
   "input": {
    "lang": "pl",
    "text": "Każdy może przebywać pod podwieszonym ładunkiem."
@@ -473,7 +499,7 @@
   "inputHash": "6a61696a5913e8e4347d0f50",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.356Z",
+  "recordedAt": "2026-10-28T23:39:00.780Z",
   "input": {
    "lang": "pl",
    "text": "Podczas pracy muszą być obecne co najmniej 3 osoby."
@@ -486,7 +512,7 @@
   "inputHash": "719f050c70c5f5dc70431889",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.278Z",
+  "recordedAt": "2026-10-28T23:39:00.667Z",
   "input": {
    "lang": "pl",
    "text": "Wygrodź strefę niebezpieczną wokół miejsca podnoszenia i trzymaj bramę zamkniętą podczas podnoszenia."
@@ -499,7 +525,7 @@
   "inputHash": "722a718320bb32fe63d898aa",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.266Z",
+  "recordedAt": "2026-10-28T23:39:00.584Z",
   "input": {
    "lang": "pl",
    "text": "Wygrodź chodnik pod rusztowaniem, zanim zaczniecie."
@@ -512,7 +538,7 @@
   "inputHash": "74ac274b05cf9190ce36cc56",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.410Z",
+  "recordedAt": "2026-10-28T23:39:00.849Z",
   "input": {
    "lang": "ru",
    "text": "Во время работы должны присутствовать не менее 3 человек."
@@ -525,7 +551,7 @@
   "inputHash": "75597a5d767c46f382d7155b",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.369Z",
+  "recordedAt": "2026-10-28T23:39:00.794Z",
   "input": {
    "lang": "pl",
    "text": "Ubezpiecz narzędzia i materiały tak, aby nie mogły spaść."
@@ -538,7 +564,7 @@
   "inputHash": "77c56f41d75b2b3b17af8fdd",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.506Z",
+  "recordedAt": "2026-10-28T23:39:00.991Z",
   "input": {
    "lang": "ru",
    "text": "Проверьте, что рабочая нагрузка (WLL) грузозахватных приспособлений соответствует массе груза."
@@ -551,7 +577,7 @@
   "inputHash": "79fabae2eb4189d9c13875e1",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.302Z",
+  "recordedAt": "2026-10-28T23:39:00.724Z",
   "input": {
    "lang": "lt",
    "text": "Gervė turi turėti krovinio stabdį ir būti pritvirtinta prie laikančiosios konstrukcijos."
@@ -564,7 +590,7 @@
   "inputHash": "7a55e31d561f13d989245386",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.417Z",
+  "recordedAt": "2026-10-28T23:39:00.856Z",
   "input": {
    "lang": "ru",
    "text": "Защитную каску с подбородочным ремнём можно носить всё время."
@@ -577,7 +603,7 @@
   "inputHash": "7ab13b69bea1250264638e1e",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.447Z",
+  "recordedAt": "2026-10-28T23:39:00.906Z",
   "input": {
    "lang": "pl",
    "text": "Wygrodź strefę niebezpieczną wokół miejsca podnoszenia."
@@ -590,7 +616,7 @@
   "inputHash": "81cea31b79374147459eaf81",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.229Z",
+  "recordedAt": "2026-10-28T23:39:00.517Z",
   "input": {
    "lang": "en",
    "text": "Use two tag lines because the load is long."
@@ -603,7 +629,7 @@
   "inputHash": "85ed2e046e365cfb19985558",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.257Z",
+  "recordedAt": "2026-10-28T23:39:00.566Z",
   "input": {
    "lang": "lt",
    "text": "Kiaurymė perdangoje prie laiptų turi būti uždengta ir pažymėta."
@@ -616,7 +642,7 @@
   "inputHash": "86275c7bfa40ee5004e746dd",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.520Z",
+  "recordedAt": "2026-10-28T23:39:01.012Z",
   "input": {
    "lang": "ru",
    "text": "Соблюдайте безопасное расстояние до линий электропередачи."
@@ -629,7 +655,7 @@
   "inputHash": "87b19c0f140fc92c1765d117",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.429Z",
+  "recordedAt": "2026-10-28T23:39:00.873Z",
   "input": {
    "lang": "pl",
    "text": "Tam, gdzie nie ma balustrady ochronnej, używaj szelek bezpieczeństwa przypiętych do zatwierdzonego punktu kotwiczenia."
@@ -642,7 +668,7 @@
   "inputHash": "89cdd21aca905a4a199ba696",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.515Z",
+  "recordedAt": "2026-10-28T23:39:01.005Z",
   "input": {
    "lang": "ru",
    "text": "Направляйте груз оттяжкой. Не направляйте груз руками."
@@ -655,7 +681,7 @@
   "inputHash": "8d052a753ef112bc8c44bffe",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.461Z",
+  "recordedAt": "2026-10-28T23:39:00.935Z",
   "input": {
    "lang": "lt",
    "text": "Kur nėra apsauginių turėklų, naudokite viso kūno saugos diržus, pritvirtintus prie patvirtinto tvirtinimo taško."
@@ -668,7 +694,7 @@
   "inputHash": "9347ff10aca30e2add48378a",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.388Z",
+  "recordedAt": "2026-10-28T23:39:00.820Z",
   "input": {
    "lang": "lt",
    "text": "Apsauginį šalmą su pasmakrės dirželiu galima dėvėti visą laiką."
@@ -681,7 +707,7 @@
   "inputHash": "93b0dc7c51389c21b0257d1c",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.445Z",
+  "recordedAt": "2026-10-28T23:39:00.901Z",
   "input": {
    "lang": "pl",
    "text": "Nikt nie może przebywać pod podwieszonym ładunkiem."
@@ -694,7 +720,7 @@
   "inputHash": "93e90ba00e9646b450c5f79c",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.372Z",
+  "recordedAt": "2026-10-28T23:39:00.798Z",
   "input": {
    "lang": "lt",
    "text": "Kur nėra apsauginių turėklų, naudokite juosmens diržą, pritvirtintą prie patvirtinto tvirtinimo taško."
@@ -707,7 +733,7 @@
   "inputHash": "94c21b915d87596afdd9f4c9",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.496Z",
+  "recordedAt": "2026-10-28T23:39:00.981Z",
   "input": {
    "lang": "ru",
    "text": "Оградите зону под рабочим местом."
@@ -720,7 +746,7 @@
   "inputHash": "993f9c96c84eef1e7922523c",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.393Z",
+  "recordedAt": "2026-10-28T23:39:00.825Z",
   "input": {
    "lang": "lt",
    "text": "Aptverkite zoną virš darbo vietos."
@@ -733,7 +759,7 @@
   "inputHash": "9d294f33c54c6582c50d52e3",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.421Z",
+  "recordedAt": "2026-10-28T23:39:00.862Z",
   "input": {
    "lang": "ru",
    "text": "Оградите зону над рабочим местом."
@@ -746,7 +772,7 @@
   "inputHash": "9d2fbe62de8dbafe087c60eb",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.478Z",
+  "recordedAt": "2026-10-28T23:39:00.964Z",
   "input": {
    "lang": "lt",
    "text": "Aptverkite pavojingą zoną aplink kėlimo vietą."
@@ -759,7 +785,7 @@
   "inputHash": "a3010583878041701cf2f010",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.424Z",
+  "recordedAt": "2026-10-28T23:39:00.864Z",
   "input": {
    "lang": "ru",
    "text": "Застрахуйте инструменты и материалы так, чтобы они не могли упасть."
@@ -772,7 +798,7 @@
   "inputHash": "a49e12f418b2676b321bb4d2",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.503Z",
+  "recordedAt": "2026-10-28T23:39:00.988Z",
   "input": {
    "lang": "ru",
    "text": "Остановите работу, когда скорость ветра выше допустимого предела."
@@ -785,7 +811,7 @@
   "inputHash": "a58796337121cfe1b3b1e558",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.340Z",
+  "recordedAt": "2026-10-28T23:39:00.765Z",
   "input": {
    "lang": "pl",
    "text": "Betonowóz wjeżdża tyłem przez chodnik. Wygrodź chodnik i niech sygnalista kieruje samochodem."
@@ -798,7 +824,7 @@
   "inputHash": "a5a6c77548348c38001a9b4c",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.385Z",
+  "recordedAt": "2026-10-28T23:39:00.817Z",
   "input": {
    "lang": "lt",
    "text": "Kiekvienas gali būti po pakabintu kroviniu."
@@ -811,7 +837,7 @@
   "inputHash": "a618376c28516aec55c85e9b",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.216Z",
+  "recordedAt": "2026-10-28T23:39:00.491Z",
   "input": {
    "lang": "pl",
    "text": "Wygrodź strefę niebezpieczną wokół miejsca podnoszenia, również chodnik przy wejściu."
@@ -824,7 +850,7 @@
   "inputHash": "accba311d3050f8246de6842",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.318Z",
+  "recordedAt": "2026-10-28T23:39:00.744Z",
   "input": {
    "lang": "lt",
    "text": "Prieš pradėdami lakuoti įrenkite mechaninį vėdinimą, nes patalpoje yra tik vienas mažas langas."
@@ -837,7 +863,7 @@
   "inputHash": "ad5e4201ccb8f11d892cd0e8",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.419Z",
+  "recordedAt": "2026-10-28T23:39:00.859Z",
   "input": {
    "lang": "ru",
    "text": "Приставную лестницу можно использовать, и она должна быть защищена от скольжения."
@@ -850,7 +876,7 @@
   "inputHash": "b056fc38059256d2e9c57d0f",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.228Z",
+  "recordedAt": "2026-10-28T23:39:00.516Z",
   "input": {
    "lang": "lt",
    "text": "Naudokite dvi kreipiamąsias virves, nes krovinys ilgas."
@@ -863,7 +889,7 @@
   "inputHash": "b8256e8d3293c7698a970a52",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.317Z",
+  "recordedAt": "2026-10-28T23:39:00.743Z",
   "input": {
    "lang": "ru",
    "text": "Перед началом лакирования установите механическую вытяжку, потому что в помещении только одно маленькое окно."
@@ -876,7 +902,7 @@
   "inputHash": "b9b27888f2dd7fa34ff082d8",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.426Z",
+  "recordedAt": "2026-10-28T23:39:00.867Z",
   "input": {
    "lang": "pl",
    "text": "Balustrada ochronna musi być zamontowana po wszystkich otwartych stronach przed rozpoczęciem pracy."
@@ -889,7 +915,7 @@
   "inputHash": "bb4892386bcba0b3a5c870f5",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.248Z",
+  "recordedAt": "2026-10-28T23:39:00.548Z",
   "input": {
    "lang": "pl",
    "text": "Każdy, kto wchodzi na rusztowanie, powinien przejść szkolenie."
@@ -902,7 +928,7 @@
   "inputHash": "bc0845e11c0362ba63bc028f",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.348Z",
+  "recordedAt": "2026-10-28T23:39:00.774Z",
   "input": {
    "lang": "pl",
    "text": "Tam, gdzie nie ma balustrady ochronnej, używaj pasa bezpieczeństwa przypiętego do zatwierdzonego punktu kotwiczenia."
@@ -915,12 +941,25 @@
   "inputHash": "bfed585475c12f6ec7a60c4f",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.320Z",
+  "recordedAt": "2026-10-28T23:39:00.745Z",
   "input": {
    "lang": "lt",
    "text": "Lakas maišyti ir tepti turi tik tie, kurie apmokyti dirbti su izocianatais."
   },
   "rawOutput": "{\"text\":\"Bare de som har opplæring i isocyanater, skal blande og påføre lakken.\"}"
+ },
+ "c01058a0ec73f47000f9a940": {
+  "task": "P5",
+  "promptVersion": "1.0.0",
+  "inputHash": "c01058a0ec73f47000f9a940",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-28T23:39:00.694Z",
+  "input": {
+   "lang": "lt",
+   "text": "Aptverkite pavojingą zoną abiejose tvoros pusėse, ir niekas neturi stovėti prie tvoros, kai krovinys keliamas per ją."
+  },
+  "rawOutput": "{\"text\":\"Sperr av faresonen på begge sider av gjerdet, og ingen skal stå ved gjerdet når lasten løftes over det.\"}"
  },
  "c122410d1d6a5a30a0948a22": {
   "task": "P5",
@@ -928,7 +967,7 @@
   "inputHash": "c122410d1d6a5a30a0948a22",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.498Z",
+  "recordedAt": "2026-10-28T23:39:00.984Z",
   "input": {
    "lang": "ru",
    "text": "Приставную лестницу можно использовать только для кратковременной работы, и она должна быть защищена от скольжения."
@@ -941,7 +980,7 @@
   "inputHash": "c1b83e4c9a6af77949ceeeea",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.391Z",
+  "recordedAt": "2026-10-28T23:39:00.823Z",
   "input": {
    "lang": "lt",
    "text": "Kopėčios gali būti naudojamos ir turi būti apsaugotos nuo slydimo."
@@ -954,7 +993,7 @@
   "inputHash": "c3b9a5cbaf62c7af5fc49d7e",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.247Z",
+  "recordedAt": "2026-10-28T23:39:00.547Z",
   "input": {
    "lang": "pl",
    "text": "Wygrodź chodnik pod rusztowaniem po rozpoczęciu pracy."
@@ -967,7 +1006,7 @@
   "inputHash": "c64bb3e5d992e34fa72b1841",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.319Z",
+  "recordedAt": "2026-10-28T23:39:00.744Z",
   "input": {
    "lang": "ru",
    "text": "Смешивать и наносить лак должны только те, кто прошёл обучение по работе с изоцианатами."
@@ -980,7 +1019,7 @@
   "inputHash": "c66055078c28b89ea887399a",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.463Z",
+  "recordedAt": "2026-10-28T23:39:00.941Z",
   "input": {
    "lang": "lt",
    "text": "Aptverkite zoną po darbo vieta."
@@ -993,7 +1032,7 @@
   "inputHash": "c673db7029b493cf1cb6c19e",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.367Z",
+  "recordedAt": "2026-10-28T23:39:00.792Z",
   "input": {
    "lang": "pl",
    "text": "Wygrodź teren nad miejscem pracy."
@@ -1006,7 +1045,7 @@
   "inputHash": "cf30258a04db0691266d448f",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.442Z",
+  "recordedAt": "2026-10-28T23:39:00.896Z",
   "input": {
    "lang": "pl",
    "text": "Sprawdź, czy osprzęt do podnoszenia ma DOR (WLL) odpowiednie do masy ładunku."
@@ -1019,12 +1058,25 @@
   "inputHash": "cf5b8cf2c7458752e3f5fd96",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.492Z",
+  "recordedAt": "2026-10-28T23:39:00.978Z",
   "input": {
    "lang": "ru",
    "text": "Там, где нет защитного ограждения, используйте страховочную привязь, пристёгнутую к утверждённой точке крепления."
   },
   "rawOutput": "{\"text\":\"Bruk fallsikringssele festet til godkjent forankringspunkt der rekkverk mangler.\"}"
+ },
+ "cfa73613e52f399d4f6adcc0": {
+  "task": "P5",
+  "promptVersion": "1.0.0",
+  "inputHash": "cfa73613e52f399d4f6adcc0",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-28T23:39:00.694Z",
+  "input": {
+   "lang": "lt",
+   "text": "Kėlimo stropai dar nepatikrinti: stropuotojas turi patikrinti stropus ir apkabas prieš pradedant kėlimą, o pažeistos įrangos naudoti negalima."
+  },
+  "rawOutput": "{\"text\":\"Løftestroppene er ikke kontrollert ennå: anhukeren skal kontrollere stroppene og sjaklene før løftet starter, og skadet utstyr skal ikke brukes.\"}"
  },
  "d13c0ace3b338795873bc836": {
   "task": "P5",
@@ -1032,7 +1084,7 @@
   "inputHash": "d13c0ace3b338795873bc836",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.218Z",
+  "recordedAt": "2026-10-28T23:39:00.494Z",
   "input": {
    "lang": "en",
    "text": "Cordon off the danger zone around the lift, including the walkway by the entrance."
@@ -1045,7 +1097,7 @@
   "inputHash": "d3692cc44dc1f4932d4e0909",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.214Z",
+  "recordedAt": "2026-10-28T23:39:00.490Z",
   "input": {
    "lang": "en",
    "text": "Do not lift over the walkway while people are there."
@@ -1058,7 +1110,7 @@
   "inputHash": "db5b508ca3dceec91d08f512",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.469Z",
+  "recordedAt": "2026-10-28T23:39:00.953Z",
   "input": {
    "lang": "lt",
    "text": "Sustabdykite darbą, kai vėjo greitis viršija vėjo ribą."
@@ -1071,7 +1123,7 @@
   "inputHash": "de171602820f9ae29b103dfd",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.227Z",
+  "recordedAt": "2026-10-28T23:39:00.515Z",
   "input": {
    "lang": "pl",
    "text": "Użyj dwóch lin kierunkowych, ponieważ ładunek jest długi."
@@ -1084,7 +1136,7 @@
   "inputHash": "dff543e62d1f6e9ac3f4a44e",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.489Z",
+  "recordedAt": "2026-10-28T23:39:00.975Z",
   "input": {
    "lang": "ru",
    "text": "Перед началом работы со всех открытых сторон должно быть установлено защитное ограждение."
@@ -1097,7 +1149,7 @@
   "inputHash": "e0988ae1266cbb1421ac10f7",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.473Z",
+  "recordedAt": "2026-10-28T23:39:00.959Z",
   "input": {
    "lang": "lt",
    "text": "Patikrinkite, ar kėlimo reikmenų WLL atitinka krovinio svorį."
@@ -1110,7 +1162,7 @@
   "inputHash": "e0ea7e5fb1e2aa608cf3f92b",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.382Z",
+  "recordedAt": "2026-10-28T23:39:00.807Z",
   "input": {
    "lang": "lt",
    "text": "Darbo metu turi būti ne mažiau kaip 3 asmenys."
@@ -1123,7 +1175,7 @@
   "inputHash": "e947420e06b11320875b9ac2",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.339Z",
+  "recordedAt": "2026-10-28T23:39:00.765Z",
   "input": {
    "lang": "ru",
    "text": "Бетоновоз заезжает задним ходом через тротуар. Оградите тротуар, и пусть сигнальщик руководит машиной."
@@ -1136,7 +1188,7 @@
   "inputHash": "eab0b1aad90bd9252aef300b",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.234Z",
+  "recordedAt": "2026-10-28T23:39:00.526Z",
   "input": {
    "lang": "lt",
    "text": "Aptverkite pavojingą zoną aplink kėlimo vietą, taip pat pėsčiųjų taką prie įėjimo."
@@ -1149,7 +1201,7 @@
   "inputHash": "ee12ba514a7e363a5a7f85be",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.451Z",
+  "recordedAt": "2026-10-28T23:39:00.911Z",
   "input": {
    "lang": "pl",
    "text": "Używaj liny kierunkowej do prowadzenia ładunku. Nie prowadź ładunku rękami."
@@ -1162,7 +1214,7 @@
   "inputHash": "ef5ec213d5e4cc7676c22830",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.523Z",
+  "recordedAt": "2026-10-28T23:39:01.020Z",
   "input": {
    "lang": "pl",
    "text": "Wciągarka musi mieć hamulec ładunku i być przymocowana do konstrukcji nośnej."
@@ -1175,7 +1227,7 @@
   "inputHash": "f051b44c59ff4b6c9dedee91",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.380Z",
+  "recordedAt": "2026-10-28T23:39:00.805Z",
   "input": {
    "lang": "lt",
    "text": "Pavojus: keltuvas apvirsta dėl silpno pagrindo arba per sunkaus krovinio."
@@ -1188,7 +1240,7 @@
   "inputHash": "f8f00c2b3df87e2efaf300cc",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.509Z",
+  "recordedAt": "2026-10-28T23:39:00.994Z",
   "input": {
    "lang": "ru",
    "text": "Никто не должен находиться под подвешенным грузом."
@@ -1201,7 +1253,7 @@
   "inputHash": "febe27baecb7dab9caa2efa5",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.246Z",
+  "recordedAt": "2026-10-28T23:39:00.546Z",
   "input": {
    "lang": "lt",
    "text": "Skylė perdangoje prie laiptų turi būti uždengta ir pažymėta."

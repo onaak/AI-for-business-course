@@ -133,6 +133,8 @@ export interface SjaInit {
   products?: string[];
   testId?: string;
   fixtureId?: string;
+  /** Made in the clean view: kept out of everything that feeds back into the templates. */
+  cleanView?: boolean;
 }
 
 export function createSja(pack: DataPack, template: Template, init: SjaInit, sjaId = uid('sja')): Sja {
@@ -145,6 +147,7 @@ export function createSja(pack: DataPack, template: Template, init: SjaInit, sja
     createdAt: nowIso(),
     testId: init.testId,
     fixtureId: init.fixtureId,
+    ...(init.cleanView ? { cleanView: true } : {}),
     header: init.header,
     parameterValues: init.parameterValues,
     freeText: init.freeText.slice(0, 600),
@@ -197,6 +200,13 @@ export function answerQuestion(sja: Sja, questionId: string, answer: string): Sj
   const next = clone(sja);
   const q = next.questions.find((x) => x.id === questionId);
   if (q) q.answer = answer.trim() || undefined;
+  return next;
+}
+
+/** The foreman wants to answer the clarifying questions again: the answers are cleared, the questions come back. */
+export function clearAnswers(sja: Sja): Sja {
+  const next = clone(sja);
+  for (const q of next.questions) q.answer = undefined;
   return next;
 }
 

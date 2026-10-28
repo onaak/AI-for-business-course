@@ -191,6 +191,21 @@ export class Gateway {
     appendFileSync(path.join(dir, `${safe}.jsonl`), `${JSON.stringify(redact(call))}\n`);
   }
 
+  /**
+   * Replay mode: is there a stored answer for this input? Lets the interface grey out the
+   * choices a demo cannot answer, instead of failing after the foreman picks one.
+   * Outside replay mode every valid input can be answered.
+   */
+  hasStored(task: Task, rawInput: unknown): boolean {
+    if (!TASKS.includes(task)) return false;
+    const checked = inputSchemas[task].safeParse(rawInput);
+    if (!checked.success) return false;
+    if (this.cfg.mode !== 'replay') return true;
+    const input = checked.data as Record<string, unknown>;
+    const version = this.prompts[task].version;
+    return Boolean(this.store.get(task, version, input) ?? (input.examples ? this.store.get(task, version, withoutExamples(input)) : null));
+  }
+
   async call(task: Task, rawInput: unknown, runId: string): Promise<ModelCall> {
     if (!TASKS.includes(task)) throw new GatewayError(400, `Unknown task "${String(task)}".`, 'unknown_task');
 

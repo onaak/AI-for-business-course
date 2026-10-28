@@ -118,6 +118,29 @@ The prototype was changed in place to carry out `docs/team_feedback_and_intervie
 | Tabs for the different people who use the tool | Home has a tab per role: **Bas / Foreman**, **Arbeider / Worker**, **Leder / Manager**, **Kontrollør / Reviewer**, and in the full view **Prosjektgruppe / Project group**. Each tab opens with one sentence on who it is for and what they do there. The worker tab explains the four steps on the phone and lists SJAs waiting for the workers; the manager tab has the rules library, signed SJAs with the main-contractor summary, and what is sent to the AI. The tab you chose is kept on this device. |
 | A clearer clean view | Besides the tabs: "Show the translations and back-translations" now reads "Show the translations and how they were checked"; the help-line note is reworded. The six foreman steps were walked through in both languages and otherwise left as they were. |
 
+## 1c. The clean view without templates (29 October)
+
+Asked for: in the clean view, the SJA should look like the foreman's own, with no mention of templates anywhere; only the yellow prototype banner stays. It must still work, and nothing may be saved back into the templates.
+
+| Where | Full view (unchanged) | Clean view now |
+|---|---|---|
+| Step 3, top | "23 of 26 lines come straight from the template…", counts of reused, changed and new lines | "Your SJA has 26 lines. 3 of them are written for today's job: read those first." Counts: lines for today's job, values from step 1, red flags |
+| Step 3, "You need to decide on these" list | Shown | Gone. Each line that depends on a changed value still asks "Is it right for today's job?" on the line itself, and the bar at the bottom still says how many are left, with "Show me" |
+| Step 3, legend, "The template is a draft", demo-mode note | Shown | Gone |
+| Line badges | Reused / Changed / New | No badge on standard lines; "For today's job" on the others |
+| "In the template: «…»" under a changed line | Shown | Gone. "Use the template text again" reads "Use the previous wording" |
+| Home, step help texts, step 4 summary, step 5 and 6 wording, rules library header, role tabs | Mention the template, or "changed" lines | Reworded around "today's job" (`src/i18n/clean.ts`) |
+| Record and main-contractor summary | "Built from the template", "Built from a verified template", template and data-pack version, translation memory, markdown export | Hidden |
+| Feeding back | Misunderstandings and lines written for one job feed the reviewers | An SJA made in the clean view is marked `cleanView`. Its lines are not offered to reviewers for the template, and its misunderstandings and "not followed" counts are left out of the review screen and the rules library |
+
+**What did not change:** the six steps work exactly as before, the demo job picker on step 1 stays (in demo mode only those jobs work), and the review pages (English, for reviewers) still talk about templates, because that is what reviewers approve. A browser test walks the whole clean flow in Norwegian and checks every screen for "template", "mal", "gjenbrukt" and "reused".
+
+## 1d. Step 2 in demo mode (29 October)
+
+A foreman answering the clarifying questions in demo mode could pick an answer with no stored AI reply, then got a technical error and could not go on or change the answer. Now: choices without a stored reply are greyed out ("Ikke med i demoen") before anyone picks them, typed own answers are not offered in demo mode, "Endre svarene / Change the answers" brings the questions back, and if a reply is still missing the error says so in plain words. The server answers which inputs have a stored reply (`POST /api/llm/available`); in live mode every choice is open.
+
+**Later the same day:** every combination of answers to jd-03's two questions now has stored answers, through the whole flow (4 combinations, checked by `npm run fixtures:demo` up to a language check with no flags). "Over gjerdet" gives a cordon line for both sides of the fence; "De er ikke kontrollert ennå" adds a safety-critical line that the slinger checks slings and shackles before the lift. 20 new scripted fixtures, 4 new Polish and Lithuanian draft translations. The greying-out stays for any other case without a stored answer. Removing a detail on step 2 and then building the SJA still needs a stored answer for exactly the details that are left, so in demo mode that path can still stop with the plain-language message.
+
 ## 2. Things you may trip over
 
 - **Your working data pack is kept.** On start, new seed content (Russian, the new templates, new questions, tags) is merged into `data/working/pack.json`. Nothing you edited and no key you gave is overwritten. "Reset to seed data" still exists.

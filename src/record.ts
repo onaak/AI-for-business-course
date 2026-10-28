@@ -2,7 +2,7 @@
 // with the prototype banner (AC-26) and reads on its own, with no link needed (CR-16).
 import type { ServerConfig, PromptFile } from './api';
 import { activeLines, allFlags } from './core/flags';
-import { benchSummary, FOREMAN_CATEGORIES, fmtDuration, foremanTime, judgedCounts, misunderstandingCounts, PHASE_OF, reuseRate, TIME_CATEGORIES, timeByCategory, TOTAL_CATEGORIES, totalTime, unverifiedReuse, type PairFixture } from './core/metrics';
+import { benchSummary, feedbackEvents, FOREMAN_CATEGORIES, fmtDuration, foremanTime, judgedCounts, misunderstandingCounts, PHASE_OF, reuseRate, TIME_CATEGORIES, timeByCategory, TOTAL_CATEGORIES, totalTime, unverifiedReuse, type PairFixture } from './core/metrics';
 import { BANNER_EN, BANNER_NB, type DataPack, type HazardList, type LogEvent, type RunRecord, type Sja, type SjaLineLang, type Template } from './core/types';
 import { LANG_NAMES, nowIso } from './core/util';
 import { verificationSummary } from './core/verification';
@@ -28,7 +28,7 @@ export function buildRunRecord(sja: Sja, note?: string): RunRecord {
 }
 
 /** What the record says about one line in one language. Never "verified" unless both keys exist. */
-export function lineLangLabel(entry: SjaLineLang | undefined, lang: UiLang): string {
+export function lineLangLabel(entry: SjaLineLang | undefined, lang: UiLang, clean = false): string {
   const t = (k: string) => translate(lang, k);
   if (!entry) return t('rec.noText');
   if (entry.oralFallback) return t('rec.oral');
@@ -37,7 +37,8 @@ export function lineLangLabel(entry: SjaLineLang | undefined, lang: UiLang): str
   if (entry.source === 'reviewerCorrected') return t('rec.reviewerCorrected');
   if (entry.source === 'memory') return t('rec.fromMemory');
   if (entry.source === 'machineNew') return entry.flags.some((f) => f.status === 'open') ? t('rec.machineFlagged') : t('rec.machineChecked');
-  return `${t('rec.reusedAs')} ${t(`verif.${entry.verification}`)}`;
+  // The clean view does not say a line was reused (no template behind it): only its state.
+  return clean ? t(`verif.${entry.verification}`) : `${t('rec.reusedAs')} ${t(`verif.${entry.verification}`)}`;
 }
 
 const cell = (s: unknown) => String(s ?? '').replace(/\|/g, '\\|').replace(/\n/g, ' ');
@@ -256,7 +257,7 @@ export function verificationSummaryMarkdown(pack: DataPack, events: LogEvent[] =
   out.push(`Keys given by someone outside the group: ${outside} of ${rows.length}.`, '');
   out.push('## Misunderstandings fed back from use', '');
   out.push('Points a worker got wrong in the teach-back, or that the foreman saw misunderstood when the job started. Logged without names, per template line, on this device.', '');
-  const fed = misunderstandingCounts(events);
+  const fed = misunderstandingCounts(feedbackEvents(events, useSjas.getState().sjas));
   const fedRows = Object.entries(fed).flatMap(([templateId, byLine]) => Object.entries(byLine).map(([lineId, n]) => [templateId, lineId, lineId === 'job-specific' ? '(lines written for one job, not in the template)' : (pack.templates.find((t) => t.templateId === templateId)?.lines.find((l) => l.lineId === lineId)?.textNb ?? ''), n]));
   out.push(fedRows.length ? table(['Template', 'Line', 'Norwegian text', 'Times misunderstood'], fedRows) : 'None logged.', '');
   return out.join('\n');

@@ -118,6 +118,15 @@ app.post(
   }),
 );
 
+// Which of these inputs can be answered now (in replay mode: which have a stored answer). At most 64 per request.
+app.post(
+  '/api/llm/available',
+  wrap((req, res) => {
+    const items = Array.isArray(req.body?.items) ? (req.body.items as { task: Task; input: unknown }[]).slice(0, 64) : [];
+    res.json({ available: items.map((i) => gateway.hasStored(i.task, i.input)) });
+  }),
+);
+
 app.get(
   '/api/prompts',
   wrap((_req, res) => {

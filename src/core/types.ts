@@ -312,6 +312,8 @@ export interface Sja {
   createdAt: string;
   testId?: string;
   fixtureId?: string;
+  /** Made in the clean view: nothing from it is fed back into the templates (no promotion, no misunderstanding counts). */
+  cleanView?: boolean;
   header: { siteLabel: string; date: string; foremanRole: string }; // local only (D6)
   parameterValues: Record<string, number | string>;
   freeText: string;

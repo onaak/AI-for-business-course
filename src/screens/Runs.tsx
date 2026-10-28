@@ -277,10 +277,10 @@ export function RunRecordScreen() {
           <dl className="grid text-[15px] sm:grid-cols-[15rem_1fr] sm:gap-x-4 sm:gap-y-1.5" data-testid="record-summary">
             {fact(t('rec.signedBy'), sja.signoff ? `${sja.signoff.role} · ${sja.signoff.at.slice(0, 16).replace('T', ' ')}` : t('rec.notSigned'), 'record-signoff')}
             {fact(t('rec.languages'), sja.languages.map((l) => langName(l, ui)).join(', '))}
-            {fact(t('rec.reuseRate'), <><span data-testid="record-reuse">{rec.metrics.reuseRate.reused} {t('common.of')} {rec.metrics.reuseRate.total}</span> {t('rec.reuseLines')}</>)}
-            {fact(t('rec.verifiedTemplate'), reuse.total === 0 ? '–' : reuse.unverified === 0 ? t('common.yes') : t('rec.verifiedTemplateNo', { n: reuse.total - reuse.unverified, total: reuse.total }), 'record-verified-template')}
+            {!field && fact(t('rec.reuseRate'), <><span data-testid="record-reuse">{rec.metrics.reuseRate.reused} {t('common.of')} {rec.metrics.reuseRate.total}</span> {t('rec.reuseLines')}</>)}
+            {!field && fact(t('rec.verifiedTemplate'), reuse.total === 0 ? '–' : reuse.unverified === 0 ? t('common.yes') : t('rec.verifiedTemplateNo', { n: reuse.total - reuse.unverified, total: reuse.total }), 'record-verified-template')}
             {fact(t('rec.flags'), flagLine)}
-            {fact(
+            {!field && fact(
               t('rec.memory'),
               <span data-testid="record-memory">
                 {t('rec.memoryValue', {
@@ -306,7 +306,7 @@ export function RunRecordScreen() {
           <Link to={`/runs/${runId}/summary`} className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-blue-700 px-4 py-2 text-base font-semibold text-white hover:bg-blue-800" data-testid="open-summary">
             <Icon name="doc" /> {t('rec.summaryLink')}
           </Link>
-          <Button onClick={exportMd} data-testid="export-md">{t('rec.exportMd')}</Button>
+          {!field && <Button onClick={exportMd} data-testid="export-md">{t('rec.exportMd')}</Button>}
           {!field && <Button onClick={exportJson} data-testid="export-json">{t('rec.exportJson')}</Button>}
           <Button onClick={() => window.print()}>{t('rec.print')}</Button>
           {localSja && (!saved || !signed) && <Button onClick={() => save(buildRunRecord(localSja))} data-testid="save-run">{t('rec.saveNow')}</Button>}
@@ -352,7 +352,7 @@ export function RunRecordScreen() {
                                 <span className="font-semibold">{langName(lang, ui)}:</span> <span lang={lang}>{e.oralFallback ? '—' : e.text}</span>{' '}
                                 <Chip wrap tone={e.oralFallback ? 'amber' : e.verification === 'verified' ? 'green' : 'slate'}>
                                   {e.oralFallback && <Icon name="voice" className="h-3 w-3" />}
-                                  {lineLangLabel(e, ui)}
+                                  {lineLangLabel(e, ui, field)}
                                 </Chip>
                               </p>
                             );
@@ -508,6 +508,7 @@ export function RunRecordScreen() {
           <p className="mt-2 text-sm">{t('rec.events')}: {rec.events.length}</p>
         </Collapsible>
 
+        {!field && (
         <Collapsible title={t('rec.identity')} summary={t('rec.identitySummary')} testid="record-details">
           <dl className="mt-1 grid gap-x-4 gap-y-1 text-sm sm:grid-cols-[14rem_1fr]">
             <dt className="font-semibold">{t('rec.runId')}</dt><dd>{rec.runId}</dd>
@@ -519,6 +520,7 @@ export function RunRecordScreen() {
             <dt className="font-semibold">{t('rec.specifics')}</dt><dd>{sja.specifics.map((s) => s.text).join(' / ') || '–'}</dd>
           </dl>
         </Collapsible>
+        )}
 
         <Collapsible title={t('rec.privacyTitle')} summary={t('privacy.title')} testid="record-privacy">
           <PrivacyPanel testid="privacy-record" />

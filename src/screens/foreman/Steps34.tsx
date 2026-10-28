@@ -9,7 +9,7 @@ import { unverifiedReuse } from '../../core/metrics';
 import { supportedLangs } from '../../core/rules/diff';
 import { SECTIONS, type DataPack, type Flag, type HazardList, type Route, type Section, type Sja, type SjaLine } from '../../core/types';
 import { useT, useUiLang } from '../../i18n';
-import { useApp, useLog, useSjas } from '../../state/stores';
+import { useApp, useFieldMode, useLog, useSjas } from '../../state/stores';
 import type { useWizard } from './useWizard';
 
 type Wizard = ReturnType<typeof useWizard>;
@@ -18,6 +18,7 @@ function LineRow({ line, w, hazards }: { line: SjaLine; w: Wizard; hazards?: Haz
   const t = useT();
   const sja = w.sja;
   const ui = useUiLang();
+  const clean = useFieldMode();
   const [editing, setEditing] = useState(false);
   const [open, setOpen] = useState(false);
   const [text, setText] = useState(line.textNb);
@@ -41,7 +42,7 @@ function LineRow({ line, w, hazards }: { line: SjaLine; w: Wizard; hazards?: Haz
           </span>
           {line.critical && <Icon name="warn" className="h-4 w-4 text-slate-600" />}
           {line.techRecheck === 'confirmed' && <Icon name="check" className="h-4 w-4 text-emerald-700" />}
-          <span className="shrink-0 text-xs font-semibold text-slate-600">{t(`origin.${line.origin}`)}</span>
+          {!(clean && line.origin === 'reused') && <span className="shrink-0 text-xs font-semibold text-slate-600">{t(`origin.${line.origin}`)}</span>}
         </button>
       </li>
     );
@@ -144,7 +145,7 @@ function LineRow({ line, w, hazards }: { line: SjaLine; w: Wizard; hazards?: Haz
       {removedFlag && (
         <div className="mt-3 rounded-lg bg-rose-50 p-3" data-testid={`removed-critical-${line.lineId}`}>
           <p className="flex items-start gap-2 text-sm font-bold text-rose-950">
-            <Icon name="flag" /> {removedFlag.explanation[ui]}
+            <Icon name="flag" /> {clean ? t('clean.removedCritical') : removedFlag.explanation[ui]}
           </p>
           <input className={`${inputClass} mt-2`} value={reason} onChange={(e) => setReason(e.target.value)} placeholder={t('s3.removalReason')} aria-label={t('s3.removalReason')} />
           <div className="mt-2 flex flex-wrap gap-2">
@@ -158,7 +159,7 @@ function LineRow({ line, w, hazards }: { line: SjaLine; w: Wizard; hazards?: Haz
         </div>
       )}
       {removed && line.removalReason && <p className="mt-2 text-sm text-slate-700">{t('rec.removalReason')}: {line.removalReason}</p>}
-      {line.origin === 'changed' && line.baselineNb && !editing && (
+      {line.origin === 'changed' && line.baselineNb && !editing && !clean && (
         <p className="mt-2 text-sm text-slate-600" data-testid={`was-${line.lineId}`}>
           {t('s3.was')}: «{line.baselineNb}»
           <HelpEn nb={line.baselineNb} line={{ templateLineId: line.templateLineId, textNb: line.baselineNb, baselineNb: line.baselineNb }} sja={sja} />
@@ -202,6 +203,7 @@ function LineRow({ line, w, hazards }: { line: SjaLine; w: Wizard; hazards?: Haz
 export function Step3({ w, hazards }: { w: Wizard; hazards?: HazardList }) {
   const t = useT();
   const replay = useApp((s) => s.config?.mode === 'replay');
+  const clean = useFieldMode();
   const sja = w.sja!;
   const draft = unverifiedReuse(sja);
   const [section, setSection] = useState<Section>('controls');
@@ -224,7 +226,7 @@ export function Step3({ w, hazards }: { w: Wizard; hazards?: HazardList }) {
   return (
     <div className="space-y-4">
       <SummaryBar sja={sja} redOpen={redOpen} />
-      {attention.length > 0 && (
+      {attention.length > 0 && !clean && (
         <Card tone="amber" className="space-y-2">
           <h2 className="text-base font-bold">{t('s3.attention', { n: attention.length })}</h2>
           <ul className="space-y-1">
@@ -241,6 +243,7 @@ export function Step3({ w, hazards }: { w: Wizard; hazards?: HazardList }) {
         </Card>
       )}
 
+      {!clean && (
       <p className="flex items-start gap-2 text-sm text-slate-700" data-testid="lines-legend">
         <Icon name="info" className="mt-0.5 h-4 w-4 text-slate-600" />
         <span>
@@ -248,12 +251,13 @@ export function Step3({ w, hazards }: { w: Wizard; hazards?: HazardList }) {
           {t('s3.legendCritical')}
         </span>
       </p>
-      {draft.total > 0 && draft.unverified > 0 && (
+      )}
+      {draft.total > 0 && draft.unverified > 0 && !clean && (
         <Notice tone="amber">
           <span data-testid="template-draft-note">{draft.unverified === draft.total ? t('s3.templateDraft') : t('s3.templatePartly', { n: draft.unverified, total: draft.total })}</span>
         </Notice>
       )}
-      {replay && <Notice tone="violet">{t('s3.demoNote')}</Notice>}
+      {replay && !clean && <Notice tone="violet">{t('s3.demoNote')}</Notice>}
 
       {SECTIONS.map((sec) => {
         const lines = sja.lines.filter((l) => l.section === sec);

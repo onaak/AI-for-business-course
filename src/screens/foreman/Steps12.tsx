@@ -5,11 +5,13 @@ import { GhsRow } from '../../components/Ghs';
 import { HelpEn } from '../../components/HelpEn';
 import { PrivacyPanel } from '../../components/Privacy';
 import * as flow from '../../core/flow';
+import { buildP1 } from '../../core/rules/payload';
+import { api } from '../../api';
 import { isSupported } from '../../core/rules/languages';
 import type { DataPack, Sja, Template } from '../../core/types';
 import { LANG_NAMES } from '../../core/util';
 import { useT, useUiLang } from '../../i18n';
-import { useApp, useSjas } from '../../state/stores';
+import { useApp, useFieldMode, useSjas } from '../../state/stores';
 import type { useWizard } from './useWizard';
 
 type Wizard = ReturnType<typeof useWizard>;
@@ -64,6 +66,7 @@ function initialForm(pack: DataPack, sja: Sja | undefined, fixture: any | undefi
 
 export function Step1({ w, sjaId, pack, testId, fixtureId }: { w: Wizard; sjaId: string; pack: DataPack; testId?: string; fixtureId?: string }) {
   const t = useT();
+  const clean = useFieldMode();
   const ui = useUiLang();
   const config = useApp((s) => s.config);
   const jobs = (useApp((s) => s.fixtures)?.['job-descriptions'] ?? []) as any[];
@@ -117,7 +120,7 @@ export function Step1({ w, sjaId, pack, testId, fixtureId }: { w: Wizard; sjaId:
     }
     const values = Object.fromEntries(template.parameters.map((p) => [p.key, p.type === 'number' ? Number(form.parameterValues[p.key]) : String(form.parameterValues[p.key])]));
     const products = (form.products ?? []).filter((id) => template.products?.some((p) => p.productId === id));
-    const init: flow.SjaInit = { header: form.header, parameterValues: values, freeText: form.freeText.trim(), languages: form.languages, crewFlags: form.crewFlags, products, testId: w.sja?.testId ?? testId, fixtureId: form.fixtureId };
+    const init: flow.SjaInit = { header: form.header, parameterValues: values, freeText: form.freeText.trim(), languages: form.languages, crewFlags: form.crewFlags, products, testId: w.sja?.testId ?? testId, fixtureId: form.fixtureId, cleanView: clean || w.sja?.cleanView };
     const old = w.sja;
     const unchanged =
       old &&
@@ -303,14 +306,47 @@ export function Step1({ w, sjaId, pack, testId, fixtureId }: { w: Wizard; sjaId:
   );
 }
 
+/** Every combination of the options of these questions (at most 64). */
+function combos(questions: Sja['questions']): Record<string, string>[] {
+  let out: Record<string, string>[] = [{}];
+  for (const q of questions) out = out.flatMap((c) => q.options.map((o) => ({ ...c, [q.id]: o }))).slice(0, 64);
+  return out;
+}
+
 export function Step2({ w }: { w: Wizard }) {
   const t = useT();
   const sja = w.sja!;
+  const pack = useApp((s) => s.pack);
+  const replay = useApp((s) => s.config?.mode === 'replay');
   const [drafts, setDrafts] = useState<Record<string, string>>({});
   const [removed, setRemoved] = useState<{ text: string; before: Sja } | null>(null);
   const blockers = flow.specificsBlockers(sja);
   const open = sja.questions.filter((q) => !q.answer);
   const allDrafted = open.length > 0 && open.every((q) => (drafts[q.id] ?? '').trim());
+
+  // Demo mode answers only what was stored. Find out which combinations of answers have a stored
+  // answer, so the others are greyed out instead of failing after the foreman picks one.
+  const openKey = open.map((q) => q.id).join('|');
+  const [answerable, setAnswerable] = useState<Record<string, string>[] | null>(null);
+  useEffect(() => {
+    setAnswerable(null);
+    const template = pack?.templates.find((x) => x.templateId === sja.templateId);
+    if (!replay || !template || open.length === 0) return;
+    const all = combos(open);
+    const inputs = all.map((c) => buildP1(open.reduce((s, q) => flow.answerQuestion(s, q.id, c[q.id]), sja), template));
+    let live = true;
+    api
+      .available(inputs.map((input) => ({ task: 'P1' as const, input })))
+      .then((r) => live && setAnswerable(all.filter((_, i) => r.available[i])))
+      .catch(() => undefined);
+    return () => {
+      live = false;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [replay, openKey, sja.sjaId, pack]);
+  const canPick = (qid: string, option: string) =>
+    !answerable || answerable.some((c) => c[qid] === option && open.every((q) => q.id === qid || !drafts[q.id] || c[q.id] === drafts[q.id]));
+  const friendly = (m: string) => (/no stored response/i.test(m) ? t('s2.noStored') : m);
 
   const sendAnswers = async () => {
     setRemoved(null);
@@ -364,21 +400,23 @@ export function Step2({ w }: { w: Wizard }) {
             <Icon name="info" /> {t('s2.questionsTitle')}
           </h3>
           <p className="text-sm text-slate-700">{t('s2.questionsHint')}</p>
+          {replay && answerable && open.some((q) => q.options.some((o) => !canPick(q.id, o))) && <p className="text-sm text-slate-700">{t('s2.demoOptions')}</p>}
           {open.map((q, qi) => (
             <div key={q.id} className="space-y-2" data-testid={`question-${qi}`}>
               <p className="text-base font-semibold">{q.question}</p>
               <HelpEn nb={q.question} />
               <div className="flex flex-wrap gap-2">
                 {q.options.map((o) => (
-                  <Button key={o} variant={drafts[q.id] === o ? 'primary' : 'secondary'} aria-pressed={drafts[q.id] === o} onClick={() => setDrafts((d) => ({ ...d, [q.id]: o }))}>
+                  <Button key={o} variant={drafts[q.id] === o ? 'primary' : 'secondary'} aria-pressed={drafts[q.id] === o} disabled={!canPick(q.id, o)} title={canPick(q.id, o) ? undefined : t('s2.notInDemo')} onClick={() => setDrafts((d) => ({ ...d, [q.id]: o }))} data-testid={`option-${qi}-${q.options.indexOf(o)}`}>
                     <span>
                       {o}
                       <HelpEn nb={o} />
+                      {!canPick(q.id, o) && <span className="block text-xs font-normal">{t('s2.notInDemo')}</span>}
                     </span>
                   </Button>
                 ))}
               </div>
-              <input className={inputClass} placeholder={t('s2.ownAnswer')} value={q.options.includes(drafts[q.id] ?? '') ? '' : (drafts[q.id] ?? '')} onChange={(e) => setDrafts((d) => ({ ...d, [q.id]: e.target.value }))} />
+              {!replay && <input className={inputClass} placeholder={t('s2.ownAnswer')} value={q.options.includes(drafts[q.id] ?? '') ? '' : (drafts[q.id] ?? '')} onChange={(e) => setDrafts((d) => ({ ...d, [q.id]: e.target.value }))} />}
             </div>
           ))}
           <Button variant="primary" disabled={!allDrafted || Boolean(w.busy)} onClick={sendAnswers} data-testid="send-answers">
@@ -401,6 +439,9 @@ export function Step2({ w }: { w: Wizard }) {
                 </li>
               ))}
           </ul>
+          <Button variant="ghost" className="mt-1 !px-0 text-sm" disabled={Boolean(w.busy)} onClick={() => { w.setError(null); useSjas.getState().put(flow.clearAnswers(sja)); setDrafts({}); }} data-testid="change-answers">
+            {t('s2.changeAnswers')}
+          </Button>
         </Card>
       )}
 
@@ -411,7 +452,7 @@ export function Step2({ w }: { w: Wizard }) {
         </Notice>
       )}
       {w.busy && <Spinner label={w.busy === 'adapt' ? t('busy.adapt') : t('busy.normalise')} />}
-      {w.error && <ErrorBox message={w.error.message} onRetry={w.error.retry} retryLabel={t('common.retry')} />}
+      {w.error && <ErrorBox message={friendly(w.error.message)} onRetry={/no stored response/i.test(w.error.message) ? undefined : w.error.retry} retryLabel={t('common.retry')} />}
       <ActionBar>
         <Button onClick={() => w.goStep(1)} disabled={Boolean(w.busy)}>
           {t('common.back')}

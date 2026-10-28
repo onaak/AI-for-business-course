@@ -82,7 +82,7 @@
       "firstTimeJobType": false
     },
     "freeText": "Skal heise opp noen paller m gips t 3 etg, bruker trucken. Litt trangt ved porten, må kanskje ta det over gjerdet?? fikser stroppa selv",
-    "note": "Mixed slang with typos. Two safety-relevant details are unclear, so two clarifying questions are asked. In replay mode pick \"Gjennom porten\" and \"Anhukeren kontrollerer løftestroppene før bruk\"."
+    "note": "Mixed slang with typos. Two safety-relevant details are unclear, so two clarifying questions are asked. Every combination of answers has stored answers in replay mode: \"Over gjerdet\" changes the cordon line, \"De er ikke kontrollert ennå\" adds a line that the slings are checked before the lift."
   },
   {
     "id": "jd-04",

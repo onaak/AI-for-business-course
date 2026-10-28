@@ -12,11 +12,12 @@ import { upgradeSja } from '../core/rules/understanding';
 import { BANNER_EN, BANNER_NB, type Sja } from '../core/types';
 import { LANG_NAMES } from '../core/util';
 import { useT, useUiLang } from '../i18n';
-import { useApp, useSjas } from '../state/stores';
+import { useApp, useFieldMode, useSjas } from '../state/stores';
 
 export function SummaryScreen() {
   const { runId = '' } = useParams();
   const t = useT();
+  const clean = useFieldMode();
   const ui = useUiLang();
   const pack = useApp((s) => s.pack);
   const local = useSjas((s) => s.sjas[runId]);
@@ -77,9 +78,9 @@ export function SummaryScreen() {
           <tbody>
             {row(t('sum.status'), <strong data-testid="summary-status">{t(`status.${sja.status}`)}</strong>)}
             {row(t('rec.signedBy'), sja.signoff ? `${sja.signoff.role} · ${sja.signoff.at.slice(0, 16).replace('T', ' ')}` : t('rec.notSigned'))}
-            {row(t('rec.template'), `${sja.templateId} · ${t('rec.packVersion')} ${sja.packVersion}`)}
-            {row(t('rec.verifiedTemplate'), vr.total === 0 ? '–' : vr.unverified === 0 ? t('common.yes') : t('rec.verifiedTemplateNo', { n: vr.total - vr.unverified, total: vr.total }))}
-            {row(t('rec.reuseRate'), `${rr.reused} ${t('common.of')} ${rr.total} ${t('rec.reuseLines')}`)}
+            {!clean && row(t('rec.template'), `${sja.templateId} · ${t('rec.packVersion')} ${sja.packVersion}`)}
+            {!clean && row(t('rec.verifiedTemplate'), vr.total === 0 ? '–' : vr.unverified === 0 ? t('common.yes') : t('rec.verifiedTemplateNo', { n: vr.total - vr.unverified, total: vr.total }))}
+            {!clean && row(t('rec.reuseRate'), `${rr.reused} ${t('common.of')} ${rr.total} ${t('rec.reuseLines')}`)}
             {row(t('rec.languages'), [...sja.languages.filter((l) => !unsupported.includes(LANG_NAMES[l]?.[ui] ?? l)).map((l) => LANG_NAMES[l]?.[ui] ?? l), ...unsupported.map((n) => `${n} (${t('sum.interpreter')})`)].join(', '))}
             {products.length > 0 &&
               row(

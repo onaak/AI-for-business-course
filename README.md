@@ -40,7 +40,7 @@ On the Home screen choose **Lag dagens SJA** and pick a demo job at the top of s
 |---|---|
 | `jd-01` | The main path. Three lines change, one glossary flag in Lithuanian, cleared with "use the approved term". Then the understanding check: each worker reads, explains to the foreman, and answers one question. Sign, then note what you saw when the job started. Record. |
 | `jd-02` | An unsourced AI suggestion. A meaning shift in Polish that only back-translation finds. A flag that survives two automatic attempts. Reviewer and oral routes. |
-| `jd-03` | Slang with typos: two clarifying questions. Pick "Gjennom porten" and "Anhukeren kontrollerer løftestroppene før bruk". |
+| `jd-03` | Slang with typos: two clarifying questions. Every combination of answers works in demo mode. "Over gjerdet" changes the cordon line; "De er ikke kontrollert ennå" adds a line that the slinger checks slings and shackles before the lift. "Endre svarene" lets you answer again. |
 | `jd-04` | An ambiguous safety-critical line (use the suggested wording), a concept missing from the glossary, and an unsupported language. |
 | `jd-09` | Parameters only. Needs no model in any mode. Pure reuse. |
 | `jd-10` | Painting, with the two-component varnish picked as today's product: its lines and pictograms come in. Russian and Lithuanian crew. One Russian glossary flag, cleared with "use the approved term". On step 5, try "The conversation is not possible now" for a written explanation, and "cannot write either" for the multiple-choice fallback. |
@@ -95,6 +95,8 @@ cloudflared tunnel --url http://localhost:5173  # in a second terminal; no accou
 ```
 
 Send the `https://….trycloudflare.com` address it prints. It works only while your laptop is on and both commands run, and it changes every time. Anyone with the address can make SJAs and write runs to `evidence/`, so stop the tunnel after the session and don't post the address anywhere public. Try it on a phone first. For someone looking in their own time, a short screen recording and a printed record work better than a link.
+
+**Hosting it on Render (free).** Push the folder to GitHub, then on render.com choose New → Blueprint and pick the repository. `render.yaml` sets everything: stored demo answers only, the clean view fixed, the reviewers' work read-only. The free plan sleeps after 15 minutes without visitors (about a minute to wake), and it forgets saved runs when it sleeps or redeploys. Check that the repository holds nothing you would not show to anyone with the address.
 
 ## 5. Tests
 

@@ -60,6 +60,8 @@ async function request<T>(url: string, init?: RequestInit): Promise<T> {
 
 export const api = {
   config: () => request<ServerConfig>('/api/config'),
+  /** Which inputs can be answered now; in replay mode, which have a stored answer. */
+  available: (items: { task: Task; input: unknown }[]) => request<{ available: boolean[] }>('/api/llm/available', { method: 'POST', body: JSON.stringify({ items }) }),
   pack: () => request<DataPack>('/api/data/pack'),
   savePack: (pack: DataPack) => request<DataPack>('/api/data/pack', { method: 'PUT', body: JSON.stringify(pack) }),
   resetPack: () => request<DataPack>('/api/data/pack/reset', { method: 'POST' }),

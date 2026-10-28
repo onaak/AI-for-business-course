@@ -142,6 +142,26 @@ async function main() {
     s = await flow.runLanguageCheck(ctx, s);
     assert(openLang(s).length === 0, 'jd-03: no language flags');
   }
+  // jd-03 with every other answer (29 Oct 2026): each combination gets its own stored answers.
+  for (const [where, slings, expect] of [
+    ['Over gjerdet', 'Anhukeren kontrollerer løftestroppene før bruk', 1],
+    ['Gjennom porten', 'De er ikke kontrollert ennå', 2],
+    ['Over gjerdet', 'De er ikke kontrollert ennå', 2],
+  ] as const) {
+    let { ctx, sja: s } = start('jd-03');
+    s = await flow.runNormalise(ctx, s);
+    s = flow.answerQuestion(s, s.questions[0].id, where);
+    s = flow.answerQuestion(s, s.questions[1].id, slings);
+    s = await flow.runNormalise(ctx, s);
+    assert(flow.specificsBlockers(s).unclear === 0, `jd-03 ${where}/${slings}: clear after answers`);
+    s = await flow.runAdapt(ctx, s);
+    const fresh = s.lines.filter((l) => l.origin === 'changed' || l.origin === 'new').length;
+    assert(fresh === expect, `jd-03 ${where}/${slings}: ${expect} lines for today, got ${fresh}`);
+    s = settleContent(ctx, s);
+    s = await flow.confirmContent(ctx, s);
+    s = await flow.runLanguageCheck(ctx, s);
+    assert(openLang(s).length === 0, `jd-03 ${where}/${slings}: no language flags`);
+  }
   // jd-04: ambiguous line, missing glossary term, unsupported language
   {
     let { ctx, sja: s } = start('jd-04');

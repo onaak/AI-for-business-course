@@ -77,6 +77,13 @@ T(C, 'lt', 0, 'Visi, kurie lipa ant pastolių, turi būti apmokyti.', 'Alle som 
 const D = 'Sperr av faresonen rundt løftet og hold porten stengt under løftet.';
 T(D, 'pl', 0, 'Wygrodź strefę niebezpieczną wokół miejsca podnoszenia i trzymaj bramę zamkniętą podczas podnoszenia.', 'Sperr av faresonen rundt løftestedet og hold porten stengt under løftet.');
 T(D, 'lt', 0, 'Aptverkite pavojingą zoną aplink kėlimo vietą ir laikykite vartus uždarytus kėlimo metu.', 'Sperr av faresonen rundt løftestedet og hold porten stengt under løftet.');
+// The other answers to the two clarifying questions (added 29 Oct 2026: every answer works in the demo).
+const D2 = 'Sperr av faresonen på begge sider av gjerdet, og ingen skal stå ved gjerdet når lasten føres over.';
+const G = 'Løftestroppene er ikke kontrollert ennå: anhukeren skal kontrollere stropper og sjakler før løftet starter, og skadet utstyr skal ikke brukes.';
+T(D2, 'pl', 0, 'Wygrodź strefę niebezpieczną po obu stronach ogrodzenia i nikt nie może stać przy ogrodzeniu, gdy ładunek jest przenoszony nad nim.', 'Sperr av faresonen på begge sider av gjerdet, og ingen skal stå ved gjerdet når lasten føres over det.');
+T(D2, 'lt', 0, 'Aptverkite pavojingą zoną abiejose tvoros pusėse, ir niekas neturi stovėti prie tvoros, kai krovinys keliamas per ją.', 'Sperr av faresonen på begge sider av gjerdet, og ingen skal stå ved gjerdet når lasten løftes over det.');
+T(G, 'pl', 0, 'Zawiesia nie zostały jeszcze sprawdzone: hakowy musi sprawdzić zawiesia i szekle przed rozpoczęciem podnoszenia, a uszkodzonego sprzętu nie wolno używać.', 'Løftestroppene er ikke kontrollert ennå: anhukeren må kontrollere stroppene og sjaklene før løftet starter, og skadet utstyr skal ikke brukes.');
+T(G, 'lt', 0, 'Kėlimo stropai dar nepatikrinti: stropuotojas turi patikrinti stropus ir apkabas prieš pradedant kėlimą, o pažeistos įrangos naudoti negalima.', 'Løftestroppene er ikke kontrollert ennå: anhukeren skal kontrollere stroppene og sjaklene før løftet starter, og skadet utstyr skal ikke brukes.');
 
 // ---------- jd-04: ambiguous line, missing glossary term ----------
 const E = 'Bruk sele ved behov.';
@@ -191,6 +198,30 @@ const P1: Record<string, unknown> = {
     ],
     questions: [],
   },
+  'Skal heise opp noen paller m gips t 3 etg, bruker trucken. Litt trangt ved porten, må kanskje ta det over gjerdet?? fikser stroppa selv|Over gjerdet;Anhukeren kontrollerer løftestroppene før bruk': {
+    specifics: [
+      { text: 'Løft av paller med gipsplater til 3. etasje.', status: 'clear' },
+      { text: 'Trang plass ved porten. Lasten løftes over gjerdet.', status: 'clear' },
+      { text: 'Anhukeren kontrollerer løftestroppene før bruk.', status: 'clear' },
+    ],
+    questions: [],
+  },
+  'Skal heise opp noen paller m gips t 3 etg, bruker trucken. Litt trangt ved porten, må kanskje ta det over gjerdet?? fikser stroppa selv|Gjennom porten;De er ikke kontrollert ennå': {
+    specifics: [
+      { text: 'Løft av paller med gipsplater til 3. etasje.', status: 'clear' },
+      { text: 'Trang plass ved porten. Lasten tas gjennom porten, ikke over gjerdet.', status: 'clear' },
+      { text: 'Løftestroppene er ikke kontrollert ennå.', status: 'clear' },
+    ],
+    questions: [],
+  },
+  'Skal heise opp noen paller m gips t 3 etg, bruker trucken. Litt trangt ved porten, må kanskje ta det over gjerdet?? fikser stroppa selv|Over gjerdet;De er ikke kontrollert ennå': {
+    specifics: [
+      { text: 'Løft av paller med gipsplater til 3. etasje.', status: 'clear' },
+      { text: 'Trang plass ved porten. Lasten løftes over gjerdet.', status: 'clear' },
+      { text: 'Løftestroppene er ikke kontrollert ennå.', status: 'clear' },
+    ],
+    questions: [],
+  },
   'Vi skal lakkere gulvet i en leilighet med 2-komponent lakk. Rommet har bare ett lite vindu.|': {
     specifics: [
       { text: 'Lakkering av gulv i en leilighet med 2-komponent lakk.', status: 'clear' },
@@ -231,6 +262,22 @@ const P2: Record<string, unknown> = {
     ],
   },
   'Løft av paller med gipsplater til 3. etasje.': { operations: [{ op: 'modify', lineId: 'l-12', text: D, hazardRef: 'lh-02' }] },
+  // jd-03 with the other answers: keyed by every detail, so each answer gets its own SJA.
+  'Løft av paller med gipsplater til 3. etasje. | Trang plass ved porten. Lasten løftes over gjerdet. | Anhukeren kontrollerer løftestroppene før bruk.': {
+    operations: [{ op: 'modify', lineId: 'l-12', text: D2, hazardRef: 'lh-06' }],
+  },
+  'Løft av paller med gipsplater til 3. etasje. | Trang plass ved porten. Lasten tas gjennom porten, ikke over gjerdet. | Løftestroppene er ikke kontrollert ennå.': {
+    operations: [
+      { op: 'modify', lineId: 'l-12', text: D, hazardRef: 'lh-02' },
+      { op: 'add', text: G, section: 'controls', afterLineId: 'l-10', hazardRef: 'lh-04', critical: true },
+    ],
+  },
+  'Løft av paller med gipsplater til 3. etasje. | Trang plass ved porten. Lasten løftes over gjerdet. | Løftestroppene er ikke kontrollert ennå.': {
+    operations: [
+      { op: 'modify', lineId: 'l-12', text: D2, hazardRef: 'lh-06' },
+      { op: 'add', text: G, section: 'controls', afterLineId: 'l-10', hazardRef: 'lh-04', critical: true },
+    ],
+  },
   'Lakkering av gulv i en leilighet med 2-komponent lakk.': {
     operations: [
       { op: 'add', text: PV1, section: 'controls', afterLineId: 'p-10', hazardRef: 'pd-08', critical: true },
@@ -257,6 +304,8 @@ const P3: Record<string, Record<string, unknown>> = {
   [Bplain]: { status: 'clear' },
   [C]: { status: 'clear' },
   [D]: { status: 'clear' },
+  [D2]: { status: 'clear' },
+  [G]: { status: 'clear' },
   [E]: {
     status: 'ambiguous',
     category: 'undefined_condition',
@@ -309,7 +358,9 @@ export function scriptedAnswer(task: string, input: unknown): string {
     return JSON.stringify(P1[key]);
   }
   if (task === 'P2') {
-    const key = (input as P2Input).specifics[0] ?? '';
+    const specifics = (input as P2Input).specifics;
+    const full = specifics.join(' | ');
+    const key = P2[full] ? full : (specifics[0] ?? '');
     if (!P2[key]) throw miss(key);
     return JSON.stringify(P2[key]);
   }

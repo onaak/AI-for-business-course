@@ -5,7 +5,7 @@
   "inputHash": "05442a640a1519b43f62684a",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.206Z",
+  "recordedAt": "2026-10-28T23:39:00.477Z",
   "input": {
    "targetLang": "pl",
    "text": "Ikke løft over gangveien mens personer oppholder seg der.",
@@ -15,13 +15,40 @@
   },
   "rawOutput": "{\"text\":\"Nie podnoś ładunku nad chodnikiem, gdy przebywają tam ludzie.\",\"termsUsed\":[],\"missingConcepts\":[]}"
  },
+ "05ad021581be82dae10db4fd": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "05ad021581be82dae10db4fd",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-28T23:39:00.685Z",
+  "input": {
+   "targetLang": "pl",
+   "text": "Sperr av faresonen på begge sider av gjerdet, og ingen skal stå ved gjerdet når lasten føres over.",
+   "glossary": [
+    {
+     "nb": "sperr",
+     "approved": "wygrodzić",
+     "definition": "To close an area with barriers or tape so that nobody walks in."
+    },
+    {
+     "nb": "faresone",
+     "approved": "strefa niebezpieczna",
+     "definition": "The area where a person can be hit if something falls, swings or tips over."
+    }
+   ],
+   "enforceApprovedTerms": false,
+   "attempt": 0
+  },
+  "rawOutput": "{\"text\":\"Wygrodź strefę niebezpieczną po obu stronach ogrodzenia i nikt nie może stać przy ogrodzeniu, gdy ładunek jest przenoszony nad nim.\",\"termsUsed\":[\"wygrodzić\",\"strefa niebezpieczna\"],\"missingConcepts\":[]}"
+ },
  "0ce064adaa640fed77a40a7d": {
   "task": "P4",
   "promptVersion": "1.1.0",
   "inputHash": "0ce064adaa640fed77a40a7d",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.264Z",
+  "recordedAt": "2026-10-28T23:39:00.580Z",
   "input": {
    "targetLang": "lt",
    "text": "Sperr av fortauet under stillaset før dere begynner.",
@@ -48,7 +75,7 @@
   "inputHash": "1345576367b9abb478e8b0e8",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.209Z",
+  "recordedAt": "2026-10-28T23:39:00.480Z",
   "input": {
    "targetLang": "lt",
    "text": "Ikke løft over gangveien mens personer oppholder seg der.",
@@ -64,7 +91,7 @@
   "inputHash": "172fbfd09bdfc6257bd2b5fb",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.326Z",
+  "recordedAt": "2026-10-28T23:39:00.752Z",
   "input": {
    "targetLang": "ru",
    "text": "Sett opp mekanisk ventilasjon før lakkeringen starter, fordi rommet bare har ett lite vindu.",
@@ -86,7 +113,7 @@
   "inputHash": "19ba0c4584fd7d39a2888469",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.241Z",
+  "recordedAt": "2026-10-28T23:39:00.539Z",
   "input": {
    "targetLang": "lt",
    "text": "Utsparingen i dekket ved trappa skal dekkes til og merkes.",
@@ -108,7 +135,7 @@
   "inputHash": "247881163d75a3756ab9fe57",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.241Z",
+  "recordedAt": "2026-10-28T23:39:00.540Z",
   "input": {
    "targetLang": "pl",
    "text": "Alle som går opp på stillaset skal ha fått opplæring.",
@@ -130,7 +157,7 @@
   "inputHash": "2ee6ce3f0d913ab9825afee0",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.276Z",
+  "recordedAt": "2026-10-28T23:39:00.653Z",
   "input": {
    "targetLang": "pl",
    "text": "Sperr av faresonen rundt løftet og hold porten stengt under løftet.",
@@ -157,7 +184,7 @@
   "inputHash": "3bf9703a991096a77b73f1d3",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.241Z",
+  "recordedAt": "2026-10-28T23:39:00.539Z",
   "input": {
    "targetLang": "pl",
    "text": "Utsparingen i dekket ved trappa skal dekkes til og merkes.",
@@ -179,7 +206,7 @@
   "inputHash": "45200b8bf5487a6bb82d2955",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.241Z",
+  "recordedAt": "2026-10-28T23:39:00.539Z",
   "input": {
    "targetLang": "pl",
    "text": "Sperr av fortauet under stillaset før arbeidet starter.",
@@ -206,7 +233,7 @@
   "inputHash": "51c4a6b1c34434c319a250af",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.264Z",
+  "recordedAt": "2026-10-28T23:39:00.580Z",
   "input": {
    "targetLang": "pl",
    "text": "Sperr av fortauet under stillaset før dere begynner.",
@@ -233,7 +260,7 @@
   "inputHash": "669f6cd2e7ea56549bec45b7",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.522Z",
+  "recordedAt": "2026-10-28T23:39:01.018Z",
   "input": {
    "targetLang": "pl",
    "text": "Vinsjen skal ha lastbrems og være festet til bærende konstruksjon.",
@@ -249,7 +276,7 @@
   "inputHash": "6cfabefca2070e70434cc22d",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.224Z",
+  "recordedAt": "2026-10-28T23:39:00.508Z",
   "input": {
    "targetLang": "pl",
    "text": "Bruk to styretau fordi lasten er lang.",
@@ -271,7 +298,7 @@
   "inputHash": "70ace7143590abb89ceedb15",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.241Z",
+  "recordedAt": "2026-10-28T23:39:00.540Z",
   "input": {
    "targetLang": "lt",
    "text": "Sperr av fortauet under stillaset før arbeidet starter.",
@@ -298,7 +325,7 @@
   "inputHash": "70fd3523e95160f9e24e6e8e",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.336Z",
+  "recordedAt": "2026-10-28T23:39:00.762Z",
   "input": {
    "targetLang": "ru",
    "text": "Betongbilen rygger inn over fortauet. Sperr av fortauet, og la signalgiveren dirigere bilen.",
@@ -325,7 +352,7 @@
   "inputHash": "835ea8f29430c39dc531a510",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.210Z",
+  "recordedAt": "2026-10-28T23:39:00.481Z",
   "input": {
    "targetLang": "pl",
    "text": "Sperr av faresonen rundt løftet, også gangveien ved inngangen.",
@@ -352,7 +379,7 @@
   "inputHash": "87ef94adcfe77af2309d5ae0",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.292Z",
+  "recordedAt": "2026-10-28T23:39:00.714Z",
   "input": {
    "targetLang": "lt",
    "text": "Vinsjen skal ha lastbrems og være festet til bærende konstruksjon.",
@@ -368,7 +395,7 @@
   "inputHash": "8a1f1c92331d045cec5098d2",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.233Z",
+  "recordedAt": "2026-10-28T23:39:00.524Z",
   "input": {
    "targetLang": "lt",
    "text": "Sperr av faresonen rundt løftet, også gangveien ved inngangen.",
@@ -395,7 +422,7 @@
   "inputHash": "8a6594415324a0dda42f7864",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.210Z",
+  "recordedAt": "2026-10-28T23:39:00.482Z",
   "input": {
    "targetLang": "en",
    "text": "Sperr av faresonen rundt løftet, også gangveien ved inngangen.",
@@ -422,7 +449,7 @@
   "inputHash": "8e721069ed477eae7e180aad",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.210Z",
+  "recordedAt": "2026-10-28T23:39:00.482Z",
   "input": {
    "targetLang": "lt",
    "text": "Sperr av faresonen rundt løftet, også gangveien ved inngangen.",
@@ -443,13 +470,45 @@
   },
   "rawOutput": "{\"text\":\"Aptverkite pavojaus vietą aplink kėlimo vietą, taip pat pėsčiųjų taką prie įėjimo.\",\"termsUsed\":[\"aptverti\",\"pavojinga zona\"],\"missingConcepts\":[]}"
  },
+ "8eac65f174e8e092c4ea9dc6": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "8eac65f174e8e092c4ea9dc6",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-28T23:39:00.685Z",
+  "input": {
+   "targetLang": "pl",
+   "text": "Løftestroppene er ikke kontrollert ennå: anhukeren skal kontrollere stropper og sjakler før løftet starter, og skadet utstyr skal ikke brukes.",
+   "glossary": [
+    {
+     "nb": "løftestropp",
+     "approved": "zawiesie",
+     "definition": "A certified strap, chain or wire that connects the load to the hook. Not a lashing strap for securing cargo."
+    },
+    {
+     "nb": "anhuker",
+     "approved": "hakowy",
+     "definition": "The person who attaches the load to the hook and releases it."
+    },
+    {
+     "nb": "sjakkel",
+     "approved": "szekla",
+     "definition": "A U-shaped metal link with a pin, used to connect lifting slings."
+    }
+   ],
+   "enforceApprovedTerms": false,
+   "attempt": 0
+  },
+  "rawOutput": "{\"text\":\"Zawiesia nie zostały jeszcze sprawdzone: hakowy musi sprawdzić zawiesia i szekle przed rozpoczęciem podnoszenia, a uszkodzonego sprzętu nie wolno używać.\",\"termsUsed\":[\"zawiesie\",\"hakowy\",\"szekla\"],\"missingConcepts\":[]}"
+ },
  "901463564f4253592cda606a": {
   "task": "P4",
   "promptVersion": "1.1.0",
   "inputHash": "901463564f4253592cda606a",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.241Z",
+  "recordedAt": "2026-10-28T23:39:00.540Z",
   "input": {
    "targetLang": "lt",
    "text": "Alle som går opp på stillaset skal ha fått opplæring.",
@@ -471,7 +530,7 @@
   "inputHash": "95c36812eb571c58598c910d",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.224Z",
+  "recordedAt": "2026-10-28T23:39:00.508Z",
   "input": {
    "targetLang": "lt",
    "text": "Bruk to styretau fordi lasten er lang.",
@@ -493,7 +552,7 @@
   "inputHash": "9a86544655b94c1b8a4c1477",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.313Z",
+  "recordedAt": "2026-10-28T23:39:00.738Z",
   "input": {
    "targetLang": "lt",
    "text": "Sett opp mekanisk ventilasjon før lakkeringen starter, fordi rommet bare har ett lite vindu.",
@@ -515,7 +574,7 @@
   "inputHash": "a634f1fc3d524a264c76c69d",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.292Z",
+  "recordedAt": "2026-10-28T23:39:00.714Z",
   "input": {
    "targetLang": "lt",
    "text": "Bruk fallsikringssele festet til forankringspunkt hele tiden du er utenfor stillaset.",
@@ -547,7 +606,7 @@
   "inputHash": "b6bf3036884485180e61c320",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.313Z",
+  "recordedAt": "2026-10-28T23:39:00.738Z",
   "input": {
    "targetLang": "ru",
    "text": "Sett opp mekanisk ventilasjon før lakkeringen starter, fordi rommet bare har ett lite vindu.",
@@ -563,13 +622,45 @@
   },
   "rawOutput": "{\"text\":\"Перед началом лакирования установите механическую вытяжку, потому что в помещении только одно маленькое окно.\",\"termsUsed\":[\"вентиляция\"],\"missingConcepts\":[]}"
  },
+ "bbc35a5c06fb4ddee9ef18f0": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "bbc35a5c06fb4ddee9ef18f0",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-28T23:39:00.685Z",
+  "input": {
+   "targetLang": "lt",
+   "text": "Løftestroppene er ikke kontrollert ennå: anhukeren skal kontrollere stropper og sjakler før løftet starter, og skadet utstyr skal ikke brukes.",
+   "glossary": [
+    {
+     "nb": "løftestropp",
+     "approved": "kėlimo stropas",
+     "definition": "A certified strap, chain or wire that connects the load to the hook. Not a lashing strap for securing cargo."
+    },
+    {
+     "nb": "anhuker",
+     "approved": "stropuotojas",
+     "definition": "The person who attaches the load to the hook and releases it."
+    },
+    {
+     "nb": "sjakkel",
+     "approved": "apkaba",
+     "definition": "A U-shaped metal link with a pin, used to connect lifting slings."
+    }
+   ],
+   "enforceApprovedTerms": false,
+   "attempt": 0
+  },
+  "rawOutput": "{\"text\":\"Kėlimo stropai dar nepatikrinti: stropuotojas turi patikrinti stropus ir apkabas prieš pradedant kėlimą, o pažeistos įrangos naudoti negalima.\",\"termsUsed\":[\"kėlimo stropas\",\"stropuotojas\",\"apkaba\"],\"missingConcepts\":[]}"
+ },
  "bc94eee21f1d7ad7fe2eadb2": {
   "task": "P4",
   "promptVersion": "1.1.0",
   "inputHash": "bc94eee21f1d7ad7fe2eadb2",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.225Z",
+  "recordedAt": "2026-10-28T23:39:00.510Z",
   "input": {
    "targetLang": "en",
    "text": "Bruk to styretau fordi lasten er lang.",
@@ -591,7 +682,7 @@
   "inputHash": "c064aa23ab376dcd41175f71",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.276Z",
+  "recordedAt": "2026-10-28T23:39:00.653Z",
   "input": {
    "targetLang": "lt",
    "text": "Sperr av faresonen rundt løftet og hold porten stengt under løftet.",
@@ -618,7 +709,7 @@
   "inputHash": "c643d76a31cbb47b4c0de36b",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.259Z",
+  "recordedAt": "2026-10-28T23:39:00.571Z",
   "input": {
    "targetLang": "lt",
    "text": "Utsparingen i dekket ved trappa skal dekkes til og merkes.",
@@ -640,7 +731,7 @@
   "inputHash": "cc87889d0b24db4ddc2a1fe2",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.209Z",
+  "recordedAt": "2026-10-28T23:39:00.481Z",
   "input": {
    "targetLang": "en",
    "text": "Ikke løft over gangveien mens personer oppholder seg der.",
@@ -656,7 +747,7 @@
   "inputHash": "d0517b4f8446650542a0fe5e",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.255Z",
+  "recordedAt": "2026-10-28T23:39:00.563Z",
   "input": {
    "targetLang": "lt",
    "text": "Utsparingen i dekket ved trappa skal dekkes til og merkes.",
@@ -678,7 +769,7 @@
   "inputHash": "ea99896f7aac6f1f69425570",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.292Z",
+  "recordedAt": "2026-10-28T23:39:00.714Z",
   "input": {
    "targetLang": "pl",
    "text": "Bruk fallsikringssele festet til forankringspunkt hele tiden du er utenfor stillaset.",
@@ -710,7 +801,7 @@
   "inputHash": "ebf9e1fa723a0c2ad3f4ac2d",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.336Z",
+  "recordedAt": "2026-10-28T23:39:00.762Z",
   "input": {
    "targetLang": "pl",
    "text": "Betongbilen rygger inn over fortauet. Sperr av fortauet, og la signalgiveren dirigere bilen.",
@@ -737,7 +828,7 @@
   "inputHash": "ec220aa9e1e1c6d32da3754f",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.314Z",
+  "recordedAt": "2026-10-28T23:39:00.739Z",
   "input": {
    "targetLang": "lt",
    "text": "Bare de som har opplæring i isocyanater, skal blande og påføre lakken.",
@@ -759,7 +850,7 @@
   "inputHash": "fb0321eba19ff391ed8f9225",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.314Z",
+  "recordedAt": "2026-10-28T23:39:00.739Z",
   "input": {
    "targetLang": "ru",
    "text": "Bare de som har opplæring i isocyanater, skal blande og påføre lakken.",
@@ -774,5 +865,32 @@
    "attempt": 0
   },
   "rawOutput": "{\"text\":\"Смешивать и наносить лак должны только те, кто прошёл обучение по работе с изоцианатами.\",\"termsUsed\":[\"изоцианаты\"],\"missingConcepts\":[]}"
+ },
+ "fcd395391da30915b8d5345f": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "fcd395391da30915b8d5345f",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-28T23:39:00.685Z",
+  "input": {
+   "targetLang": "lt",
+   "text": "Sperr av faresonen på begge sider av gjerdet, og ingen skal stå ved gjerdet når lasten føres over.",
+   "glossary": [
+    {
+     "nb": "sperr",
+     "approved": "aptverti",
+     "definition": "To close an area with barriers or tape so that nobody walks in."
+    },
+    {
+     "nb": "faresone",
+     "approved": "pavojinga zona",
+     "definition": "The area where a person can be hit if something falls, swings or tips over."
+    }
+   ],
+   "enforceApprovedTerms": false,
+   "attempt": 0
+  },
+  "rawOutput": "{\"text\":\"Aptverkite pavojingą zoną abiejose tvoros pusėse, ir niekas neturi stovėti prie tvoros, kai krovinys keliamas per ją.\",\"termsUsed\":[\"aptverti\",\"pavojinga zona\"],\"missingConcepts\":[]}"
  }
 }

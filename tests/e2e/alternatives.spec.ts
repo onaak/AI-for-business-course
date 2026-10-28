@@ -41,9 +41,25 @@ test('slang input: clarifying questions in place of a guess (T3, AC-04)', async 
   await expect(page.getByTestId('specifics')).toContainText('Uklart – ikke gjettet');
   await expect(page.locator('[data-testid^="question-"]')).toHaveCount(2); // never more than three
   await expect(page.getByTestId('confirm-specifics')).toBeDisabled(); // the flow does not continue on a guess
+  // Every answer works in the demo (29 Oct): nothing is greyed out.
+  await expect(page.getByText('I demoen finnes det lagrede svar bare for noen av valgene.')).toHaveCount(0);
+  await expect(page.getByRole('button', { name: /De er ikke kontrollert ennå/ })).toBeEnabled();
   await shot(page, '14-clarifying-questions');
-  await page.getByRole('button', { name: 'Gjennom porten', exact: true }).click();
-  await page.getByRole('button', { name: 'Anhukeren kontrollerer løftestroppene før bruk', exact: true }).click();
+  await page.getByRole('button', { name: /^Over gjerdet/ }).click();
+  await page.getByRole('button', { name: /De er ikke kontrollert ennå/ }).click();
+  await page.getByTestId('send-answers').click();
+  await expect(page.getByTestId('specifics')).toContainText('Løftestroppene er ikke kontrollert ennå.');
+  await expect(page.getByTestId('confirm-specifics')).toBeEnabled();
+  await page.getByTestId('change-answers').click();
+  await page.getByRole('button', { name: /^Gjennom porten/ }).click();
+  await page.getByRole('button', { name: /^Anhukeren kontrollerer løftestroppene før bruk/ }).click();
+  await page.getByTestId('send-answers').click();
+  await expect(page.getByTestId('specifics')).toContainText('Lasten tas gjennom porten, ikke over gjerdet.');
+  // The answers can be changed: the questions come back.
+  await page.getByTestId('change-answers').click();
+  await expect(page.locator('[data-testid^="question-"]')).toHaveCount(2);
+  await page.getByRole('button', { name: /^Gjennom porten/ }).click();
+  await page.getByRole('button', { name: /^Anhukeren kontrollerer løftestroppene før bruk/ }).click();
   await page.getByTestId('send-answers').click();
   await expect(page.getByTestId('specifics')).toContainText('Lasten tas gjennom porten, ikke over gjerdet.');
   await expect(page.getByTestId('confirm-specifics')).toBeEnabled();

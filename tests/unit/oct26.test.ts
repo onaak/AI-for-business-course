@@ -269,3 +269,19 @@ describe('Written explanation and site observation (U2, U3, I4)', () => {
 it('data dir is the project data dir', () => {
   expect(dataDir.endsWith('data')).toBe(true);
 });
+
+describe('Clean view: nothing goes back into the templates (29 Oct)', () => {
+  it('an SJA made in the clean view is marked, and its site events are left out of the template feedback', async () => {
+    const { feedbackEvents, misunderstandingCounts } = await import('../../src/core/metrics');
+    const env = makeCtx('work-at-height', noModel);
+    const clean = startJob(env.ctx, 'jd-09', { cleanView: true });
+    const full = startJob(env.ctx, 'jd-09');
+    expect(clean.cleanView).toBe(true);
+    expect(full).not.toHaveProperty('cleanView');
+    const ev = (runId: string) => ({ runId, arm: 'flagship', actor: 'foreman', type: 'misunderstanding', step: 'observation', lineId: 'h-10', templateId: 'work-at-height' }) as any;
+    const events = [ev('a'), ev('b')];
+    const kept = feedbackEvents(events, { a: { cleanView: true }, b: {} });
+    expect(kept.map((e) => e.runId)).toEqual(['b']);
+    expect(misunderstandingCounts(kept)['work-at-height']['h-10']).toBe(1);
+  });
+});

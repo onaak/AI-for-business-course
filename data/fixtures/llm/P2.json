@@ -5,7 +5,7 @@
   "inputHash": "14ad1b27e9e87c3cdcddfef6",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.309Z",
+  "recordedAt": "2026-10-28T23:39:00.732Z",
   "input": {
    "jobType": "Maling og overflatebehandling innendørs",
    "lines": [
@@ -254,7 +254,7 @@
   "inputHash": "153469e264004e85d47ad4ca",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.331Z",
+  "recordedAt": "2026-10-28T23:39:00.757Z",
   "input": {
    "jobType": "Betongstøp",
    "lines": [
@@ -488,7 +488,7 @@
   "inputHash": "1fb8ba85ab5731d33cef2bf1",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.272Z",
+  "recordedAt": "2026-10-28T23:39:00.599Z",
   "input": {
    "jobType": "Løfteoperasjon med kran",
    "lines": [
@@ -708,7 +708,7 @@
   "inputHash": "40d06d27b9eade998f3c15e5",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.237Z",
+  "recordedAt": "2026-10-28T23:39:00.532Z",
   "input": {
    "jobType": "Arbeid i høyden",
    "lines": [
@@ -925,13 +925,233 @@
   },
   "rawOutput": "{\"operations\":[{\"op\":\"add\",\"text\":\"Utsparingen i dekket ved trappa skal dekkes til og merkes.\",\"section\":\"controls\",\"afterLineId\":\"h-09\",\"hazardRef\":null,\"critical\":true},{\"op\":\"modify\",\"lineId\":\"h-10\",\"text\":\"Sperr av fortauet under stillaset før arbeidet starter.\",\"hazardRef\":\"hh-04\"},{\"op\":\"add\",\"text\":\"Alle som går opp på stillaset skal ha fått opplæring.\",\"section\":\"controls\",\"afterLineId\":\"h-12\",\"hazardRef\":\"hh-10\",\"critical\":false}]}"
  },
+ "44129abba9b5f415ed1227b6": {
+  "task": "P2",
+  "promptVersion": "1.0.0",
+  "inputHash": "44129abba9b5f415ed1227b6",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-28T23:39:00.624Z",
+  "input": {
+   "jobType": "Løfteoperasjon med kran",
+   "lines": [
+    {
+     "lineId": "l-01",
+     "section": "steps",
+     "text": "Lastens vekt: 1000 kg",
+     "critical": false
+    },
+    {
+     "lineId": "l-02",
+     "section": "steps",
+     "text": "Løfteutstyr: Teleskoptruck",
+     "critical": false
+    },
+    {
+     "lineId": "l-03",
+     "section": "steps",
+     "text": "Løftehøyde: 9 m",
+     "critical": false
+    },
+    {
+     "lineId": "l-04",
+     "section": "steps",
+     "text": "Gå gjennom denne SJA-en med hele laget før løftet starter.",
+     "critical": false
+    },
+    {
+     "lineId": "l-05",
+     "section": "steps",
+     "text": "Avtal hvem som er kranfører, anhuker og signalgiver.",
+     "critical": true
+    },
+    {
+     "lineId": "l-06",
+     "section": "hazards",
+     "text": "Fare: hengende last faller ned eller svinger.",
+     "critical": true
+    },
+    {
+     "lineId": "l-07",
+     "section": "hazards",
+     "text": "Fare: klemfare mellom last og faste konstruksjoner.",
+     "critical": true
+    },
+    {
+     "lineId": "l-08",
+     "section": "hazards",
+     "text": "Fare: kranen velter på grunn av svakt underlag eller for tung last.",
+     "critical": true
+    },
+    {
+     "lineId": "l-09",
+     "section": "controls",
+     "text": "Kontroller at løfteredskapet har WLL som dekker lastens vekt.",
+     "critical": true
+    },
+    {
+     "lineId": "l-10",
+     "section": "controls",
+     "text": "Kontroller løftestropper og sjakler for skader før bruk.",
+     "critical": true
+    },
+    {
+     "lineId": "l-11",
+     "section": "controls",
+     "text": "Ingen skal oppholde seg under hengende last.",
+     "critical": true
+    },
+    {
+     "lineId": "l-12",
+     "section": "controls",
+     "text": "Sperr av faresonen rundt løftet.",
+     "critical": true
+    },
+    {
+     "lineId": "l-13",
+     "section": "controls",
+     "text": "Kranen skal stå på bæredyktig underlag med støttebena helt ute.",
+     "critical": true
+    },
+    {
+     "lineId": "l-14",
+     "section": "controls",
+     "text": "Bruk styretau for å styre lasten. Ikke styr lasten med hendene.",
+     "critical": true
+    },
+    {
+     "lineId": "l-15",
+     "section": "controls",
+     "text": "Kranfører og signalgiver skal ha radiosamband eller fri sikt hele tiden.",
+     "critical": true
+    },
+    {
+     "lineId": "l-16",
+     "section": "controls",
+     "text": "Hold sikkerhetsavstand til kraftlinjer.",
+     "critical": true
+    },
+    {
+     "lineId": "l-17",
+     "section": "ppe",
+     "text": "Hjelm, vernesko og synlighetstøy skal brukes av alle i området.",
+     "critical": true
+    },
+    {
+     "lineId": "l-18",
+     "section": "ppe",
+     "text": "Anhuker skal bruke hansker.",
+     "critical": false
+    },
+    {
+     "lineId": "l-19",
+     "section": "stop",
+     "text": "Vindgrense: 12 m/s",
+     "critical": true
+    },
+    {
+     "lineId": "l-20",
+     "section": "stop",
+     "text": "Stans løftet når vindstyrken er over vindgrensen.",
+     "critical": true
+    },
+    {
+     "lineId": "l-21",
+     "section": "stop",
+     "text": "Stans løftet hvis noen går inn i faresonen.",
+     "critical": true
+    },
+    {
+     "lineId": "l-22",
+     "section": "stop",
+     "text": "Alle kan si stopp. Kranføreren skal stanse straks.",
+     "critical": true
+    },
+    {
+     "lineId": "l-23",
+     "section": "emergency",
+     "text": "Ved ulykke: ring 113 og varsle basen.",
+     "critical": true
+    },
+    {
+     "lineId": "l-24",
+     "section": "emergency",
+     "text": "Førstehjelpsutstyr og møteplass skal være kjent for alle.",
+     "critical": false
+    }
+   ],
+   "specifics": [
+    "Løft av paller med gipsplater til 3. etasje.",
+    "Trang plass ved porten. Lasten løftes over gjerdet.",
+    "Anhukeren kontrollerer løftestroppene før bruk."
+   ],
+   "hazards": [
+    {
+     "hazardId": "lh-01",
+     "section": "steps",
+     "text": "Planlegg løfteoperasjonen og avtal roller og kommunikasjon."
+    },
+    {
+     "hazardId": "lh-02",
+     "section": "controls",
+     "text": "Ingen under hengende last; hold faresonen avsperret."
+    },
+    {
+     "hazardId": "lh-03",
+     "section": "controls",
+     "text": "Løfteutstyret skal stå stabilt og ha tilstrekkelig styrke for lasten."
+    },
+    {
+     "hazardId": "lh-04",
+     "section": "controls",
+     "text": "Løfteredskap skal være merket med kapasitet og kontrolleres før bruk."
+    },
+    {
+     "hazardId": "lh-05",
+     "section": "controls",
+     "text": "Fritt hengende last skal styres og sikres under løftet."
+    },
+    {
+     "hazardId": "lh-06",
+     "section": "controls",
+     "text": "Løft over personer eller arbeidsplasser i bruk skal unngås."
+    },
+    {
+     "hazardId": "lh-07",
+     "section": "controls",
+     "text": "Sikkerhetsavstand til kraftlinjer."
+    },
+    {
+     "hazardId": "lh-08",
+     "section": "ppe",
+     "text": "Hjelm, vernesko og synlighetstøy for alle i området; hansker for anhuker."
+    },
+    {
+     "hazardId": "lh-09",
+     "section": "stop",
+     "text": "Stans løftet når vind eller vær gjør det usikkert."
+    },
+    {
+     "hazardId": "lh-10",
+     "section": "stop",
+     "text": "Alle kan si stopp, og kranføreren stanser straks."
+    },
+    {
+     "hazardId": "lh-11",
+     "section": "emergency",
+     "text": "Ved ulykke: 113, basen, førstehjelpsutstyr og møteplass."
+    }
+   ]
+  },
+  "rawOutput": "{\"operations\":[{\"op\":\"modify\",\"lineId\":\"l-12\",\"text\":\"Sperr av faresonen på begge sider av gjerdet, og ingen skal stå ved gjerdet når lasten føres over.\",\"hazardRef\":\"lh-06\"}]}"
+ },
  "4c54f81d1f9e8b917b7f2627": {
   "task": "P2",
   "promptVersion": "1.0.0",
   "inputHash": "4c54f81d1f9e8b917b7f2627",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.179Z",
+  "recordedAt": "2026-10-28T23:39:00.457Z",
   "input": {
    "jobType": "Løfteoperasjon med kran",
    "lines": [
@@ -1151,7 +1371,7 @@
   "inputHash": "587ff5dbb2fda4d91b487999",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-26T17:14:22.283Z",
+  "recordedAt": "2026-10-28T23:39:00.704Z",
   "input": {
    "jobType": "Arbeid i høyden",
    "lines": [
@@ -1367,5 +1587,445 @@
    ]
   },
   "rawOutput": "{\"operations\":[{\"op\":\"add\",\"text\":\"Bruk sele ved behov.\",\"section\":\"controls\",\"afterLineId\":\"h-09\",\"hazardRef\":\"hh-06\",\"critical\":true},{\"op\":\"add\",\"text\":\"Vinsjen skal ha lastbrems og være festet til bærende konstruksjon.\",\"section\":\"controls\",\"afterLineId\":\"h-11\",\"hazardRef\":null,\"critical\":true}]}"
+ },
+ "c014d2bf8b53c7eddd38f3c0": {
+  "task": "P2",
+  "promptVersion": "1.0.0",
+  "inputHash": "c014d2bf8b53c7eddd38f3c0",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-28T23:39:00.645Z",
+  "input": {
+   "jobType": "Løfteoperasjon med kran",
+   "lines": [
+    {
+     "lineId": "l-01",
+     "section": "steps",
+     "text": "Lastens vekt: 1000 kg",
+     "critical": false
+    },
+    {
+     "lineId": "l-02",
+     "section": "steps",
+     "text": "Løfteutstyr: Teleskoptruck",
+     "critical": false
+    },
+    {
+     "lineId": "l-03",
+     "section": "steps",
+     "text": "Løftehøyde: 9 m",
+     "critical": false
+    },
+    {
+     "lineId": "l-04",
+     "section": "steps",
+     "text": "Gå gjennom denne SJA-en med hele laget før løftet starter.",
+     "critical": false
+    },
+    {
+     "lineId": "l-05",
+     "section": "steps",
+     "text": "Avtal hvem som er kranfører, anhuker og signalgiver.",
+     "critical": true
+    },
+    {
+     "lineId": "l-06",
+     "section": "hazards",
+     "text": "Fare: hengende last faller ned eller svinger.",
+     "critical": true
+    },
+    {
+     "lineId": "l-07",
+     "section": "hazards",
+     "text": "Fare: klemfare mellom last og faste konstruksjoner.",
+     "critical": true
+    },
+    {
+     "lineId": "l-08",
+     "section": "hazards",
+     "text": "Fare: kranen velter på grunn av svakt underlag eller for tung last.",
+     "critical": true
+    },
+    {
+     "lineId": "l-09",
+     "section": "controls",
+     "text": "Kontroller at løfteredskapet har WLL som dekker lastens vekt.",
+     "critical": true
+    },
+    {
+     "lineId": "l-10",
+     "section": "controls",
+     "text": "Kontroller løftestropper og sjakler for skader før bruk.",
+     "critical": true
+    },
+    {
+     "lineId": "l-11",
+     "section": "controls",
+     "text": "Ingen skal oppholde seg under hengende last.",
+     "critical": true
+    },
+    {
+     "lineId": "l-12",
+     "section": "controls",
+     "text": "Sperr av faresonen rundt løftet.",
+     "critical": true
+    },
+    {
+     "lineId": "l-13",
+     "section": "controls",
+     "text": "Kranen skal stå på bæredyktig underlag med støttebena helt ute.",
+     "critical": true
+    },
+    {
+     "lineId": "l-14",
+     "section": "controls",
+     "text": "Bruk styretau for å styre lasten. Ikke styr lasten med hendene.",
+     "critical": true
+    },
+    {
+     "lineId": "l-15",
+     "section": "controls",
+     "text": "Kranfører og signalgiver skal ha radiosamband eller fri sikt hele tiden.",
+     "critical": true
+    },
+    {
+     "lineId": "l-16",
+     "section": "controls",
+     "text": "Hold sikkerhetsavstand til kraftlinjer.",
+     "critical": true
+    },
+    {
+     "lineId": "l-17",
+     "section": "ppe",
+     "text": "Hjelm, vernesko og synlighetstøy skal brukes av alle i området.",
+     "critical": true
+    },
+    {
+     "lineId": "l-18",
+     "section": "ppe",
+     "text": "Anhuker skal bruke hansker.",
+     "critical": false
+    },
+    {
+     "lineId": "l-19",
+     "section": "stop",
+     "text": "Vindgrense: 12 m/s",
+     "critical": true
+    },
+    {
+     "lineId": "l-20",
+     "section": "stop",
+     "text": "Stans løftet når vindstyrken er over vindgrensen.",
+     "critical": true
+    },
+    {
+     "lineId": "l-21",
+     "section": "stop",
+     "text": "Stans løftet hvis noen går inn i faresonen.",
+     "critical": true
+    },
+    {
+     "lineId": "l-22",
+     "section": "stop",
+     "text": "Alle kan si stopp. Kranføreren skal stanse straks.",
+     "critical": true
+    },
+    {
+     "lineId": "l-23",
+     "section": "emergency",
+     "text": "Ved ulykke: ring 113 og varsle basen.",
+     "critical": true
+    },
+    {
+     "lineId": "l-24",
+     "section": "emergency",
+     "text": "Førstehjelpsutstyr og møteplass skal være kjent for alle.",
+     "critical": false
+    }
+   ],
+   "specifics": [
+    "Løft av paller med gipsplater til 3. etasje.",
+    "Trang plass ved porten. Lasten tas gjennom porten, ikke over gjerdet.",
+    "Løftestroppene er ikke kontrollert ennå."
+   ],
+   "hazards": [
+    {
+     "hazardId": "lh-01",
+     "section": "steps",
+     "text": "Planlegg løfteoperasjonen og avtal roller og kommunikasjon."
+    },
+    {
+     "hazardId": "lh-02",
+     "section": "controls",
+     "text": "Ingen under hengende last; hold faresonen avsperret."
+    },
+    {
+     "hazardId": "lh-03",
+     "section": "controls",
+     "text": "Løfteutstyret skal stå stabilt og ha tilstrekkelig styrke for lasten."
+    },
+    {
+     "hazardId": "lh-04",
+     "section": "controls",
+     "text": "Løfteredskap skal være merket med kapasitet og kontrolleres før bruk."
+    },
+    {
+     "hazardId": "lh-05",
+     "section": "controls",
+     "text": "Fritt hengende last skal styres og sikres under løftet."
+    },
+    {
+     "hazardId": "lh-06",
+     "section": "controls",
+     "text": "Løft over personer eller arbeidsplasser i bruk skal unngås."
+    },
+    {
+     "hazardId": "lh-07",
+     "section": "controls",
+     "text": "Sikkerhetsavstand til kraftlinjer."
+    },
+    {
+     "hazardId": "lh-08",
+     "section": "ppe",
+     "text": "Hjelm, vernesko og synlighetstøy for alle i området; hansker for anhuker."
+    },
+    {
+     "hazardId": "lh-09",
+     "section": "stop",
+     "text": "Stans løftet når vind eller vær gjør det usikkert."
+    },
+    {
+     "hazardId": "lh-10",
+     "section": "stop",
+     "text": "Alle kan si stopp, og kranføreren stanser straks."
+    },
+    {
+     "hazardId": "lh-11",
+     "section": "emergency",
+     "text": "Ved ulykke: 113, basen, førstehjelpsutstyr og møteplass."
+    }
+   ]
+  },
+  "rawOutput": "{\"operations\":[{\"op\":\"modify\",\"lineId\":\"l-12\",\"text\":\"Sperr av faresonen rundt løftet og hold porten stengt under løftet.\",\"hazardRef\":\"lh-02\"},{\"op\":\"add\",\"text\":\"Løftestroppene er ikke kontrollert ennå: anhukeren skal kontrollere stropper og sjakler før løftet starter, og skadet utstyr skal ikke brukes.\",\"section\":\"controls\",\"afterLineId\":\"l-10\",\"hazardRef\":\"lh-04\",\"critical\":true}]}"
+ },
+ "c0c59aab6726d1ae0c0a900a": {
+  "task": "P2",
+  "promptVersion": "1.0.0",
+  "inputHash": "c0c59aab6726d1ae0c0a900a",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-28T23:39:00.678Z",
+  "input": {
+   "jobType": "Løfteoperasjon med kran",
+   "lines": [
+    {
+     "lineId": "l-01",
+     "section": "steps",
+     "text": "Lastens vekt: 1000 kg",
+     "critical": false
+    },
+    {
+     "lineId": "l-02",
+     "section": "steps",
+     "text": "Løfteutstyr: Teleskoptruck",
+     "critical": false
+    },
+    {
+     "lineId": "l-03",
+     "section": "steps",
+     "text": "Løftehøyde: 9 m",
+     "critical": false
+    },
+    {
+     "lineId": "l-04",
+     "section": "steps",
+     "text": "Gå gjennom denne SJA-en med hele laget før løftet starter.",
+     "critical": false
+    },
+    {
+     "lineId": "l-05",
+     "section": "steps",
+     "text": "Avtal hvem som er kranfører, anhuker og signalgiver.",
+     "critical": true
+    },
+    {
+     "lineId": "l-06",
+     "section": "hazards",
+     "text": "Fare: hengende last faller ned eller svinger.",
+     "critical": true
+    },
+    {
+     "lineId": "l-07",
+     "section": "hazards",
+     "text": "Fare: klemfare mellom last og faste konstruksjoner.",
+     "critical": true
+    },
+    {
+     "lineId": "l-08",
+     "section": "hazards",
+     "text": "Fare: kranen velter på grunn av svakt underlag eller for tung last.",
+     "critical": true
+    },
+    {
+     "lineId": "l-09",
+     "section": "controls",
+     "text": "Kontroller at løfteredskapet har WLL som dekker lastens vekt.",
+     "critical": true
+    },
+    {
+     "lineId": "l-10",
+     "section": "controls",
+     "text": "Kontroller løftestropper og sjakler for skader før bruk.",
+     "critical": true
+    },
+    {
+     "lineId": "l-11",
+     "section": "controls",
+     "text": "Ingen skal oppholde seg under hengende last.",
+     "critical": true
+    },
+    {
+     "lineId": "l-12",
+     "section": "controls",
+     "text": "Sperr av faresonen rundt løftet.",
+     "critical": true
+    },
+    {
+     "lineId": "l-13",
+     "section": "controls",
+     "text": "Kranen skal stå på bæredyktig underlag med støttebena helt ute.",
+     "critical": true
+    },
+    {
+     "lineId": "l-14",
+     "section": "controls",
+     "text": "Bruk styretau for å styre lasten. Ikke styr lasten med hendene.",
+     "critical": true
+    },
+    {
+     "lineId": "l-15",
+     "section": "controls",
+     "text": "Kranfører og signalgiver skal ha radiosamband eller fri sikt hele tiden.",
+     "critical": true
+    },
+    {
+     "lineId": "l-16",
+     "section": "controls",
+     "text": "Hold sikkerhetsavstand til kraftlinjer.",
+     "critical": true
+    },
+    {
+     "lineId": "l-17",
+     "section": "ppe",
+     "text": "Hjelm, vernesko og synlighetstøy skal brukes av alle i området.",
+     "critical": true
+    },
+    {
+     "lineId": "l-18",
+     "section": "ppe",
+     "text": "Anhuker skal bruke hansker.",
+     "critical": false
+    },
+    {
+     "lineId": "l-19",
+     "section": "stop",
+     "text": "Vindgrense: 12 m/s",
+     "critical": true
+    },
+    {
+     "lineId": "l-20",
+     "section": "stop",
+     "text": "Stans løftet når vindstyrken er over vindgrensen.",
+     "critical": true
+    },
+    {
+     "lineId": "l-21",
+     "section": "stop",
+     "text": "Stans løftet hvis noen går inn i faresonen.",
+     "critical": true
+    },
+    {
+     "lineId": "l-22",
+     "section": "stop",
+     "text": "Alle kan si stopp. Kranføreren skal stanse straks.",
+     "critical": true
+    },
+    {
+     "lineId": "l-23",
+     "section": "emergency",
+     "text": "Ved ulykke: ring 113 og varsle basen.",
+     "critical": true
+    },
+    {
+     "lineId": "l-24",
+     "section": "emergency",
+     "text": "Førstehjelpsutstyr og møteplass skal være kjent for alle.",
+     "critical": false
+    }
+   ],
+   "specifics": [
+    "Løft av paller med gipsplater til 3. etasje.",
+    "Trang plass ved porten. Lasten løftes over gjerdet.",
+    "Løftestroppene er ikke kontrollert ennå."
+   ],
+   "hazards": [
+    {
+     "hazardId": "lh-01",
+     "section": "steps",
+     "text": "Planlegg løfteoperasjonen og avtal roller og kommunikasjon."
+    },
+    {
+     "hazardId": "lh-02",
+     "section": "controls",
+     "text": "Ingen under hengende last; hold faresonen avsperret."
+    },
+    {
+     "hazardId": "lh-03",
+     "section": "controls",
+     "text": "Løfteutstyret skal stå stabilt og ha tilstrekkelig styrke for lasten."
+    },
+    {
+     "hazardId": "lh-04",
+     "section": "controls",
+     "text": "Løfteredskap skal være merket med kapasitet og kontrolleres før bruk."
+    },
+    {
+     "hazardId": "lh-05",
+     "section": "controls",
+     "text": "Fritt hengende last skal styres og sikres under løftet."
+    },
+    {
+     "hazardId": "lh-06",
+     "section": "controls",
+     "text": "Løft over personer eller arbeidsplasser i bruk skal unngås."
+    },
+    {
+     "hazardId": "lh-07",
+     "section": "controls",
+     "text": "Sikkerhetsavstand til kraftlinjer."
+    },
+    {
+     "hazardId": "lh-08",
+     "section": "ppe",
+     "text": "Hjelm, vernesko og synlighetstøy for alle i området; hansker for anhuker."
+    },
+    {
+     "hazardId": "lh-09",
+     "section": "stop",
+     "text": "Stans løftet når vind eller vær gjør det usikkert."
+    },
+    {
+     "hazardId": "lh-10",
+     "section": "stop",
+     "text": "Alle kan si stopp, og kranføreren stanser straks."
+    },
+    {
+     "hazardId": "lh-11",
+     "section": "emergency",
+     "text": "Ved ulykke: 113, basen, førstehjelpsutstyr og møteplass."
+    }
+   ]
+  },
+  "rawOutput": "{\"operations\":[{\"op\":\"modify\",\"lineId\":\"l-12\",\"text\":\"Sperr av faresonen på begge sider av gjerdet, og ingen skal stå ved gjerdet når lasten føres over.\",\"hazardRef\":\"lh-06\"},{\"op\":\"add\",\"text\":\"Løftestroppene er ikke kontrollert ennå: anhukeren skal kontrollere stropper og sjakler før løftet starter, og skadet utstyr skal ikke brukes.\",\"section\":\"controls\",\"afterLineId\":\"l-10\",\"hazardRef\":\"lh-04\",\"critical\":true}]}"
  }
 }

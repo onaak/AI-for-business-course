@@ -14,7 +14,7 @@ import { findSourceTerms } from '../core/rules/glossary';
 import type { DataPack, Flag, KeyState, Lang, ReviewerSession, Role } from '../core/types';
 import { clone, fillParams, LANG_NAMES } from '../core/util';
 import { addTermForms, approve, deriveState, editGlossaryTerm, editQuestion, editSourceLine, editTargetLine, promoteLine, reject, type ItemRef, verificationSummary } from '../core/verification';
-import { fmtDuration, misunderstandingCounts } from '../core/metrics';
+import { feedbackEvents, fmtDuration, misunderstandingCounts } from '../core/metrics';
 import { verificationSummaryMarkdown } from '../record';
 import { makeFlowCtx } from '../state/ctx';
 import { useApp, useLog, useSjas } from '../state/stores';
@@ -64,7 +64,8 @@ export default function Review() {
   const allEvents = useLog((s) => s.events);
   const reviewEvents = allEvents.filter((e) => e.actor === 'reviewer' && e.timeCategory === 'reviewer');
   // Brief v3: misunderstandings are logged anonymously and fed back into the template.
-  const misunderstood = useMemo(() => misunderstandingCounts(allEvents), [allEvents]);
+  const sjasAll = useSjas((s) => s.sjas);
+  const misunderstood = useMemo(() => misunderstandingCounts(feedbackEvents(allEvents, sjasAll)), [allEvents, sjasAll]);
   const [onlyMisunderstood, setOnlyMisunderstood] = useState(false);
   const sjas = useSjas((s) => s.sjas);
   const log = useLog((s) => s.add);
@@ -102,7 +103,7 @@ export default function Review() {
     () =>
       pack
         ? Object.values(sjas)
-            .filter((sja) => sja.status === 'signed' || sja.status === 'signedWithFallback')
+            .filter((sja) => (sja.status === 'signed' || sja.status === 'signedWithFallback') && !sja.cleanView)
             .flatMap((sja) =>
               sja.lines
                 .filter((l) => l.origin === 'new' && l.aiSuggestion !== 'open')

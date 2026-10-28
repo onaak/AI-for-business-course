@@ -1,7 +1,8 @@
 // All interface strings live in this folder, one table per language, so that a
 // native speaker can check them in one pass (8.4).
 import { createContext, useCallback, useContext } from 'react';
-import { useApp } from '../state/stores';
+import { isFieldMode, useApp } from '../state/stores';
+import { cleanEn, cleanNb } from './clean';
 import { en, workerEn } from './en';
 import { workerLt } from './lt';
 import { nb } from './nb';
@@ -12,8 +13,10 @@ export type Key = keyof typeof nb;
 export type UiLang = 'nb' | 'en';
 const tables: Record<UiLang, Record<Key, string>> = { nb, en };
 
-export function translate(lang: UiLang, key: Key | string, vars?: Record<string, string | number>): string {
-  let s = (tables[lang] as Record<string, string>)[key] ?? (nb as Record<string, string>)[key] ?? key;
+const cleanTables: Record<UiLang, Record<string, string>> = { nb: cleanNb as Record<string, string>, en: cleanEn as Record<string, string> };
+
+export function translate(lang: UiLang, key: Key | string, vars?: Record<string, string | number>, clean = false): string {
+  let s = (clean ? cleanTables[lang][key] : undefined) ?? (tables[lang] as Record<string, string>)[key] ?? (nb as Record<string, string>)[key] ?? key;
   if (vars) for (const [k, v] of Object.entries(vars)) s = s.replaceAll(`{${k}}`, String(v));
   return s;
 }
@@ -30,7 +33,9 @@ export function useUiLang(): UiLang {
 /** Foreman-facing strings: Norwegian with an English toggle. */
 export function useT() {
   const lang = useUiLang();
-  return useCallback((key: Key | string, vars?: Record<string, string | number>) => translate(lang, key, vars), [lang]);
+  // The clean view uses its own wording where the normal one talks about templates (clean.ts).
+  const clean = useApp(isFieldMode);
+  return useCallback((key: Key | string, vars?: Record<string, string | number>) => translate(lang, key, vars, clean), [lang, clean]);
 }
 
 export type WorkerKey = keyof typeof workerEn;

@@ -4,7 +4,7 @@
 // Replay mode at 375 px. Not evidence for any claim.
 import AxeBuilder from '@axe-core/playwright';
 import type { Page } from '@playwright/test';
-import { expect, expectBanner, noHorizontalScroll, shot, startJob, test } from './helpers';
+import { confirmAllRechecks, expect, expectBanner, noHorizontalScroll, shot, startJob, test } from './helpers';
 
 /** Serious and critical accessibility problems only (V4: a light check, not a WCAG audit). */
 async function axe(page: Page, where: string) {
@@ -184,4 +184,56 @@ test('painting with a product, a Russian crew: written explanation, multiple-cho
   await page.goto('/rules');
   await page.getByTestId('rules-site').check();
   await expect(page.getByTestId('rule-painting/p-16')).toContainText('Ikke fulgt på byggeplassen: 1×');
+});
+
+test('clean view: the SJA reads as the foreman’s own, with no mention of templates anywhere (26–29 Oct)', async ({ page }) => {
+  const noTemplate = async (where: string) => {
+    const text = (await page.locator('main').innerText()).toLowerCase();
+    expect(text, `template mentioned at ${where}`).not.toMatch(/template|\bmal(en|er|ene|ens)?\b|gjenbrukt|reused/);
+  };
+  await page.goto('/');
+  await page.getByTestId('view-field').click();
+  await noTemplate('home');
+  await startJob(page, 'jd-01');
+  await noTemplate('step 1');
+  await page.getByTestId('step1-continue').click();
+  await page.getByTestId('confirm-specifics').click();
+  // Step 3: no list of things to decide, no legend, no "in the template", no draft or demo notices.
+  await page.getByTestId('confirm-content').waitFor();
+  await expect(page.getByTestId('summary-lead')).toHaveText('SJA-en har 26 linjer. 3 av dem er skrevet for dagens jobb: les dem først.');
+  await expect(page.getByTestId('lines-legend')).toHaveCount(0);
+  await expect(page.getByTestId('template-draft-note')).toHaveCount(0);
+  await expect(page.locator('[data-testid^="was-"]')).toHaveCount(0);
+  await expect(page.getByText(/Dette må du ta stilling til/)).toHaveCount(0);
+  await expect(page.getByText('For dagens jobb').first()).toBeVisible();
+  await noTemplate('step 3');
+  await page.getByRole('button', { name: 'EN', exact: true }).click();
+  await noTemplate('step 3 in English');
+  await page.getByRole('button', { name: 'NO', exact: true }).click();
+  // It still works: the lines that depend on a changed value are confirmed on the line itself.
+  await confirmAllRechecks(page);
+  await page.getByTestId('confirm-content').click();
+  await page.getByTestId('route-approvedTerm').click();
+  await noTemplate('step 4');
+  await page.getByTestId('step4-continue').click();
+  await noTemplate('step 5');
+  await page.getByTestId('oral-open').click();
+  await page.getByTestId('oral-check').getByTestId('teach-ok').click();
+  await page.getByTestId('oral-answer-right').click();
+  await page.getByTestId('oral-save').click();
+  await page.getByTestId('step5-continue').click();
+  await page.getByTestId('sign-agree').check();
+  await page.getByTestId('sign-button').click();
+  await noTemplate('signed');
+  await page.getByTestId('observe-none').click();
+  await page.getByTestId('open-record').click();
+  await expect(page.getByTestId('record-summary')).toBeVisible();
+  await noTemplate('record');
+  await page.getByTestId('open-summary').click();
+  await expect(page.getByTestId('summary-status')).toBeVisible();
+  await noTemplate('summary');
+  // Nothing from it goes back into the templates: the reviewers are not offered its lines.
+  await page.getByTestId('view-lab').click();
+  await page.goto('/review');
+  await expect(page.getByText(/Lines from jobs \(0\)/)).toBeVisible();
 });

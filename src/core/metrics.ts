@@ -63,6 +63,14 @@ export function totalTime(t: Record<TimeCategory, number>): number {
   return TOTAL_CATEGORIES.reduce((sum, c) => sum + (t[c] ?? 0), 0);
 }
 
+/**
+ * The log events that may feed back into the templates: everything except the runs of SJAs
+ * made in the clean view, which is shown as if there were no template behind it.
+ */
+export function feedbackEvents(events: LogEvent[], sjas: Record<string, Pick<Sja, 'cleanView'>>): LogEvent[] {
+  return events.filter((e) => !sjas[e.runId]?.cleanView);
+}
+
 /** Misunderstandings in the anonymous log, per template and template line (brief v3: fed back into the template). */
 /** Counts per template line of one kind of site event: 'misunderstanding' or 'rule_not_followed' (I4). */
 export function misunderstandingCounts(events: LogEvent[], type: 'misunderstanding' | 'rule_not_followed' = 'misunderstanding'): Record<string, Record<string, number>> {

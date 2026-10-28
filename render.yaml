@@ -1,0 +1,23 @@
+# Render Blueprint: hosts the prototype on Render's free plan (https://render.com/docs/yaml-spec).
+# The same safe settings as `npm run share`: stored demo answers only (no AI key, no model calls),
+# the clean view fixed, and the reviewers' keys and corrections read-only.
+# Free plan: the service sleeps after 15 minutes without visitors (about a minute to wake up), and
+# files it writes (saved runs, evidence) are lost when it sleeps or redeploys.
+services:
+  - type: web
+    name: sja-forstatt
+    runtime: node
+    plan: free
+    # tsx and vite are dev dependencies but are needed to build and start.
+    buildCommand: npm ci --include=dev && npm run build
+    startCommand: npm start
+    autoDeployTrigger: commit
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: GATEWAY_MODE
+        value: replay
+      - key: APP_MODE
+        value: field
+      - key: PACK_READONLY
+        value: "1"
