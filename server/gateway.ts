@@ -7,7 +7,7 @@ import { inputSchemas, outputSchemas, TASKS } from '../src/core/schemas';
 import type { ModelCall, Task } from '../src/core/types';
 import { uid } from '../src/core/util';
 import { ReplayStore, replayKey } from './providers/replay';
-import { GatewayError, type Provider } from './providers/types';
+import { GatewayError, RateLimitError, type Provider } from './providers/types';
 
 export type Mode = 'live' | 'record' | 'replay';
 
@@ -29,6 +29,7 @@ const PROMPT_FILES: Record<Task, string> = {
   P4: 'P4_translate.md',
   P5: 'P5_backtranslate.md',
   P6: 'P6_compare.md',
+  P7: 'P7_worker_answer.md',
 };
 
 export function loadPrompts(dir: string): Record<Task, Prompt> {
@@ -74,9 +75,25 @@ export function extractJson(raw: string): unknown {
   return JSON.parse(text.slice(start, end + 1));
 }
 
+/**
+ * Tasks whose input is a worker's own words (U3). Outside the test bench the text is not
+ * kept: the call log holds only that a call was made, and record mode stores no fixture.
+ */
+export const NOT_KEPT: Task[] = ['P7'];
+export const keepsText = (task: Task, runId: string) => !NOT_KEPT.includes(task) || runId.startsWith('bench') || runId.startsWith('fixture');
+const redact = (call: ModelCall): ModelCall =>
+  keepsText(call.task, call.runId) ? call : { ...call, input: '[worker text not kept]', rawOutput: call.rawOutput ? '[not kept]' : '', parsed: call.parsed === null ? null : '[not kept]' };
+
+const withoutExamples = (input: Record<string, unknown>) => {
+  const { examples: _examples, ...rest } = input;
+  return rest;
+};
+
 export interface GatewayConfig {
   mode: Mode;
   provider: Provider | null;
+  /** Optional different provider for some tasks, e.g. a local model for back-translation (P5). */
+  providerFor?: Partial<Record<Task, Provider>>;
   models: Partial<Record<Task, string>>;
   temperature: number | null;
   promptsDir: string;
@@ -84,22 +101,94 @@ export interface GatewayConfig {
   evidenceDir: string;
   /** Origin written into fixtures in record mode. */
   recordOrigin?: 'recorded' | 'scripted';
+  /** Pacing for live calls (free tiers limit requests per minute). Not used in replay. */
+  limits?: Partial<CallLimits>;
+}
+
+export interface CallLimits {
+  /** At most this many model calls at the same time. */
+  maxParallel: number;
+  /** At least this long between the starts of two model calls. 0 = no spacing. */
+  minIntervalMs: number;
+  /** How often to wait and try again after "too many requests". These waits are not the one retry. */
+  rateLimitWaits: number;
+  /** Longest single wait after "too many requests". */
+  maxWaitMs: number;
+  /** Replaced in tests. */
+  sleep: (ms: number) => Promise<void>;
+}
+
+export const DEFAULT_LIMITS: CallLimits = {
+  maxParallel: 3,
+  minIntervalMs: 0,
+  rateLimitWaits: 5,
+  maxWaitMs: 60_000,
+  sleep: (ms) => new Promise((r) => setTimeout(r, ms)),
+};
+
+/** Lets at most `max` calls run at once, and spaces their starts by `interval` ms. */
+class Pacer {
+  private running = 0;
+  private queue: (() => void)[] = [];
+  private nextStart = 0;
+  constructor(private limits: CallLimits) {}
+
+  async run<T>(fn: () => Promise<T>): Promise<T> {
+    if (this.running >= Math.max(1, this.limits.maxParallel)) await new Promise<void>((r) => this.queue.push(r));
+    this.running += 1;
+    try {
+      const wait = this.nextStart - Date.now();
+      this.nextStart = Math.max(Date.now(), this.nextStart) + this.limits.minIntervalMs;
+      if (wait > 0) await this.limits.sleep(wait);
+      return await fn();
+    } finally {
+      this.running -= 1;
+      this.queue.shift()?.();
+    }
+  }
 }
 
 export class Gateway {
   readonly prompts: Record<Task, Prompt>;
   readonly store: ReplayStore;
+  readonly limits: CallLimits;
+  private pacer: Pacer;
+  /** Waits after "too many requests" since the server started (shown in /api/config). */
+  rateLimitWaits = 0;
 
   constructor(readonly cfg: GatewayConfig) {
     this.prompts = loadPrompts(cfg.promptsDir);
     this.store = new ReplayStore(cfg.fixturesDir);
+    this.limits = { ...DEFAULT_LIMITS, ...(cfg.limits ?? {}) };
+    this.pacer = new Pacer(this.limits);
+  }
+
+  providerOf(task: Task): Provider | null {
+    return this.cfg.providerFor?.[task] ?? this.cfg.provider;
+  }
+
+  /** One provider request, paced, waiting and trying again on "too many requests". */
+  private async complete(req: Parameters<Provider['complete']>[0], waited: { ms: number }): Promise<string> {
+    const provider = this.providerOf(req.task as Task)!;
+    for (let wait = 0; ; wait++) {
+      try {
+        return await this.pacer.run(() => provider.complete(req));
+      } catch (err) {
+        if (!(err instanceof RateLimitError) || wait >= this.limits.rateLimitWaits) throw err;
+        const ms = Math.min(this.limits.maxWaitMs, err.retryAfterMs ?? 2000 * 2 ** wait);
+        this.rateLimitWaits += 1;
+        waited.ms += ms;
+        console.warn(`  ${req.task ?? ''}: the model provider says too many requests. Waiting ${Math.round(ms / 1000)} s (wait ${wait + 1} of ${this.limits.rateLimitWaits}).`);
+        await this.limits.sleep(ms);
+      }
+    }
   }
 
   private logCall(call: ModelCall) {
     const dir = path.join(this.cfg.evidenceDir, 'calls');
     if (!existsSync(dir)) mkdirSync(dir, { recursive: true });
     const safe = call.runId.replace(/[^\w.-]/g, '_').slice(0, 80) || 'unknown';
-    appendFileSync(path.join(dir, `${safe}.jsonl`), `${JSON.stringify(call)}\n`);
+    appendFileSync(path.join(dir, `${safe}.jsonl`), `${JSON.stringify(redact(call))}\n`);
   }
 
   async call(task: Task, rawInput: unknown, runId: string): Promise<ModelCall> {
@@ -129,12 +218,16 @@ export class Gateway {
     let fixtureOrigin: ModelCall['fixtureOrigin'];
     let retries = 0;
     let lastError = '';
+    // Time spent waiting after "too many requests" (free tiers). Part of durationMs; logged so it can be taken out.
+    const waited = { ms: 0 };
+    const waitInfo = () => (waited.ms > 0 ? { rateLimitWaitMs: waited.ms } : {});
 
     // One automatic retry, then a visible error. Nothing is silently skipped (7.3).
     for (let attempt = 0; attempt < 2; attempt++) {
       try {
         if (this.cfg.mode === 'replay') {
-          const fx = this.store.get(task, prompt.version, input);
+          // A stored answer recorded before reviewers had verified anything has no examples (L2): fall back to it.
+          const fx = this.store.get(task, prompt.version, input) ?? (input.examples ? this.store.get(task, prompt.version, withoutExamples(input)) : null);
           if (!fx) {
             lastError = `Replay mode: no stored response for this input (${task}, prompt ${prompt.version}). Use one of the saved test jobs, or switch to live mode with an API key.`;
             throw new GatewayError(424, lastError, 'no_fixture');
@@ -143,13 +236,13 @@ export class Gateway {
           model = fx.model;
           fixtureOrigin = fx.origin;
         } else {
-          if (!this.cfg.provider) throw new GatewayError(500, 'No model provider is configured. Set LLM_PROVIDER and LLM_API_KEY in .env.', 'not_configured');
+          if (!this.providerOf(task)) throw new GatewayError(500, 'No model provider is configured. Set LLM_PROVIDER and LLM_API_KEY in .env.', 'not_configured');
           if (!model) throw new GatewayError(500, `No model name is configured for ${task}. Set MODEL_DEFAULT in .env.`, 'not_configured');
-          rawOutput = await this.cfg.provider.complete({ system, user, model, temperature: this.cfg.temperature, task, input });
+          rawOutput = await this.complete({ system, user, model, temperature: this.cfg.temperature, task, input }, waited);
         }
         const parsed = outputSchemas[task].parse(extractJson(rawOutput));
-        const call: ModelCall = { ...base, model, fixtureOrigin, rawOutput, parsed, durationMs: Date.now() - started, retries };
-        if (this.cfg.mode === 'record') {
+        const call: ModelCall = { ...base, model, fixtureOrigin, rawOutput, parsed, durationMs: Date.now() - started, retries, ...waitInfo() };
+        if (this.cfg.mode === 'record' && keepsText(task, runId)) {
           this.store.put({
             task,
             promptVersion: prompt.version,
@@ -173,7 +266,7 @@ export class Gateway {
       }
     }
     const message = `${task} failed after one retry: ${lastError.slice(0, 400)}`;
-    this.logCall({ ...base, model, fixtureOrigin, rawOutput, parsed: null, durationMs: Date.now() - started, retries: 1, error: message });
+    this.logCall({ ...base, model, fixtureOrigin, rawOutput, parsed: null, durationMs: Date.now() - started, retries: 1, error: message, ...waitInfo() });
     throw new GatewayError(502, message, 'model_failed');
   }
 }

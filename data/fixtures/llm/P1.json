@@ -1,11 +1,39 @@
 {
+ "082255834796f3c463a461c4": {
+  "task": "P1",
+  "promptVersion": "1.0.0",
+  "inputHash": "082255834796f3c463a461c4",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.308Z",
+  "input": {
+   "jobType": "Maling og overflatebehandling innendørs",
+   "parameters": [
+    {
+     "label": "Arbeidshøyde",
+     "value": "2 m"
+    },
+    {
+     "label": "Lufting",
+     "value": "åpne vinduer og dører"
+    },
+    {
+     "label": "Hvor stoffkartoteket er",
+     "value": "i HMS-appen på telefonen"
+    }
+   ],
+   "freeText": "Vi skal lakkere gulvet i en leilighet med 2-komponent lakk. Rommet har bare ett lite vindu.",
+   "answers": []
+  },
+  "rawOutput": "{\"specifics\":[{\"text\":\"Lakkering av gulv i en leilighet med 2-komponent lakk.\",\"status\":\"clear\"},{\"text\":\"Rommet har bare ett lite vindu.\",\"status\":\"clear\"}],\"questions\":[]}"
+ },
  "0a42f4da7708db481a323dc4": {
   "task": "P1",
   "promptVersion": "1.0.0",
   "inputHash": "0a42f4da7708db481a323dc4",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.810Z",
+  "recordedAt": "2026-10-26T17:14:22.170Z",
   "input": {
    "jobType": "Løfteoperasjon med kran",
    "parameters": [
@@ -37,7 +65,7 @@
   "inputHash": "2ecdce11a4d30c13b8f5f9d6",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.907Z",
+  "recordedAt": "2026-10-26T17:14:22.282Z",
   "input": {
    "jobType": "Arbeid i høyden",
    "parameters": [
@@ -65,7 +93,7 @@
   "inputHash": "3459fcbe729fc244f3324956",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.892Z",
+  "recordedAt": "2026-10-26T17:14:22.269Z",
   "input": {
    "jobType": "Løfteoperasjon med kran",
    "parameters": [
@@ -97,7 +125,7 @@
   "inputHash": "53f7cb2fecb812196b476175",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.860Z",
+  "recordedAt": "2026-10-26T17:14:22.236Z",
   "input": {
    "jobType": "Arbeid i høyden",
    "parameters": [
@@ -125,7 +153,7 @@
   "inputHash": "5c04f4a834838518e7d3e622",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.895Z",
+  "recordedAt": "2026-10-26T17:14:22.271Z",
   "input": {
    "jobType": "Løfteoperasjon med kran",
    "parameters": [
@@ -159,5 +187,33 @@
    ]
   },
   "rawOutput": "{\"specifics\":[{\"text\":\"Løft av paller med gipsplater til 3. etasje.\",\"status\":\"clear\"},{\"text\":\"Trang plass ved porten. Lasten tas gjennom porten, ikke over gjerdet.\",\"status\":\"clear\"},{\"text\":\"Anhukeren kontrollerer løftestroppene før bruk.\",\"status\":\"clear\"}],\"questions\":[]}"
+ },
+ "e979ddc98774c7a47ec5de4d": {
+  "task": "P1",
+  "promptVersion": "1.0.0",
+  "inputHash": "e979ddc98774c7a47ec5de4d",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.330Z",
+  "input": {
+   "jobType": "Betongstøp",
+   "parameters": [
+    {
+     "label": "Støpemetode",
+     "value": "betongpumpe"
+    },
+    {
+     "label": "Forskalingshøyde",
+     "value": "3 m"
+    },
+    {
+     "label": "Hvor stoffkartoteket er",
+     "value": "i brakka på byggeplassen"
+    }
+   ],
+   "freeText": "Vi skal støpe en vegg på 3 meter med pumpe. Betongbilen må rygge inn fra veien, over fortauet.",
+   "answers": []
+  },
+  "rawOutput": "{\"specifics\":[{\"text\":\"Støp av en vegg på 3 meter med betongpumpe.\",\"status\":\"clear\"},{\"text\":\"Betongbilen rygger inn fra veien, over fortauet.\",\"status\":\"clear\"}],\"questions\":[]}"
  }
 }

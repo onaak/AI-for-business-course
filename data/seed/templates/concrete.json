@@ -1,0 +1,1878 @@
+{
+  "templateId": "concrete",
+  "jobType": {
+    "nb": "Betongstøp",
+    "en": "Concrete casting",
+    "pl": "Betonowanie",
+    "lt": "Betonavimas",
+    "ru": "Бетонирование"
+  },
+  "parameters": [
+    {
+      "key": "method",
+      "label": {
+        "nb": "Støpemetode",
+        "en": "Casting method",
+        "pl": "Metoda betonowania",
+        "lt": "Betonavimo būdas",
+        "ru": "Способ бетонирования"
+      },
+      "type": "choice",
+      "default": "pump",
+      "options": [
+        {
+          "key": "pump",
+          "label": {
+            "nb": "betongpumpe",
+            "en": "concrete pump",
+            "pl": "pompa do betonu",
+            "lt": "betono siurblys",
+            "ru": "бетононасос"
+          }
+        },
+        {
+          "key": "skip",
+          "label": {
+            "nb": "kranbøtte",
+            "en": "crane skip",
+            "pl": "kubeł na żurawiu",
+            "lt": "kibiras su kranu",
+            "ru": "бадья на кране"
+          }
+        },
+        {
+          "key": "chute",
+          "label": {
+            "nb": "renne fra bilen",
+            "en": "chute from the truck",
+            "pl": "rynna z betonowozu",
+            "lt": "lovys iš betonvežio",
+            "ru": "лоток с бетоновоза"
+          }
+        }
+      ]
+    },
+    {
+      "key": "formHeight",
+      "label": {
+        "nb": "Forskalingshøyde",
+        "en": "Formwork height",
+        "pl": "Wysokość szalunku",
+        "lt": "Klojinių aukštis",
+        "ru": "Высота опалубки"
+      },
+      "type": "number",
+      "unitSymbol": "m",
+      "min": 0.5,
+      "max": 6,
+      "default": 1.5
+    },
+    {
+      "key": "stoffkartotek",
+      "label": {
+        "nb": "Hvor stoffkartoteket er",
+        "en": "Where the substance index is",
+        "pl": "Gdzie jest rejestr substancji",
+        "lt": "Kur yra cheminių medžiagų registras",
+        "ru": "Где находится реестр химических веществ"
+      },
+      "type": "choice",
+      "default": "app",
+      "options": [
+        {
+          "key": "app",
+          "label": {
+            "nb": "i HMS-appen på telefonen",
+            "en": "in the HSE app on your phone",
+            "pl": "w aplikacji BHP w telefonie",
+            "lt": "DSS programėlėje telefone",
+            "ru": "в приложении по охране труда в телефоне"
+          }
+        },
+        {
+          "key": "site",
+          "label": {
+            "nb": "i brakka på byggeplassen",
+            "en": "in the site hut",
+            "pl": "w kontenerze na budowie",
+            "lt": "statybvietės vagonėlyje",
+            "ru": "в бытовке на стройплощадке"
+          }
+        },
+        {
+          "key": "foreman",
+          "label": {
+            "nb": "hos basen",
+            "en": "with the foreman",
+            "pl": "u brygadzisty",
+            "lt": "pas brigadininką",
+            "ru": "у бригадира"
+          }
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "lineId": "c-01",
+      "section": "steps",
+      "textNb": "Støpemetode: {method}",
+      "parameterRefs": [
+        "method"
+      ],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": null,
+      "termIds": [],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Casting method: {method}",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Metoda betonowania: {method}",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Betonavimo būdas: {method}",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Способ бетонирования: {method}",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "concrete"
+      ]
+    },
+    {
+      "lineId": "c-02",
+      "section": "steps",
+      "textNb": "Forskalingshøyde: {formHeight} m",
+      "parameterRefs": [
+        "formHeight"
+      ],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": null,
+      "termIds": [
+        "formwork"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Formwork height: {formHeight} m",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Wysokość szalunku: {formHeight} m",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Klojinių aukštis: {formHeight} m",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Высота опалубки: {formHeight} м",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "concrete",
+        "height"
+      ]
+    },
+    {
+      "lineId": "c-03",
+      "section": "steps",
+      "textNb": "Gå gjennom denne SJA-en med hele laget før støpen starter.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": "cd-01",
+      "termIds": [],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Go through this SJA with the whole crew before the pour starts.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Przed rozpoczęciem betonowania omów tę analizę SJA z całą brygadą.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Prieš pradėdami betonuoti aptarkite šią SJA su visa brigada.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Перед началом бетонирования обсудите этот SJA со всей бригадой.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "concrete"
+      ],
+      "riskLevel": "green"
+    },
+    {
+      "lineId": "c-04",
+      "section": "steps",
+      "textNb": "Kontroller forskaling, stag og avstivning før støpen starter.",
+      "parameterRefs": [],
+      "dependsOnParameters": [
+        "formHeight"
+      ],
+      "critical": true,
+      "sourceRef": "cd-05",
+      "termIds": [
+        "formwork"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Check the formwork, ties and props before the pour starts.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Przed rozpoczęciem betonowania sprawdź szalunek, ściągi i podpory.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Prieš pradėdami betonuoti patikrinkite klojinius, sąvaržas ir atramas.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Перед началом бетонирования проверьте опалубку, стяжки и подпорки.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "concrete"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "lineId": "c-05",
+      "section": "steps",
+      "textNb": "Les sikkerhetsdatabladet for sement og tilsetningsstoffer. Stoffkartoteket finner du: {stoffkartotek}.",
+      "parameterRefs": [
+        "stoffkartotek"
+      ],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": "cd-02",
+      "termIds": [
+        "sds",
+        "wet-concrete",
+        "substance-index"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Read the safety data sheet for cement and admixtures. You find the substance index: {stoffkartotek}.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Przeczytaj kartę charakterystyki cementu i domieszek. Rejestr substancji chemicznych znajdziesz: {stoffkartotek}.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Perskaitykite cemento ir priedų saugos duomenų lapą. Cheminių medžiagų registrą rasite: {stoffkartotek}.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Прочитайте паспорт безопасности цемента и добавок. Реестр химических веществ находится: {stoffkartotek}.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "chemicals",
+        "concrete"
+      ],
+      "riskLevel": "green"
+    },
+    {
+      "lineId": "c-06",
+      "section": "hazards",
+      "textNb": "Fare: våt betong gir etseskader på hud og øyne.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "cd-03",
+      "termIds": [
+        "wet-concrete"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Hazard: wet concrete causes chemical burns to skin and eyes.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Zagrożenie: mokry beton powoduje oparzenia chemiczne skóry i oczu.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Pavojus: šlapias betonas sukelia cheminius odos ir akių nudegimus.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Опасность: свежий бетон вызывает химические ожоги кожи и глаз.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "concrete",
+        "chemicals"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "lineId": "c-07",
+      "section": "hazards",
+      "textNb": "Fare: forskalingen gir etter under støpen.",
+      "parameterRefs": [],
+      "dependsOnParameters": [
+        "formHeight"
+      ],
+      "critical": true,
+      "sourceRef": "cd-05",
+      "termIds": [
+        "formwork"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Hazard: the formwork gives way during the pour.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Zagrożenie: szalunek ustępuje podczas betonowania.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Pavojus: klojiniai neatlaiko betonuojant.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Опасность: опалубка не выдерживает во время бетонирования.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "concrete"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "lineId": "c-08",
+      "section": "hazards",
+      "textNb": "Fare: pumpeslangen slår når det blir propp, eller når trykket slippes.",
+      "parameterRefs": [],
+      "dependsOnParameters": [
+        "method"
+      ],
+      "critical": true,
+      "sourceRef": "cd-06",
+      "termIds": [
+        "concrete-pump"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Hazard: the pump hose whips when it blocks or when the pressure is released.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Zagrożenie: wąż pompy do betonu uderza, gdy się zatka lub gdy ciśnienie zostanie zwolnione.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Pavojus: betono siurblio žarna trūkčioja, kai užsikemša arba kai išleidžiamas slėgis.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Опасность: шланг бетононасоса бьёт, когда в нём пробка или когда сбрасывается давление.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "concrete"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "lineId": "c-09",
+      "section": "hazards",
+      "textNb": "Fare: vibrasjoner i hender og armer fra vibrasjonsstaven.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": "cd-08",
+      "termIds": [
+        "poker-vibrator"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Hazard: vibration in the hands and arms from the poker vibrator.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Zagrożenie: drgania dłoni i ramion od wibratora wgłębnego.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Pavojus: rankų vibracija nuo giluminio vibratoriaus.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Опасность: вибрация рук от глубинного вибратора.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "vibration",
+        "concrete"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "lineId": "c-10",
+      "section": "hazards",
+      "textNb": "Fare: støy fra pumpe, bil og vibrator.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": "cd-09",
+      "termIds": [
+        "poker-vibrator"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Hazard: noise from the pump, the truck and the vibrator.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Zagrożenie: hałas od pompy, betonowozu i wibratora.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Pavojus: siurblio, automobilio ir vibratoriaus triukšmas.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Опасность: шум от насоса, машины и вибратора.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "noise",
+        "concrete"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "lineId": "c-11",
+      "section": "controls",
+      "textNb": "Unngå hudkontakt med våt betong. Bytt klær som er gjennomvåte av betong.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "cd-04",
+      "termIds": [
+        "wet-concrete"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Avoid skin contact with wet concrete. Change clothes that are soaked with concrete.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Unikaj kontaktu skóry z mokrym betonem. Zmień ubranie przesiąknięte betonem.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Venkite šlapio betono sąlyčio su oda. Persirenkite drabužius, permirkusius betonu.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Избегайте контакта кожи со свежим бетоном. Смените одежду, пропитанную бетоном.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "concrete",
+        "chemicals"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "lineId": "c-12",
+      "section": "controls",
+      "textNb": "Ingen skal stå foran enden av pumpeslangen når pumpen starter eller en propp løses.",
+      "parameterRefs": [],
+      "dependsOnParameters": [
+        "method"
+      ],
+      "critical": true,
+      "sourceRef": "cd-06",
+      "termIds": [
+        "concrete-pump"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Nobody may stand in front of the end of the pump hose when the pump starts or a blockage is cleared.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Nikt nie może stać przed końcem węża pompy do betonu, gdy pompa rusza lub gdy usuwa się zator.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Niekas negali stovėti priešais betono siurblio žarnos galą, kai siurblys paleidžiamas arba šalinamas kamštis.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Никто не должен стоять перед концом шланга бетононасоса, когда насос запускают или устраняют пробку.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "concrete"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "lineId": "c-13",
+      "section": "controls",
+      "textNb": "Hold avstand til betongbilen når den rygger. Signalgiveren dirigerer.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "cd-07",
+      "termIds": [
+        "signaller"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Keep away from the concrete truck when it reverses. The signaller directs it.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Trzymaj się z dala od betonowozu, gdy cofa. Sygnalista kieruje ruchem.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Laikykitės atokiau nuo betonvežio, kai jis važiuoja atbulas. Eismą nurodo signalininkas.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Держитесь подальше от бетоновоза, когда он сдаёт назад. Сигнальщик руководит движением.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "concrete"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "lineId": "c-14",
+      "section": "controls",
+      "textNb": "Bytt på hvem som bruker vibrasjonsstaven, og ta pauser.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": "cd-08",
+      "termIds": [
+        "poker-vibrator"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Take turns using the poker vibrator, and take breaks.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Zmieniajcie się przy wibratorze wgłębnym i róbcie przerwy.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Keiskitės dirbdami su giluminiu vibratoriumi ir darykite pertraukas.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Работайте с глубинным вибратором по очереди и делайте перерывы.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "vibration"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "lineId": "c-15",
+      "section": "controls",
+      "textNb": "Når forskalingen er høyere enn 2 m, skal det arbeides fra en plattform med rekkverk.",
+      "parameterRefs": [],
+      "dependsOnParameters": [
+        "formHeight"
+      ],
+      "critical": true,
+      "sourceRef": "cd-10",
+      "termIds": [
+        "formwork",
+        "guardrail"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "When the formwork is higher than 2 m, work must be done from a platform with a guardrail.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Gdy szalunek jest wyższy niż 2 m, pracuje się z pomostu z balustradą ochronną.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Kai klojiniai aukštesni nei 2 m, reikia dirbti nuo platformos su apsauginiais turėklais.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Если опалубка выше 2 м, работать нужно с площадки с защитным ограждением.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "height",
+        "concrete"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "lineId": "c-16",
+      "section": "ppe",
+      "textNb": "Bruk tette hansker med lange mansjetter, og støvler som betongen ikke kan renne ned i.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "cd-11",
+      "termIds": [
+        "gloves"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Wear tight gloves with long cuffs, and boots that concrete cannot run into.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Noś szczelne rękawice ochronne z długimi mankietami i buty, do których beton nie może się dostać.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Mūvėkite sandarias apsaugines pirštines ilgais rankogaliais ir avėkite batus, į kuriuos betonas negali įbėgti.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Надевайте плотные защитные перчатки с длинными манжетами и сапоги, в которые не может затечь бетон.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "ppe",
+        "concrete"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "lineId": "c-17",
+      "section": "ppe",
+      "textNb": "Bruk vernebriller under støpen.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "cd-11",
+      "termIds": [
+        "goggles"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Wear safety glasses during the pour.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Podczas betonowania noś okulary ochronne.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Betonuodami dėvėkite apsauginius akinius.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Во время бетонирования надевайте защитные очки.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "ppe"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "lineId": "c-18",
+      "section": "ppe",
+      "textNb": "Bruk hørselvern nær pumpe og vibrator.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": "cd-09",
+      "termIds": [
+        "hearing-protection",
+        "poker-vibrator"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Wear hearing protection near the pump and the vibrator.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "W pobliżu pompy i wibratora używaj ochronników słuchu.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Prie siurblio ir vibratoriaus naudokite klausos apsaugos priemones.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Рядом с насосом и вибратором используйте средства защиты слуха.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "ppe",
+        "noise"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "lineId": "c-19",
+      "section": "ppe",
+      "textNb": "Hjelm, vernesko og synlighetstøy skal brukes av alle i området.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "cd-14",
+      "termIds": [
+        "helmet",
+        "footwear",
+        "hi-vis"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Helmet, safety footwear and high-visibility clothing must be worn by everyone in the area.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Wszyscy w strefie muszą nosić hełm ochronny, obuwie ochronne i odzież ostrzegawczą.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Visi zonoje esantys asmenys privalo dėvėti apsauginį šalmą, apsauginę avalynę ir gerai matomus drabužius.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Каску, защитную обувь и сигнальную одежду должны носить все, кто находится в зоне.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "ppe"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "lineId": "c-24",
+      "section": "ppe",
+      "textNb": "Sement er etsende for øynene og kan gi allergi på huden. Bruk støvmaske P2 når tørr sement blandes.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "cd-11",
+      "termIds": [
+        "wet-concrete"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Cement is corrosive to the eyes and can cause skin allergy. Wear a P2 dust mask when mixing dry cement.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Cement działa żrąco na oczy i może powodować alergię skóry. Podczas mieszania suchego cementu noś maskę przeciwpyłową P2.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Cementas ėsdina akis ir gali sukelti odos alergiją. Maišydami sausą cementą dėvėkite P2 respiratorių nuo dulkių.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Цемент разъедает глаза и может вызвать аллергию на коже. При смешивании сухого цемента надевайте противопылевую маску P2.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "ppe",
+        "chemicals",
+        "concrete",
+        "dust"
+      ],
+      "riskLevel": "red",
+      "ghs": [
+        "GHS05",
+        "GHS07"
+      ],
+      "onlyWithProduct": "pr-cement"
+    },
+    {
+      "lineId": "c-25",
+      "section": "ppe",
+      "textNb": "Forskalingsolje: ikke pust inn sprøytetåken. Bruk hansker og vernebriller når oljen påføres.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": "cd-11",
+      "termIds": [
+        "formwork",
+        "gloves",
+        "goggles"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Formwork oil: do not breathe in the spray mist. Wear gloves and safety glasses when applying the oil.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Olej szalunkowy: nie wdychaj mgły. Podczas nakładania oleju noś rękawice ochronne i okulary ochronne.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Klojinių alyva: neįkvėpkite purškiamos miglos. Tepdami alyvą mūvėkite apsaugines pirštines ir dėvėkite apsauginius akinius.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Опалубочное масло: не вдыхайте аэрозоль. При нанесении масла надевайте защитные перчатки и защитные очки.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "ppe",
+        "chemicals"
+      ],
+      "riskLevel": "yellow",
+      "ghs": [
+        "GHS08"
+      ],
+      "onlyWithProduct": "pr-form-oil"
+    },
+    {
+      "lineId": "c-20",
+      "section": "stop",
+      "textNb": "Stans støpen hvis forskalingen beveger seg, knaker eller lekker.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "cd-05",
+      "termIds": [
+        "formwork"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Stop the pour if the formwork moves, creaks or leaks.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Przerwij betonowanie, jeśli szalunek się przesuwa, trzeszczy lub przecieka.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Sustabdykite betonavimą, jei klojiniai juda, girgžda ar teka.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Остановите бетонирование, если опалубка смещается, трещит или протекает.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "concrete"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "lineId": "c-21",
+      "section": "stop",
+      "textNb": "Stans betongpumpen før noen løser en propp i slangen.",
+      "parameterRefs": [],
+      "dependsOnParameters": [
+        "method"
+      ],
+      "critical": true,
+      "sourceRef": "cd-06",
+      "termIds": [
+        "concrete-pump"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Stop the concrete pump before anyone clears a blockage in the hose.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Zatrzymaj pompę do betonu, zanim ktokolwiek zacznie usuwać zator w wężu.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Sustabdykite betono siurblį, prieš šalindami kamštį žarnoje.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Остановите бетононасос, прежде чем кто-то начнёт устранять пробку в шланге.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "concrete"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "lineId": "c-22",
+      "section": "emergency",
+      "textNb": "Betong i øynene: bruk øyeskyll eller rent vann i minst 15 minutter, og kontakt lege.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "cd-12",
+      "termIds": [
+        "eye-wash"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Concrete in the eyes: use an eye wash or clean water for at least 15 minutes, and contact a doctor.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Beton w oczach: przepłukuj oczy płynem do płukania oczu lub czystą wodą przez co najmniej 15 minut i skontaktuj się z lekarzem.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Betonas pateko į akis: plaukite akis akių plovimo priemone arba švariu vandeniu ne mažiau kaip 15 minučių ir kreipkitės į gydytoją.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Бетон попал в глаза: промывайте глаза средством для промывания или чистой водой не менее 15 минут и обратитесь к врачу.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "emergency",
+        "concrete"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "lineId": "c-23",
+      "section": "emergency",
+      "textNb": "Ved ulykke: ring 113 og varsle basen.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "cd-13",
+      "termIds": [
+        "foreman"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "In an accident: call 113 and alert the foreman.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "W razie wypadku: zadzwoń pod 113 i powiadom brygadzistę.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Įvykus nelaimingam atsitikimui: skambinkite 113 ir praneškite brigadininkui.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "При несчастном случае: позвоните 113 и сообщите бригадиру.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "emergency"
+      ],
+      "riskLevel": "red"
+    }
+  ],
+  "questions": [
+    {
+      "questionId": "qc-1",
+      "linkedLineIds": [
+        "c-12"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "Pumpeslangen har fått propp, og pumpen skal startes igjen. Hvor står du?",
+          "options": [
+            "Ved enden av slangen, for å holde den.",
+            "Unna enden av slangen, ikke foran den.",
+            "Rett ved siden av enden, for å se godt."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "The pump hose is blocked, and the pump is about to start again. Where do you stand?",
+          "options": [
+            "At the end of the hose, to hold it.",
+            "Away from the end of the hose, not in front of it.",
+            "Right next to the end, to see well."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Wąż pompy się zatkał i pompa ma zostać ponownie uruchomiona. Gdzie stoisz?",
+          "options": [
+            "Przy końcu węża, żeby go trzymać.",
+            "Z dala od końca węża, nie przed nim.",
+            "Tuż obok końca, żeby dobrze widzieć."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Siurblio žarna užsikimšo, ir siurblys bus vėl paleistas. Kur stovite?",
+          "options": [
+            "Prie žarnos galo, kad ją laikyčiau.",
+            "Atokiau nuo žarnos galo, ne priešais jį.",
+            "Visai šalia galo, kad gerai matyčiau."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "В шланге насоса пробка, и насос сейчас снова запустят. Где вы стоите?",
+          "options": [
+            "У конца шланга, чтобы держать его.",
+            "В стороне от конца шланга, не перед ним.",
+            "Прямо рядом с концом, чтобы хорошо видеть."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "qc-2",
+      "linkedLineIds": [
+        "c-11",
+        "c-06"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "Betong har rent ned i støvelen din. Hva gjør du?",
+          "options": [
+            "Jeg venter til pausen.",
+            "Jeg stanser, tar av støvelen og skyller huden med rent vann.",
+            "Jeg tørker av utsiden av støvelen."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "Concrete has run into your boot. What do you do?",
+          "options": [
+            "I wait until the break.",
+            "I stop, take off the boot and rinse the skin with clean water.",
+            "I wipe the outside of the boot."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Beton dostał się do twojego buta. Co robisz?",
+          "options": [
+            "Czekam do przerwy.",
+            "Przerywam, zdejmuję but i spłukuję skórę czystą wodą.",
+            "Wycieram but z zewnątrz."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Betonas įbėgo į jūsų batą. Ką darote?",
+          "options": [
+            "Laukiu pertraukos.",
+            "Sustoju, nusiaunu batą ir nuplaunu odą švariu vandeniu.",
+            "Nušluostau bato išorę."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Бетон затёк вам в сапог. Что вы делаете?",
+          "options": [
+            "Жду перерыва.",
+            "Останавливаюсь, снимаю сапог и смываю бетон с кожи чистой водой.",
+            "Вытираю сапог снаружи."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "qc-3",
+      "linkedLineIds": [
+        "c-20"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "Under støpen hører du at forskalingen knaker, og den bøyer seg litt. Hva gjør du?",
+          "options": [
+            "Vi fyller fortere, så vi blir ferdige.",
+            "Vi stanser støpen og sier fra.",
+            "Jeg presser på forskalingen for å holde den."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "During the pour you hear the formwork creak, and it bends a little. What do you do?",
+          "options": [
+            "We fill faster so we finish.",
+            "We stop the pour and report it.",
+            "I push against the formwork to hold it."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Podczas betonowania słyszysz, że szalunek trzeszczy i lekko się wygina. Co robisz?",
+          "options": [
+            "Wylewamy szybciej, żeby skończyć.",
+            "Przerywamy betonowanie i zgłaszamy to.",
+            "Napieram na szalunek, żeby go utrzymać."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Betonuodami girdite, kad klojiniai girgžda ir šiek tiek išlinksta. Ką darote?",
+          "options": [
+            "Pilame greičiau, kad baigtume.",
+            "Sustabdome betonavimą ir pranešame.",
+            "Spaudžiu klojinius, kad juos išlaikyčiau."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Во время бетонирования вы слышите, что опалубка трещит и немного прогибается. Что вы делаете?",
+          "options": [
+            "Заливаем быстрее, чтобы закончить.",
+            "Останавливаем бетонирование и сообщаем.",
+            "Упираюсь в опалубку, чтобы её удержать."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "qc-4",
+      "linkedLineIds": [
+        "c-22"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "Du får betongsprut i øyet. Hva gjør du først?",
+          "options": [
+            "Jeg skyller med øyeskyll eller rent vann i minst 15 minutter.",
+            "Jeg gnir øyet.",
+            "Jeg fortsetter og ser på det etterpå."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "A splash of concrete gets in your eye. What do you do first?",
+          "options": [
+            "I rinse with an eye wash or clean water for at least 15 minutes.",
+            "I rub the eye.",
+            "I carry on and look at it afterwards."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Beton prysnął ci do oka. Co robisz najpierw?",
+          "options": [
+            "Płuczę oko płynem do płukania lub czystą wodą przez co najmniej 15 minut.",
+            "Trę oko.",
+            "Pracuję dalej i zajmę się tym później."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Betono pateko į akį. Ką darote pirmiausia?",
+          "options": [
+            "Plaunu akį akių plovimo priemone arba švariu vandeniu ne mažiau kaip 15 minučių.",
+            "Patrinu akį.",
+            "Dirbu toliau ir pasižiūrėsiu vėliau."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Вам в глаз попали брызги бетона. Что вы делаете сначала?",
+          "options": [
+            "Промываю глаз средством для промывания или чистой водой не менее 15 минут.",
+            "Тру глаз.",
+            "Продолжаю работать и посмотрю потом."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 0,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "qc-5",
+      "linkedLineIds": [
+        "c-13"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "Betongbilen rygger mot støpestedet. Hva gjør du?",
+          "options": [
+            "Jeg går bak bilen for å vise vei.",
+            "Jeg holder avstand og lar signalgiveren dirigere.",
+            "Jeg blir stående der jeg er."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "The concrete truck is reversing towards the pour. What do you do?",
+          "options": [
+            "I walk behind the truck to show the way.",
+            "I keep my distance and let the signaller direct it.",
+            "I stay where I am."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Betonowóz cofa w stronę miejsca betonowania. Co robisz?",
+          "options": [
+            "Idę za samochodem, żeby wskazać drogę.",
+            "Trzymam się z daleka i pozwalam sygnaliście kierować.",
+            "Zostaję tam, gdzie jestem."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Betonvežis važiuoja atbulas link betonavimo vietos. Ką darote?",
+          "options": [
+            "Einu už automobilio, kad parodyčiau kelią.",
+            "Laikausi atokiau ir leidžiu signalininkui nurodinėti.",
+            "Lieku ten, kur esu."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Бетоновоз сдаёт назад к месту бетонирования. Что вы делаете?",
+          "options": [
+            "Иду за машиной, чтобы показывать дорогу.",
+            "Держусь на расстоянии, движением руководит сигнальщик.",
+            "Остаюсь там, где стою."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "qc-6",
+      "linkedLineIds": [
+        "c-14"
+      ],
+      "critical": false,
+      "byLang": {
+        "nb": {
+          "text": "Du har brukt vibrasjonsstaven lenge, og det prikker i hendene. Hva gjør du?",
+          "options": [
+            "Jeg fortsetter til støpen er ferdig.",
+            "Jeg bytter med en kollega og tar en pause.",
+            "Jeg tar på tykkere hansker og fortsetter."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "You have used the poker vibrator for a long time, and your hands are tingling. What do you do?",
+          "options": [
+            "I carry on until the pour is finished.",
+            "I swap with a colleague and take a break.",
+            "I put on thicker gloves and carry on."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Długo używasz wibratora wgłębnego i mrowią cię dłonie. Co robisz?",
+          "options": [
+            "Pracuję dalej, aż skończymy betonowanie.",
+            "Zmieniam się z kolegą i robię przerwę.",
+            "Zakładam grubsze rękawice i pracuję dalej."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Ilgai dirbote su giluminiu vibratoriumi, ir rankas dilgčioja. Ką darote?",
+          "options": [
+            "Dirbu toliau, kol baigsime betonuoti.",
+            "Pasikeičiu su kolega ir darau pertrauką.",
+            "Užsimaunu storesnes pirštines ir dirbu toliau."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Вы долго работали глубинным вибратором, и у вас покалывает руки. Что вы делаете?",
+          "options": [
+            "Продолжаю, пока не закончим бетонирование.",
+            "Меняюсь с коллегой и делаю перерыв.",
+            "Надеваю перчатки потолще и продолжаю."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "qc-7",
+      "linkedLineIds": [
+        "c-15"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "Forskalingen er 3 m høy, og plattformen mangler rekkverk. Hva gjør du?",
+          "options": [
+            "Jeg arbeider forsiktig.",
+            "Jeg går ikke opp før rekkverket er på plass.",
+            "Jeg holder meg fast i forskalingen."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "The formwork is 3 m high, and the platform has no guardrail. What do you do?",
+          "options": [
+            "I work carefully.",
+            "I do not go up until the guardrail is in place.",
+            "I hold on to the formwork."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Szalunek ma 3 m wysokości, a pomost nie ma balustrady. Co robisz?",
+          "options": [
+            "Pracuję ostrożnie.",
+            "Nie wchodzę, dopóki balustrada nie zostanie zamontowana.",
+            "Trzymam się szalunku."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Klojiniai yra 3 m aukščio, o platforma neturi turėklų. Ką darote?",
+          "options": [
+            "Dirbu atsargiai.",
+            "Nelipu, kol nebus sumontuoti turėklai.",
+            "Laikausi už klojinių."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Опалубка высотой 3 м, а у площадки нет ограждения. Что вы делаете?",
+          "options": [
+            "Работаю осторожно.",
+            "Не поднимаюсь, пока не установят ограждение.",
+            "Держусь за опалубку."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "qc-8",
+      "linkedLineIds": [
+        "c-21"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "Det er propp i slangen. Hva må skje før noen løser den?",
+          "options": [
+            "Pumpen stanses.",
+            "Ingenting, vi løser den mens pumpen går.",
+            "Vi slår på slangen med en hammer."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "The hose is blocked. What must happen before anyone clears it?",
+          "options": [
+            "The pump is stopped.",
+            "Nothing, we clear it while the pump runs.",
+            "We hit the hose with a hammer."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "W wężu jest zator. Co musi się stać, zanim ktoś go usunie?",
+          "options": [
+            "Pompa zostaje zatrzymana.",
+            "Nic, usuwamy go przy pracującej pompie.",
+            "Uderzamy w wąż młotkiem."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Žarnoje kamštis. Kas turi įvykti, prieš jį šalinant?",
+          "options": [
+            "Siurblys sustabdomas.",
+            "Nieko, šaliname jį siurbliui veikiant.",
+            "Daužome žarną plaktuku."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "В шланге пробка. Что должно произойти, прежде чем её начнут устранять?",
+          "options": [
+            "Насос останавливают.",
+            "Ничего, устраняем её при работающем насосе.",
+            "Бьём по шлангу молотком."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 0,
+      "keyTechnical": {
+        "given": false
+      }
+    }
+  ],
+  "products": [
+    {
+      "productId": "pr-cement",
+      "name": {
+        "nb": "Sement (eksempel)",
+        "en": "Cement (example)",
+        "pl": "Cement (przykład)",
+        "lt": "Cementas (pavyzdys)",
+        "ru": "Цемент (пример)"
+      },
+      "ghs": [
+        "GHS05",
+        "GHS07"
+      ],
+      "hCodes": [
+        "H315",
+        "H317",
+        "H318",
+        "H335"
+      ],
+      "sdsNote": "Syntetisk eksempel: typisk klassifisering for portlandsement. Ikke et ekte sikkerhetsdatablad."
+    },
+    {
+      "productId": "pr-form-oil",
+      "name": {
+        "nb": "Forskalingsolje (eksempel)",
+        "en": "Formwork release oil (example)",
+        "pl": "Olej szalunkowy (przykład)",
+        "lt": "Klojinių alyva (pavyzdys)",
+        "ru": "Опалубочное масло (пример)"
+      },
+      "ghs": [
+        "GHS08"
+      ],
+      "hCodes": [
+        "H304"
+      ],
+      "sdsNote": "Syntetisk eksempel: typisk klassifisering for mineraloljebasert formolje. Ikke et ekte sikkerhetsdatablad."
+    }
+  ],
+  "standaloneQuestionIds": [
+    "qc-1",
+    "qc-2",
+    "qc-3",
+    "qc-4"
+  ]
+}

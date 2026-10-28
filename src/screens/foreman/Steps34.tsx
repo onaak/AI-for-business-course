@@ -8,7 +8,7 @@ import * as flow from '../../core/flow';
 import { unverifiedReuse } from '../../core/metrics';
 import { supportedLangs } from '../../core/rules/diff';
 import { SECTIONS, type DataPack, type Flag, type HazardList, type Route, type Section, type Sja, type SjaLine } from '../../core/types';
-import { useT } from '../../i18n';
+import { useT, useUiLang } from '../../i18n';
 import { useApp, useLog, useSjas } from '../../state/stores';
 import type { useWizard } from './useWizard';
 
@@ -17,7 +17,7 @@ type Wizard = ReturnType<typeof useWizard>;
 function LineRow({ line, w, hazards }: { line: SjaLine; w: Wizard; hazards?: HazardList }) {
   const t = useT();
   const sja = w.sja;
-  const ui = useApp((s) => s.lang);
+  const ui = useUiLang();
   const [editing, setEditing] = useState(false);
   const [open, setOpen] = useState(false);
   const [text, setText] = useState(line.textNb);
@@ -39,9 +39,9 @@ function LineRow({ line, w, hazards }: { line: SjaLine; w: Wizard; hazards?: Haz
             {line.textNb}
             <HelpEn nb={line.textNb} line={line} sja={sja} />
           </span>
-          {line.critical && <Icon name="warn" className="h-4 w-4 text-slate-500" />}
+          {line.critical && <Icon name="warn" className="h-4 w-4 text-slate-600" />}
           {line.techRecheck === 'confirmed' && <Icon name="check" className="h-4 w-4 text-emerald-700" />}
-          <span className="shrink-0 text-xs font-semibold text-slate-500">{t(`origin.${line.origin}`)}</span>
+          <span className="shrink-0 text-xs font-semibold text-slate-600">{t(`origin.${line.origin}`)}</span>
         </button>
       </li>
     );
@@ -242,9 +242,9 @@ export function Step3({ w, hazards }: { w: Wizard; hazards?: HazardList }) {
       )}
 
       <p className="flex items-start gap-2 text-sm text-slate-700" data-testid="lines-legend">
-        <Icon name="info" className="mt-0.5 h-4 w-4 text-slate-500" />
+        <Icon name="info" className="mt-0.5 h-4 w-4 text-slate-600" />
         <span>
-          {t('s3.legend')} <Icon name="warn" className="h-4 w-4 text-slate-500" /> <span className="sr-only">{t('line.critical')}: </span>
+          {t('s3.legend')} <Icon name="warn" className="h-4 w-4 text-slate-600" /> <span className="sr-only">{t('line.critical')}: </span>
           {t('s3.legendCritical')}
         </span>
       </p>
@@ -344,7 +344,7 @@ export function needsLanguageCheck(sja: Sja, pack: DataPack): boolean {
 
 export function Step4({ w, pack }: { w: Wizard; pack: DataPack }) {
   const t = useT();
-  const ui = useApp((s) => s.lang);
+  const ui = useUiLang();
   const sja = w.sja!;
   const started = useRef(false);
 

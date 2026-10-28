@@ -1,6 +1,6 @@
 # Assumptions and decisions made during the build
 
-Built on 5 October 2026 from `SJA_Forstatt_Prototype_Specification.md` v1.0 and `docs/implementation_plan.md` v1.0. Where the two differ, the plan was followed (it says so itself, and lists 16 changes, SC-01 to SC-16).
+Built on 5 October 2026 from `SJA_Forstatt_Prototype_Specification.md` v1.0 and `docs/implementation_plan.md` v1.0. Where the two differ, the plan was followed (it says so itself, and lists 16 changes, SC-01 to SC-16). Items 46 to 57 were added on 26 October 2026 (`OCT26_CHANGES.md`).
 
 ## The ones that matter most
 
@@ -68,6 +68,18 @@ The brief's v3 changed step 4 ("Check understanding") and added "What verified m
 | 43 | **In replay mode a rewrite that cannot be checked is not applied**, in any mode a failed check is headed "could not be checked", and a template line can be set back to the template's wording. | A line that can neither be checked nor undone was a dead end. | Irrelevant in live mode unless a call fails. |
 | 44 | **A half-filled step 1 form is kept in the browser tab's session storage** until the SJA is created. | A reload emptied the form. It never leaves the device. | Nothing. |
 | 45 | **English help lines** under Norwegian SJA text when the interface is in English. Template wording uses the template's English; demo texts use `data/fixtures/help-en.json`; in live mode one extra P4 request (target English) per new text, logged as `help-translation`. Never part of the SJA, the record's printed text, exports or worker screens. | The project group and the teacher do not read Norwegian. | Drop it once everyone reading the screens reads Norwegian. |
+| 46 | **Translation memory is read from the working data pack**, not kept in a separate `tm.json`: a template line with both keys in a language is a memory entry. | One source of truth. An edit that clears a key takes the line out of memory at once; a separate file could keep a stale pair. | A shared store, if the memory should cover lines that are not in a template. |
+| 47 | **Similar examples (L2) are chosen by word overlap**, at most 3, from verified lines only, and are left out of the request entirely when there are none. | No vector database (task list). Leaving them out keeps the stored replay answers valid until reviewers have verified something. | A live measurement (L5) showing that examples do not help, or hurt. |
+| 48 | **The written explanation is translated, never judged, by the model.** P7 gets the language and the two answers only; it returns a translation and an "unreadable" mark. The foreman decides. | The service says the AI never decides whether someone may start high-risk work. | U4 showing that foremen cannot judge from the translation: then this path must not end in "signed" (decision 2 reversed). |
+| 49 | **The worker's written text is not kept**: not in the call log, not as a replay fixture, not in the run file or the trace. Only the foreman's verdict and the path are. Exception: test-bench runs with the sample answers (run ids starting with `bench` or `fixture`). | No names or personal statements in stored data (PR-08), and a worker's own words in a second language could identify them. | Nothing. |
+| 50 | **Three paths in a fixed order**: conversation, then writing (with a reason), then three multiple-choice questions. Only the last signs as "Signert med reserveløsning". | Group decision 2 (26 Oct). | U4 results. |
+| 51 | **Questions rotate by "fewest workers so far"**, ties broken by the order that puts questions on changed lines first. | The phone is passed round: without rotation the next worker has just heard the answer. | More approved questions per template. |
+| 52 | **A product is a template property, not a stoffkartotek.** 2–4 synthetic products per template, with pictograms, H codes and their own lines that come in only when the product is picked. | The tool must not become a second, out-of-date substance index (task list 1.5). | Real products, with the firm's own data sheets. |
+| 53 | **GHS pictograms are simplified drawings.** | The official artwork is not needed to recognise them on a phone, and nothing here labels a real product. | Use in a real firm. |
+| 54 | **Sources: paragraph where one exists, else "Firmapraksis".** Paragraph titles were checked in Arbeidstilsynet's English edition; 6 lines still cite a chapter or a guidance page. | The task list asked for a source on every line or an honest "firm practice". | A technical reviewer, and Lovdata for the Norwegian paragraph text. |
+| 55 | **Field mode is a view, not access control.** It hides pages and closes their addresses in the interface; the server's API stays open. `npm run share` adds a read-only data pack so nobody with the tunnel address can change reviewers' keys. | Enough for showing the prototype to a reviewer. | Hosting for real users would need accounts. |
+| 56 | **Polish was added to the two new templates** although the task list suggested leaving it out. | The concrete demo job has a Polish crew. | No Polish reviewer for those templates: remove those translations. |
+| 57 | **"Not followed" is logged like "misunderstood"**: one event per line, template and line only, no names. The rules library counts both. | Interview: the main contractor's pain is compliance, not comprehension (task I4). | Nothing. |
 
 ## Not built, on purpose
 
@@ -75,8 +87,8 @@ The brief's v3 changed step 4 ("Check understanding") and added "What verified m
 |---|---|
 | Audio (F-23), second translation (F-24) | Moved to COULD or dropped by the plan (SC-11). |
 | The 2-minute briefing script and a clean hand-out per language (brief, step 5 and "What the firm gets") | In both v2 and v3 of the brief, in neither the specification nor the plan. Not added in the v3 update, which changed only what v3 changed. The signed screen points to the record instead. |
-| Third template (F-21) | The plan allows it only after the first two have both keys in one language. |
-| Promoting a reviewed SJA line into the template | The plan reduces versioning to one working pack with a version number (SC-10). Reviewers can edit and approve template lines, glossary terms and questions. |
+| ~~Third template (F-21)~~ | Built on 26 October by group decision: painting and concrete casting, four templates in all, although the first two still have no keys (the plan's condition). See `OCT26_CHANGES.md`. |
+| ~~Promoting a reviewed SJA line into the template~~ | Built on 26 October (L4): a reviewer button adds a line from a signed SJA to its template as a draft without keys. Still one working pack with a version number (SC-10). |
 | Accounts, database, hosting, HMS integration, legally valid signature | Out of scope in both documents. |
 | A real blank SJA form for T8 | None was available. `data/fixtures/blank-sja-form.md` is a marked placeholder. |
 | One recorded happy-path run from a live model | Needs a key. A scripted demo run is shipped in its place, labelled. |

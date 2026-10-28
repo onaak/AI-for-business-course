@@ -26,6 +26,8 @@ export default defineConfig({
   use: {
     baseURL: `http://localhost:${port}`,
     viewport: { width: 375, height: 760 }, // phone width (8.4, AC-27)
+    // Optional: point at an already installed Chromium instead of Playwright's own download.
+    launchOptions: process.env.PW_CHROMIUM_PATH ? { executablePath: process.env.PW_CHROMIUM_PATH } : {},
   },
   webServer: {
     command: 'npx tsx server/index.ts',

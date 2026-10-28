@@ -1,17 +1,20 @@
 // Foreman wizard, steps 1 (Job) and 2 (Understood).
 import { useEffect, useMemo, useState } from 'react';
 import { ActionBar, Button, Card, Chip, ErrorBox, Field, Icon, inputClass, Notice, Spinner } from '../../components/ui';
+import { GhsRow } from '../../components/Ghs';
 import { HelpEn } from '../../components/HelpEn';
+import { PrivacyPanel } from '../../components/Privacy';
 import * as flow from '../../core/flow';
 import { isSupported } from '../../core/rules/languages';
 import type { DataPack, Sja, Template } from '../../core/types';
 import { LANG_NAMES } from '../../core/util';
-import { useT } from '../../i18n';
+import { useT, useUiLang } from '../../i18n';
 import { useApp, useSjas } from '../../state/stores';
 import type { useWizard } from './useWizard';
 
 type Wizard = ReturnType<typeof useWizard>;
-const OTHER_LANGS = ['ro', 'uk', 'ru'];
+// Languages with no glossary column: the tool says "interpreter required" (T4). Russian is supported since 26 Oct 2026.
+const OTHER_LANGS = ['ro', 'uk', 'tr'];
 const today = () => new Date().toISOString().slice(0, 10);
 
 interface Form {
@@ -20,6 +23,8 @@ interface Form {
   freeText: string;
   languages: string[];
   crewFlags: { newWorker: boolean; firstTimeJobType: boolean };
+  /** Products for today's job (K1), for templates that list products. */
+  products?: string[];
   header: Sja['header'];
   fixtureId?: string;
 }
@@ -47,19 +52,19 @@ function writeDraft(sjaId: string, form: Form | null) {
 
 function initialForm(pack: DataPack, sja: Sja | undefined, fixture: any | undefined): Form {
   if (sja) {
-    return { templateId: sja.templateId, parameterValues: sja.parameterValues, freeText: sja.freeText, languages: sja.languages, crewFlags: sja.crewFlags, header: sja.header, fixtureId: sja.fixtureId };
+    return { templateId: sja.templateId, parameterValues: sja.parameterValues, freeText: sja.freeText, languages: sja.languages, crewFlags: sja.crewFlags, products: sja.products ?? [], header: sja.header, fixtureId: sja.fixtureId };
   }
   const header = { siteLabel: '', date: today(), foremanRole: 'Bas' };
   if (fixture) {
-    return { templateId: fixture.templateId, parameterValues: fixture.parameterValues, freeText: fixture.freeText, languages: fixture.languages, crewFlags: fixture.crewFlags, header, fixtureId: fixture.id };
+    return { templateId: fixture.templateId, parameterValues: fixture.parameterValues, freeText: fixture.freeText, languages: fixture.languages, crewFlags: fixture.crewFlags, products: fixture.products ?? [], header, fixtureId: fixture.id };
   }
   const t = pack.templates[0];
-  return { templateId: t.templateId, parameterValues: defaults(t), freeText: '', languages: [], crewFlags: { newWorker: false, firstTimeJobType: false }, header };
+  return { templateId: t.templateId, parameterValues: defaults(t), freeText: '', languages: [], crewFlags: { newWorker: false, firstTimeJobType: false }, products: [], header };
 }
 
 export function Step1({ w, sjaId, pack, testId, fixtureId }: { w: Wizard; sjaId: string; pack: DataPack; testId?: string; fixtureId?: string }) {
   const t = useT();
-  const ui = useApp((s) => s.lang);
+  const ui = useUiLang();
   const config = useApp((s) => s.config);
   const jobs = (useApp((s) => s.fixtures)?.['job-descriptions'] ?? []) as any[];
   const [form, setForm] = useState<Form>(() => (!w.sja && readDraft(sjaId)) || initialForm(pack, w.sja, jobs.find((j) => j.id === fixtureId)));
@@ -86,12 +91,21 @@ export function Step1({ w, sjaId, pack, testId, fixtureId }: { w: Wizard; sjaId:
   const loadFixture = (id: string) => {
     const job = jobs.find((j) => j.id === id);
     if (!job) return setForm((f) => ({ ...f, fixtureId: undefined }));
-    setForm((f) => ({ ...f, templateId: job.templateId, parameterValues: job.parameterValues, freeText: job.freeText, languages: job.languages, crewFlags: job.crewFlags, fixtureId: job.id }));
+    setForm((f) => ({ ...f, templateId: job.templateId, parameterValues: job.parameterValues, freeText: job.freeText, languages: job.languages, crewFlags: job.crewFlags, products: job.products ?? [], fixtureId: job.id }));
   };
   const setTemplate = (id: string) => {
     const tpl = pack.templates.find((x) => x.templateId === id)!;
-    setForm((f) => ({ ...f, templateId: id, parameterValues: defaults(tpl), fixtureId: undefined }));
+    setForm((f) => ({ ...f, templateId: id, parameterValues: defaults(tpl), products: [], fixtureId: undefined }));
   };
+  const toggleProduct = (id: string) =>
+    setForm((f) => {
+      const cur = f.products ?? [];
+      const products = cur.includes(id) ? cur.filter((x) => x !== id) : [...cur, id];
+      // A demo job's stored answers only fit its own products.
+      const job = jobs.find((j) => j.id === f.fixtureId);
+      const same = job && JSON.stringify([...(job.products ?? [])].sort()) === JSON.stringify([...products].sort());
+      return { ...f, products, fixtureId: same ? f.fixtureId : undefined };
+    });
   const toggleLang = (l: string) => setForm((f) => ({ ...f, languages: f.languages.includes(l) ? f.languages.filter((x) => x !== l) : [...f.languages, l] }));
 
   const submit = async () => {
@@ -102,12 +116,13 @@ export function Step1({ w, sjaId, pack, testId, fixtureId }: { w: Wizard; sjaId:
       return;
     }
     const values = Object.fromEntries(template.parameters.map((p) => [p.key, p.type === 'number' ? Number(form.parameterValues[p.key]) : String(form.parameterValues[p.key])]));
-    const init: flow.SjaInit = { header: form.header, parameterValues: values, freeText: form.freeText.trim(), languages: form.languages, crewFlags: form.crewFlags, testId: w.sja?.testId ?? testId, fixtureId: form.fixtureId };
+    const products = (form.products ?? []).filter((id) => template.products?.some((p) => p.productId === id));
+    const init: flow.SjaInit = { header: form.header, parameterValues: values, freeText: form.freeText.trim(), languages: form.languages, crewFlags: form.crewFlags, products, testId: w.sja?.testId ?? testId, fixtureId: form.fixtureId };
     const old = w.sja;
     const unchanged =
       old &&
       old.templateId === template.templateId &&
-      JSON.stringify([old.parameterValues, old.freeText, old.languages, old.crewFlags]) === JSON.stringify([init.parameterValues, init.freeText, init.languages, init.crewFlags]);
+      JSON.stringify([old.parameterValues, old.freeText, old.languages, old.crewFlags, old.products ?? []]) === JSON.stringify([init.parameterValues, init.freeText, init.languages, init.crewFlags, init.products ?? []]);
     if (old && unchanged && (old.specifics.length > 0 || old.specificsConfirmed || !old.freeText)) {
       useSjas.getState().put({ ...old, header: form.header, step: 2 });
       return;
@@ -197,6 +212,26 @@ export function Step1({ w, sjaId, pack, testId, fixtureId }: { w: Wizard; sjaId:
             </Field>
           ))}
         </div>
+
+        {template.products && template.products.length > 0 && (
+          <fieldset className="space-y-2" data-testid="products">
+            <legend className="mb-1 text-sm font-semibold text-slate-800">{t('s1.products')}</legend>
+            <p className="text-sm text-slate-600">{t('s1.productsHint')}</p>
+            {template.products.map((p) => (
+              <label key={p.productId} className="flex min-h-11 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 bg-white px-3 py-2">
+                <input type="checkbox" className="mt-1 h-5 w-5 shrink-0" checked={(form.products ?? []).includes(p.productId)} onChange={() => toggleProduct(p.productId)} data-testid={`product-${p.productId}`} />
+                <span className="min-w-0 flex-1">
+                  <span className="block text-base">{p.name[ui] ?? p.name.nb}</span>
+                  <span className="mt-1 flex flex-wrap items-center gap-2">
+                    <GhsRow codes={p.ghs} lang={ui} size={30} />
+                    <span className="text-xs text-slate-600">{p.hCodes.length ? p.hCodes.join(', ') : t('s1.productNoClass')}</span>
+                  </span>
+                </span>
+              </label>
+            ))}
+            <p className="text-xs text-slate-600">{t('s1.productsSynthetic')}</p>
+          </fieldset>
+        )}
       </Card>
 
       <Card className="space-y-4">
@@ -254,6 +289,8 @@ export function Step1({ w, sjaId, pack, testId, fixtureId }: { w: Wizard; sjaId:
           </Field>
         </div>
       </Card>
+
+      <PrivacyPanel compact testid="privacy-step1" />
 
       {w.busy && <Spinner label={t('busy.normalise')} />}
       {w.error && <ErrorBox message={w.error.message} onRetry={w.error.retry} retryLabel={t('common.retry')} />}

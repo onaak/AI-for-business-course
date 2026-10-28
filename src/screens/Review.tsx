@@ -13,13 +13,13 @@ import { checkLineRules } from '../core/pipeline/checkLine';
 import { findSourceTerms } from '../core/rules/glossary';
 import type { DataPack, Flag, KeyState, Lang, ReviewerSession, Role } from '../core/types';
 import { clone, fillParams, LANG_NAMES } from '../core/util';
-import { approve, deriveState, editGlossaryTerm, editQuestion, editSourceLine, editTargetLine, reject, verificationSummary, type ItemRef } from '../core/verification';
+import { addTermForms, approve, deriveState, editGlossaryTerm, editQuestion, editSourceLine, editTargetLine, promoteLine, reject, type ItemRef, verificationSummary } from '../core/verification';
 import { fmtDuration, misunderstandingCounts } from '../core/metrics';
 import { verificationSummaryMarkdown } from '../record';
 import { makeFlowCtx } from '../state/ctx';
 import { useApp, useLog, useSjas } from '../state/stores';
 
-type Tab = 'templates' | 'glossary' | 'questions' | 'queue' | 'summary';
+type Tab = 'templates' | 'glossary' | 'questions' | 'queue' | 'promote' | 'summary';
 const today = () => new Date().toISOString().slice(0, 10);
 
 function KeyChip({ label, k }: { label: string; k: KeyState | undefined }) {
@@ -97,6 +97,25 @@ export default function Review() {
     [sjas],
   );
 
+  // L4: lines written for one job, in signed SJAs on this device, that the template does not have yet.
+  const promotable = useMemo(
+    () =>
+      pack
+        ? Object.values(sjas)
+            .filter((sja) => sja.status === 'signed' || sja.status === 'signedWithFallback')
+            .flatMap((sja) =>
+              sja.lines
+                .filter((l) => l.origin === 'new' && l.aiSuggestion !== 'open')
+                .filter((l) => !pack.templates.find((t) => t.templateId === sja.templateId)?.lines.some((x) => x.textNb === l.textNb))
+                .map((line) => ({ sja, line })),
+            )
+        : [],
+    [sjas, pack],
+  );
+  const hazardsAll = useApp((s) => s.hazards);
+  const packReadOnly = useApp((s) => Boolean(s.config?.packReadOnly));
+  const [forms, setForms] = useState<Record<string, { accepted: string; forbidden: string }>>({});
+
   if (!pack) return <Layout title="Review" english>Loading …</Layout>;
   const template = pack.templates.find((t) => t.templateId === templateId) ?? pack.templates[0];
   const langs: Lang[] = session?.role === 'language' ? [session.lang] : pack.languages;
@@ -138,6 +157,7 @@ export default function Review() {
     ['glossary', `Glossary (${pack.glossary.length})`],
     ['questions', 'Questions'],
     ['queue', `Flagged lines (${queue.length})`],
+    ['promote', `Lines from jobs (${promotable.length})`],
     ['summary', 'Summary and version'],
   ];
 
@@ -154,6 +174,9 @@ export default function Review() {
           </ul>
         </details>
 
+        {!library && packReadOnly && (
+          <Notice tone="amber">This copy is shared for viewing. Keys and corrections cannot be saved here; review on the group's own computer.</Notice>
+        )}
         {library ? (
           <Notice>Read-only library. Every line and term shows its true verification state. With the seed data as delivered, nothing is verified.</Notice>
         ) : session ? (
@@ -249,7 +272,7 @@ export default function Review() {
               return (
                 <li key={line.lineId} className="rounded-xl border border-slate-200 bg-white p-3" onClick={() => touch(key)} data-testid={`lib-line-${line.lineId}`}>
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-xs font-bold text-slate-500">{line.lineId}</span>
+                    <span className="text-xs font-bold text-slate-600">{line.lineId}</span>
                     <Chip tone="slate">{line.section}</Chip>
                     {line.critical && <Chip tone="red">safety-critical</Chip>}
                     <KeyChip label="Technical key" k={line.keyTechnical} />
@@ -370,7 +393,7 @@ export default function Review() {
               return (
                 <li key={q.questionId} className="rounded-xl border border-slate-200 bg-white p-3" onClick={() => touch(q.questionId)}>
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-xs font-bold text-slate-500">{q.questionId}</span>
+                    <span className="text-xs font-bold text-slate-600">{q.questionId}</span>
                     <Chip tone="slate">tests {q.linkedLineIds.join(', ')}</Chip>
                     <KeyChip label="Technical key" k={q.keyTechnical} />
                   </div>
@@ -455,7 +478,37 @@ export default function Review() {
                   {!mine ? (
                     <Notice tone="amber">Only a language reviewer for {LANG_NAMES[lang]?.en ?? lang} can decide this item.</Notice>
                   ) : editing === k ? (
-                    <Editor label="Corrected target text" initial={entry?.text ?? ''} onCancel={() => setEditing(null)} onSave={(v) => run((s) => flow.reviewerCorrect(makeFlowCtx(s), s, line!.lineId, lang, v, session!, spent(k)))} />
+                    <div className="space-y-2">
+                      <Editor
+                        label="Corrected target text"
+                        initial={entry?.text ?? ''}
+                        onCancel={() => setEditing(null)}
+                        onSave={(v) => {
+                          const f = forms[k];
+                          run((s) => flow.reviewerCorrect(makeFlowCtx(s), s, line!.lineId, lang, v, session!, spent(k)));
+                          // L3: the correction can also teach the glossary.
+                          if (flag.termId && f && (f.accepted.trim() || f.forbidden.trim())) {
+                            void mutate(`${k}|forms`, 'review_glossary_forms', 'checking', (p) => void addTermForms(p, flag.termId!, lang as Lang, f, session!, today()), lang);
+                          }
+                        }}
+                      />
+                      {flag.termId && (
+                        <div className="space-y-2 rounded-lg border border-slate-300 bg-white p-2" data-testid="glossary-forms">
+                          <p className="text-sm font-semibold">
+                            Also teach the glossary (optional): term «{pack.glossary.find((x) => x.termId === flag.termId)?.nbForms[0].replace(/^=/, '')}»
+                          </p>
+                          <label className="block text-sm">
+                            Accepted form or stem you used (it is added as an alternative to the first stem)
+                            <input className={inputClass} value={forms[k]?.accepted ?? ''} onChange={(e) => setForms({ ...forms, [k]: { accepted: e.target.value, forbidden: forms[k]?.forbidden ?? '' } })} data-testid="form-accepted" />
+                          </label>
+                          <label className="block text-sm">
+                            Wrong word to forbid (from the machine translation)
+                            <input className={inputClass} value={forms[k]?.forbidden ?? ''} onChange={(e) => setForms({ ...forms, [k]: { accepted: forms[k]?.accepted ?? '', forbidden: e.target.value } })} data-testid="form-forbidden" />
+                          </label>
+                          <p className="text-xs text-slate-600">Saved as a new glossary state with your language key. The working pack's version is raised by hand on the Summary tab when a revision is complete.</p>
+                        </div>
+                      )}
+                    </div>
                   ) : (
                     <div className="space-y-2">
                       <input className={inputClass} placeholder="Reason (required for a false alarm or a rejection)" value={reasons[k] ?? ''} onChange={(e) => { touch(k); setReasons({ ...reasons, [k]: e.target.value }); }} data-testid="queue-reason" />
@@ -472,6 +525,51 @@ export default function Review() {
                       </div>
                     </div>
                   )}
+                </Card>
+              );
+            })}
+          </div>
+        )}
+
+        {tab === 'promote' && (
+          <div className="space-y-3" data-testid="review-promote">
+            <Notice>
+              Lines written for one job (by the AI from the hazard list, or by a foreman) in signed SJAs on this device. Adding one puts it in its template as a new <strong>draft</strong> line, with the
+              translations that were checked and not flagged. It counts as verified, and goes into the translation memory, only after both reviewers give their keys on the Templates tab.
+              Nothing is added automatically.
+            </Notice>
+            {promotable.length === 0 && <Notice tone="amber">No new lines in signed SJAs on this device.</Notice>}
+            {promotable.map(({ sja, line }) => {
+              const k = `p|${sja.sjaId}|${line.lineId}`;
+              const tpl = pack.templates.find((t) => t.templateId === sja.templateId);
+              const idx = sja.lines.findIndex((l) => l.lineId === line.lineId);
+              const before = sja.lines.slice(0, idx).reverse().find((l) => l.templateLineId)?.templateLineId ?? null;
+              return (
+                <Card key={k} className="space-y-2" >
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Chip tone="blue">{tpl?.jobType.en ?? sja.templateId}</Chip>
+                    <Chip tone="slate">{line.section}</Chip>
+                    {line.critical && <Chip tone="red">safety-critical</Chip>}
+                    <Chip tone="slate">added by {line.addedBy}</Chip>
+                    {!line.hazardRef && <Chip tone="amber">no source in the hazard list</Chip>}
+                  </div>
+                  <p className="text-base">{line.textNb}</p>
+                  <ul className="text-sm text-slate-700">
+                    {Object.entries(line.byLang).map(([l, e]) => (
+                      <li key={l}>
+                        {LANG_NAMES[l]?.en ?? l}: <span lang={l}>{e.text || '—'}</span> {e.checkState !== 'checked' || e.flags.some((f) => f.status === 'open') ? '(not carried over: not checked, or flagged)' : ''}
+                      </li>
+                    ))}
+                  </ul>
+                  <Button
+                    variant="primary"
+                    disabled={!session}
+                    onClick={() => mutate(k, 'review_promote_line', 'setup', (p) => void promoteLine(p, sja.templateId, line, hazardsAll.find((h) => h.templateId === sja.templateId), before))}
+                    data-testid="promote-line"
+                  >
+                    Add to the template as a draft line
+                  </Button>
+                  {!session && <p className="text-xs text-slate-600">Start reviewing (above) to add lines.</p>}
                 </Card>
               );
             })}

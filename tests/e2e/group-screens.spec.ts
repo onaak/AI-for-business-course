@@ -6,13 +6,15 @@ test.use({ viewport: { width: 1180, height: 860 } });
 
 test('library: with the seed data as delivered, nothing is verified (AC-01)', async ({ page }) => {
   await page.goto('/');
+  await page.getByTestId('tab-reviewer').click();
   await page.getByTestId('tile-library').click();
   await expectBanner(page, BANNER_EN); // group and reviewer screens are in English only
-  await expect(page.getByTestId('review-template').locator('option')).toHaveCount(2);
+  await expect(page.getByTestId('review-template').locator('option')).toHaveCount(4); // work at height, lifting, painting, concrete
   const states = await page.locator('[data-testid^="state-"]').evaluateAll((els) => els.map((e) => (e as HTMLElement).dataset.state));
-  expect(states.length).toBe(22 * 3); // every target-language line shows a state
+  expect(states.length).toBe(22 * 4); // every target-language line (pl, lt, ru, en) shows a state
   expect(new Set(states)).toEqual(new Set(['draft']));
-  await expect(page.getByTestId('lib-line-h-07')).toContainText('unsourced'); // CR-21
+  await expect(page.getByTestId('lib-line-h-01')).toContainText('unsourced'); // a value from step 1 has no source (CR-21)
+  await expect(page.getByTestId('lib-line-h-07')).toContainText('source: hh-11'); // Q1: every rule line now has a source or a "firm practice" mark
   await expect(page.getByTestId('lib-line-h-09')).toContainText('source: hh-06');
   await expect(page.locator('[data-testid^="approve-"]')).toHaveCount(0); // read-only
   await page.getByTestId('tab-glossary').click();
@@ -101,6 +103,7 @@ test('review: two keys make "Verified"; an edit clears keys; version raise (AC-2
 
 test('test bench: T6 counts by layer, false-alarm verdict, edge cases, Appendix A export (AC-09, AC-21, AC-23, AC-24)', async ({ page }) => {
   await page.goto('/');
+  await page.getByTestId('tab-project').click();
   await page.getByTestId('tile-bench').click();
   await expect(page.getByText('Replay mode: nothing on this screen is a test result.')).toBeVisible();
   await expect(page.getByText('Unconfirmed fixtures.')).toBeVisible();
@@ -165,13 +168,13 @@ test('test bench: T6 counts by layer, false-alarm verdict, edge cases, Appendix 
 
   // Appendix A: exactly six columns; observed result and learning stay empty until a person types (AC-24).
   await page.getByTestId('testlog-add').click();
-  await expect(page.getByTestId('testlog-table').locator('tbody tr')).toHaveCount(8);
+  await expect(page.getByTestId('testlog-table').locator('tbody tr')).toHaveCount(9); // T1–T8 and U4
   for (const box of await page.getByTestId('testlog-observed').all()) await expect(box).toHaveValue('');
   for (const box of await page.getByTestId('testlog-learning').all()) await expect(box).toHaveValue('');
   const [csvFile] = await Promise.all([page.waitForEvent('download'), page.getByTestId('testlog-export-csv').click()]);
   const csv = readFileSync(await csvFile.path(), 'utf8').trim().split('\n');
   expect(csv[0]).toBe('"Number","Case type","Scenario or input","Expected outcome","Observed result","Learning or revision"');
-  expect(csv).toHaveLength(9);
+  expect(csv).toHaveLength(10); // header, T1–T8 and U4
   expect(csv[1].endsWith(',"",""')).toBe(true);
   await page.getByTestId('testlog-observed').first().fill('Typed by the observer.');
   const [mdFile] = await Promise.all([page.waitForEvent('download'), page.getByTestId('testlog-export-md').click()]);

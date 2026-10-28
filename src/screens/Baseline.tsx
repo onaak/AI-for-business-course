@@ -86,6 +86,19 @@ export default function Baseline() {
               <input className={inputClass} value={label} onChange={(e) => setLabel(e.target.value)} data-testid="baseline-label" />
             </label>
           </div>
+          <div className="flex flex-wrap gap-2" data-testid="baseline-presets">
+            {[
+              ['T8', 'T8 (i) blank form filled in by hand'],
+              ['T8', 'T8 (ii) existing template, human translation'],
+              ['T8', 'T8 (iv) chatbot: drafted and translated with ChatGPT or Claude'],
+              ['T5', 'T5 baseline: the firm\'s usual oral briefing'],
+            ].map(([tid, l]) => (
+              <button key={l} type="button" className="min-h-11 rounded-full border border-slate-400 bg-white px-3 text-sm font-semibold" onClick={() => { setTestId(tid); setLabel(l); }} data-testid={`preset-${l.slice(0, 7).replace(/\W+/g, '')}`}>
+                {l}
+              </button>
+            ))}
+          </div>
+          <p className="text-sm text-slate-700">For T8 (iv), time the chatbot work in the same categories, then paste its translation into the test bench ("Check any translation") and count what the check engine flags. (iii) is the flagship itself: its time comes from the foreman flow.</p>
           <p className="text-sm text-slate-700">Tap a category to start timing it. Tap another to switch. Tap the running one, or Stop, to end.</p>
           <div className="grid gap-2 sm:grid-cols-2">
             {CATEGORIES.map((c) => {

@@ -5,7 +5,7 @@ import { Button, Icon, Layout, Spinner } from '../components/ui';
 import { gateConditions } from '../core/rules/gate';
 import type { TimeCategory } from '../core/types';
 import { useT, useUiLang } from '../i18n';
-import { useApp, useLog } from '../state/stores';
+import { useApp, useFieldMode, useLog } from '../state/stores';
 import { timing } from '../state/timing';
 import { Step1, Step2 } from './foreman/Steps12';
 import { Step3, Step4 } from './foreman/Steps34';
@@ -68,7 +68,7 @@ function StepIndicator({ step, skipped5, onGo, locked, signed, observer, unfinis
                 aria-label={`${t('wizard.stepOf', { n })}: ${t(`wizard.step${n}`)}${skip ? ` (${t('wizard.skipped')})` : ''}${open ? ` (${t('wizard.unfinished')})` : ''}`}
                 data-state={state}
                 data-testid={`step-pill-${n}`}
-                className={`flex min-h-11 w-full flex-col items-center justify-center rounded-lg border px-0.5 text-xs font-bold ${state === 'current' ? 'border-blue-700 bg-blue-700 text-white' : state === 'open' ? 'border-amber-600 bg-amber-50 text-amber-950' : state === 'done' ? 'border-emerald-600 bg-emerald-50 text-emerald-900' : 'border-slate-300 bg-white text-slate-500'}`}
+                className={`flex min-h-11 w-full flex-col items-center justify-center rounded-lg border px-0.5 text-xs font-bold ${state === 'current' ? 'border-blue-700 bg-blue-700 text-white' : state === 'open' ? 'border-amber-600 bg-amber-50 text-amber-950' : state === 'done' ? 'border-emerald-600 bg-emerald-50 text-emerald-900' : 'border-slate-300 bg-white text-slate-600'}`}
               >
                 <span>{state === 'open' ? <Icon name="warn" className="h-4 w-4" /> : state === 'done' && !skip ? <Icon name="check" className="h-4 w-4" /> : n}</span>
                 <span className="w-full truncate text-center text-[10px] font-semibold leading-tight sm:text-[11px]">{skip ? t('wizard.skipped') : t(`wizard.step${n}`)}</span>
@@ -84,13 +84,13 @@ function StepIndicator({ step, skipped5, onGo, locked, signed, observer, unfinis
         {signed ? t('wizard.helpSigned') : t(`wizard.help${step}`)}
       </p>
       {ui === 'en' && (signed || step >= 2) && (
-        <p className="mt-1 text-[13px] italic text-slate-500" data-testid="help-en-note">
+        <p className="mt-1 text-[13px] italic text-slate-600" data-testid="help-en-note">
           {t('help.note')}
         </p>
       )}
       {!signed && (
         <div className="flex items-center justify-between gap-2">
-          <p className="text-xs font-semibold text-slate-500">{step < 6 ? `${t('wizard.next')}: ${t(`wizard.title${nextStep}`)}` : ''}</p>
+          <p className="text-xs font-semibold text-slate-600">{step < 6 ? `${t('wizard.next')}: ${t(`wizard.title${nextStep}`)}` : ''}</p>
           {observer}
         </div>
       )}
@@ -109,6 +109,7 @@ export default function Foreman() {
   const step = sja?.step ?? 1;
   const signed = sja?.status === 'signed' || sja?.status === 'signedWithFallback';
   const assists = useLog((s) => s.events.filter((e) => e.runId === sjaId && e.type === 'assist').length);
+  const field = useFieldMode();
 
   // Timing is taken from step transitions (SC-14).
   useEffect(() => {
@@ -142,7 +143,7 @@ export default function Foreman() {
         locked={signed || Boolean(w.busy)}
         signed={signed}
         unfinished={unfinished}
-        observer={!signed ? <ObserverControl assists={assists} onAssist={w.assist} runId={sjaId} /> : undefined}
+        observer={!signed && !field ? <ObserverControl assists={assists} onAssist={w.assist} runId={sjaId} /> : undefined}
       />
       {(view === 1 || !sja || !template) && <Step1 w={w} sjaId={sjaId} pack={pack} testId={search.get('test') ?? undefined} fixtureId={search.get('fixture') ?? undefined} />}
       {sja && template && view === 2 && <Step2 w={w} />}

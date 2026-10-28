@@ -1,76 +1,27 @@
 {
- "0bf0ab0f0a64a67e72c43fa4": {
+ "05442a640a1519b43f62684a": {
   "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "0bf0ab0f0a64a67e72c43fa4",
+  "promptVersion": "1.1.0",
+  "inputHash": "05442a640a1519b43f62684a",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.915Z",
+  "recordedAt": "2026-10-26T17:14:22.206Z",
   "input": {
-   "targetLang": "lt",
-   "text": "Vinsjen skal ha lastbrems og være festet til bærende konstruksjon.",
+   "targetLang": "pl",
+   "text": "Ikke løft over gangveien mens personer oppholder seg der.",
    "glossary": [],
    "enforceApprovedTerms": false,
    "attempt": 0
   },
-  "rawOutput": "{\"text\":\"Gervė turi turėti krovinio stabdį ir būti pritvirtinta prie laikančiosios konstrukcijos.\",\"termsUsed\":[],\"missingConcepts\":[\"vinsj\"]}"
+  "rawOutput": "{\"text\":\"Nie podnoś ładunku nad chodnikiem, gdy przebywają tam ludzie.\",\"termsUsed\":[],\"missingConcepts\":[]}"
  },
- "0c564984a2a800d113bb9d88": {
+ "0ce064adaa640fed77a40a7d": {
   "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "0c564984a2a800d113bb9d88",
+  "promptVersion": "1.1.0",
+  "inputHash": "0ce064adaa640fed77a40a7d",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.830Z",
-  "input": {
-   "targetLang": "pl",
-   "text": "Sperr av faresonen rundt løftet, også gangveien ved inngangen.",
-   "glossary": [
-    {
-     "nb": "sperr",
-     "approved": "wygrodzić",
-     "definition": "To close an area with barriers or tape so that nobody walks in."
-    },
-    {
-     "nb": "faresone",
-     "approved": "strefa niebezpieczna",
-     "definition": "The area where a person can be hit if something falls, swings or tips over."
-    }
-   ],
-   "enforceApprovedTerms": false,
-   "attempt": 0
-  },
-  "rawOutput": "{\"text\":\"Wygrodź strefę niebezpieczną wokół miejsca podnoszenia, również chodnik przy wejściu.\",\"termsUsed\":[\"wygrodzić\",\"strefa niebezpieczna\"],\"missingConcepts\":[]}"
- },
- "100f46f96e91fe09fc5f1c13": {
-  "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "100f46f96e91fe09fc5f1c13",
-  "origin": "scripted",
-  "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.868Z",
-  "input": {
-   "targetLang": "pl",
-   "text": "Utsparingen i dekket ved trappa skal dekkes til og merkes.",
-   "glossary": [
-    {
-     "nb": "utsparing",
-     "approved": "otwór w stropie",
-     "definition": "A hole in a floor or deck that a person or an object can fall through."
-    }
-   ],
-   "enforceApprovedTerms": false,
-   "attempt": 0
-  },
-  "rawOutput": "{\"text\":\"Otwór w stropie przy schodach należy zakryć i oznakować.\",\"termsUsed\":[\"otwór w stropie\"],\"missingConcepts\":[]}"
- },
- "1803bedc19528e5b9392d18a": {
-  "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "1803bedc19528e5b9392d18a",
-  "origin": "scripted",
-  "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.888Z",
+  "recordedAt": "2026-10-26T17:14:22.264Z",
   "input": {
    "targetLang": "lt",
    "text": "Sperr av fortauet under stillaset før dere begynner.",
@@ -91,13 +42,13 @@
   },
   "rawOutput": "{\"text\":\"Aptverkite šaligatvį po pastoliais prieš pradėdami.\",\"termsUsed\":[\"aptverti\",\"pastoliai\"],\"missingConcepts\":[]}"
  },
- "1894a4301636eecd4af68c44": {
+ "1345576367b9abb478e8b0e8": {
   "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "1894a4301636eecd4af68c44",
+  "promptVersion": "1.1.0",
+  "inputHash": "1345576367b9abb478e8b0e8",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.829Z",
+  "recordedAt": "2026-10-26T17:14:22.209Z",
   "input": {
    "targetLang": "lt",
    "text": "Ikke løft over gangveien mens personer oppholder seg der.",
@@ -107,57 +58,79 @@
   },
   "rawOutput": "{\"text\":\"Nekelkite krovinio virš pėsčiųjų tako, kol ten yra žmonių.\",\"termsUsed\":[],\"missingConcepts\":[]}"
  },
- "1e776dc017a1eec6ecb7ca2b": {
+ "172fbfd09bdfc6257bd2b5fb": {
   "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "1e776dc017a1eec6ecb7ca2b",
+  "promptVersion": "1.1.0",
+  "inputHash": "172fbfd09bdfc6257bd2b5fb",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.885Z",
+  "recordedAt": "2026-10-26T17:14:22.326Z",
   "input": {
-   "targetLang": "lt",
-   "text": "Utsparingen i dekket ved trappa skal dekkes til og merkes.",
+   "targetLang": "ru",
+   "text": "Sett opp mekanisk ventilasjon før lakkeringen starter, fordi rommet bare har ett lite vindu.",
    "glossary": [
     {
-     "nb": "utsparing",
-     "approved": "anga perdangoje",
-     "definition": "A hole in a floor or deck that a person or an object can fall through."
-    }
-   ],
-   "enforceApprovedTerms": true,
-   "attempt": 2
-  },
-  "rawOutput": "{\"text\":\"Skylė grindyse prie laiptų turi būti uždengta ir pažymėta.\",\"termsUsed\":[\"anga perdangoje\"],\"missingConcepts\":[]}"
- },
- "2946a52085f33c7572181431": {
-  "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "2946a52085f33c7572181431",
-  "origin": "scripted",
-  "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.882Z",
-  "input": {
-   "targetLang": "lt",
-   "text": "Utsparingen i dekket ved trappa skal dekkes til og merkes.",
-   "glossary": [
-    {
-     "nb": "utsparing",
-     "approved": "anga perdangoje",
-     "definition": "A hole in a floor or deck that a person or an object can fall through."
+     "nb": "ventilasjon",
+     "approved": "вентиляция",
+     "definition": "Fresh air through the room: mechanical extraction or open windows and doors, so that solvent vapour does not build up."
     }
    ],
    "enforceApprovedTerms": true,
    "attempt": 1
   },
-  "rawOutput": "{\"text\":\"Kiaurymė perdangoje prie laiptų turi būti uždengta ir pažymėta.\",\"termsUsed\":[\"anga perdangoje\"],\"missingConcepts\":[]}"
+  "rawOutput": "{\"text\":\"Перед началом лакирования установите механическую вентиляцию, потому что в помещении только одно маленькое окно.\",\"termsUsed\":[\"вентиляция\"],\"missingConcepts\":[]}"
  },
- "29a754b36e0f68dd5878e1b1": {
+ "19ba0c4584fd7d39a2888469": {
   "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "29a754b36e0f68dd5878e1b1",
+  "promptVersion": "1.1.0",
+  "inputHash": "19ba0c4584fd7d39a2888469",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.900Z",
+  "recordedAt": "2026-10-26T17:14:22.241Z",
+  "input": {
+   "targetLang": "lt",
+   "text": "Utsparingen i dekket ved trappa skal dekkes til og merkes.",
+   "glossary": [
+    {
+     "nb": "utsparing",
+     "approved": "anga perdangoje",
+     "definition": "A hole in a floor or deck that a person or an object can fall through."
+    }
+   ],
+   "enforceApprovedTerms": false,
+   "attempt": 0
+  },
+  "rawOutput": "{\"text\":\"Skylė perdangoje prie laiptų turi būti uždengta ir pažymėta.\",\"termsUsed\":[\"anga perdangoje\"],\"missingConcepts\":[]}"
+ },
+ "247881163d75a3756ab9fe57": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "247881163d75a3756ab9fe57",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.241Z",
+  "input": {
+   "targetLang": "pl",
+   "text": "Alle som går opp på stillaset skal ha fått opplæring.",
+   "glossary": [
+    {
+     "nb": "stillas",
+     "approved": "rusztowanie",
+     "definition": "A temporary structure to work from at height."
+    }
+   ],
+   "enforceApprovedTerms": false,
+   "attempt": 0
+  },
+  "rawOutput": "{\"text\":\"Każdy, kto wchodzi na rusztowanie, powinien przejść szkolenie.\",\"termsUsed\":[\"rusztowanie\"],\"missingConcepts\":[]}"
+ },
+ "2ee6ce3f0d913ab9825afee0": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "2ee6ce3f0d913ab9825afee0",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.276Z",
   "input": {
    "targetLang": "pl",
    "text": "Sperr av faresonen rundt løftet og hold porten stengt under løftet.",
@@ -178,40 +151,35 @@
   },
   "rawOutput": "{\"text\":\"Wygrodź strefę niebezpieczną wokół miejsca podnoszenia i trzymaj bramę zamkniętą podczas podnoszenia.\",\"termsUsed\":[\"wygrodzić\",\"strefa niebezpieczna\"],\"missingConcepts\":[]}"
  },
- "4d9aa548413d889f57bbc18d": {
+ "3bf9703a991096a77b73f1d3": {
   "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "4d9aa548413d889f57bbc18d",
+  "promptVersion": "1.1.0",
+  "inputHash": "3bf9703a991096a77b73f1d3",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.830Z",
+  "recordedAt": "2026-10-26T17:14:22.241Z",
   "input": {
-   "targetLang": "en",
-   "text": "Sperr av faresonen rundt løftet, også gangveien ved inngangen.",
+   "targetLang": "pl",
+   "text": "Utsparingen i dekket ved trappa skal dekkes til og merkes.",
    "glossary": [
     {
-     "nb": "sperr",
-     "approved": "cordon off",
-     "definition": "To close an area with barriers or tape so that nobody walks in."
-    },
-    {
-     "nb": "faresone",
-     "approved": "danger zone",
-     "definition": "The area where a person can be hit if something falls, swings or tips over."
+     "nb": "utsparing",
+     "approved": "otwór w stropie",
+     "definition": "A hole in a floor or deck that a person or an object can fall through."
     }
    ],
    "enforceApprovedTerms": false,
    "attempt": 0
   },
-  "rawOutput": "{\"text\":\"Cordon off the danger zone around the lift, including the walkway by the entrance.\",\"termsUsed\":[\"cordon off\",\"danger zone\"],\"missingConcepts\":[]}"
+  "rawOutput": "{\"text\":\"Otwór w stropie przy schodach należy zakryć i oznakować.\",\"termsUsed\":[\"otwór w stropie\"],\"missingConcepts\":[]}"
  },
- "50011ccd74d5543f756318fb": {
+ "45200b8bf5487a6bb82d2955": {
   "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "50011ccd74d5543f756318fb",
+  "promptVersion": "1.1.0",
+  "inputHash": "45200b8bf5487a6bb82d2955",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.869Z",
+  "recordedAt": "2026-10-26T17:14:22.241Z",
   "input": {
    "targetLang": "pl",
    "text": "Sperr av fortauet under stillaset før arbeidet starter.",
@@ -232,105 +200,13 @@
   },
   "rawOutput": "{\"text\":\"Wygrodź chodnik pod rusztowaniem po rozpoczęciu pracy.\",\"termsUsed\":[\"wygrodzić\",\"rusztowanie\"],\"missingConcepts\":[]}"
  },
- "5740af3d83e90bc92c10393f": {
+ "51c4a6b1c34434c319a250af": {
   "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "5740af3d83e90bc92c10393f",
+  "promptVersion": "1.1.0",
+  "inputHash": "51c4a6b1c34434c319a250af",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.869Z",
-  "input": {
-   "targetLang": "lt",
-   "text": "Alle som går opp på stillaset skal ha fått opplæring.",
-   "glossary": [
-    {
-     "nb": "stillas",
-     "approved": "pastoliai",
-     "definition": "A temporary structure to work from at height."
-    }
-   ],
-   "enforceApprovedTerms": false,
-   "attempt": 0
-  },
-  "rawOutput": "{\"text\":\"Visi, kurie lipa ant pastolių, turi būti apmokyti.\",\"termsUsed\":[\"pastoliai\"],\"missingConcepts\":[]}"
- },
- "66f2f91991763f69a4445a0c": {
-  "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "66f2f91991763f69a4445a0c",
-  "origin": "scripted",
-  "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.869Z",
-  "input": {
-   "targetLang": "lt",
-   "text": "Sperr av fortauet under stillaset før arbeidet starter.",
-   "glossary": [
-    {
-     "nb": "sperr",
-     "approved": "aptverti",
-     "definition": "To close an area with barriers or tape so that nobody walks in."
-    },
-    {
-     "nb": "stillas",
-     "approved": "pastoliai",
-     "definition": "A temporary structure to work from at height."
-    }
-   ],
-   "enforceApprovedTerms": false,
-   "attempt": 0
-  },
-  "rawOutput": "{\"text\":\"Aptverkite šaligatvį po pastoliais prieš pradedant darbą.\",\"termsUsed\":[\"aptverti\",\"pastoliai\"],\"missingConcepts\":[]}"
- },
- "732d328663b561e48b437954": {
-  "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "732d328663b561e48b437954",
-  "origin": "scripted",
-  "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.900Z",
-  "input": {
-   "targetLang": "lt",
-   "text": "Sperr av faresonen rundt løftet og hold porten stengt under løftet.",
-   "glossary": [
-    {
-     "nb": "sperr",
-     "approved": "aptverti",
-     "definition": "To close an area with barriers or tape so that nobody walks in."
-    },
-    {
-     "nb": "faresone",
-     "approved": "pavojinga zona",
-     "definition": "The area where a person can be hit if something falls, swings or tips over."
-    }
-   ],
-   "enforceApprovedTerms": false,
-   "attempt": 0
-  },
-  "rawOutput": "{\"text\":\"Aptverkite pavojingą zoną aplink kėlimo vietą ir laikykite vartus uždarytus kėlimo metu.\",\"termsUsed\":[\"aptverti\",\"pavojinga zona\"],\"missingConcepts\":[]}"
- },
- "7652b4e26059f38848dc0a4a": {
-  "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "7652b4e26059f38848dc0a4a",
-  "origin": "scripted",
-  "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:53.014Z",
-  "input": {
-   "targetLang": "pl",
-   "text": "Vinsjen skal ha lastbrems og være festet til bærende konstruksjon.",
-   "glossary": [],
-   "enforceApprovedTerms": false,
-   "attempt": 0
-  },
-  "rawOutput": "{\"text\":\"Wciągarka musi mieć hamulec ładunku i być przymocowana do konstrukcji nośnej.\",\"termsUsed\":[],\"missingConcepts\":[\"vinsj\"]}"
- },
- "78053fef3f92a1cc61909800": {
-  "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "78053fef3f92a1cc61909800",
-  "origin": "scripted",
-  "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.888Z",
+  "recordedAt": "2026-10-26T17:14:22.264Z",
   "input": {
    "targetLang": "pl",
    "text": "Sperr av fortauet under stillaset før dere begynner.",
@@ -351,35 +227,29 @@
   },
   "rawOutput": "{\"text\":\"Wygrodź chodnik pod rusztowaniem, zanim zaczniecie.\",\"termsUsed\":[\"wygrodzić\",\"rusztowanie\"],\"missingConcepts\":[]}"
  },
- "7b38e698d1bac735a4695356": {
+ "669f6cd2e7ea56549bec45b7": {
   "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "7b38e698d1bac735a4695356",
+  "promptVersion": "1.1.0",
+  "inputHash": "669f6cd2e7ea56549bec45b7",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.846Z",
+  "recordedAt": "2026-10-26T17:14:22.522Z",
   "input": {
-   "targetLang": "lt",
-   "text": "Bruk to styretau fordi lasten er lang.",
-   "glossary": [
-    {
-     "nb": "styretau",
-     "approved": "kreipiamoji virvė",
-     "definition": "A rope tied to the load so it can be guided from a distance."
-    }
-   ],
+   "targetLang": "pl",
+   "text": "Vinsjen skal ha lastbrems og være festet til bærende konstruksjon.",
+   "glossary": [],
    "enforceApprovedTerms": false,
    "attempt": 0
   },
-  "rawOutput": "{\"text\":\"Naudokite dvi kreipiamąsias virves, nes krovinys ilgas.\",\"termsUsed\":[\"kreipiamoji virvė\"],\"missingConcepts\":[]}"
+  "rawOutput": "{\"text\":\"Wciągarka musi mieć hamulec ładunku i być przymocowana do konstrukcji nośnej.\",\"termsUsed\":[],\"missingConcepts\":[\"vinsj\"]}"
  },
- "8211ea032ea70a9607ee2a17": {
+ "6cfabefca2070e70434cc22d": {
   "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "8211ea032ea70a9607ee2a17",
+  "promptVersion": "1.1.0",
+  "inputHash": "6cfabefca2070e70434cc22d",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.846Z",
+  "recordedAt": "2026-10-26T17:14:22.224Z",
   "input": {
    "targetLang": "pl",
    "text": "Bruk to styretau fordi lasten er lang.",
@@ -395,13 +265,257 @@
   },
   "rawOutput": "{\"text\":\"Użyj dwóch lin kierunkowych, ponieważ ładunek jest długi.\",\"termsUsed\":[\"lina kierunkowa\"],\"missingConcepts\":[]}"
  },
- "9afd4dd3ff42251fe5ab182e": {
+ "70ace7143590abb89ceedb15": {
   "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "9afd4dd3ff42251fe5ab182e",
+  "promptVersion": "1.1.0",
+  "inputHash": "70ace7143590abb89ceedb15",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.914Z",
+  "recordedAt": "2026-10-26T17:14:22.241Z",
+  "input": {
+   "targetLang": "lt",
+   "text": "Sperr av fortauet under stillaset før arbeidet starter.",
+   "glossary": [
+    {
+     "nb": "sperr",
+     "approved": "aptverti",
+     "definition": "To close an area with barriers or tape so that nobody walks in."
+    },
+    {
+     "nb": "stillas",
+     "approved": "pastoliai",
+     "definition": "A temporary structure to work from at height."
+    }
+   ],
+   "enforceApprovedTerms": false,
+   "attempt": 0
+  },
+  "rawOutput": "{\"text\":\"Aptverkite šaligatvį po pastoliais prieš pradedant darbą.\",\"termsUsed\":[\"aptverti\",\"pastoliai\"],\"missingConcepts\":[]}"
+ },
+ "70fd3523e95160f9e24e6e8e": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "70fd3523e95160f9e24e6e8e",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.336Z",
+  "input": {
+   "targetLang": "ru",
+   "text": "Betongbilen rygger inn over fortauet. Sperr av fortauet, og la signalgiveren dirigere bilen.",
+   "glossary": [
+    {
+     "nb": "sperr",
+     "approved": "оградить",
+     "definition": "To close an area with barriers or tape so that nobody walks in."
+    },
+    {
+     "nb": "signalgiver",
+     "approved": "сигнальщик",
+     "definition": "The person who gives signals to the crane operator."
+    }
+   ],
+   "enforceApprovedTerms": false,
+   "attempt": 0
+  },
+  "rawOutput": "{\"text\":\"Бетоновоз заезжает задним ходом через тротуар. Оградите тротуар, и пусть сигнальщик руководит машиной.\",\"termsUsed\":[\"оградить\",\"сигнальщик\"],\"missingConcepts\":[]}"
+ },
+ "835ea8f29430c39dc531a510": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "835ea8f29430c39dc531a510",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.210Z",
+  "input": {
+   "targetLang": "pl",
+   "text": "Sperr av faresonen rundt løftet, også gangveien ved inngangen.",
+   "glossary": [
+    {
+     "nb": "sperr",
+     "approved": "wygrodzić",
+     "definition": "To close an area with barriers or tape so that nobody walks in."
+    },
+    {
+     "nb": "faresone",
+     "approved": "strefa niebezpieczna",
+     "definition": "The area where a person can be hit if something falls, swings or tips over."
+    }
+   ],
+   "enforceApprovedTerms": false,
+   "attempt": 0
+  },
+  "rawOutput": "{\"text\":\"Wygrodź strefę niebezpieczną wokół miejsca podnoszenia, również chodnik przy wejściu.\",\"termsUsed\":[\"wygrodzić\",\"strefa niebezpieczna\"],\"missingConcepts\":[]}"
+ },
+ "87ef94adcfe77af2309d5ae0": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "87ef94adcfe77af2309d5ae0",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.292Z",
+  "input": {
+   "targetLang": "lt",
+   "text": "Vinsjen skal ha lastbrems og være festet til bærende konstruksjon.",
+   "glossary": [],
+   "enforceApprovedTerms": false,
+   "attempt": 0
+  },
+  "rawOutput": "{\"text\":\"Gervė turi turėti krovinio stabdį ir būti pritvirtinta prie laikančiosios konstrukcijos.\",\"termsUsed\":[],\"missingConcepts\":[\"vinsj\"]}"
+ },
+ "8a1f1c92331d045cec5098d2": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "8a1f1c92331d045cec5098d2",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.233Z",
+  "input": {
+   "targetLang": "lt",
+   "text": "Sperr av faresonen rundt løftet, også gangveien ved inngangen.",
+   "glossary": [
+    {
+     "nb": "sperr",
+     "approved": "aptverti",
+     "definition": "To close an area with barriers or tape so that nobody walks in."
+    },
+    {
+     "nb": "faresone",
+     "approved": "pavojinga zona",
+     "definition": "The area where a person can be hit if something falls, swings or tips over."
+    }
+   ],
+   "enforceApprovedTerms": true,
+   "attempt": 1
+  },
+  "rawOutput": "{\"text\":\"Aptverkite pavojingą zoną aplink kėlimo vietą, taip pat pėsčiųjų taką prie įėjimo.\",\"termsUsed\":[\"aptverti\",\"pavojinga zona\"],\"missingConcepts\":[]}"
+ },
+ "8a6594415324a0dda42f7864": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "8a6594415324a0dda42f7864",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.210Z",
+  "input": {
+   "targetLang": "en",
+   "text": "Sperr av faresonen rundt løftet, også gangveien ved inngangen.",
+   "glossary": [
+    {
+     "nb": "sperr",
+     "approved": "cordon off",
+     "definition": "To close an area with barriers or tape so that nobody walks in."
+    },
+    {
+     "nb": "faresone",
+     "approved": "danger zone",
+     "definition": "The area where a person can be hit if something falls, swings or tips over."
+    }
+   ],
+   "enforceApprovedTerms": false,
+   "attempt": 0
+  },
+  "rawOutput": "{\"text\":\"Cordon off the danger zone around the lift, including the walkway by the entrance.\",\"termsUsed\":[\"cordon off\",\"danger zone\"],\"missingConcepts\":[]}"
+ },
+ "8e721069ed477eae7e180aad": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "8e721069ed477eae7e180aad",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.210Z",
+  "input": {
+   "targetLang": "lt",
+   "text": "Sperr av faresonen rundt løftet, også gangveien ved inngangen.",
+   "glossary": [
+    {
+     "nb": "sperr",
+     "approved": "aptverti",
+     "definition": "To close an area with barriers or tape so that nobody walks in."
+    },
+    {
+     "nb": "faresone",
+     "approved": "pavojinga zona",
+     "definition": "The area where a person can be hit if something falls, swings or tips over."
+    }
+   ],
+   "enforceApprovedTerms": false,
+   "attempt": 0
+  },
+  "rawOutput": "{\"text\":\"Aptverkite pavojaus vietą aplink kėlimo vietą, taip pat pėsčiųjų taką prie įėjimo.\",\"termsUsed\":[\"aptverti\",\"pavojinga zona\"],\"missingConcepts\":[]}"
+ },
+ "901463564f4253592cda606a": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "901463564f4253592cda606a",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.241Z",
+  "input": {
+   "targetLang": "lt",
+   "text": "Alle som går opp på stillaset skal ha fått opplæring.",
+   "glossary": [
+    {
+     "nb": "stillas",
+     "approved": "pastoliai",
+     "definition": "A temporary structure to work from at height."
+    }
+   ],
+   "enforceApprovedTerms": false,
+   "attempt": 0
+  },
+  "rawOutput": "{\"text\":\"Visi, kurie lipa ant pastolių, turi būti apmokyti.\",\"termsUsed\":[\"pastoliai\"],\"missingConcepts\":[]}"
+ },
+ "95c36812eb571c58598c910d": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "95c36812eb571c58598c910d",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.224Z",
+  "input": {
+   "targetLang": "lt",
+   "text": "Bruk to styretau fordi lasten er lang.",
+   "glossary": [
+    {
+     "nb": "styretau",
+     "approved": "kreipiamoji virvė",
+     "definition": "A rope tied to the load so it can be guided from a distance."
+    }
+   ],
+   "enforceApprovedTerms": false,
+   "attempt": 0
+  },
+  "rawOutput": "{\"text\":\"Naudokite dvi kreipiamąsias virves, nes krovinys ilgas.\",\"termsUsed\":[\"kreipiamoji virvė\"],\"missingConcepts\":[]}"
+ },
+ "9a86544655b94c1b8a4c1477": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "9a86544655b94c1b8a4c1477",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.313Z",
+  "input": {
+   "targetLang": "lt",
+   "text": "Sett opp mekanisk ventilasjon før lakkeringen starter, fordi rommet bare har ett lite vindu.",
+   "glossary": [
+    {
+     "nb": "ventilasjon",
+     "approved": "vėdinimas",
+     "definition": "Fresh air through the room: mechanical extraction or open windows and doors, so that solvent vapour does not build up."
+    }
+   ],
+   "enforceApprovedTerms": false,
+   "attempt": 0
+  },
+  "rawOutput": "{\"text\":\"Prieš pradėdami lakuoti įrenkite mechaninį vėdinimą, nes patalpoje yra tik vienas mažas langas.\",\"termsUsed\":[\"vėdinimas\"],\"missingConcepts\":[]}"
+ },
+ "a634f1fc3d524a264c76c69d": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "a634f1fc3d524a264c76c69d",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.292Z",
   "input": {
    "targetLang": "lt",
    "text": "Bruk fallsikringssele festet til forankringspunkt hele tiden du er utenfor stillaset.",
@@ -427,13 +541,144 @@
   },
   "rawOutput": "{\"text\":\"Visą laiką, kol esate už pastolių ribų, naudokite viso kūno saugos diržus, pritvirtintus prie tvirtinimo taško.\",\"termsUsed\":[\"viso kūno saugos diržai\",\"tvirtinimo taškas\",\"pastoliai\"],\"missingConcepts\":[]}"
  },
- "a24d2174d5e9b287bf53034a": {
+ "b6bf3036884485180e61c320": {
   "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "a24d2174d5e9b287bf53034a",
+  "promptVersion": "1.1.0",
+  "inputHash": "b6bf3036884485180e61c320",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.914Z",
+  "recordedAt": "2026-10-26T17:14:22.313Z",
+  "input": {
+   "targetLang": "ru",
+   "text": "Sett opp mekanisk ventilasjon før lakkeringen starter, fordi rommet bare har ett lite vindu.",
+   "glossary": [
+    {
+     "nb": "ventilasjon",
+     "approved": "вентиляция",
+     "definition": "Fresh air through the room: mechanical extraction or open windows and doors, so that solvent vapour does not build up."
+    }
+   ],
+   "enforceApprovedTerms": false,
+   "attempt": 0
+  },
+  "rawOutput": "{\"text\":\"Перед началом лакирования установите механическую вытяжку, потому что в помещении только одно маленькое окно.\",\"termsUsed\":[\"вентиляция\"],\"missingConcepts\":[]}"
+ },
+ "bc94eee21f1d7ad7fe2eadb2": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "bc94eee21f1d7ad7fe2eadb2",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.225Z",
+  "input": {
+   "targetLang": "en",
+   "text": "Bruk to styretau fordi lasten er lang.",
+   "glossary": [
+    {
+     "nb": "styretau",
+     "approved": "tag line",
+     "definition": "A rope tied to the load so it can be guided from a distance."
+    }
+   ],
+   "enforceApprovedTerms": false,
+   "attempt": 0
+  },
+  "rawOutput": "{\"text\":\"Use two tag lines because the load is long.\",\"termsUsed\":[\"tag line\"],\"missingConcepts\":[]}"
+ },
+ "c064aa23ab376dcd41175f71": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "c064aa23ab376dcd41175f71",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.276Z",
+  "input": {
+   "targetLang": "lt",
+   "text": "Sperr av faresonen rundt løftet og hold porten stengt under løftet.",
+   "glossary": [
+    {
+     "nb": "sperr",
+     "approved": "aptverti",
+     "definition": "To close an area with barriers or tape so that nobody walks in."
+    },
+    {
+     "nb": "faresone",
+     "approved": "pavojinga zona",
+     "definition": "The area where a person can be hit if something falls, swings or tips over."
+    }
+   ],
+   "enforceApprovedTerms": false,
+   "attempt": 0
+  },
+  "rawOutput": "{\"text\":\"Aptverkite pavojingą zoną aplink kėlimo vietą ir laikykite vartus uždarytus kėlimo metu.\",\"termsUsed\":[\"aptverti\",\"pavojinga zona\"],\"missingConcepts\":[]}"
+ },
+ "c643d76a31cbb47b4c0de36b": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "c643d76a31cbb47b4c0de36b",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.259Z",
+  "input": {
+   "targetLang": "lt",
+   "text": "Utsparingen i dekket ved trappa skal dekkes til og merkes.",
+   "glossary": [
+    {
+     "nb": "utsparing",
+     "approved": "anga perdangoje",
+     "definition": "A hole in a floor or deck that a person or an object can fall through."
+    }
+   ],
+   "enforceApprovedTerms": true,
+   "attempt": 2
+  },
+  "rawOutput": "{\"text\":\"Skylė grindyse prie laiptų turi būti uždengta ir pažymėta.\",\"termsUsed\":[\"anga perdangoje\"],\"missingConcepts\":[]}"
+ },
+ "cc87889d0b24db4ddc2a1fe2": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "cc87889d0b24db4ddc2a1fe2",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.209Z",
+  "input": {
+   "targetLang": "en",
+   "text": "Ikke løft over gangveien mens personer oppholder seg der.",
+   "glossary": [],
+   "enforceApprovedTerms": false,
+   "attempt": 0
+  },
+  "rawOutput": "{\"text\":\"Do not lift over the walkway while people are there.\",\"termsUsed\":[],\"missingConcepts\":[]}"
+ },
+ "d0517b4f8446650542a0fe5e": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "d0517b4f8446650542a0fe5e",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.255Z",
+  "input": {
+   "targetLang": "lt",
+   "text": "Utsparingen i dekket ved trappa skal dekkes til og merkes.",
+   "glossary": [
+    {
+     "nb": "utsparing",
+     "approved": "anga perdangoje",
+     "definition": "A hole in a floor or deck that a person or an object can fall through."
+    }
+   ],
+   "enforceApprovedTerms": true,
+   "attempt": 1
+  },
+  "rawOutput": "{\"text\":\"Kiaurymė perdangoje prie laiptų turi būti uždengta ir pažymėta.\",\"termsUsed\":[\"anga perdangoje\"],\"missingConcepts\":[]}"
+ },
+ "ea99896f7aac6f1f69425570": {
+  "task": "P4",
+  "promptVersion": "1.1.0",
+  "inputHash": "ea99896f7aac6f1f69425570",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.292Z",
   "input": {
    "targetLang": "pl",
    "text": "Bruk fallsikringssele festet til forankringspunkt hele tiden du er utenfor stillaset.",
@@ -459,156 +704,75 @@
   },
   "rawOutput": "{\"text\":\"Przez cały czas, gdy jesteś poza rusztowaniem, używaj szelek bezpieczeństwa przypiętych do punktu kotwiczenia.\",\"termsUsed\":[\"szelki bezpieczeństwa\",\"punkt kotwiczenia\",\"rusztowanie\"],\"missingConcepts\":[]}"
  },
- "ac84e2123702e3c8fed91abd": {
+ "ebf9e1fa723a0c2ad3f4ac2d": {
   "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "ac84e2123702e3c8fed91abd",
+  "promptVersion": "1.1.0",
+  "inputHash": "ebf9e1fa723a0c2ad3f4ac2d",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.827Z",
+  "recordedAt": "2026-10-26T17:14:22.336Z",
   "input": {
    "targetLang": "pl",
-   "text": "Ikke løft over gangveien mens personer oppholder seg der.",
-   "glossary": [],
-   "enforceApprovedTerms": false,
-   "attempt": 0
-  },
-  "rawOutput": "{\"text\":\"Nie podnoś ładunku nad chodnikiem, gdy przebywają tam ludzie.\",\"termsUsed\":[],\"missingConcepts\":[]}"
- },
- "bd778ed21eff391df80f9235": {
-  "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "bd778ed21eff391df80f9235",
-  "origin": "scripted",
-  "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.856Z",
-  "input": {
-   "targetLang": "lt",
-   "text": "Sperr av faresonen rundt løftet, også gangveien ved inngangen.",
+   "text": "Betongbilen rygger inn over fortauet. Sperr av fortauet, og la signalgiveren dirigere bilen.",
    "glossary": [
     {
      "nb": "sperr",
-     "approved": "aptverti",
+     "approved": "wygrodzić",
      "definition": "To close an area with barriers or tape so that nobody walks in."
     },
     {
-     "nb": "faresone",
-     "approved": "pavojinga zona",
-     "definition": "The area where a person can be hit if something falls, swings or tips over."
+     "nb": "signalgiver",
+     "approved": "sygnalista",
+     "definition": "The person who gives signals to the crane operator."
     }
    ],
-   "enforceApprovedTerms": true,
-   "attempt": 1
+   "enforceApprovedTerms": false,
+   "attempt": 0
   },
-  "rawOutput": "{\"text\":\"Aptverkite pavojingą zoną aplink kėlimo vietą, taip pat pėsčiųjų taką prie įėjimo.\",\"termsUsed\":[\"aptverti\",\"pavojinga zona\"],\"missingConcepts\":[]}"
+  "rawOutput": "{\"text\":\"Betonowóz wjeżdża tyłem przez chodnik. Wygrodź chodnik i niech sygnalista kieruje samochodem.\",\"termsUsed\":[\"wygrodzić\",\"sygnalista\"],\"missingConcepts\":[]}"
  },
- "bdc9cd98bbcdf59170bd3470": {
+ "ec220aa9e1e1c6d32da3754f": {
   "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "bdc9cd98bbcdf59170bd3470",
+  "promptVersion": "1.1.0",
+  "inputHash": "ec220aa9e1e1c6d32da3754f",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.869Z",
+  "recordedAt": "2026-10-26T17:14:22.314Z",
   "input": {
    "targetLang": "lt",
-   "text": "Utsparingen i dekket ved trappa skal dekkes til og merkes.",
+   "text": "Bare de som har opplæring i isocyanater, skal blande og påføre lakken.",
    "glossary": [
     {
-     "nb": "utsparing",
-     "approved": "anga perdangoje",
-     "definition": "A hole in a floor or deck that a person or an object can fall through."
+     "nb": "isocyanat",
+     "approved": "izocianatai",
+     "definition": "Chemicals in the hardener of two-component polyurethane products. Can cause asthma. Only trained workers may use them."
     }
    ],
    "enforceApprovedTerms": false,
    "attempt": 0
   },
-  "rawOutput": "{\"text\":\"Skylė perdangoje prie laiptų turi būti uždengta ir pažymėta.\",\"termsUsed\":[\"anga perdangoje\"],\"missingConcepts\":[]}"
+  "rawOutput": "{\"text\":\"Lakas maišyti ir tepti turi tik tie, kurie apmokyti dirbti su izocianatais.\",\"termsUsed\":[\"izocianatai\"],\"missingConcepts\":[]}"
  },
- "caebcef4d365d2beb90136c5": {
+ "fb0321eba19ff391ed8f9225": {
   "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "caebcef4d365d2beb90136c5",
+  "promptVersion": "1.1.0",
+  "inputHash": "fb0321eba19ff391ed8f9225",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.829Z",
+  "recordedAt": "2026-10-26T17:14:22.314Z",
   "input": {
-   "targetLang": "en",
-   "text": "Ikke løft over gangveien mens personer oppholder seg der.",
-   "glossary": [],
-   "enforceApprovedTerms": false,
-   "attempt": 0
-  },
-  "rawOutput": "{\"text\":\"Do not lift over the walkway while people are there.\",\"termsUsed\":[],\"missingConcepts\":[]}"
- },
- "d59fe0313ebb2ea92dc67f26": {
-  "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "d59fe0313ebb2ea92dc67f26",
-  "origin": "scripted",
-  "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.830Z",
-  "input": {
-   "targetLang": "lt",
-   "text": "Sperr av faresonen rundt løftet, også gangveien ved inngangen.",
+   "targetLang": "ru",
+   "text": "Bare de som har opplæring i isocyanater, skal blande og påføre lakken.",
    "glossary": [
     {
-     "nb": "sperr",
-     "approved": "aptverti",
-     "definition": "To close an area with barriers or tape so that nobody walks in."
-    },
-    {
-     "nb": "faresone",
-     "approved": "pavojinga zona",
-     "definition": "The area where a person can be hit if something falls, swings or tips over."
+     "nb": "isocyanat",
+     "approved": "изоцианаты",
+     "definition": "Chemicals in the hardener of two-component polyurethane products. Can cause asthma. Only trained workers may use them."
     }
    ],
    "enforceApprovedTerms": false,
    "attempt": 0
   },
-  "rawOutput": "{\"text\":\"Aptverkite pavojaus vietą aplink kėlimo vietą, taip pat pėsčiųjų taką prie įėjimo.\",\"termsUsed\":[\"aptverti\",\"pavojinga zona\"],\"missingConcepts\":[]}"
- },
- "deb3cc21c13fc726407c13e0": {
-  "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "deb3cc21c13fc726407c13e0",
-  "origin": "scripted",
-  "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.869Z",
-  "input": {
-   "targetLang": "pl",
-   "text": "Alle som går opp på stillaset skal ha fått opplæring.",
-   "glossary": [
-    {
-     "nb": "stillas",
-     "approved": "rusztowanie",
-     "definition": "A temporary structure to work from at height."
-    }
-   ],
-   "enforceApprovedTerms": false,
-   "attempt": 0
-  },
-  "rawOutput": "{\"text\":\"Każdy, kto wchodzi na rusztowanie, powinien przejść szkolenie.\",\"termsUsed\":[\"rusztowanie\"],\"missingConcepts\":[]}"
- },
- "e7f2f27ee907b89a9d8c2376": {
-  "task": "P4",
-  "promptVersion": "1.0.0",
-  "inputHash": "e7f2f27ee907b89a9d8c2376",
-  "origin": "scripted",
-  "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.846Z",
-  "input": {
-   "targetLang": "en",
-   "text": "Bruk to styretau fordi lasten er lang.",
-   "glossary": [
-    {
-     "nb": "styretau",
-     "approved": "tag line",
-     "definition": "A rope tied to the load so it can be guided from a distance."
-    }
-   ],
-   "enforceApprovedTerms": false,
-   "attempt": 0
-  },
-  "rawOutput": "{\"text\":\"Use two tag lines because the load is long.\",\"termsUsed\":[\"tag line\"],\"missingConcepts\":[]}"
+  "rawOutput": "{\"text\":\"Смешивать и наносить лак должны только те, кто прошёл обучение по работе с изоцианатами.\",\"termsUsed\":[\"изоцианаты\"],\"missingConcepts\":[]}"
  }
 }

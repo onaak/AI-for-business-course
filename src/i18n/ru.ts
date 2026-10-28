@@ -1,0 +1,41 @@
+// Russian worker-facing strings.
+// DRAFT: written by the builder. No native Russian speaker has checked this table.
+// For the Moldovan workers at the interviewed firm Russian is a second language (decided 26 Oct 2026).
+import type { workerEn } from './en';
+
+export const workerRu: Record<keyof typeof workerEn, string> = {
+  banner: 'Студенческий прототип. Синтетическое содержание. Это не действующий SJA. Не использовать для планирования или выполнения реальной работы.',
+  readFirst: 'Сначала прочитайте. Потом своими словами объясните бригадиру и ответьте на один вопрос.',
+  newToday: 'Новое или изменённое сегодня',
+  wholeSja: 'Весь SJA',
+  section_steps: 'Этапы работы',
+  section_hazards: 'Опасности',
+  section_controls: 'Что мы делаем для безопасности',
+  section_ppe: 'Средства индивидуальной защиты',
+  section_stop: 'Когда мы останавливаем работу',
+  section_emergency: 'В случае аварии',
+  important: 'Важно для безопасности',
+  oralPoint: 'Этот пункт вам объяснит бригадир.',
+  readDone: 'Я прочитал. Дальше.',
+  explainTitle: 'Объясните бригадиру своими словами:',
+  explainHazard: 'Что в сегодняшней работе опаснее всего?',
+  explainMeasure: 'Что мы делаем, чтобы было безопасно?',
+  explainHint: 'Это не экзамен. Если что-то непонятно, бригадир объяснит ещё раз.',
+  oneQuestion: 'Один вопрос',
+  questionOf: 'Вопрос {n} из {total}',
+  correct: 'Правильно.',
+  talkToForeman: 'Прежде чем начать работу, поговорите с бригадиром об этом пункте.',
+  next: 'Дальше',
+  done: 'Готово. Спасибо.',
+  passOn: 'Передайте устройство следующему человеку.',
+  passBack: 'Верните телефон бригадиру.',
+  nextWorker: 'Следующий работник',
+  inYourSja: 'Это есть в вашем SJA:',
+  writeTitle: 'Напишите ответы своими словами',
+  writeHint: 'Пишите на своём языке. Достаточно коротких ответов. Бригадир получит перевод.',
+  noNames: 'Не пишите ничьих имён.',
+  send: 'Отправить бригадиру',
+  translating: 'Перевод для бригадира …',
+  demoSample: 'Демо: использовать пример ответа',
+  waitForeman: 'Передайте телефон бригадиру. Он прочитает перевод вашего ответа.',
+};

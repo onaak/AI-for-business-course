@@ -10,7 +10,27 @@ import Home from './screens/Home';
 import Review from './screens/Review';
 import { RunRecordScreen, RunsList } from './screens/Runs';
 import { StandaloneQuestions, WorkerKiosk } from './screens/Worker';
-import { useApp } from './state/stores';
+import { useApp, useFieldMode } from './state/stores';
+import { useT } from './i18n';
+import RulesLibrary from './screens/Rules';
+import { SummaryScreen } from './screens/Summary';
+
+/** Pages for the project group only. In field mode (V1) they cannot be opened, not even by typing the address. */
+function LabOnly({ children }: { children: ReactNode }) {
+  const field = useFieldMode();
+  const t = useT();
+  if (!field) return <>{children}</>;
+  return (
+    <Layout>
+      <div className="space-y-3" data-testid="field-blocked">
+        <Notice tone="amber">{t('field.blocked')}</Notice>
+        <a href="/" className="inline-flex min-h-11 items-center font-semibold text-blue-800 underline">
+          {t('nav.home')}
+        </a>
+      </div>
+    </Layout>
+  );
+}
 
 function App() {
   const load = useApp((s) => s.load);
@@ -31,13 +51,16 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/foreman/:sjaId" element={<Foreman />} />
-      <Route path="/worker/questions/:templateId" element={<StandaloneQuestions />} />
+      <Route path="/worker/questions/:templateId" element={<LabOnly><StandaloneQuestions /></LabOnly>} />
       <Route path="/worker/:sjaId" element={<WorkerKiosk />} />
+      {/* The reviewer address stays open in field mode (V2); it is just not linked from Home. */}
       <Route path="/review" element={<Review />} />
-      <Route path="/bench" element={<Bench />} />
-      <Route path="/runs" element={<RunsList />} />
+      <Route path="/rules" element={<RulesLibrary />} />
+      <Route path="/bench" element={<LabOnly><Bench /></LabOnly>} />
+      <Route path="/runs" element={<LabOnly><RunsList /></LabOnly>} />
       <Route path="/runs/:runId" element={<RunRecordScreen />} />
-      <Route path="/baseline" element={<Baseline />} />
+      <Route path="/runs/:runId/summary" element={<SummaryScreen />} />
+      <Route path="/baseline" element={<LabOnly><Baseline /></LabOnly>} />
       <Route path="*" element={<Layout><Notice tone="amber">Page not found.</Notice></Layout>} />
     </Routes>
   );

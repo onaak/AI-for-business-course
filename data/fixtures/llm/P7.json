@@ -1,0 +1,222 @@
+{
+ "0104a0f39e086ad5e4549cca": {
+  "task": "P7",
+  "promptVersion": "1.0.0",
+  "inputHash": "0104a0f39e086ad5e4549cca",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.529Z",
+  "input": {
+   "lang": "lt",
+   "items": [
+    {
+     "key": "hazard",
+     "text": "Kranas gali apvirsti."
+    },
+    {
+     "key": "measure",
+     "text": "Kai krovinys kabo, galima trumpai praeiti po juo, jei esi su šalmu."
+    }
+   ]
+  },
+  "rawOutput": "{\"items\":[{\"key\":\"hazard\",\"textNb\":\"Kranen kan velte.\",\"unreadable\":false},{\"key\":\"measure\",\"textNb\":\"Når lasten henger, kan man gå kort under den hvis man har hjelm.\",\"unreadable\":false}]}"
+ },
+ "0e6e2f8f3724b5eb5e9b33f3": {
+  "task": "P7",
+  "promptVersion": "1.0.0",
+  "inputHash": "0e6e2f8f3724b5eb5e9b33f3",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.528Z",
+  "input": {
+   "lang": "lt",
+   "items": [
+    {
+     "key": "hazard",
+     "text": "Krovinys gali nukristi arba siūbuoti ir prispausti žmogų."
+    },
+    {
+     "key": "measure",
+     "text": "Niekas nestovi po kroviniu, zona aptverta, krovinį kreipiame virve, ne rankomis."
+    }
+   ]
+  },
+  "rawOutput": "{\"items\":[{\"key\":\"hazard\",\"textNb\":\"Lasten kan falle ned eller svinge og klemme en person.\",\"unreadable\":false},{\"key\":\"measure\",\"textNb\":\"Ingen står under lasten, området er sperret av, vi styrer lasten med tau, ikke med hendene.\",\"unreadable\":false}]}"
+ },
+ "2631430d2bd40763b5d177a7": {
+  "task": "P7",
+  "promptVersion": "1.0.0",
+  "inputHash": "2631430d2bd40763b5d177a7",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.531Z",
+  "input": {
+   "lang": "ru",
+   "items": [
+    {
+     "key": "hazard",
+     "text": "Пары растворителя вредны для головы и могут загореться."
+    },
+    {
+     "key": "measure",
+     "text": "Ставим вытяжку, окно открыто, не курим, лак смешивает только тот, кто обучен."
+    }
+   ]
+  },
+  "rawOutput": "{\"items\":[{\"key\":\"hazard\",\"textNb\":\"Damp fra løsemiddel er skadelig for hodet og kan ta fyr.\",\"unreadable\":false},{\"key\":\"measure\",\"textNb\":\"Vi setter opp avtrekk, vinduet er åpent, vi røyker ikke, lakken blandes bare av den som har opplæring.\",\"unreadable\":false}]}"
+ },
+ "2e2e735d28b356e5a55a063e": {
+  "task": "P7",
+  "promptVersion": "1.0.0",
+  "inputHash": "2e2e735d28b356e5a55a063e",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.534Z",
+  "input": {
+   "lang": "lt",
+   "items": [
+    {
+     "key": "hazard",
+     "text": "Galima nukristi iš aukščio."
+    },
+    {
+     "key": "measure",
+     "text": "Kur nėra turėklų, dirbame atsargiai prie krašto."
+    }
+   ]
+  },
+  "rawOutput": "{\"items\":[{\"key\":\"hazard\",\"textNb\":\"Man kan falle fra høyden.\",\"unreadable\":false},{\"key\":\"measure\",\"textNb\":\"Der det ikke er rekkverk, arbeider vi forsiktig ved kanten.\",\"unreadable\":false}]}"
+ },
+ "34db0314c85e28092d45c334": {
+  "task": "P7",
+  "promptVersion": "1.0.0",
+  "inputHash": "34db0314c85e28092d45c334",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.531Z",
+  "input": {
+   "lang": "ru",
+   "items": [
+    {
+     "key": "hazard",
+     "text": "Краска сильно пахнет."
+    },
+    {
+     "key": "measure",
+     "text": "Если болит голова, можно надеть маску и продолжать."
+    }
+   ]
+  },
+  "rawOutput": "{\"items\":[{\"key\":\"hazard\",\"textNb\":\"Malingen lukter sterkt.\",\"unreadable\":false},{\"key\":\"measure\",\"textNb\":\"Hvis hodet verker, kan man ta på en maske og fortsette.\",\"unreadable\":false}]}"
+ },
+ "50e113ad0c5c936659c69330": {
+  "task": "P7",
+  "promptVersion": "1.0.0",
+  "inputHash": "50e113ad0c5c936659c69330",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.533Z",
+  "input": {
+   "lang": "ru",
+   "items": [
+    {
+     "key": "hazard",
+     "text": "Шланг может ударить, а бетон жжёт кожу."
+    },
+    {
+     "key": "measure",
+     "text": "Не стоим перед шлангом, насос останавливают перед чисткой пробки, бетон смываем водой."
+    }
+   ]
+  },
+  "rawOutput": "{\"items\":[{\"key\":\"hazard\",\"textNb\":\"Slangen kan slå, og betongen brenner huden.\",\"unreadable\":false},{\"key\":\"measure\",\"textNb\":\"Vi står ikke foran slangen, pumpen stanses før proppen løses, betong vaskes av med vann.\",\"unreadable\":false}]}"
+ },
+ "56eec80724c0fb75d016d709": {
+  "task": "P7",
+  "promptVersion": "1.0.0",
+  "inputHash": "56eec80724c0fb75d016d709",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.530Z",
+  "input": {
+   "lang": "pl",
+   "items": [
+    {
+     "key": "hazard",
+     "text": "Ładunek może spaść albo się zakołysać."
+    },
+    {
+     "key": "measure",
+     "text": "Nikt nie stoi pod ładunkiem, strefa jest wygrodzona, prowadzimy ładunek liną."
+    }
+   ]
+  },
+  "rawOutput": "{\"items\":[{\"key\":\"hazard\",\"textNb\":\"Lasten kan falle ned eller svinge.\",\"unreadable\":false},{\"key\":\"measure\",\"textNb\":\"Ingen står under lasten, sonen er sperret av, vi styrer lasten med tau.\",\"unreadable\":false}]}"
+ },
+ "7f94e564e03250e3855efd05": {
+  "task": "P7",
+  "promptVersion": "1.0.0",
+  "inputHash": "7f94e564e03250e3855efd05",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.532Z",
+  "input": {
+   "lang": "lt",
+   "items": [
+    {
+     "key": "hazard",
+     "text": "Tirpiklių garai kenkia ir gali užsidegti."
+    },
+    {
+     "key": "measure",
+     "text": "Vėdiname, nerūkome, laką maišo tik apmokyti."
+    }
+   ]
+  },
+  "rawOutput": "{\"items\":[{\"key\":\"hazard\",\"textNb\":\"Damp fra løsemidler er skadelig og kan ta fyr.\",\"unreadable\":false},{\"key\":\"measure\",\"textNb\":\"Vi lufter, vi røyker ikke, lakken blandes bare av de som har opplæring.\",\"unreadable\":false}]}"
+ },
+ "8107ccc5ce72d04f4de0a681": {
+  "task": "P7",
+  "promptVersion": "1.0.0",
+  "inputHash": "8107ccc5ce72d04f4de0a681",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.535Z",
+  "input": {
+   "lang": "ru",
+   "items": [
+    {
+     "key": "hazard",
+     "text": "Можно упасть, и сверху на людей могут падать инструменты."
+    },
+    {
+     "key": "measure",
+     "text": "Пристёгиваемся привязью к точке крепления, зона внизу огорожена."
+    }
+   ]
+  },
+  "rawOutput": "{\"items\":[{\"key\":\"hazard\",\"textNb\":\"Man kan falle, og verktøy kan falle ned på folk.\",\"unreadable\":false},{\"key\":\"measure\",\"textNb\":\"Vi fester oss med sele til forankringspunktet, området under er sperret av.\",\"unreadable\":false}]}"
+ },
+ "f7d2bf0d220036d2de874c7d": {
+  "task": "P7",
+  "promptVersion": "1.0.0",
+  "inputHash": "f7d2bf0d220036d2de874c7d",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.534Z",
+  "input": {
+   "lang": "pl",
+   "items": [
+    {
+     "key": "hazard",
+     "text": "Wąż może się zatkać."
+    },
+    {
+     "key": "measure",
+     "text": "Gdy wąż się zatka, mocno trzymam koniec węża, żeby nie uderzył."
+    }
+   ]
+  },
+  "rawOutput": "{\"items\":[{\"key\":\"hazard\",\"textNb\":\"Slangen kan gå tett.\",\"unreadable\":false},{\"key\":\"measure\",\"textNb\":\"Når slangen går tett, holder jeg enden av slangen godt fast så den ikke slår.\",\"unreadable\":false}]}"
+ }
+}

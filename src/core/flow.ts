@@ -4,13 +4,14 @@
 import { activeLines, allFlags, allowedRoutes, findFlag, routeDisabled } from './flags';
 import { checkLineRules } from './pipeline/checkLine';
 import { translateAndCheck } from './pipeline/translate';
-import { applyOperations, criticalRemovedFlag, lineFromTemplate, pendingLang, setLineText, supportedLangs } from './rules/diff';
+import { applyOperations, criticalRemovedFlag, lineFromTemplate, pendingLang, setLineText, supportedLangs, templateLinesFor } from './rules/diff';
 import { canSign, deriveStatus, hasFallback } from './rules/gate';
 import { isSupported, unsupportedFlag } from './rules/languages';
+import { exactMatch } from './rules/memory';
 import { checkNumbers } from './rules/numbers';
 import { buildP1, buildP2, buildP3 } from './rules/payload';
 import { initUnderstanding, isComplete, NO_CHECK, recordWorker, type WorkerCheck } from './rules/understanding';
-import type { P1Output, P2Output, P3Output } from './schemas';
+import type { P1Output, P2Output, P3Output, P7Input, P7Output } from './schemas';
 import type {
   DataPack,
   Flag,
@@ -105,6 +106,7 @@ export const TASK_TITLES: Record<Task, string> = {
   P4: 'Translate',
   P5: 'Back-translate (target text only)',
   P6: 'Compare original with back-translation',
+  P7: 'Translate a worker’s written explanation for the foreman',
 };
 
 function logFlags(ctx: FlowCtx, flags: Flag[], step: string) {
@@ -127,6 +129,8 @@ export interface SjaInit {
   freeText: string;
   languages: string[];
   crewFlags: Sja['crewFlags'];
+  /** Products for today's job (K1). Only offered for templates that list products. */
+  products?: string[];
   testId?: string;
   fixtureId?: string;
 }
@@ -150,7 +154,8 @@ export function createSja(pack: DataPack, template: Template, init: SjaInit, sja
     specificsConfirmed: false,
     languages: init.languages,
     crewFlags: init.crewFlags,
-    lines: template.lines.map((tl) => lineFromTemplate(tl, template, init.parameterValues, langs)),
+    ...(init.products?.length ? { products: [...init.products] } : {}),
+    lines: templateLinesFor(template, init.products).map((tl) => lineFromTemplate(tl, template, init.parameterValues, langs)),
     sjaFlags: [],
     contentConfirmed: false,
     languageCheckDone: false,
@@ -218,7 +223,7 @@ export async function runAdapt(ctx: FlowCtx, sja: Sja): Promise<Sja> {
   if (blockers.openQuestions || blockers.unclear) throw new Error('Clarifying questions or unclear details are still open.');
   let next = clone(sja);
   const langs = supportedLangs(next, ctx.pack);
-  const baseline = ctx.template.lines.map((tl) => lineFromTemplate(tl, ctx.template, next.parameterValues, langs));
+  const baseline = templateLinesFor(ctx.template, next.products).map((tl) => lineFromTemplate(tl, ctx.template, next.parameterValues, langs));
   ctx.log({ actor: 'foreman', type: 'specifics_confirmed', step: 'understood', count: next.specifics.length });
   ctx.trace({ kind: 'human', step: 'understood', title: 'Foreman confirmed what was understood', data: next.specifics });
 
@@ -238,6 +243,7 @@ export async function runAdapt(ctx: FlowCtx, sja: Sja): Promise<Sja> {
     hazards: ctx.hazards,
     pack: ctx.pack,
     langs,
+    products: next.products,
   });
   next.lines = applied.lines;
   next.specificsConfirmed = true;
@@ -577,6 +583,23 @@ export async function runLanguageCheck(ctx: FlowCtx, sja: Sja): Promise<Sja> {
     }
   }
 
+  // L1: a line whose exact Norwegian text is already verified in this language (both keys) needs no model call.
+  const fromMemory: string[] = [];
+  for (let i = jobs.length - 1; i >= 0; i--) {
+    const { line, lang } = jobs[i];
+    const hit = exactMatch(ctx.pack, line.textNb, lang);
+    if (!hit) continue;
+    const re = checkLineRules({ lineId: line.lineId, source: line.textNb, target: hit.target, lang, critical: line.critical }, ctx.pack);
+    line.byLang[lang] = { text: hit.target, source: 'memory', verification: 'verified', oralFallback: false, flags: re.flags, checkState: 'checked', checkedSource: line.textNb };
+    logFlags(ctx, re.flags, 'languageCheck');
+    fromMemory.push(`${line.lineId} → ${lang} (${hit.templateId}/${hit.lineId})`);
+    jobs.splice(i, 1);
+  }
+  if (fromMemory.length) {
+    ctx.log({ actor: 'system', type: 'translation_memory', step: 'languageCheck', count: fromMemory.length });
+    ctx.trace({ kind: 'rule', step: 'languageCheck', title: 'Translation memory: verified translation reused, no model call', detail: fromMemory.join('; ') });
+  }
+
   let done = 0;
   ctx.onProgress?.(0, jobs.length);
   await mapLimit(jobs, PARALLEL_CALLS, async ({ line, lang }) => {
@@ -819,17 +842,43 @@ export function recordWorkerCheck(ctx: FlowCtx, sja: Sja, lang: string, check: W
   const right = check.answers.filter((a) => a.correct).length;
   // The log and the trace say that a worker was checked, and by which mode. They do not say which language,
   // which outcome or which points: on a small crew that would be one person's result. The counts are in the SJA.
+  const path = check.path ?? 'conversation';
   ctx.log({ actor: 'worker', type: 'respondent_done', step: 'understanding', route: lang ? 'phone' : 'oral', count: right });
-  ctx.log({ actor: 'foreman', type: `teach_back_${check.teachBack}`, step: 'understanding' });
+  if (check.teachBack !== 'none') ctx.log({ actor: 'foreman', type: `teach_back_${check.teachBack}`, step: 'understanding' });
   for (const id of misunderstood) ctx.log(misunderstandingEvent(next, id, 'teachBack'));
   ctx.trace({
     kind: 'human',
     step: 'understanding',
-    title: 'A worker was checked: teach-back judged by the foreman, and one scenario question',
+    title:
+      path === 'conversation'
+        ? 'A worker was checked: teach-back judged by the foreman, and one scenario question'
+        : path === 'written'
+          ? 'A worker was checked: written explanation, machine-translated and judged by the foreman, and one scenario question'
+          : 'A worker was checked by multiple-choice questions only (no explanation judged)',
     detail: `${lang ? 'On the phone' : 'Orally'}. Workers checked so far: ${next.understanding.respondents}. No name and no per-person result is recorded; the counts are in the understanding section of the record.`,
   });
   next.status = deriveStatus(next, ctx.pack);
   return next;
+}
+
+/**
+ * U2: a worker's written explanation, translated into Norwegian for the foreman to judge (P7).
+ * The model translates only; the foreman decides. The text is not kept: the trace says that a
+ * translation was made, not what it said, and the server keeps no copy outside the test bench.
+ * Returns the translation for display; it is not stored in the SJA.
+ */
+export async function translateWorkerAnswer(ctx: FlowCtx, sja: Pick<Sja, 'sjaId'>, lang: string, items: P7Input['items']): Promise<P7Output['items']> {
+  const started = Date.now();
+  try {
+    const res = await ctx.client.call<P7Output>('P7', { lang, items }, { runId: sja.sjaId });
+    ctx.log({ actor: 'ai', type: 'model_call', step: 'understanding', durationMs: res.call.durationMs, promptVersion: res.call.promptVersion, modelId: res.call.model });
+    ctx.trace({ kind: 'model', step: 'understanding', title: `P7 ${TASK_TITLES.P7}`, detail: 'A worker’s written explanation was translated into Norwegian for the foreman. The text is not kept.' });
+    return res.parsed.items;
+  } catch (err) {
+    ctx.log({ actor: 'system', type: 'model_error', step: 'understanding', durationMs: Date.now() - started });
+    ctx.trace({ kind: 'system', step: 'understanding', title: 'P7 failed', detail: err instanceof Error ? err.message : String(err) });
+    throw err;
+  }
 }
 
 export function confirmRebrief(ctx: FlowCtx, sja: Sja, questionId: string): Sja {
@@ -847,15 +896,23 @@ export function confirmRebrief(ctx: FlowCtx, sja: Sja, questionId: string): Sja 
  * After sign-off: what the foreman saw when the job started. An empty list means nothing
  * was misunderstood. Recorded once; it does not change the signed content or the status.
  */
-export function recordObservation(ctx: FlowCtx, sja: Sja, lineIds: string[]): Sja {
+export function recordObservation(ctx: FlowCtx, sja: Sja, lineIds: string[], notFollowedIds: string[] = []): Sja {
   if (sja.status !== 'signed' && sja.status !== 'signedWithFallback') throw new Error('The start of the job is observed after sign-off.');
   if (sja.observation) throw new Error('The observation is already recorded.');
   const next = clone(sja);
-  const ids = [...new Set(lineIds)].filter((id) => next.lines.some((l) => l.lineId === id));
-  next.observation = { at: nowIso(), lineIds: ids };
-  ctx.log({ actor: 'foreman', type: 'start_observed', step: 'observation', count: ids.length });
+  const known = (id: string) => next.lines.some((l) => l.lineId === id);
+  const ids = [...new Set(lineIds)].filter(known);
+  // I4: "understood but not followed" (e.g. protective equipment taken off) is kept apart from "misunderstood".
+  const notFollowed = [...new Set(notFollowedIds)].filter(known).filter((id) => !ids.includes(id));
+  next.observation = { at: nowIso(), lineIds: ids, ...(notFollowed.length ? { notFollowed } : {}) };
+  ctx.log({ actor: 'foreman', type: 'start_observed', step: 'observation', count: ids.length + notFollowed.length });
   for (const id of ids) ctx.log(misunderstandingEvent(next, id, 'observation'));
-  ctx.trace({ kind: 'human', step: 'observation', title: 'Foreman watched the start of the job', detail: ids.length ? `Misunderstood: ${ids.join(', ')}. Logged without names and fed back to the template.` : 'Nothing was misunderstood.' });
+  for (const id of notFollowed) {
+    const line = next.lines.find((l) => l.lineId === id);
+    ctx.log({ actor: 'foreman', type: 'rule_not_followed', step: 'observation', lineId: line?.templateLineId ?? 'job-specific', templateId: next.templateId, route: 'observation' });
+  }
+  const parts = [ids.length ? `Misunderstood: ${ids.join(', ')}.` : '', notFollowed.length ? `Understood but not followed: ${notFollowed.join(', ')}.` : ''].filter(Boolean);
+  ctx.trace({ kind: 'human', step: 'observation', title: 'Foreman watched the start of the job', detail: parts.length ? `${parts.join(' ')} Logged without names and fed back to the template.` : 'Nothing was misunderstood, and the rules were followed.' });
   return next;
 }
 

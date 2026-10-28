@@ -9,7 +9,6 @@
     "Maling av fasade fra rullestillas. Underlaget er grus og litt skrått, og vi må flytte stillaset flere ganger.": "Painting a facade from a mobile scaffold. The ground is gravel and slightly sloping, and we have to move the scaffold several times.",
     "Bytte lysarmatur i trapperom fra stige. Kort jobb, men gulvet er nybonet og glatt.": "Replacing a light fitting in a stairwell from a ladder. Short job, but the floor is freshly polished and slippery.",
     "Lossing av armeringsnett fra bil med teleskoptruck. Mye folk i området fordi betongbilen kommer samtidig.": "Unloading reinforcement mesh from a lorry with a telehandler. Many people in the area because the concrete truck arrives at the same time.",
-
     "Løft av 6 bunter takstoler opp på taket.": "Lifting 6 bundles of roof trusses up onto the roof.",
     "Løftet går over gangveien ved inngangen.": "The lift goes over the walkway at the entrance.",
     "Lasten er lang og utsatt for vind.": "The load is long and exposed to wind.",
@@ -24,7 +23,6 @@
     "Montering av takvinduer.": "Fitting roof windows.",
     "Arbeid på taket utenfor stillaset.": "Work on the roof outside the scaffold.",
     "Vinduene heises opp med vinsj.": "The windows are hoisted up with a winch.",
-
     "Skal lasten løftes over gjerdet, eller tas den gjennom porten?": "Is the load to be lifted over the fence, or taken through the gate?",
     "Hva betyr «fikser stroppa selv»? Hvem kontrollerer løftestroppene før bruk?": "What does “sorting the strap myself” mean? Who checks the lifting slings before use?",
     "Over gjerdet": "Over the fence",
@@ -32,7 +30,6 @@
     "Anhukeren kontrollerer løftestroppene før bruk": "The slinger checks the lifting slings before use",
     "Anhukeren kontrollerer løftestroppene før bruk.": "The slinger checks the lifting slings before use.",
     "De er ikke kontrollert ennå": "They have not been checked yet",
-
     "Ikke løft over gangveien mens personer oppholder seg der.": "Do not lift over the walkway while people are on it.",
     "Sperr av faresonen rundt løftet, også gangveien ved inngangen.": "Cordon off the danger zone around the lift, including the walkway at the entrance.",
     "Sperr av faresonen rundt løftet og hold porten stengt under løftet.": "Cordon off the danger zone around the lift and keep the gate closed during the lift.",
@@ -44,6 +41,15 @@
     "Bruk sele ved behov.": "Use a harness when needed.",
     "Bruk fallsikringssele festet til forankringspunkt hele tiden du er utenfor stillaset.": "Use a fall-arrest harness attached to an anchor point the whole time you are outside the scaffold.",
     "Vinsjen skal ha lastbrems og være festet til bærende konstruksjon.": "The winch must have a load brake and be fixed to a load-bearing structure.",
-    "Anhukeren sperrer av faresonen rundt løftet med sperrebånd før løftet starter.": "The slinger cordons off the danger zone around the lift with barrier tape before the lift starts."
+    "Anhukeren sperrer av faresonen rundt løftet med sperrebånd før løftet starter.": "The slinger cordons off the danger zone around the lift with barrier tape before the lift starts.",
+    "Vi skal lakkere gulvet i en leilighet med 2-komponent lakk. Rommet har bare ett lite vindu.": "We are varnishing the floor in a flat with 2-component varnish. The room has only one small window.",
+    "Vi skal støpe en vegg på 3 meter med pumpe. Betongbilen må rygge inn fra veien, over fortauet.": "We are casting a 3-metre wall with a pump. The concrete truck has to reverse in from the road, over the pavement.",
+    "Lakkering av gulv i en leilighet med 2-komponent lakk.": "Varnishing a floor in a flat with 2-component varnish.",
+    "Rommet har bare ett lite vindu.": "The room has only one small window.",
+    "Støp av en vegg på 3 meter med betongpumpe.": "Casting a 3-metre wall with a concrete pump.",
+    "Betongbilen rygger inn fra veien, over fortauet.": "The concrete truck reverses in from the road, over the pavement.",
+    "Sett opp mekanisk ventilasjon før lakkeringen starter, fordi rommet bare har ett lite vindu.": "Set up mechanical ventilation before the varnishing starts, because the room has only one small window.",
+    "Bare de som har opplæring i isocyanater, skal blande og påføre lakken.": "Only those trained in isocyanates may mix and apply the varnish.",
+    "Betongbilen rygger inn over fortauet. Sperr av fortauet, og la signalgiveren dirigere bilen.": "The concrete truck reverses in over the pavement. Cordon off the pavement, and let the signaller direct the truck."
   }
 }

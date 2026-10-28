@@ -3,10 +3,10 @@ import { allowedRoutes, isBlocking, routeDisabled } from '../../src/core/flags';
 import * as flow from '../../src/core/flow';
 import { benchSummary, misunderstandingCounts, reuseRate, totalTime, unverifiedReuse, type PairFixture, type PairResult } from '../../src/core/metrics';
 import { checkLineRules } from '../../src/core/pipeline/checkLine';
-import { canSign, deriveStatus, gateConditions } from '../../src/core/rules/gate';
+import { canSign, deriveStatus, gateConditions, hasFallback } from '../../src/core/rules/gate';
 import { isSupported } from '../../src/core/rules/languages';
 import { buildP1, buildP2, buildP3, buildP4, buildP5, buildP6 } from '../../src/core/rules/payload';
-import { initUnderstanding, MAX_KEY_LINES, needsObservation, understandingTrigger, upgradeSja, type WorkerCheck } from '../../src/core/rules/understanding';
+import { initUnderstanding, MAX_KEY_LINES, needsObservation, nextQuestionIds, QUESTIONS_FALLBACK, understandingTrigger, upgradeSja, type WorkerCheck } from '../../src/core/rules/understanding';
 import { inputSchemas } from '../../src/core/schemas';
 import type { Flag, ModelClient, ReviewerSession, Sja } from '../../src/core/types';
 import { clone, makeFlag } from '../../src/core/util';
@@ -141,7 +141,7 @@ describe('D6 payload allow-list', () => {
 
 describe('D7 understanding check (service brief v3: teach-back, one scenario question, observation)', () => {
   const { ctx, events } = makeCtx('work-at-height', noModel);
-  const right = (s: Sja, over: Partial<WorkerCheck> = {}): WorkerCheck => ({ teachBack: 'ok', misunderstood: [], answers: s.understanding.questionIds.map((questionId) => ({ questionId, correct: true })), ...over });
+  const right = (s: Sja, over: Partial<WorkerCheck> = {}): WorkerCheck => ({ teachBack: 'ok', misunderstood: [], answers: nextQuestionIds(s.understanding, ctx.template, null).map((questionId) => ({ questionId, correct: true })), ...over });
 
   it('is not required when nothing critical changed and no box is ticked (AC-14)', () => {
     expect(understandingTrigger(startJob(ctx, 'jd-09'))).toEqual({ required: false, reason: [] });
@@ -151,10 +151,33 @@ describe('D7 understanding check (service brief v3: teach-back, one scenario que
     const s = flow.editLine(ctx, startJob(ctx, 'jd-09'), 'h-10', 'Sperr av fortauet under stillaset.');
     expect(understandingTrigger(s).reason).toEqual(['criticalChanged']);
   });
-  it('asks ONE scenario question, the one that tests the changed line (v3: not three)', () => {
-    const s = flow.editLine(ctx, startJob(ctx, 'jd-09'), 'h-10', 'Sperr av fortauet under stillaset.');
-    expect(s.understanding.questionIds).toEqual(['q-h3']);
-    expect(s.understanding.perQuestion).toHaveLength(1);
+  it('asks each worker ONE scenario question, the one that tests the changed line first, then rotates (v3; Q3)', () => {
+    let s = flow.editLine(ctx, startJob(ctx, 'jd-09'), 'h-10', 'Sperr av fortauet under stillaset.');
+    // The pool holds every approved question for lines in today's SJA, the one about the changed line first.
+    expect(s.understanding.questionIds[0]).toBe('q-h3');
+    expect(s.understanding.questionIds.length).toBeGreaterThanOrEqual(8);
+    expect(s.understanding.perQuestion).toHaveLength(s.understanding.questionIds.length);
+    expect(nextQuestionIds(s.understanding, ctx.template, 'pl')).toEqual(['q-h3']);
+    // The next worker on the same phone gets a different question.
+    s = flow.recordWorkerCheck(ctx, s, 'pl', right(s));
+    const second = nextQuestionIds(s.understanding, ctx.template, 'lt');
+    expect(second).toHaveLength(1);
+    expect(second[0]).not.toBe('q-h3');
+    // The multiple-choice fallback asks three (U1).
+    expect(nextQuestionIds(s.understanding, ctx.template, 'ru', QUESTIONS_FALLBACK)).toHaveLength(3);
+  });
+  it('records how each worker was checked, and a questions-only check makes the SJA a fallback (U1)', () => {
+    let s = flow.editLine(ctx, startJob(ctx, 'jd-09'), 'h-10', 'Sperr av fortauet under stillaset.');
+    s = flow.recordWorkerCheck(ctx, s, 'pl', right(s));
+    s = flow.recordWorkerCheck(ctx, s, 'ru', right(s, { path: 'written', reason: 'noCommonLanguage' }));
+    expect(s.understanding.paths).toEqual({ conversation: 1, written: 1, questionsOnly: 0 });
+    expect(hasFallback(s)).toBe(false); // a written explanation judged by the foreman may end in "signed"
+    const qs = nextQuestionIds(s.understanding, ctx.template, 'lt', QUESTIONS_FALLBACK);
+    s = flow.recordWorkerCheck(ctx, s, 'lt', { teachBack: 'none', misunderstood: [], answers: qs.map((questionId) => ({ questionId, correct: true })), path: 'questionsOnly', reason: 'lateArrival' });
+    expect(s.understanding.paths).toEqual({ conversation: 1, written: 1, questionsOnly: 1 });
+    expect(s.understanding.teachBack).toEqual({ ok: 2, rebriefed: 0 }); // nobody judged an explanation in the questions-only path
+    expect(s.understanding.fallbackReasons).toEqual({ noCommonLanguage: 1, lateArrival: 1 });
+    expect(hasFallback(s)).toBe(true); // multiple choice alone: "signed with fallback"
   });
   it('lists what the worker should explain: today\'s changed critical lines, or the main hazard and controls', () => {
     const changed = flow.editLine(ctx, startJob(ctx, 'jd-09'), 'h-10', 'Sperr av fortauet under stillaset.');
@@ -184,7 +207,7 @@ describe('D7 understanding check (service brief v3: teach-back, one scenario que
     expect(s.understanding.completed).toBe(false); // a wrong answer opens a re-brief (AC-15)
     s = flow.confirmRebrief(ctx, s, q);
     expect(s.understanding.completed).toBe(true);
-    expect(Object.keys(s.understanding).sort()).toEqual(['basis', 'completed', 'keyLineIds', 'misunderstood', 'perQuestion', 'questionIds', 'reason', 'required', 'respondents', 'teachBack']);
+    expect(Object.keys(s.understanding).sort()).toEqual(['basis', 'completed', 'fallbackReasons', 'keyLineIds', 'misunderstood', 'paths', 'perQuestion', 'questionIds', 'reason', 'required', 'respondents', 'teachBack']);
     expect(JSON.stringify(s.understanding)).not.toMatch(/name|navn/i);
   });
   it('logs a misunderstanding without names or text, against the template line, so it can be fed back', () => {
@@ -254,8 +277,9 @@ describe('D7 understanding check (service brief v3: teach-back, one scenario que
     const s = startJob(ctx, 'jd-09', { languages: ['ro'], crewFlags: { newWorker: true, firstTimeJobType: false } });
     const u = initUnderstanding(s, ctx.template);
     expect(u).toMatchObject({ required: true, respondents: 0, completed: false });
-    expect(u.questionIds).toHaveLength(1); // asked orally; the foreman records the answer
-    const done = flow.recordWorkerCheck(ctx, { ...s, understanding: u }, '', { teachBack: 'ok', misunderstood: [], answers: [{ questionId: u.questionIds[0], correct: true }] });
+    const asked = nextQuestionIds(u, ctx.template, null);
+    expect(asked).toHaveLength(1); // asked orally; the foreman records the answer
+    const done = flow.recordWorkerCheck(ctx, { ...s, understanding: u }, '', { teachBack: 'ok', misunderstood: [], answers: [{ questionId: asked[0], correct: true }] });
     expect(done.understanding.completed).toBe(true);
   });
   it('the observation of the start of the job comes after sign-off, once', () => {

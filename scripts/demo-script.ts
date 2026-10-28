@@ -5,7 +5,7 @@
 // without an API key. Fixtures generated from this file carry origin "scripted"
 // and are labelled as such on screen and in every export. They are not evidence
 // for any claim (C1–C6). Replace them by running with GATEWAY_MODE=record.
-import type { P1Input, P2Input, P3Input, P4Input, P5Input, P6Input } from '../src/core/schemas';
+import type { P1Input, P2Input, P3Input, P4Input, P5Input, P6Input, P7Input } from '../src/core/schemas';
 import type { Provider } from '../server/providers/types';
 
 const p4 = new Map<string, { text: string; missingConcepts: string[] }>();
@@ -87,6 +87,20 @@ T(Efix, 'lt', 0, 'Visą laiką, kol esate už pastolių ribų, naudokite viso k�
 T(F, 'pl', 0, 'Wciągarka musi mieć hamulec ładunku i być przymocowana do konstrukcji nośnej.', F, 'same', ['vinsj']);
 T(F, 'lt', 0, 'Gervė turi turėti krovinio stabdį ir būti pritvirtinta prie laikančiosios konstrukcijos.', F, 'same', ['vinsj']);
 
+// ---------- jd-10: painting, Russian glossary flag (added 26 Oct 2026) ----------
+const PV1 = 'Sett opp mekanisk ventilasjon før lakkeringen starter, fordi rommet bare har ett lite vindu.';
+const PV2 = 'Bare de som har opplæring i isocyanater, skal blande og påføre lakken.';
+T(PV1, 'ru', 0, 'Перед началом лакирования установите механическую вытяжку, потому что в помещении только одно маленькое окно.', 'Sett opp mekanisk avtrekk før lakkeringen starter, fordi rommet bare har ett lite vindu.');
+T(PV1, 'ru', 1, 'Перед началом лакирования установите механическую вентиляцию, потому что в помещении только одно маленькое окно.', PV1);
+T(PV1, 'lt', 0, 'Prieš pradėdami lakuoti įrenkite mechaninį vėdinimą, nes patalpoje yra tik vienas mažas langas.', PV1);
+T(PV2, 'ru', 0, 'Смешивать и наносить лак должны только те, кто прошёл обучение по работе с изоцианатами.', PV2);
+T(PV2, 'lt', 0, 'Lakas maišyti ir tepti turi tik tie, kurie apmokyti dirbti su izocianatais.', PV2);
+
+// ---------- jd-11: concrete (added 26 Oct 2026) ----------
+const CV1 = 'Betongbilen rygger inn over fortauet. Sperr av fortauet, og la signalgiveren dirigere bilen.';
+T(CV1, 'ru', 0, 'Бетоновоз заезжает задним ходом через тротуар. Оградите тротуар, и пусть сигнальщик руководит машиной.', CV1);
+T(CV1, 'pl', 0, 'Betonowóz wjeżdża tyłem przez chodnik. Wygrodź chodnik i niech sygnalista kieruje samochodem.', CV1);
+
 // ---------- test bench (T6): scripted back-translations for the pair fixtures ----------
 export interface ScriptedPair {
   source: string;
@@ -117,6 +131,17 @@ const BENCH: Record<string, [string, Verdict]> = {
   'Kopėčios gali būti naudojamos ir turi būti apsaugotos nuo slydimo.': ['Stige kan brukes og skal sikres mot å gli.', diff(['condition', 'omission'], 'Originalen sier «bare til kortvarig arbeid». Det mangler i tilbakeoversettelsen.', 'The original says "only for short work". That is missing from the back-translation.')],
   'Aptverkite zoną virš darbo vietos.': ['Sperr av området over arbeidsstedet.', diff(['direction'], 'Originalen sier «under arbeidsstedet». Tilbakeoversettelsen sier «over arbeidsstedet».', 'The original says "below the work area". The back-translation says "above the work area".')],
   'Apdrauskite įrankius ir medžiagas, kad jie negalėtų nukristi.': ['Sikre verktøy og materialer slik at de ikke kan falle ned.', 'same'],
+  // Russian seeded errors (added 26 Oct 2026)
+  'Там, где нет защитного ограждения, используйте предохранительный пояс, пристёгнутый к утверждённой точке крепления.': ['Bruk sikkerhetsbelte festet til godkjent forankringspunkt der rekkverk mangler.', diff(['object'], 'Originalen sier «fallsikringssele». Tilbakeoversettelsen sier «sikkerhetsbelte».', 'The original says "fall-arrest harness". The back-translation says "safety belt".')],
+  'Перед использованием проверьте стяжные ремни и скобы на повреждения.': ['Kontroller spennbånd og sjakler for skader før bruk.', diff(['object'], 'Originalen sier «løftestropper». Tilbakeoversettelsen sier «spennbånd».', 'The original says "lifting slings". The back-translation says "lashing straps".')],
+  'Оградите место вокруг подъёма.': ['Sperr av stedet rundt løftet.', 'same'],
+  'Опасность: подъёмник опрокидывается из-за слабого основания или слишком тяжёлого груза.': ['Fare: heisen velter på grunn av svakt underlag eller for tung last.', diff(['object'], 'Originalen sier «kranen». Tilbakeoversettelsen sier «heisen».', 'The original says "the crane". The back-translation says "the hoist".')],
+  'Во время работы должны присутствовать не менее 3 человек.': ['Minst 3 personer skal være til stede under arbeidet.', diff(['numbers'], 'Originalen sier «minst 2 personer». Tilbakeoversettelsen sier «minst 3 personer».', 'The original says "at least 2 people". The back-translation says "at least 3 people".')],
+  'Каждый может находиться под подвешенным грузом.': ['Alle kan oppholde seg under hengende last.', diff(['negation'], 'Originalen sier «ingen skal». Tilbakeoversettelsen sier «alle kan».', 'The original says "nobody may". The back-translation says "anyone may".')],
+  'Защитную каску с подбородочным ремнём можно носить всё время.': ['Hjelm med hakestropp kan brukes hele tiden.', diff(['obligation'], 'Originalen sier «skal brukes». Tilbakeoversettelsen sier «kan brukes».', 'The original says "must be worn". The back-translation says "may be worn".')],
+  'Приставную лестницу можно использовать, и она должна быть защищена от скольжения.': ['Stige kan brukes og skal sikres mot å gli.', diff(['condition', 'omission'], 'Originalen sier «bare til kortvarig arbeid». Det mangler i tilbakeoversettelsen.', 'The original says "only for short work". That is missing from the back-translation.')],
+  'Оградите зону над рабочим местом.': ['Sperr av området over arbeidsstedet.', diff(['direction'], 'Originalen sier «under arbeidsstedet». Tilbakeoversettelsen sier «over arbeidsstedet».', 'The original says "below the work area". The back-translation says "above the work area".')],
+  'Застрахуйте инструменты и материалы так, чтобы они не могли упасть.': ['Sikre verktøy og materialer slik at de ikke kan falle ned.', 'same'],
 };
 
 /** Register the bench pairs. A control back-translates to its own source; a seeded error uses the table above. */
@@ -166,6 +191,20 @@ const P1: Record<string, unknown> = {
     ],
     questions: [],
   },
+  'Vi skal lakkere gulvet i en leilighet med 2-komponent lakk. Rommet har bare ett lite vindu.|': {
+    specifics: [
+      { text: 'Lakkering av gulv i en leilighet med 2-komponent lakk.', status: 'clear' },
+      { text: 'Rommet har bare ett lite vindu.', status: 'clear' },
+    ],
+    questions: [],
+  },
+  'Vi skal støpe en vegg på 3 meter med pumpe. Betongbilen må rygge inn fra veien, over fortauet.|': {
+    specifics: [
+      { text: 'Støp av en vegg på 3 meter med betongpumpe.', status: 'clear' },
+      { text: 'Betongbilen rygger inn fra veien, over fortauet.', status: 'clear' },
+    ],
+    questions: [],
+  },
   'Vi skal montere takvinduer. Noen må ut på taket utenfor stillaset. Vi heiser vinduene opp med en vinsj.|': {
     specifics: [
       { text: 'Montering av takvinduer.', status: 'clear' },
@@ -192,6 +231,15 @@ const P2: Record<string, unknown> = {
     ],
   },
   'Løft av paller med gipsplater til 3. etasje.': { operations: [{ op: 'modify', lineId: 'l-12', text: D, hazardRef: 'lh-02' }] },
+  'Lakkering av gulv i en leilighet med 2-komponent lakk.': {
+    operations: [
+      { op: 'add', text: PV1, section: 'controls', afterLineId: 'p-10', hazardRef: 'pd-08', critical: true },
+      { op: 'add', text: PV2, section: 'controls', afterLineId: 'p-24', hazardRef: 'pd-14', critical: true },
+    ],
+  },
+  'Støp av en vegg på 3 meter med betongpumpe.': {
+    operations: [{ op: 'add', text: CV1, section: 'controls', afterLineId: 'c-13', hazardRef: 'cd-07', critical: true }],
+  },
   'Montering av takvinduer.': {
     operations: [
       { op: 'add', text: E, section: 'controls', afterLineId: 'h-09', hazardRef: 'hh-06', critical: true },
@@ -218,6 +266,9 @@ const P3: Record<string, Record<string, unknown>> = {
   },
   [Efix]: { status: 'clear' },
   [F]: { status: 'clear' },
+  [PV1]: { status: 'clear' },
+  [PV2]: { status: 'clear' },
+  [CV1]: { status: 'clear' },
   'Sikre området før løft.': {
     status: 'ambiguous',
     category: 'unclear_actor',
@@ -226,6 +277,26 @@ const P3: Record<string, Record<string, unknown>> = {
     suggestion: 'Anhukeren sperrer av faresonen rundt løftet med sperrebånd før løftet starter.',
   },
 };
+
+// ---------- P7: written explanations (U2, U4). Keyed by language and the two texts. ----------
+export interface WrittenSample {
+  lang: string;
+  hazard: string;
+  measure: string;
+  translation: { hazard: string; measure: string };
+}
+const p7 = new Map<string, unknown>();
+export const p7Key = (lang: string, hazard: string, measure: string) => `${lang}|${hazard}|${measure}`;
+export function registerWrittenAnswers(samples: WrittenSample[]) {
+  for (const w of samples) {
+    p7.set(p7Key(w.lang, w.hazard, w.measure), {
+      items: [
+        { key: 'hazard', textNb: w.translation.hazard, unreadable: false },
+        { key: 'measure', textNb: w.translation.measure, unreadable: false },
+      ],
+    });
+  }
+}
 
 export const SCRIPTED_MODEL = 'scripted-demo (no model was called)';
 
@@ -264,6 +335,14 @@ export function scriptedAnswer(task: string, input: unknown): string {
     if (!hit) throw miss(`${i.lang}|${i.text}`);
     return JSON.stringify({ text: hit });
   }
+  if (task === 'P7') {
+    const i = input as P7Input;
+    const text = (k: string) => i.items.find((x) => x.key === k)?.text ?? '';
+    const key = p7Key(i.lang, text('hazard'), text('measure'));
+    const hit = p7.get(key);
+    if (!hit) throw miss(key);
+    return JSON.stringify(hit);
+  }
   const i = input as P6Input;
   const hit = p6.get(`${i.source}|${i.backTranslation}`);
   if (!hit) throw miss(`${i.source}|${i.backTranslation}`);
@@ -278,4 +357,4 @@ export const scriptedProvider: Provider = {
   },
 };
 
-export const DEMO = { S1, S2, S3, A, Bq, Bplain, C, D, E, Efix, F };
+export const DEMO = { S1, S2, S3, A, Bq, Bplain, C, D, E, Efix, F, PV1, PV2, CV1 };

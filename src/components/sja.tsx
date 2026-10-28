@@ -35,15 +35,36 @@ export function CriticalMark() {
   );
 }
 
-/** `quiet`: say nothing when a line has no source. The foreman only needs the warning on a line the AI added. */
-export function SourceRef({ hazardRef, hazards, quiet = false }: { hazardRef: string | null; hazards?: HazardList; quiet?: boolean }) {
-  const t = useT();
+/** The public source of a hazard-list entry, as a short label (Q1): the regulation and paragraph, a guidance page, a data sheet, or firm practice. */
+export function sourceText(hazards: HazardList | undefined, hazardRef: string | null, ui: 'nb' | 'en'): { label: string; url?: string; firm: boolean } | null {
   const entry = hazards?.entries.find((h) => h.hazardId === hazardRef);
-  if (!entry) return quiet ? null : <span className="text-xs font-semibold text-slate-600">{t('line.unsourced')}</span>;
+  if (!entry) return null;
   const source = hazards?.sources.find((s) => s.sourceId === entry.sourceId);
+  if (entry.sourceId === 'FIRMA') return { label: ui === 'nb' ? 'Firmapraksis (ingen offentlig kilde)' : 'Firm practice (no public source)', firm: true };
+  const title = source?.title ?? entry.sourceId;
+  return { label: entry.paragraph ? `${title.split(',')[0]} ${entry.paragraph}` : `${title}: ${entry.sourceDetail}`, url: entry.url ?? source?.url, firm: false };
+}
+
+/** `quiet`: say nothing when a line has no source. The foreman only needs the warning on a line the AI added. */
+export function SourceRef({ hazardRef, hazards, quiet = false, paramLine = false }: { hazardRef: string | null; hazards?: HazardList; quiet?: boolean; paramLine?: boolean }) {
+  const t = useT();
+  const ui = useUiLang();
+  const src = sourceText(hazards, hazardRef, ui);
+  if (!src) {
+    if (paramLine) return quiet ? null : <span className="text-xs text-slate-600">{t('line.valueFromStep1')}</span>;
+    return quiet ? null : <span className="text-xs font-semibold text-slate-600">{t('line.unsourced')}</span>;
+  }
+  const entry = hazards?.entries.find((h) => h.hazardId === hazardRef);
   return (
-    <span className="text-xs text-slate-600" title={source?.title}>
-      {t('line.source')}: {source?.publisher ?? entry.sourceId}, {entry.sourceDetail}
+    <span className="text-xs text-slate-600" title={entry?.sourceDetail} data-testid="source-ref">
+      {t('line.source')}:{' '}
+      {src.url ? (
+        <a href={src.url} target="_blank" rel="noreferrer" className="underline">
+          {src.label}
+        </a>
+      ) : (
+        src.label
+      )}
     </span>
   );
 }

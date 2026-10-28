@@ -20,7 +20,7 @@ export function KeyPoints({ lines, sja }: { lines: SjaLine[]; sja?: Pick<Sja, 't
     <ul className="space-y-1" data-testid="key-points">
       {lines.map((l) => (
         <li key={l.lineId} className="rounded-lg border border-slate-300 bg-white p-2 text-[15px] leading-snug">
-          <span className="mr-2 text-xs font-bold uppercase tracking-wide text-slate-500">{t(`section.${l.section}`)}</span>
+          <span className="mr-2 text-xs font-bold uppercase tracking-wide text-slate-600">{t(`section.${l.section}`)}</span>
           {l.textNb}
           <HelpEn nb={l.textNb} line={l} sja={sja} />
         </li>

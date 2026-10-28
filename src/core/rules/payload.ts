@@ -6,6 +6,7 @@ import type { P1Input, P2Input, P3Input, P4Input, P5Input, P6Input } from '../sc
 import type { DataPack, HazardList, Sja, SjaLine, Template } from '../types';
 import { formatNumber } from '../util';
 import { glossaryForLine } from './glossary';
+import { similarPairs } from './memory';
 
 export function buildP1(sja: Pick<Sja, 'parameterValues' | 'freeText' | 'questions'>, template: Template): P1Input {
   return {
@@ -42,12 +43,16 @@ export function buildP3(lines: Pick<SjaLine, 'lineId' | 'textNb' | 'critical'>[]
 }
 
 export function buildP4(sourceNb: string, lang: string, pack: DataPack, enforce: boolean, attempt: number): P4Input {
+  // L2: verified translations of similar lines as examples. The field is left out when there are none,
+  // so the payload (and its replay key) is unchanged until reviewers have verified something.
+  const examples = similarPairs(pack, sourceNb, lang);
   return {
     targetLang: lang,
     text: sourceNb,
     glossary: glossaryForLine(sourceNb, lang, pack),
     enforceApprovedTerms: enforce,
     attempt,
+    ...(examples.length ? { examples } : {}),
   };
 }
 

@@ -5,7 +5,7 @@
   "inputHash": "006874cca78394421dcc2054",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:53.016Z",
+  "recordedAt": "2026-10-26T17:14:22.525Z",
   "input": {
    "source": "Vinsjen skal ha lastbrems og være festet til bærende konstruksjon.",
    "backTranslation": "Vinsjen skal ha lastbrems og være festet til bærende konstruksjon.",
@@ -19,10 +19,24 @@
   "inputHash": "085fdf66bb8816898f47a4a1",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.952Z",
+  "recordedAt": "2026-10-26T17:14:22.406Z",
   "input": {
    "source": "Sperr av faresonen rundt løftet.",
    "backTranslation": "Sperr av stedet rundt løftet.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "0f183b6821dc985e7438625f": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "0f183b6821dc985e7438625f",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.341Z",
+  "input": {
+   "source": "Betongbilen rygger inn over fortauet. Sperr av fortauet, og la signalgiveren dirigere bilen.",
+   "backTranslation": "Betongbilen rygger inn over fortauet. Sperr av fortauet, og la signalgiveren dirigere bilen.",
    "critical": true
   },
   "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
@@ -33,7 +47,7 @@
   "inputHash": "16aa88ce8009a694b5aeff34",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.951Z",
+  "recordedAt": "2026-10-26T17:14:22.376Z",
   "input": {
    "source": "Kontroller løftestropper og sjakler for skader før bruk.",
    "backTranslation": "Kontroller lastestropper og sjakler for skader før bruk.",
@@ -47,7 +61,7 @@
   "inputHash": "190b2023df79144ca647a409",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.960Z",
+  "recordedAt": "2026-10-26T17:14:22.418Z",
   "input": {
    "source": "Hjelm med hakestropp skal brukes hele tiden.",
    "backTranslation": "Hjelm med hakestropp kan brukes hele tiden.",
@@ -61,7 +75,7 @@
   "inputHash": "1d2100efdecd7411f7f45cc3",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.929Z",
+  "recordedAt": "2026-10-26T17:14:22.346Z",
   "input": {
    "source": "Fare: kranen velter på grunn av svakt underlag eller for tung last.",
    "backTranslation": "Fare: kranen velter på grunn av svakt underlag eller for tung last.",
@@ -75,7 +89,7 @@
   "inputHash": "230b5b918063869936f86356",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.948Z",
+  "recordedAt": "2026-10-26T17:14:22.373Z",
   "input": {
    "source": "Bruk fallsikringssele festet til godkjent forankringspunkt der rekkverk mangler.",
    "backTranslation": "Bruk hoftebelte festet til godkjent forankringspunkt der rekkverk mangler.",
@@ -89,7 +103,7 @@
   "inputHash": "2b5defdc5d2de388c265a9c4",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.878Z",
+  "recordedAt": "2026-10-26T17:14:22.252Z",
   "input": {
    "source": "Sperr av fortauet under stillaset før arbeidet starter.",
    "backTranslation": "Sperr av fortauet under stillaset før arbeidet starter.",
@@ -103,7 +117,7 @@
   "inputHash": "31eeaff7db73cb91ef36c0fa",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.891Z",
+  "recordedAt": "2026-10-26T17:14:22.267Z",
   "input": {
    "source": "Sperr av fortauet under stillaset før dere begynner.",
    "backTranslation": "Sperr av fortauet under stillaset før dere begynner.",
@@ -117,7 +131,7 @@
   "inputHash": "324cabbc5e96968bbb86dcc5",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.962Z",
+  "recordedAt": "2026-10-26T17:14:22.420Z",
   "input": {
    "source": "Stige skal bare brukes til kortvarig arbeid og skal sikres mot å gli.",
    "backTranslation": "Stige kan brukes og skal sikres mot å gli.",
@@ -131,7 +145,7 @@
   "inputHash": "36282e71964c7145ef1a46fb",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:53.013Z",
+  "recordedAt": "2026-10-26T17:14:22.521Z",
   "input": {
    "source": "Hold sikkerhetsavstand til kraftlinjer.",
    "backTranslation": "Hold sikkerhetsavstand til kraftlinjer.",
@@ -145,7 +159,7 @@
   "inputHash": "37aff395057366eaf1a9af2b",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.954Z",
+  "recordedAt": "2026-10-26T17:14:22.409Z",
   "input": {
    "source": "Fare: kranen velter på grunn av svakt underlag eller for tung last.",
    "backTranslation": "Fare: heisen velter på grunn av svakt underlag eller for tung last.",
@@ -159,7 +173,7 @@
   "inputHash": "3ce58815a87c9efe8116c4c3",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.883Z",
+  "recordedAt": "2026-10-26T17:14:22.258Z",
   "input": {
    "source": "Utsparingen i dekket ved trappa skal dekkes til og merkes.",
    "backTranslation": "Hullet i dekket ved trappa skal dekkes til og merkes.",
@@ -173,7 +187,7 @@
   "inputHash": "3de216449a1300ad393ca0e9",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.878Z",
+  "recordedAt": "2026-10-26T17:14:22.252Z",
   "input": {
    "source": "Utsparingen i dekket ved trappa skal dekkes til og merkes.",
    "backTranslation": "Åpningen i dekket ved trappa skal dekkes til og merkes.",
@@ -187,7 +201,7 @@
   "inputHash": "4f28e74ed1450453e13538f0",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.958Z",
+  "recordedAt": "2026-10-26T17:14:22.386Z",
   "input": {
    "source": "Ingen skal oppholde seg under hengende last.",
    "backTranslation": "Alle kan være under hengende last.",
@@ -201,7 +215,7 @@
   "inputHash": "4fa5b6c85a72b158eda1c668",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.852Z",
+  "recordedAt": "2026-10-26T17:14:22.230Z",
   "input": {
    "source": "Bruk to styretau fordi lasten er lang.",
    "backTranslation": "Bruk to styretau fordi lasten er lang.",
@@ -215,7 +229,7 @@
   "inputHash": "537fa0c47f218b0bb6792597",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:53.009Z",
+  "recordedAt": "2026-10-26T17:14:22.513Z",
   "input": {
    "source": "Sperr av faresonen rundt løftet.",
    "backTranslation": "Sperr av faresonen rundt løftet.",
@@ -229,7 +243,7 @@
   "inputHash": "54e776f21bc33ae8e78e16ff",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.934Z",
+  "recordedAt": "2026-10-26T17:14:22.353Z",
   "input": {
    "source": "Kontroller løftestropper og sjakler for skader før bruk.",
    "backTranslation": "Kontroller tau og sjakler for skader før bruk.",
@@ -243,7 +257,7 @@
   "inputHash": "600dcf5ebabc2429313b8aaa",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:53.003Z",
+  "recordedAt": "2026-10-26T17:14:22.504Z",
   "input": {
    "source": "Stans arbeidet når vindstyrken er over vindgrensen.",
    "backTranslation": "Stans arbeidet når vindstyrken er over vindgrensen.",
@@ -257,7 +271,7 @@
   "inputHash": "655be9de4405e143e9577f72",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.878Z",
+  "recordedAt": "2026-10-26T17:14:22.252Z",
   "input": {
    "source": "Alle som går opp på stillaset skal ha fått opplæring.",
    "backTranslation": "Alle som går opp på stillaset bør ha fått opplæring.",
@@ -271,7 +285,7 @@
   "inputHash": "67c98bf80e166851049991cd",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.842Z",
+  "recordedAt": "2026-10-26T17:14:22.220Z",
   "input": {
    "source": "Sperr av faresonen rundt løftet, også gangveien ved inngangen.",
    "backTranslation": "Sperr av farestedet rundt løftestedet, også gangveien ved inngangen.",
@@ -285,7 +299,7 @@
   "inputHash": "6c0c052040d408466cbe4572",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.852Z",
+  "recordedAt": "2026-10-26T17:14:22.230Z",
   "input": {
    "source": "Bruk to styretau fordi lasten er lang.",
    "backTranslation": "Bruk to styretau, fordi lasten er lang.",
@@ -299,7 +313,7 @@
   "inputHash": "6fefe3636172294b45ff7b99",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:53.010Z",
+  "recordedAt": "2026-10-26T17:14:22.517Z",
   "input": {
    "source": "Bruk styretau for å styre lasten. Ikke styr lasten med hendene.",
    "backTranslation": "Bruk styretau for å styre lasten. Ikke styr lasten med hendene.",
@@ -313,7 +327,7 @@
   "inputHash": "739ed6b26579d26911f71555",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.858Z",
+  "recordedAt": "2026-10-26T17:14:22.235Z",
   "input": {
    "source": "Sperr av faresonen rundt løftet, også gangveien ved inngangen.",
    "backTranslation": "Sperr av faresonen rundt løftestedet, også gangveien ved inngangen.",
@@ -321,13 +335,27 @@
   },
   "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
  },
+ "79273634a587f7d0b79bc58e": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "79273634a587f7d0b79bc58e",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.403Z",
+  "input": {
+   "source": "Kontroller løftestropper og sjakler for skader før bruk.",
+   "backTranslation": "Kontroller spennbånd og sjakler for skader før bruk.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"different\"},\"category\":\"MEANING_SHIFT\",\"explanationNb\":\"Originalen sier «løftestropper». Tilbakeoversettelsen sier «spennbånd».\",\"explanationEn\":\"The original says \\\"lifting slings\\\". The back-translation says \\\"lashing straps\\\".\"}"
+ },
  "7f74ae5e9cb42fcbc016fcf9": {
   "task": "P6",
   "promptVersion": "1.0.0",
   "inputHash": "7f74ae5e9cb42fcbc016fcf9",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:53.005Z",
+  "recordedAt": "2026-10-26T17:14:22.507Z",
   "input": {
    "source": "Kontroller at løfteredskapet har WLL som dekker lastens vekt.",
    "backTranslation": "Kontroller at løfteredskapet har WLL som dekker lastens vekt.",
@@ -341,7 +369,7 @@
   "inputHash": "820ea00bb0974a60edfadb92",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.955Z",
+  "recordedAt": "2026-10-26T17:14:22.411Z",
   "input": {
    "source": "Minst 2 personer skal være til stede under arbeidet.",
    "backTranslation": "Minst 3 personer skal være til stede under arbeidet.",
@@ -355,7 +383,7 @@
   "inputHash": "90fa6a3dba4276d05af735b9",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.997Z",
+  "recordedAt": "2026-10-26T17:14:22.495Z",
   "input": {
    "source": "Bruk fallsikringssele festet til godkjent forankringspunkt der rekkverk mangler.",
    "backTranslation": "Bruk fallsikringssele festet til godkjent forankringspunkt der rekkverk mangler.",
@@ -369,7 +397,7 @@
   "inputHash": "935aab933581cb6160e45a44",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.931Z",
+  "recordedAt": "2026-10-26T17:14:22.400Z",
   "input": {
    "source": "Bruk fallsikringssele festet til godkjent forankringspunkt der rekkverk mangler.",
    "backTranslation": "Bruk sikkerhetsbelte festet til godkjent forankringspunkt der rekkverk mangler.",
@@ -383,7 +411,7 @@
   "inputHash": "9c575daeece978fe92109f00",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.878Z",
+  "recordedAt": "2026-10-26T17:14:22.252Z",
   "input": {
    "source": "Sperr av fortauet under stillaset før arbeidet starter.",
    "backTranslation": "Sperr av fortauet under stillaset etter at arbeidet har startet.",
@@ -397,7 +425,7 @@
   "inputHash": "9cb9951e6ef4cd7d09e63616",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.842Z",
+  "recordedAt": "2026-10-26T17:14:22.220Z",
   "input": {
    "source": "Ikke løft over gangveien mens personer oppholder seg der.",
    "backTranslation": "Ikke løft over gangveien mens det er folk der.",
@@ -411,7 +439,7 @@
   "inputHash": "9ea9eeff38750673340f6c1e",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.886Z",
+  "recordedAt": "2026-10-26T17:14:22.261Z",
   "input": {
    "source": "Utsparingen i dekket ved trappa skal dekkes til og merkes.",
    "backTranslation": "Hullet i gulvet ved trappa skal dekkes til og merkes.",
@@ -425,7 +453,7 @@
   "inputHash": "a4ecda9b5a36e1cc87a08e41",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.965Z",
+  "recordedAt": "2026-10-26T17:14:22.423Z",
   "input": {
    "source": "Sperr av området under arbeidsstedet.",
    "backTranslation": "Sperr av området over arbeidsstedet.",
@@ -439,7 +467,7 @@
   "inputHash": "ae44606f02b034738cf40877",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.925Z",
+  "recordedAt": "2026-10-26T17:14:22.306Z",
   "input": {
    "source": "Bruk fallsikringssele festet til forankringspunkt hele tiden du er utenfor stillaset.",
    "backTranslation": "Bruk fallsikringssele festet til forankringspunkt hele tiden du er utenfor stillaset.",
@@ -453,10 +481,24 @@
   "inputHash": "b6db284e5356e6ce83b04841",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:53.000Z",
+  "recordedAt": "2026-10-26T17:14:22.500Z",
   "input": {
    "source": "Stige skal bare brukes til kortvarig arbeid og skal sikres mot å gli.",
    "backTranslation": "Stige skal bare brukes til kortvarig arbeid og skal sikres mot å gli.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "c95df59732890bb489895d1f": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "c95df59732890bb489895d1f",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.323Z",
+  "input": {
+   "source": "Sett opp mekanisk ventilasjon før lakkeringen starter, fordi rommet bare har ett lite vindu.",
+   "backTranslation": "Sett opp mekanisk avtrekk før lakkeringen starter, fordi rommet bare har ett lite vindu.",
    "critical": true
   },
   "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
@@ -467,10 +509,24 @@
   "inputHash": "c9cec608a0dabe680f2832ae",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.906Z",
+  "recordedAt": "2026-10-26T17:14:22.280Z",
   "input": {
    "source": "Sperr av faresonen rundt løftet og hold porten stengt under løftet.",
    "backTranslation": "Sperr av faresonen rundt løftestedet og hold porten stengt under løftet.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "d19c1358dc642570e7ebbba0": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "d19c1358dc642570e7ebbba0",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.323Z",
+  "input": {
+   "source": "Bare de som har opplæring i isocyanater, skal blande og påføre lakken.",
+   "backTranslation": "Bare de som har opplæring i isocyanater, skal blande og påføre lakken.",
    "critical": true
   },
   "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
@@ -481,10 +537,24 @@
   "inputHash": "db86e2b55268e8076f09b950",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.842Z",
+  "recordedAt": "2026-10-26T17:14:22.220Z",
   "input": {
    "source": "Ikke løft over gangveien mens personer oppholder seg der.",
    "backTranslation": "Ikke løft last over gangveien mens det er folk der.",
+   "critical": true
+  },
+  "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
+ },
+ "dc6efdb326c636e49a4e7a19": {
+  "task": "P6",
+  "promptVersion": "1.0.0",
+  "inputHash": "dc6efdb326c636e49a4e7a19",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.329Z",
+  "input": {
+   "source": "Sett opp mekanisk ventilasjon før lakkeringen starter, fordi rommet bare har ett lite vindu.",
+   "backTranslation": "Sett opp mekanisk ventilasjon før lakkeringen starter, fordi rommet bare har ett lite vindu.",
    "critical": true
   },
   "rawOutput": "{\"checks\":{\"negation\":\"same\",\"obligation\":\"same\",\"numbers\":\"same\",\"direction\":\"same\",\"condition\":\"same\",\"omission\":\"same\",\"addition\":\"same\",\"object\":\"same\"},\"category\":\"NONE\",\"explanationNb\":\"\",\"explanationEn\":\"\"}"
@@ -495,7 +565,7 @@
   "inputHash": "de43f2e8c93ac742b9d58aef",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.966Z",
+  "recordedAt": "2026-10-26T17:14:22.425Z",
   "input": {
    "source": "Sikre verktøy og materialer slik at de ikke kan falle ned.",
    "backTranslation": "Sikre verktøy og materialer slik at de ikke kan falle ned.",
@@ -509,7 +579,7 @@
   "inputHash": "e10dff931d3e566ce7c13be2",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.998Z",
+  "recordedAt": "2026-10-26T17:14:22.497Z",
   "input": {
    "source": "Sperr av området under arbeidsstedet.",
    "backTranslation": "Sperr av området under arbeidsstedet.",
@@ -523,7 +593,7 @@
   "inputHash": "e84fed728f9349823e6252fe",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.939Z",
+  "recordedAt": "2026-10-26T17:14:22.415Z",
   "input": {
    "source": "Ingen skal oppholde seg under hengende last.",
    "backTranslation": "Alle kan oppholde seg under hengende last.",
@@ -537,7 +607,7 @@
   "inputHash": "f0c6abf674eeb60fb06e096b",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.852Z",
+  "recordedAt": "2026-10-26T17:14:22.230Z",
   "input": {
    "source": "Bruk to styretau fordi lasten er lang.",
    "backTranslation": "Bruk to styreliner fordi lasten er lang.",
@@ -551,7 +621,7 @@
   "inputHash": "f2a02c234ca78dc2b6cffd49",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.878Z",
+  "recordedAt": "2026-10-26T17:14:22.252Z",
   "input": {
    "source": "Alle som går opp på stillaset skal ha fått opplæring.",
    "backTranslation": "Alle som går opp på stillaset skal være opplært.",
@@ -565,7 +635,7 @@
   "inputHash": "f415635500a32d98d02d5fba",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.842Z",
+  "recordedAt": "2026-10-26T17:14:22.220Z",
   "input": {
    "source": "Sperr av faresonen rundt løftet, også gangveien ved inngangen.",
    "backTranslation": "Sperr av faresonen rundt løftet, inkludert gangveien ved inngangen.",
@@ -579,7 +649,7 @@
   "inputHash": "f8454b151b64c5e81305cbc5",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.842Z",
+  "recordedAt": "2026-10-26T17:14:22.220Z",
   "input": {
    "source": "Ikke løft over gangveien mens personer oppholder seg der.",
    "backTranslation": "Ikke løft last over gangveien når det oppholder seg folk der.",
@@ -593,7 +663,7 @@
   "inputHash": "fdb4eb757c82241439e69f84",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.994Z",
+  "recordedAt": "2026-10-26T17:14:22.490Z",
   "input": {
    "source": "Rekkverk skal være montert på alle åpne sider før arbeidet starter.",
    "backTranslation": "Rekkverk skal være montert på alle åpne sider før arbeidet starter.",
@@ -607,7 +677,7 @@
   "inputHash": "ff758f94dbd09b0f8301c829",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:53.007Z",
+  "recordedAt": "2026-10-26T17:14:22.510Z",
   "input": {
    "source": "Ingen skal oppholde seg under hengende last.",
    "backTranslation": "Ingen skal oppholde seg under hengende last.",

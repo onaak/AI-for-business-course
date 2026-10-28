@@ -155,14 +155,14 @@ test('AI suggestion, meaning shift, two failed attempts, reviewer verdict, oral 
   await page.getByTestId('kiosk-exit').click();
   await expect(page.getByTestId('respondent-count')).toContainText('1');
   await page.getByTestId('step5-continue').click();
-  await expect(page.getByText('Statusen blir «signert med muntlig gjennomgang».')).toBeVisible();
+  await expect(page.getByText('Statusen blir «Signert med reserveløsning».')).toBeVisible();
   await page.getByTestId('sign-agree').check();
   await page.getByTestId('sign-button').click();
-  await expect(page.getByTestId('signed-status')).toContainText('Signert med muntlig gjennomgang');
+  await expect(page.getByTestId('signed-status')).toContainText('Signert med reserveløsning');
 
   // The record lists the line briefed orally, the routes and who resolved each flag (AC-19).
   await page.getByTestId('open-record').click();
-  await expect(page.getByTestId('record-status')).toHaveText('Signert med muntlig gjennomgang');
+  await expect(page.getByTestId('record-status')).toHaveText('Signert med reserveløsning');
   await expect(page.getByTestId('record-oral')).toContainText('Polsk: Sperr av fortauet under stillaset før arbeidet starter.');
   const flags = page.getByTestId('record-flags');
   await expect(flags).toContainText('Gjennomgå linjen muntlig');
@@ -226,7 +226,7 @@ test('ambiguous critical line, missing glossary term, unsupported language (jd-0
   await page.getByTestId('step5-continue').click();
   await page.getByTestId('sign-agree').check();
   await page.getByTestId('sign-button').click();
-  await expect(page.getByTestId('signed-status')).toContainText('Signert med muntlig gjennomgang');
+  await expect(page.getByTestId('signed-status')).toContainText('Signert med reserveløsning');
   await page.getByTestId('open-record').click();
   await expect(page.getByTestId('record')).toContainText('Rumensk: Språket støttes ikke. Ingen tekst til arbeiderne er laget. Tolk kreves for hele SJA-en.');
 });

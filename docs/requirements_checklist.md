@@ -1,6 +1,6 @@
 # Requirement checklist
 
-Built and checked on 5 October 2026. Updated on 6 October 2026 for service brief v3 and for usability (section 10, and `V3_CHANGES.md`). Sources: `SJA_Forstatt_Prototype_Specification.md` v1.0 (what) and `docs/implementation_plan.md` v1.0 (how; it wins where they differ).
+Built and checked on 5 October 2026. Updated on 6 October 2026 for service brief v3 and for usability (section 10, and `V3_CHANGES.md`), and on 26 October 2026 for the team's suggestions and the Gravitas interview (section 11, and `OCT26_CHANGES.md`). Sources: `SJA_Forstatt_Prototype_Specification.md` v1.0 (what) and `docs/implementation_plan.md` v1.0 (how; it wins where they differ).
 
 **How to read the last column**
 
@@ -10,7 +10,7 @@ Built and checked on 5 October 2026. Updated on 6 October 2026 for service brief
 | ⚠️ | Built, but checked only in replay mode with scripted answers, or only against a stand-in. Not yet seen working with a real model or real people. |
 | ❌ | Not done, or cannot be checked from here. The reason is given. |
 
-Checks that were run (numbers as of 6 October): 83 automated tests without a browser (`npm test`: rules, contracts, pipeline in replay mode); 15 browser tests in replay mode, the foreman flow at 375 px width (`npm run test:e2e`); a type check; the seed-data check; a production build; a fresh install in an empty copy of the folder followed by all of the above; live and record mode through the real server against a local stand-in endpoint; and a print-to-PDF of the record.
+Checks that were run (numbers as of 26 October; on 6 October they were 83 and 15): 112 automated tests without a browser (`npm test`: rules, contracts, pipeline in replay mode); 18 browser tests in replay mode at 375 px width, with an axe accessibility check on five screens (`npm run test:e2e`); a type check; the seed-data check; a production build; a fresh install in an empty copy of the folder followed by all of the above; live and record mode through the real server against a local stand-in endpoint; and a print-to-PDF of the record.
 
 **None of these checks is evidence for the report.** They show that the software does what the plan says.
 
@@ -25,8 +25,9 @@ Read this section before the rest.
 | Machine time (target: about one minute for five changed lines in two languages) | ❌ | Replay answers return at once. This is the plan's stop rule before M2 and it is still open. |
 | Whether the check catches real errors (claim C2) | ❌ | The T6 counts on screen in replay mode come from scripted answers. The rules layer (D1, D2) is real code running on unconfirmed fixtures. |
 | Tests T1–T8 with a foreman, workers or reviewers | ❌ | Group activity (plan milestone M5). |
-| Norwegian, Polish and Lithuanian wording | ❌ | All drafted by the builder. No native speaker has checked any of it. |
-| Technical correctness of the two templates and their source references | ❌ | No technical reviewer. References are at paragraph-heading level. |
+| Norwegian, Polish, Lithuanian and Russian wording | ❌ | All drafted by the builder. No native speaker has checked any of it. |
+| Technical correctness of the four templates, their tags, risk levels and source references | ❌ | No technical reviewer. Paragraphs were mapped by the builder; 20 lines are "Firmapraksis". |
+| Whether a foreman can judge a written explanation from its machine translation (U4) | ❌ | Needs a live model and a person. Until then the written path ending in "signed" rests on an untested assumption. |
 | Seeded errors and controls confirmed by a native speaker | ❌ | Files carry `"status": "unconfirmed"`, and the bench says so. |
 | A happy-path run recorded from a live model (plan section 10) | ❌ | Needs a key. A scripted demo run is shipped in its place, labelled. |
 | An existing blank SJA form from a public source (T8 fixture) | ❌ | None was available. A marked placeholder is in `data/fixtures/`. |
@@ -222,3 +223,42 @@ Rules added because of defects found while testing the change:
 | Data stored by the first version is converted | `upgradeSja`; persist version 2 in `stores.ts` | ✅ unit; a manual run with data from the first version |
 
 Not verified for this update: any of it with a real model (none of it needs one), with a foreman or workers, or on a real phone. The Norwegian, Polish and Lithuanian wording of the new screens is unchecked.
+
+## 11. Team suggestions and the Gravitas interview (26 October 2026)
+
+From `docs/team_feedback_and_interview_tasks.md` and the group's five decisions. `OCT26_CHANGES.md` has the detail per task, including what was not done.
+
+| Task | Implementation | Verified |
+|---|---|---|
+| F3 Waits on "too many requests"; parallel limit | `Gateway.complete`, `Pacer`, `RateLimitError`; `rateLimitWaitMs` per logged call | ✅ unit (4 tests, including a stand-in server answering 429) |
+| F1, F2 Free models (Gemini, Ollama, a second provider for back-translation) | `.env.example` blocks A–C; `providerFor` | ⚠️ unit with a stand-in only; never run against Google or Ollama |
+| F5 Rules-only T6 count | Bench, per language | ✅ browser "test bench" |
+| L1 Reuse of verified translations | `rules/memory.ts`; `runLanguageCheck` | ✅ unit "reuses … with no model call" |
+| L2 Verified examples in P4 (1.1.0) | `buildP4`; gateway falls back to the request without examples in replay | ✅ unit |
+| L3 Reviewer adds forms to the glossary | `addTermForms`; Review → glossary | ✅ unit |
+| L4 Promote a job line into the template | `promoteLine`; Review → "Add to template" | ✅ unit |
+| L5 Measure memory before and after | — | ❌ needs a live model and keys |
+| Q1 A source on every rule line | `sourceRef` → paragraph, SDS or "Firmapraksis" | ✅ unit (every line); ❌ content unchecked |
+| Q2 8–10 questions per template | Seed data | ✅ unit |
+| Q3 Rotation | `nextQuestionIds` | ✅ unit; browser (oral check gets the next question) |
+| Q4 "This is in your SJA" and question → line → source | `Worker.tsx`, record | ✅ browser |
+| U1 Three paths, counted | `recordWorkerCheck` paths and reasons; gate: multiple choice only → "Signert med reserveløsning" | ✅ unit; browser painting job |
+| U2 Written explanation, translated by P7, judged by the foreman | `translateWorkerAnswer`, kiosk, `prompts/P7_worker_answer.md` | ⚠️ browser in replay mode only |
+| U3 No names, text not kept | P7 schema; `keepsText`/`redact` in the gateway; kiosk | ✅ unit (schema, call log); browser. ❌ Cyrillic phone keyboard |
+| U4 Written-answers test | `BenchU4.tsx`, `written-answers.json` | ⚠️ built; not run with a person or a model |
+| R2, R3 Russian; Cyrillic in D1 and D2 | i18n `ru.ts`, glossary stems, `UNIT_ALIASES` | ✅ unit with Cyrillic text; seed check passes in Russian |
+| R4 Russian T6 fixtures | `seeded-errors.ru.json`, `controls.ru.json` | ✅ unit (controls clean); ❌ not confirmed by a Russian reader |
+| R5 Russian at 375 px | Browser test checks for horizontal scroll | ✅ browser; ❌ real phone |
+| J1, J2 Painting and concrete | Templates, hazards, `jd-10`, `jd-11` | ✅ browser painting job; ❌ content unchecked (J3) |
+| K1–K5 Products, SDS lines, pictograms, substance index, chemical questions | `templateLinesFor`, `Ghs.tsx`, step 1 | ✅ unit; browser. K4 lacks "whom to ask" |
+| B1–B5 Tags, risk, library, header, CSV | `rules/library.ts`, `Rules.tsx` | ✅ unit; browser |
+| V1–V3 Clean view (eye switch in the header, NO / EN kept), role tabs on Home, `/review`, banner and privacy panel kept | `ViewToggle` in `ui.tsx`, tabs in `Home.tsx`, `APP_MODE`, `LabOnly` | ✅ browser "clean view" (tabs, axe) |
+| V4 Light accessibility check | axe in the browser tests, five screens | ✅ browser (serious and critical only) |
+| V5, V6 Sharing for free, safely | `npm run share` (replay, field, `PACK_READONLY=1`); `allowedHosts` | ✅ the read-only pack refuses writes (run by hand); ❌ not tried through a real tunnel from a phone |
+| I1 Main-contractor summary | `Summary.tsx`, `/runs/:runId/summary` | ✅ browser |
+| I2 Chatbot arm in T8 | `tests.json` | ✅ (text) |
+| I3 Privacy panel | `Privacy.tsx`, step 1 and record | ✅ browser |
+| I4 "Not followed" apart from "misunderstood" | `recordObservation`, event `rule_not_followed` | ✅ unit; browser |
+| J3, I5–I8 | People and report tasks | ❌ |
+
+Not verified for this update: anything with a real model, with people, on a real phone, or through a real tunnel. Every new text in every language is a draft.

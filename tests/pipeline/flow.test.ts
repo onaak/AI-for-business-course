@@ -77,7 +77,8 @@ describe('J1 happy path (jd-01, replay)', () => {
 
     // D7 (brief v3): required because a safety-critical line changed. One scenario question; the three
     // changed or new safety-critical lines are what each worker should be able to explain.
-    expect(s.understanding).toMatchObject({ required: true, reason: ['criticalChanged'], questionIds: ['q-l3'], keyLineIds: ['ny-1', 'l-12', 'ny-2'] });
+    expect(s.understanding).toMatchObject({ required: true, reason: ['criticalChanged'], keyLineIds: ['ny-1', 'l-12', 'ny-2'] });
+    expect(s.understanding.questionIds[0]).toBe('q-l3'); // the question about today's changed line comes first (Q3)
     expect(gateConditions(s, pack).filter((c) => !c.ok).map((c) => c.id)).toEqual(['understanding']);
 
     s = flow.recordWorkerCheck(ctx, s, 'pl', { teachBack: 'ok', misunderstood: [], answers: [{ questionId: 'q-l3', correct: true }] });
@@ -90,7 +91,7 @@ describe('J1 happy path (jd-01, replay)', () => {
 
     s = flow.sign(ctx, s, 'Bas');
     expect(s.status).toBe('signed');
-    expect(s.versions.prompts).toMatchObject({ P1: '1.0.0', P4: '1.0.0', P6: '1.0.0' });
+    expect(s.versions.prompts).toMatchObject({ P1: '1.0.0', P4: '1.1.0', P6: '1.0.0' });
     expect(s.versions.fixtureOrigins).toEqual(['replay:scripted']);
 
     // The anonymous log holds no free text and no names (AC-22).

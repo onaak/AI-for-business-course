@@ -1,6 +1,6 @@
 // Two-key verification (specification 10.4; plan SC-04). The state is derived, never stored.
-import type { DataPack, KeyState, Lang, ReviewerSession, VerificationState } from './types';
-import { deriveStems } from './rules/glossary';
+import type { DataPack, HazardList, KeyState, Lang, ReviewerSession, SjaLine, TemplateLine, VerificationState } from './types';
+import { deriveStems, findSourceTerms } from './rules/glossary';
 
 export const NO_KEY: KeyState = { given: false };
 
@@ -125,6 +125,82 @@ export function editGlossaryTerm(
   if (patch.stems !== undefined) entry.stems = patch.stems;
   if (patch.forbidden !== undefined) entry.forbidden = patch.forbidden;
   entry.keyLanguage = isLanguageReviewer && session ? keyFrom(session, date) : { ...NO_KEY };
+}
+
+/**
+ * L3: after correcting a line, the language reviewer can teach the glossary: add the form they
+ * used as an accepted alternative for the term, and the machine's wrong word as forbidden. Only
+ * the language reviewer of that language may do this; it sets their key on the term.
+ */
+export function addTermForms(
+  pack: DataPack,
+  termId: string,
+  lang: Lang,
+  forms: { accepted?: string; forbidden?: string },
+  session: ReviewerSession,
+  date: string,
+): boolean {
+  if (!(session.role === 'language' && session.lang === lang)) throw new Error('Only a language reviewer of this language can change its glossary forms.');
+  const entry = pack.glossary.find((t) => t.termId === termId)?.byLang[lang];
+  if (!entry) return false;
+  let changed = false;
+  const accepted = forms.accepted?.trim().toLowerCase();
+  if (accepted) {
+    const first = entry.stems[0] ?? '';
+    if (!first.split('|').includes(accepted)) {
+      entry.stems = [first ? `${first}|${accepted}` : accepted, ...entry.stems.slice(1)];
+      changed = true;
+    }
+  }
+  const wrong = forms.forbidden?.trim().toLowerCase();
+  if (wrong && !entry.forbidden.includes(wrong)) {
+    entry.forbidden = [...entry.forbidden, wrong];
+    changed = true;
+  }
+  if (changed) entry.keyLanguage = keyFrom(session, date);
+  return changed;
+}
+
+/**
+ * L4: a reviewer adds a line written for one job to its template, as a new line. It starts as a
+ * draft with no keys: the usual review gives the keys. Nothing is promoted automatically, and only
+ * translations that were checked and are not flagged come along.
+ */
+export function promoteLine(pack: DataPack, templateId: string, line: SjaLine, hazards: HazardList | undefined, afterLineId: string | null): string {
+  const template = pack.templates.find((t) => t.templateId === templateId);
+  if (!template) throw new Error('Unknown template.');
+  if (template.lines.some((l) => l.textNb === line.textNb)) throw new Error('The template already has this line.');
+  const prefix = template.lines[0]?.lineId.split('-')[0] ?? 'x';
+  let n = 1;
+  while (template.lines.some((l) => l.lineId === `${prefix}-p${n}`)) n += 1;
+  const lineId = `${prefix}-p${n}`;
+  const hazard = hazards?.entries.find((h) => h.hazardId === line.hazardRef);
+  const translations: TemplateLine['translations'] = {};
+  for (const [lang, e] of Object.entries(line.byLang)) {
+    if (!e.text || e.oralFallback || e.checkState !== 'checked' || e.flags.some((f) => f.status === 'open')) continue;
+    translations[lang as Lang] = { text: e.text, keyLanguage: { ...NO_KEY } };
+  }
+  const next: TemplateLine = {
+    lineId,
+    section: line.section,
+    textNb: line.textNb,
+    parameterRefs: [],
+    dependsOnParameters: [],
+    critical: line.critical,
+    sourceRef: line.hazardRef,
+    termIds: findSourceTerms(line.textNb, pack.glossary).map((m) => m.term.termId),
+    keyTechnical: { ...NO_KEY },
+    translations,
+    ...(hazard?.tags ? { tags: [...hazard.tags] } : {}),
+    ...(hazard?.riskLevel ? { riskLevel: hazard.riskLevel } : {}),
+  };
+  const at = afterLineId ? template.lines.findIndex((l) => l.lineId === afterLineId) : -1;
+  if (at >= 0) template.lines.splice(at + 1, 0, next);
+  else {
+    const last = template.lines.map((l) => l.section).lastIndexOf(line.section);
+    template.lines.splice(last >= 0 ? last + 1 : template.lines.length, 0, next);
+  }
+  return lineId;
 }
 
 export function editQuestion(

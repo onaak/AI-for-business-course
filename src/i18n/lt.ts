@@ -29,4 +29,12 @@ export const workerLt: Record<keyof typeof workerEn, string> = {
   passOn: 'Perduokite įrenginį kitam žmogui.',
   passBack: 'Grąžinkite telefoną brigadininkui.',
   nextWorker: 'Kitas darbuotojas',
+  inYourSja: 'Tai yra jūsų SJA:',
+  writeTitle: 'Atsakymus parašykite savo žodžiais',
+  writeHint: 'Rašykite savo kalba. Užtenka trumpų atsakymų. Brigadininkas gaus vertimą.',
+  noNames: 'Nerašykite niekieno vardo.',
+  send: 'Siųsti brigadininkui',
+  translating: 'Verčiama brigadininkui …',
+  demoSample: 'Demo: naudoti pavyzdinį atsakymą',
+  waitForeman: 'Duokite telefoną brigadininkui. Jis perskaitys jūsų atsakymo vertimą.',
 };

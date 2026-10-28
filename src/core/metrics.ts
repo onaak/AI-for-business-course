@@ -64,10 +64,11 @@ export function totalTime(t: Record<TimeCategory, number>): number {
 }
 
 /** Misunderstandings in the anonymous log, per template and template line (brief v3: fed back into the template). */
-export function misunderstandingCounts(events: LogEvent[]): Record<string, Record<string, number>> {
+/** Counts per template line of one kind of site event: 'misunderstanding' or 'rule_not_followed' (I4). */
+export function misunderstandingCounts(events: LogEvent[], type: 'misunderstanding' | 'rule_not_followed' = 'misunderstanding'): Record<string, Record<string, number>> {
   const out: Record<string, Record<string, number>> = {};
   for (const e of events) {
-    if (e.type !== 'misunderstanding' || !e.templateId || !e.lineId) continue;
+    if (e.type !== type || !e.templateId || !e.lineId) continue;
     out[e.templateId] ??= {};
     out[e.templateId][e.lineId] = (out[e.templateId][e.lineId] ?? 0) + 1;
   }

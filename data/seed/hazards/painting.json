@@ -1,0 +1,286 @@
+{
+  "templateId": "painting",
+  "note": "Drafted by the builder on 26 October 2026 from the section titles of Forskrift om utførelse av arbeid (English version on arbeidstilsynet.no), Arbeidstilsynet's page on the substance index, and the usual sections of a safety data sheet. The products are synthetic examples, not real data sheets. Which paragraph a line belongs to is the builder's judgement. No technical reviewer has checked it yet.",
+  "checkedAt": "2026-10-26",
+  "sources": [
+    {
+      "sourceId": "FUA-2",
+      "title": "Forskrift om utførelse av arbeid, kapittel 2: Stoffkartotek",
+      "publisher": "Arbeidstilsynet (regelverk; paragraftitler kontrollert i den engelske utgaven)",
+      "url": "https://www.arbeidstilsynet.no/en/laws-and-regulations/regulations/regulations-concerning-the-performance-of-work/"
+    },
+    {
+      "sourceId": "FUA-3",
+      "title": "Forskrift om utførelse av arbeid, kapittel 3: Arbeid der kjemikalier kan utgjøre en risiko",
+      "publisher": "Arbeidstilsynet (regelverk; paragraftitler kontrollert i den engelske utgaven)",
+      "url": "https://www.arbeidstilsynet.no/en/laws-and-regulations/regulations/regulations-concerning-the-performance-of-work/"
+    },
+    {
+      "sourceId": "FUA-17",
+      "title": "Forskrift om utførelse av arbeid, kapittel 17: Arbeid i høyden",
+      "publisher": "Arbeidstilsynet (regelverk)",
+      "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/17/"
+    },
+    {
+      "sourceId": "AT-STOFF",
+      "title": "Stoffkartotek",
+      "publisher": "Arbeidstilsynet (veiledning)",
+      "url": "https://www.arbeidstilsynet.no/risikofylt-arbeid/kjemikalier/stoffkartotek/"
+    },
+    {
+      "sourceId": "SDS",
+      "title": "Sikkerhetsdatablad for produktet",
+      "publisher": "Leverandøren. I prototypen: syntetiske eksempelprodukter, ikke ekte datablad",
+      "url": ""
+    },
+    {
+      "sourceId": "FIRMA",
+      "title": "Firmapraksis: ingen offentlig kilde",
+      "publisher": "Firmaets egne rutiner og hovedentreprenørens plassregler (må bekreftes av firmaet)",
+      "url": ""
+    }
+  ],
+  "entries": [
+    {
+      "hazardId": "pd-01",
+      "section": "steps",
+      "textNb": "Risikovurder arbeidet med kjemikalier og gå gjennom SJA-en med laget før oppstart.",
+      "critical": false,
+      "sourceId": "FUA-3",
+      "sourceDetail": "§ 3-1 Risk assessment of health hazards associated with the use and handling of chemicals",
+      "paragraph": "§ 3-1",
+      "url": "https://www.arbeidstilsynet.no/en/laws-and-regulations/regulations/regulations-concerning-the-performance-of-work/",
+      "tags": [
+        "painting",
+        "chemicals"
+      ],
+      "riskLevel": "green"
+    },
+    {
+      "hazardId": "pd-02",
+      "section": "steps",
+      "textNb": "Les sikkerhetsdatabladet og vit hvor stoffkartoteket er.",
+      "critical": false,
+      "sourceId": "FUA-2",
+      "sourceDetail": "§ 2-3 Use of the information in the substance index; § 2-4 Access to the substance index",
+      "paragraph": "§ 2-3, § 2-4",
+      "url": "https://www.arbeidstilsynet.no/en/laws-and-regulations/regulations/regulations-concerning-the-performance-of-work/",
+      "tags": [
+        "chemicals"
+      ],
+      "riskLevel": "green"
+    },
+    {
+      "hazardId": "pd-03",
+      "section": "hazards",
+      "textNb": "Innånding av løsemiddeldamp.",
+      "critical": true,
+      "sourceId": "FUA-3",
+      "sourceDetail": "§ 3-1; § 3-8 Measures against risks caused by chemicals",
+      "paragraph": "§ 3-1, § 3-8",
+      "url": "https://www.arbeidstilsynet.no/en/laws-and-regulations/regulations/regulations-concerning-the-performance-of-work/",
+      "tags": [
+        "chemicals",
+        "painting"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "hazardId": "pd-04",
+      "section": "hazards",
+      "textNb": "Hudkontakt med maling, lakk og herder.",
+      "critical": true,
+      "sourceId": "FUA-3",
+      "sourceDetail": "§ 3-8 Measures against risks caused by chemicals",
+      "paragraph": "§ 3-8",
+      "url": "https://www.arbeidstilsynet.no/en/laws-and-regulations/regulations/regulations-concerning-the-performance-of-work/",
+      "tags": [
+        "chemicals"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "hazardId": "pd-05",
+      "section": "hazards",
+      "textNb": "Brann og eksplosjon fra løsemiddeldamp.",
+      "critical": true,
+      "sourceId": "FUA-3",
+      "sourceDetail": "§ 3-10 Measures in connection with flammable and explosive chemicals and unstable chemicals",
+      "paragraph": "§ 3-10",
+      "url": "https://www.arbeidstilsynet.no/en/laws-and-regulations/regulations/regulations-concerning-the-performance-of-work/",
+      "tags": [
+        "chemicals",
+        "fire"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "hazardId": "pd-06",
+      "section": "hazards",
+      "textNb": "Fall fra stige eller bukk.",
+      "critical": true,
+      "sourceId": "FUA-17",
+      "sourceDetail": "§ 17-21 Use of ladders; § 17-22 Restrictions on the use of ladders",
+      "paragraph": "§ 17-21, § 17-22",
+      "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/17/",
+      "tags": [
+        "height"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "hazardId": "pd-07",
+      "section": "hazards",
+      "textNb": "Slipestøv fra maling og sparkel.",
+      "critical": false,
+      "sourceId": "FUA-3",
+      "sourceDetail": "§ 3-8 Measures against risks caused by chemicals",
+      "paragraph": "§ 3-8",
+      "url": "https://www.arbeidstilsynet.no/en/laws-and-regulations/regulations/regulations-concerning-the-performance-of-work/",
+      "tags": [
+        "dust",
+        "chemicals"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "hazardId": "pd-08",
+      "section": "controls",
+      "textNb": "God ventilasjon; ikke løsemiddelbaserte produkter uten lufting.",
+      "critical": true,
+      "sourceId": "FUA-3",
+      "sourceDetail": "§ 3-8 Measures against risks caused by chemicals",
+      "paragraph": "§ 3-8",
+      "url": "https://www.arbeidstilsynet.no/en/laws-and-regulations/regulations/regulations-concerning-the-performance-of-work/",
+      "tags": [
+        "chemicals",
+        "painting"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "hazardId": "pd-09",
+      "section": "controls",
+      "textNb": "Ingen tennkilder der det brukes brannfarlige produkter.",
+      "critical": true,
+      "sourceId": "FUA-3",
+      "sourceDetail": "§ 3-10",
+      "paragraph": "§ 3-10",
+      "url": "https://www.arbeidstilsynet.no/en/laws-and-regulations/regulations/regulations-concerning-the-performance-of-work/",
+      "tags": [
+        "chemicals",
+        "fire"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "hazardId": "pd-10",
+      "section": "controls",
+      "textNb": "Oppbevaring og håndtering av kjemikalier.",
+      "critical": true,
+      "sourceId": "FUA-3",
+      "sourceDetail": "§ 3-7 Storage and handling of chemicals",
+      "paragraph": "§ 3-7",
+      "url": "https://www.arbeidstilsynet.no/en/laws-and-regulations/regulations/regulations-concerning-the-performance-of-work/",
+      "tags": [
+        "chemicals"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "hazardId": "pd-11",
+      "section": "controls",
+      "textNb": "Farlig avfall samles i egen beholder.",
+      "critical": false,
+      "sourceId": "FUA-3",
+      "sourceDetail": "§ 3-16 Handling hazardous waste",
+      "paragraph": "§ 3-16",
+      "url": "https://www.arbeidstilsynet.no/en/laws-and-regulations/regulations/regulations-concerning-the-performance-of-work/",
+      "tags": [
+        "chemicals"
+      ],
+      "riskLevel": "green"
+    },
+    {
+      "hazardId": "pd-12",
+      "section": "controls",
+      "textNb": "Hygiene: vask før pause, ikke spis på arbeidsstedet.",
+      "critical": false,
+      "sourceId": "FUA-3",
+      "sourceDetail": "§ 3-17 Hygiene measures for working with chemicals",
+      "paragraph": "§ 3-17",
+      "url": "https://www.arbeidstilsynet.no/en/laws-and-regulations/regulations/regulations-concerning-the-performance-of-work/",
+      "tags": [
+        "chemicals"
+      ],
+      "riskLevel": "green"
+    },
+    {
+      "hazardId": "pd-13",
+      "section": "ppe",
+      "textNb": "Hansker, vernebriller og åndedrettsvern etter sikkerhetsdatabladet.",
+      "critical": true,
+      "sourceId": "SDS",
+      "sourceDetail": "Avsnitt 8: Eksponeringskontroll og personlig verneutstyr",
+      "tags": [
+        "ppe",
+        "chemicals"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "hazardId": "pd-14",
+      "section": "controls",
+      "textNb": "Isocyanater: opplæring og særlige krav til verneutstyr.",
+      "critical": true,
+      "sourceId": "FUA-3",
+      "sourceDetail": "§ 3-4 Training in working with hazardous chemicals; § 3-12 Requirements for personal protective equipment for work with isocyanates",
+      "paragraph": "§ 3-4, § 3-12",
+      "url": "https://www.arbeidstilsynet.no/en/laws-and-regulations/regulations/regulations-concerning-the-performance-of-work/",
+      "tags": [
+        "chemicals",
+        "ppe"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "hazardId": "pd-15",
+      "section": "emergency",
+      "textNb": "Førstehjelp ved kjemikalier i øyne eller på hud.",
+      "critical": true,
+      "sourceId": "SDS",
+      "sourceDetail": "Avsnitt 4: Førstehjelpstiltak",
+      "tags": [
+        "emergency",
+        "chemicals"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "hazardId": "pd-16",
+      "section": "emergency",
+      "textNb": "Ved ulykke: ring 113 og varsle basen.",
+      "critical": true,
+      "sourceId": "FIRMA",
+      "sourceDetail": "Firmaets beredskapsrutine.",
+      "tags": [
+        "emergency"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "hazardId": "pd-17",
+      "section": "stop",
+      "textNb": "Stans ved symptomer eller når ventilasjonen svikter.",
+      "critical": true,
+      "sourceId": "FUA-3",
+      "sourceDetail": "§ 3-8; § 3-15 Emergency response plans for emergencies arising during work with chemicals",
+      "paragraph": "§ 3-8, § 3-15",
+      "url": "https://www.arbeidstilsynet.no/en/laws-and-regulations/regulations/regulations-concerning-the-performance-of-work/",
+      "tags": [
+        "chemicals"
+      ],
+      "riskLevel": "red"
+    }
+  ]
+}

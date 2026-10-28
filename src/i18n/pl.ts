@@ -29,4 +29,12 @@ export const workerPl: Record<keyof typeof workerEn, string> = {
   passOn: 'Przekaż urządzenie następnej osobie.',
   passBack: 'Oddaj telefon brygadziście.',
   nextWorker: 'Następny pracownik',
+  inYourSja: 'To jest w twojej analizie SJA:',
+  writeTitle: 'Napisz odpowiedzi własnymi słowami',
+  writeHint: 'Pisz we własnym języku. Krótkie odpowiedzi wystarczą. Brygadzista dostanie tłumaczenie.',
+  noNames: 'Nie wpisuj niczyjego imienia ani nazwiska.',
+  send: 'Wyślij brygadziście',
+  translating: 'Tłumaczenie dla brygadzisty …',
+  demoSample: 'Demo: użyj przykładowej odpowiedzi',
+  waitForeman: 'Daj telefon brygadziście. Przeczyta tłumaczenie twojej odpowiedzi.',
 };

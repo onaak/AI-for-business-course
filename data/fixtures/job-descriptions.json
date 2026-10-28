@@ -247,5 +247,67 @@
     },
     "freeText": "",
     "note": "Needs no model in any mode. Every non-parameter line is reused byte for byte (AC-05)."
+  },
+  {
+    "id": "jd-10",
+    "templateId": "painting",
+    "replay": "scripted",
+    "tests": [
+      "T1",
+      "T2"
+    ],
+    "title": {
+      "nb": "Gulvlakkering med 2-komponent lakk, russisk og litauisk lag",
+      "en": "Floor varnishing with 2-component varnish, Russian and Lithuanian crew"
+    },
+    "parameterValues": {
+      "workHeight": 2,
+      "ventilation": "window",
+      "stoffkartotek": "app"
+    },
+    "products": [
+      "pr-2k-pu"
+    ],
+    "languages": [
+      "ru",
+      "lt"
+    ],
+    "crewFlags": {
+      "newWorker": true,
+      "firstTimeJobType": false
+    },
+    "freeText": "Vi skal lakkere gulvet i en leilighet med 2-komponent lakk. Rommet har bare ett lite vindu.",
+    "note": "Painting template (J1) with a product (K1): the isocyanate lines and pictograms come in. Two new lines. One Russian glossary flag (ventilation), cleared by \"use the approved term\"."
+  },
+  {
+    "id": "jd-11",
+    "templateId": "concrete",
+    "replay": "scripted",
+    "tests": [
+      "T1",
+      "T2"
+    ],
+    "title": {
+      "nb": "Veggstøp med pumpe, bilen rygger over fortauet",
+      "en": "Wall pour with a pump, the truck reverses over the pavement"
+    },
+    "parameterValues": {
+      "method": "pump",
+      "formHeight": 3,
+      "stoffkartotek": "site"
+    },
+    "products": [
+      "pr-cement"
+    ],
+    "languages": [
+      "ru",
+      "pl"
+    ],
+    "crewFlags": {
+      "newWorker": false,
+      "firstTimeJobType": false
+    },
+    "freeText": "Vi skal støpe en vegg på 3 meter med pumpe. Betongbilen må rygge inn fra veien, over fortauet.",
+    "note": "Concrete template (J2). Formwork height and the substance index changed: lines to re-check. One new line. Russian and Polish are clean."
   }
 ]

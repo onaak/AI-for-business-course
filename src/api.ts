@@ -6,6 +6,12 @@ export interface ServerConfig {
   mode: 'live' | 'record' | 'replay';
   provider: string;
   configured: boolean;
+  /** lab: every screen. field: the clean version (V1). */
+  appMode?: 'lab' | 'field';
+  /** True while shared through a tunnel: keys and corrections cannot be saved. */
+  packReadOnly?: boolean;
+  rateLimitWaits?: number;
+  backTranslationProvider?: string | null;
   models: Partial<Record<Task, string>>;
   backTranslationUsesSameModel: boolean;
   promptVersions: Record<Task, string>;

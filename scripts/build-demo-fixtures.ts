@@ -16,13 +16,13 @@ import { checkLine } from '../src/core/pipeline/checkLine';
 import { translateAndCheck } from '../src/core/pipeline/translate';
 import { buildP3 } from '../src/core/rules/payload';
 import type { ModelClient, Sja, Task } from '../src/core/types';
-import { registerBenchPairs, SCRIPTED_MODEL, scriptedProvider } from './demo-script';
+import { registerBenchPairs, registerWrittenAnswers, SCRIPTED_MODEL, scriptedProvider } from './demo-script';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dataDir = path.join(root, 'data');
 const fixturesDir = path.join(dataDir, 'fixtures', 'llm');
 
-const models = Object.fromEntries(['P1', 'P2', 'P3', 'P4', 'P5', 'P6'].map((t) => [t, SCRIPTED_MODEL])) as Record<Task, string>;
+const models = Object.fromEntries(['P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'P7'].map((t) => [t, SCRIPTED_MODEL])) as Record<Task, string>;
 const gw = new Gateway({
   mode: 'record',
   provider: scriptedProvider,
@@ -73,6 +73,7 @@ function start(id: string, extraLangs: string[] = []) {
       freeText: job.freeText,
       languages: [...job.languages, ...extraLangs],
       crewFlags: job.crewFlags,
+      products: job.products,
       fixtureId: id,
     },
     `fixture-${id}`,
@@ -158,8 +159,34 @@ async function main() {
     assert(s.sjaFlags.some((f) => f.type === 'UNSUPPORTED_LANGUAGE' && f.lang === 'ro'), 'jd-04: Romanian is unsupported');
     assert(openLang(s).filter((r) => r.flag.type === 'TERM_NOT_IN_GLOSSARY').length === 2, 'jd-04: missing glossary term flagged in both languages');
   }
+  // jd-10: painting with the 2-component product; one Russian glossary flag
+  {
+    let { ctx, sja: s } = start('jd-10');
+    assert(s.lines.some((l) => l.lineId === 'p-24') && !s.lines.some((l) => l.lineId === 'p-23'), 'jd-10: only the picked product brings its lines');
+    s = await flow.runNormalise(ctx, s);
+    s = await flow.runAdapt(ctx, s);
+    assert(flow.originCounts(s).new === 2, 'jd-10: two new lines');
+    s = settleContent(ctx, s);
+    s = await flow.confirmContent(ctx, s);
+    s = await flow.runLanguageCheck(ctx, s);
+    const open = openLang(s);
+    assert(open.length === 1 && open[0].lang === 'ru' && open[0].flag.type === 'GLOSSARY_MISMATCH', `jd-10: one Russian glossary flag (got ${open.map((o) => `${o.lang}:${o.flag.type}`).join(', ')})`);
+    s = await flow.applyRoute(ctx, s, open[0].flag.flagId, 'approvedTerm');
+    assert(openLang(s).length === 0, 'jd-10: re-check is clean');
+  }
+  // jd-11: concrete; re-check markers; Russian and Polish clean
+  {
+    let { ctx, sja: s } = start('jd-11');
+    s = await flow.runNormalise(ctx, s);
+    s = await flow.runAdapt(ctx, s);
+    assert(s.lines.some((l) => l.techRecheck === 'open'), 'jd-11: lines to re-check after the changed formwork height');
+    s = settleContent(ctx, s);
+    s = await flow.confirmContent(ctx, s);
+    s = await flow.runLanguageCheck(ctx, s);
+    assert(openLang(s).length === 0, `jd-11: no language flags (got ${openLang(s).map((o) => `${o.lang}:${o.flag.type}`).join(', ')})`);
+  }
   // Test bench: pairs, edge cases, ambiguous lines
-  const pairs: PairFixture[] = ['seeded-errors.pl', 'seeded-errors.lt', 'controls.pl', 'controls.lt'].flatMap((k) => fixtures[k].pairs);
+  const pairs: PairFixture[] = ['seeded-errors.pl', 'seeded-errors.lt', 'seeded-errors.ru', 'controls.pl', 'controls.lt', 'controls.ru'].flatMap((k) => fixtures[k].pairs);
   registerBenchPairs(pairs);
   for (const p of pairs) {
     await checkLine(client, pack, { lineId: p.id, source: p.source, target: p.target, lang: p.lang, critical: p.critical }, { runId: 'fixture-bench' });
@@ -168,6 +195,12 @@ async function main() {
   await translateAndCheck(client, pack, { lineId: edge.missingGlossaryTerm.id, source: edge.missingGlossaryTerm.source, lang: 'pl', critical: true, enforce: false, attempt: 0 }, { runId: 'fixture-bench' });
   for (const a of fixtures['ambiguous-lines'] as any[]) {
     await client.call('P3', buildP3([{ lineId: a.id, textNb: a.text, critical: a.critical }]), { runId: 'fixture-bench' });
+  }
+  // Written explanations (U2, U4): stored translations for the sample answers, used by the demo and the bench.
+  const written = fixtures['written-answers'].answers as any[];
+  registerWrittenAnswers(written);
+  for (const w of written) {
+    await client.call('P7', { lang: w.lang, items: [{ key: 'hazard', text: w.hazard }, { key: 'measure', text: w.measure }] }, { runId: 'fixture-bench' });
   }
   const n = gw.store.count();
   console.log(`Removed ${removed} old scripted fixtures. Store now holds ${n.total} fixtures (${n.scripted} scripted, ${n.recorded} recorded).`);

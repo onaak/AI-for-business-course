@@ -64,7 +64,8 @@ test('J1 happy path: from today’s job to a signed, traceable record', async ({
   await expect(page.getByTestId('summary-bar')).toContainText('19 lines reused');
   // With English on, each Norwegian line gets an English help line, marked as not part of the SJA.
   await expect(page.getByTestId('help-en-note')).toContainText('not part of the SJA');
-  await expect(page.getByTestId('line-l-12')).toContainText('Help translation: Cordon off the danger zone around the lift, including the walkway at the entrance.');
+  await expect(page.getByTestId('line-l-12')).toContainText('Cordon off the danger zone around the lift, including the walkway at the entrance.');
+  await expect(page.getByTestId('line-l-12')).not.toContainText('Help translation'); // just the smaller English text, no label
   await expect(page.getByTestId('confirm-content')).toHaveText('Confirm the Norwegian content');
   await expectBanner(page, BANNER_EN);
   await page.getByRole('button', { name: 'NO', exact: true }).click();
@@ -123,6 +124,9 @@ test('J1 happy path: from today’s job to a signed, traceable record', async ({
   await expect(page.getByTestId('kiosk-question')).toContainText('Jedno pytanie');
   await shot(page, '08-kiosk-question');
   await page.locator('[data-correct="yes"]').click();
+  // Q4: after the answer, the worker sees the line of the SJA the question is about, in their language.
+  await expect(page.getByTestId('kiosk-in-sja')).toContainText('To jest w twojej analizie SJA:');
+  await expect(page.getByTestId('kiosk-in-sja')).toContainText('Wygrodź strefę niebezpieczną');
   await page.getByTestId('kiosk-next').click();
   await expect(page.getByTestId('kiosk-done')).toContainText('Oddaj telefon brygadziście.');
   await page.getByTestId('kiosk-next-worker').click();
@@ -152,7 +156,8 @@ test('J1 happy path: from today’s job to a signed, traceable record', async ({
   await page.getByTestId('oral-open').click();
   await expect(page.getByTestId('oral-save')).toBeDisabled();
   await page.getByTestId('oral-check').getByTestId('teach-ok').click();
-  await expect(page.getByTestId('oral-check')).toContainText('Riktig svar: Jeg sier stopp høyt, og løftet stanses.');
+  // Q3: each worker gets the question the fewest have answered (q-l3 to the first, q-l1 to the second), so this one gets q-l2.
+  await expect(page.getByTestId('oral-check')).toContainText('Riktig svar: Vi stanser løftet og setter lasten trygt ned.');
   await page.getByTestId('oral-answer-right').click();
   await page.getByTestId('oral-save').click();
   await expect(page.getByTestId('respondent-count')).toContainText('3');
@@ -178,7 +183,7 @@ test('J1 happy path: from today’s job to a signed, traceable record', async ({
   await page.getByTestId('home-observe').click();
   await page.getByTestId('observe-some').click();
   await expect(page.getByTestId('observe-save')).toBeDisabled();
-  await page.getByTestId('observe-line-ny-1').check();
+  await page.getByTestId('observe-line-ny-1').click();
   await page.getByTestId('observe-save').click();
   await expect(page.getByTestId('observation-status')).toContainText('Observert ved oppstart: 1 linje ble misforstått');
   await shot(page, '11b-observation');
@@ -194,7 +199,7 @@ test('J1 happy path: from today’s job to a signed, traceable record', async ({
   await expect(page.getByTestId('record-status')).toHaveText('Signert');
   await expectBanner(page);
   await expect(page.getByTestId('record-reuse')).toHaveText('23 av 26');
-  await expect(page.getByTestId('record-versions')).toContainText('P4 v1.0.0');
+  await expect(page.getByTestId('record-versions')).toContainText('P4 v1.1.0');
   await expect(page.getByTestId('record-line-l-12')).toContainText('Endret');
   await expect(page.getByTestId('record-line-l-12')).toContainText('maskinkontrollert, ikke verifisert av kontrollør');
   await expect(page.getByTestId('record-line-l-11')).toContainText('gjenbrukt – Utkast: ikke verifisert');
@@ -260,7 +265,8 @@ test('J1 happy path: from today’s job to a signed, traceable record', async ({
   // Brief v3: misunderstandings are logged without names, and the observation is added to the saved run without losing its trace.
   expect(saved.events.filter((e: any) => e.type === 'misunderstanding').map((e: any) => [e.lineId, e.route, e.templateId])).toEqual([['l-12', 'teachBack', 'lifting'], ['job-specific', 'observation', 'lifting']]);
   expect(saved.sja.observation.lineIds).toEqual(['ny-1']);
-  expect(saved.sja.understanding).toMatchObject({ respondents: 3, teachBack: { ok: 2, rebriefed: 1 }, questionIds: ['q-l3'] });
+  expect(saved.sja.understanding).toMatchObject({ respondents: 3, teachBack: { ok: 2, rebriefed: 1 }, paths: { conversation: 3, written: 0, questionsOnly: 0 } });
+  expect(saved.sja.understanding.questionIds[0]).toBe('q-l3');
   expect(saved.trace.at(-1).title).toBe('Foreman watched the start of the job');
   expect(saved.events.filter((e: any) => e.type === 'respondent_done').every((e: any) => e.languagePair === undefined)).toBe(true); // no per-person result by language
   expect(saved.trace.every((e: any, i: number) => e.seq === i + 1)).toBe(true);

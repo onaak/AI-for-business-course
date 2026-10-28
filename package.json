@@ -4,7 +4,9 @@
   "private": true,
   "type": "module",
   "description": "SJA Forstått – student prototype. Synthetic content. Not a valid SJA.",
-  "engines": { "node": ">=20.19" },
+  "engines": {
+    "node": ">=20.19"
+  },
   "scripts": {
     "dev": "tsx server/index.ts",
     "build": "vite build",
@@ -13,7 +15,8 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "fixtures:demo": "tsx scripts/build-demo-fixtures.ts",
-    "data:check": "tsx scripts/check-seed.ts"
+    "data:check": "tsx scripts/check-seed.ts",
+    "share": "tsx scripts/share.ts"
   },
   "dependencies": {
     "dotenv": "^17.0.0",
@@ -25,6 +28,7 @@
     "zustand": "^5.0.8"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.10.2",
     "@playwright/test": "1.56.1",
     "@tailwindcss/vite": "^4.1.0",
     "@types/express": "^5.0.3",

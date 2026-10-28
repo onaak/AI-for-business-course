@@ -1,6 +1,6 @@
 {
   "templateId": "work-at-height",
-  "note": "References were drafted by the builder from public pages on arbeidstilsynet.no (read 5 October 2026), at the level of paragraph headings. No technical reviewer has checked that each line matches its reference. EBA guidance was not available to the builder. Lines with no entry here show as \"unsourced\".",
+  "note": "References were drafted by the builder from public pages on arbeidstilsynet.no (read 5 October 2026). On 26 October 2026 every paragraph number was checked against the list of sections in the English version of the regulation on arbeidstilsynet.no, and lines with no public source were marked \"Firmapraksis\" (firm practice). Which paragraph a line belongs to is the builder's judgement. No technical reviewer has checked it yet.",
   "sources": [
     {
       "sourceId": "FUA-17",
@@ -13,6 +13,12 @@
       "title": "Unngå fall fra høyden ved arbeid på tak",
       "publisher": "Arbeidstilsynet",
       "url": "https://www.arbeidstilsynet.no/risikofylt-arbeid/arbeid-i-hoyden/unnga-fall-ved-arbeid-pa-tak/"
+    },
+    {
+      "sourceId": "FIRMA",
+      "title": "Firmapraksis: ingen offentlig kilde",
+      "publisher": "Firmaets egne rutiner og hovedentreprenørens plassregler (må bekreftes av firmaet)",
+      "url": ""
     }
   ],
   "entries": [
@@ -22,7 +28,12 @@
       "textNb": "Risikovurder arbeidet på stedet sammen med laget før oppstart.",
       "critical": false,
       "sourceId": "FUA-17",
-      "sourceDetail": "§ 17-1 Risikovurdering av arbeid i høyden"
+      "sourceDetail": "§ 17-1 Risikovurdering av arbeid i høyden",
+      "paragraph": "§ 17-1",
+      "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/17/",
+      "tags": [
+        "height"
+      ]
     },
     {
       "hazardId": "hh-02",
@@ -30,7 +41,12 @@
       "textNb": "Stillas skal kontrolleres før bruk, og atkomsten skal være sikker.",
       "critical": true,
       "sourceId": "FUA-17",
-      "sourceDetail": "§ 17-9 Kontroll av stillas; § 17-12 Atkomst og sikker bruk av stillas"
+      "sourceDetail": "§ 17-9 Kontroll av stillas; § 17-12 Atkomst og sikker bruk av stillas",
+      "paragraph": "§ 17-9, § 17-12",
+      "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/17/",
+      "tags": [
+        "height"
+      ]
     },
     {
       "hazardId": "hh-03",
@@ -38,7 +54,12 @@
       "textNb": "Fall fra høyde.",
       "critical": true,
       "sourceId": "FUA-17",
-      "sourceDetail": "§ 17-1 Risikovurdering av arbeid i høyden; § 17-6 Krav til arbeid i høyden"
+      "sourceDetail": "§ 17-1 Risikovurdering av arbeid i høyden; § 17-6 Krav til arbeid i høyden",
+      "paragraph": "§ 17-1, § 17-6",
+      "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/17/",
+      "tags": [
+        "height"
+      ]
     },
     {
       "hazardId": "hh-04",
@@ -46,7 +67,11 @@
       "textNb": "Hindre at gjenstander faller ned, og hold området under arbeidsstedet avsperret.",
       "critical": true,
       "sourceId": "AT-TAK",
-      "sourceDetail": "Avsnitt om fallende gjenstander og avsperring på bakken"
+      "sourceDetail": "Avsnitt om fallende gjenstander og avsperring på bakken",
+      "url": "https://www.arbeidstilsynet.no/risikofylt-arbeid/arbeid-i-hoyden/unnga-fall-ved-arbeid-pa-tak/",
+      "tags": [
+        "height"
+      ]
     },
     {
       "hazardId": "hh-05",
@@ -54,7 +79,12 @@
       "textNb": "Rekkverk som kollektiv sikring mot fall.",
       "critical": true,
       "sourceId": "FUA-17",
-      "sourceDetail": "§ 17-7 Dimensjonering av stillaser og rekkverk"
+      "sourceDetail": "§ 17-7 Dimensjonering av stillaser og rekkverk",
+      "paragraph": "§ 17-7",
+      "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/17/",
+      "tags": [
+        "height"
+      ]
     },
     {
       "hazardId": "hh-06",
@@ -62,7 +92,12 @@
       "textNb": "Personlig fallsikringsutstyr festet til godkjent forankringspunkt, med plan for redning.",
       "critical": true,
       "sourceId": "AT-TAK",
-      "sourceDetail": "Avsnitt om fallsikringsutstyr, forankring og redning (viser til forskrift om utførelse av arbeid § 17-25)"
+      "sourceDetail": "Avsnitt om fallsikringsutstyr, forankring og redning (viser til forskrift om utførelse av arbeid § 17-25)",
+      "paragraph": "§ 17-25",
+      "url": "https://www.arbeidstilsynet.no/risikofylt-arbeid/arbeid-i-hoyden/unnga-fall-ved-arbeid-pa-tak/",
+      "tags": [
+        "height"
+      ]
     },
     {
       "hazardId": "hh-07",
@@ -70,7 +105,12 @@
       "textNb": "Stige bare til kortvarig arbeid, sikret mot å gli.",
       "critical": true,
       "sourceId": "FUA-17",
-      "sourceDetail": "§ 17-21 Bruk av stiger; § 17-22 Begrensning i bruk av stige"
+      "sourceDetail": "§ 17-21 Bruk av stiger; § 17-22 Begrensning i bruk av stige",
+      "paragraph": "§ 17-21, § 17-22",
+      "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/17/",
+      "tags": [
+        "height"
+      ]
     },
     {
       "hazardId": "hh-08",
@@ -78,7 +118,11 @@
       "textNb": "Minst to personer i laget ved arbeid med fallsikringsutstyr.",
       "critical": true,
       "sourceId": "AT-TAK",
-      "sourceDetail": "Avsnitt om lagets størrelse og redning"
+      "sourceDetail": "Avsnitt om lagets størrelse og redning",
+      "url": "https://www.arbeidstilsynet.no/risikofylt-arbeid/arbeid-i-hoyden/unnga-fall-ved-arbeid-pa-tak/",
+      "tags": [
+        "height"
+      ]
     },
     {
       "hazardId": "hh-09",
@@ -86,7 +130,12 @@
       "textNb": "Rullestillas skal sikres mot velting og låses før bruk.",
       "critical": true,
       "sourceId": "FUA-17",
-      "sourceDetail": "§ 17-17 Bruk av rullestillas"
+      "sourceDetail": "§ 17-17 Bruk av rullestillas",
+      "paragraph": "§ 17-17",
+      "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/17/",
+      "tags": [
+        "height"
+      ]
     },
     {
       "hazardId": "hh-10",
@@ -94,7 +143,66 @@
       "textNb": "Brukere av stillas skal ha fått opplæring.",
       "critical": false,
       "sourceId": "FUA-17",
-      "sourceDetail": "§ 17-5 Krav til opplæring av bruker av stillas"
+      "sourceDetail": "§ 17-5 Krav til opplæring av bruker av stillas",
+      "paragraph": "§ 17-5",
+      "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/17/",
+      "tags": [
+        "height"
+      ]
+    },
+    {
+      "hazardId": "hh-11",
+      "section": "hazards",
+      "textNb": "Glatt eller ustabilt underlag på arbeidsstedet.",
+      "critical": false,
+      "sourceId": "FUA-17",
+      "sourceDetail": "§ 17-1 Risk assessment and requirements relating to work at height (engelsk tittel)",
+      "paragraph": "§ 17-1",
+      "tags": [
+        "height"
+      ],
+      "riskLevel": "yellow",
+      "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/17/"
+    },
+    {
+      "hazardId": "hh-12",
+      "section": "stop",
+      "textNb": "Stans arbeid i høyden når vær og vind setter sikkerheten i fare.",
+      "critical": true,
+      "sourceId": "FUA-17",
+      "sourceDetail": "§ 17-1 Risk assessment and requirements relating to work at height (engelsk tittel). Byggerens kobling, ikke kontrollert.",
+      "paragraph": "§ 17-1",
+      "tags": [
+        "height"
+      ],
+      "riskLevel": "red",
+      "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/17/"
+    },
+    {
+      "hazardId": "hh-13",
+      "section": "ppe",
+      "textNb": "Hjelm med hakestropp, vernesko og hansker.",
+      "critical": true,
+      "sourceId": "FIRMA",
+      "sourceDetail": "Firmaets og hovedentreprenørens krav til verneutstyr på byggeplassen.",
+      "tags": [
+        "height",
+        "ppe"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "hazardId": "hh-14",
+      "section": "emergency",
+      "textNb": "Ved ulykke: ring 113 og varsle basen.",
+      "critical": true,
+      "sourceId": "FIRMA",
+      "sourceDetail": "Firmaets beredskapsrutine.",
+      "tags": [
+        "emergency"
+      ],
+      "riskLevel": "red"
     }
-  ]
+  ],
+  "checkedAt": "2026-10-26"
 }

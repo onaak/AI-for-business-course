@@ -59,7 +59,9 @@ export function canSign(sja: Sja, pack: DataPack): boolean {
 export function hasFallback(sja: Sja): boolean {
   const unsupported = sja.sjaFlags.some((f) => f.type === 'UNSUPPORTED_LANGUAGE');
   const oral = activeLines(sja).some((l) => Object.entries(l.byLang).some(([lang, e]) => sja.languages.includes(lang) && e.oralFallback));
-  return unsupported || oral;
+  // A worker checked by multiple choice alone, with no explanation judged by anyone (U1).
+  const questionsOnly = (sja.understanding.paths?.questionsOnly ?? 0) > 0;
+  return unsupported || oral || questionsOnly;
 }
 
 export function deriveStatus(sja: Sja, pack: DataPack): SjaStatus {

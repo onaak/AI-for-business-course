@@ -1,5 +1,5 @@
 // Adapter for any endpoint that speaks the OpenAI chat-completions format.
-import { GatewayError, type Provider } from './types';
+import { GatewayError, RATE_LIMIT_STATUSES, RateLimitError, retryAfterMs, type Provider } from './types';
 
 export function openAiCompatibleProvider(apiKey: string, baseUrl: string): Provider {
   const root = baseUrl.replace(/\/+$/, '');
@@ -19,6 +19,9 @@ export function openAiCompatibleProvider(apiKey: string, baseUrl: string): Provi
         headers: { 'content-type': 'application/json', authorization: `Bearer ${apiKey}` },
         body: JSON.stringify(body),
       });
+      if (RATE_LIMIT_STATUSES.has(res.status)) {
+        throw new RateLimitError(`Model provider answered ${res.status} (too many requests or overloaded): ${(await res.text()).slice(0, 200)}`, retryAfterMs(res.headers.get('retry-after')));
+      }
       if (!res.ok) {
         throw new GatewayError(502, `Model provider answered ${res.status}: ${(await res.text()).slice(0, 300)}`, 'provider_error');
       }

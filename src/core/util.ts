@@ -101,4 +101,5 @@ export const LANG_NAMES: Record<string, { nb: string; en: string; own: string }>
   ro: { nb: 'Rumensk', en: 'Romanian', own: 'Română' },
   uk: { nb: 'Ukrainsk', en: 'Ukrainian', own: 'Українська' },
   ru: { nb: 'Russisk', en: 'Russian', own: 'Русский' },
+  tr: { nb: 'Tyrkisk', en: 'Turkish', own: 'Türkçe' },
 };

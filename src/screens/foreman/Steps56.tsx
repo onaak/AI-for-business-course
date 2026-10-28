@@ -14,10 +14,10 @@ import { activeLines, allFlags, isBlocking } from '../../core/flags';
 import * as flow from '../../core/flow';
 import { supportedLangs } from '../../core/rules/diff';
 import { canSign, gateConditions, hasFallback } from '../../core/rules/gate';
-import { linesForQuestion } from '../../core/rules/understanding';
+import { linesForQuestion, nextQuestionIds } from '../../core/rules/understanding';
 import type { DataPack, Question, Sja, SjaLine, Template } from '../../core/types';
 import { uid } from '../../core/util';
-import { useT } from '../../i18n';
+import { useT, useUiLang } from '../../i18n';
 import { useApp, useSjas } from '../../state/stores';
 import { timing } from '../../state/timing';
 import { observationUnsaved, saveRun, type useWizard } from './useWizard';
@@ -39,7 +39,7 @@ function HowRow({ n, title, text, done }: { n: number; title: string; text: stri
 /** A worker checked at the briefing, without the phone: the foreman records the explanation and the answer. */
 function OralCheck({ lines, question, onSave, onCancel, sja }: { sja: Sja; lines: SjaLine[]; question?: Question; onSave: (r: TeachBackResult, answers: { questionId: string; correct: boolean }[]) => void; onCancel: () => void }) {
   const t = useT();
-  const ui = useApp((s) => s.lang);
+  const ui = useUiLang();
   const [teach, setTeach] = useState<TeachBackResult | null>(null);
   const [answer, setAnswer] = useState<boolean | null>(null);
   const q = question?.byLang[ui === 'nb' ? 'nb' : 'en'] ?? question?.byLang.nb;
@@ -84,7 +84,7 @@ function OralCheck({ lines, question, onSave, onCancel, sja }: { sja: Sja; lines
 
 export function Step5({ w, template, pack }: { w: Wizard; template: Template; pack: DataPack }) {
   const t = useT();
-  const ui = useApp((s) => s.lang);
+  const ui = useUiLang();
   const navigate = useNavigate();
   const sja = w.sja!;
   const u = sja.understanding;
@@ -109,7 +109,9 @@ export function Step5({ w, template, pack }: { w: Wizard; template: Template; pa
   }
 
   const keyLines = u.keyLineIds.map((id) => sja.lines.find((l) => l.lineId === id)).filter((l): l is SjaLine => Boolean(l));
-  const question = template.questions.find((q) => q.questionId === u.questionIds[0]);
+  // The oral check asks the question the fewest workers have answered so far (Q3).
+  const question = template.questions.find((q) => q.questionId === nextQuestionIds(u, template, null)[0]);
+  const paths = u.paths;
   const todays = sja.lines.some((l) => l.origin !== 'removed' && l.critical && (l.origin === 'changed' || l.origin === 'new'));
   const rebriefOpen = u.perQuestion.filter((p) => p.respondents - p.correctFirst > 0 && !p.rebriefConfirmed).length;
 
@@ -138,6 +140,12 @@ export function Step5({ w, template, pack }: { w: Wizard; template: Template; pa
               {t('s5.teachCounts', { ok: u.teachBack.ok, rebriefed: u.teachBack.rebriefed })}
             </p>
           )}
+          {paths && u.respondents > 0 && (
+            <p className="text-sm text-slate-800" data-testid="path-counts">
+              {t('s5.pathCounts', { conversation: paths.conversation, written: paths.written, questionsOnly: paths.questionsOnly })}
+            </p>
+          )}
+          {paths && paths.questionsOnly > 0 && <p className="mt-1 text-sm font-semibold text-amber-950">{t('s5.questionsOnlyNote')}</p>}
         </div>
         <Button variant="primary" className="w-full" disabled={langs.length === 0} onClick={() => navigate(`/worker/${sja.sjaId}`)} data-testid="start-kiosk">
           {u.respondents === 0 ? t('s5.startKiosk') : t('s5.continueKiosk')}
@@ -262,19 +270,26 @@ export function Step5({ w, template, pack }: { w: Wizard; template: Template; pa
   );
 }
 
-/** After sign-off, once the job has started: what did the foreman see? (brief v3, step 4) */
+/** After sign-off, once the job has started: what did the foreman see? (brief v3, step 4; I4) */
+type Seen = 'mis' | 'not';
 function Observation({ w, sja }: { w: Wizard; sja: Sja }) {
   const t = useT();
   const [picking, setPicking] = useState(false);
-  const [picked, setPicked] = useState<string[]>([]);
+  const [picked, setPicked] = useState<Record<string, Seen>>({});
   const [saveError, setSaveError] = useState<string | null>(null);
   const keyIds = new Set(sja.understanding.keyLineIds);
   const lines = activeLines(sja);
-  const first = lines.filter((l) => keyIds.has(l.lineId) || l.origin === 'changed' || l.origin === 'new');
+  const first = lines.filter((l) => keyIds.has(l.lineId) || l.origin === 'changed' || l.origin === 'new' || l.section === 'ppe');
   const rest = lines.filter((l) => !first.includes(l));
-  const toggle = (id: string) => setPicked((p) => (p.includes(id) ? p.filter((x) => x !== id) : [...p, id]));
-  const save = async (ids: string[]) => {
-    const next = await w.act('observe', (ctx, s) => flow.recordObservation(ctx, s, ids));
+  const toggle = (id: string, kind: Seen) =>
+    setPicked((p) => {
+      const next = { ...p };
+      if (next[id] === kind) delete next[id];
+      else next[id] = kind;
+      return next;
+    });
+  const save = async (mis: string[], not: string[]) => {
+    const next = await w.act('observe', (ctx, s) => flow.recordObservation(ctx, s, mis, not));
     if (next) setSaveError(await saveRun(sja.sjaId));
   };
   // If an earlier save did not reach the file (no connection, page closed), finish it now.
@@ -292,40 +307,52 @@ function Observation({ w, sja }: { w: Wizard; sja: Sja }) {
     };
   }, [recorded, sja.sjaId]);
   const row = (l: SjaLine) => (
-    <label key={l.lineId} className="flex min-h-11 cursor-pointer items-start gap-3 rounded-lg border border-slate-300 bg-white p-2">
-      <input type="checkbox" className="mt-0.5 h-5 w-5 shrink-0" checked={picked.includes(l.lineId)} onChange={() => toggle(l.lineId)} data-testid={`observe-line-${l.lineId}`} />
-      <span className="text-[15px] leading-snug">
+    <div key={l.lineId} className="rounded-lg border border-slate-300 bg-white p-2" data-testid={`observe-row-${l.lineId}`}>
+      <p className="text-[15px] leading-snug">
         {l.textNb}
         <HelpEn nb={l.textNb} line={l} sja={sja} />
-      </span>
-    </label>
+      </p>
+      <div className="mt-2 grid grid-cols-2 gap-2">
+        <Button variant={picked[l.lineId] === 'mis' ? 'primary' : 'secondary'} aria-pressed={picked[l.lineId] === 'mis'} className="!px-2 text-sm" onClick={() => toggle(l.lineId, 'mis')} data-testid={`observe-line-${l.lineId}`}>
+          {t('obsv.kindMis')}
+        </Button>
+        <Button variant={picked[l.lineId] === 'not' ? 'primary' : 'secondary'} aria-pressed={picked[l.lineId] === 'not'} className="!px-2 text-sm" onClick={() => toggle(l.lineId, 'not')} data-testid={`observe-notfollowed-${l.lineId}`}>
+          {t('obsv.kindNot')}
+        </Button>
+      </div>
+    </div>
   );
+  const listOf = (ids: string[] | undefined) =>
+    (ids ?? []).map((id) => (
+      <li key={id}>
+        {sja.lines.find((l) => l.lineId === id)?.textNb ?? id}
+        <HelpEn nb={sja.lines.find((l) => l.lineId === id)?.textNb ?? ''} line={sja.lines.find((l) => l.lineId === id)} sja={sja} />
+      </li>
+    ));
 
   if (sja.observation) {
     const seen = sja.observation.lineIds;
+    const not = sja.observation.notFollowed ?? [];
     return (
       <Card tone="green" className="space-y-2">
         <h3 className="flex items-center gap-2 text-lg font-bold" data-testid="observation-status">
-          <Icon name="eye" /> {seen.length === 0 ? t('obsv.none') : seen.length === 1 ? t('obsv.noted.one') : t('obsv.noted', { n: seen.length })}
+          <Icon name="eye" /> {seen.length === 0 && not.length === 0 ? t('obsv.none') : seen.length === 0 ? t('obsv.notFollowedOnly') : seen.length === 1 ? t('obsv.noted.one') : t('obsv.noted', { n: seen.length })}
         </h3>
-        {seen.length > 0 && (
-          <>
-            <ul className="ml-5 list-disc text-sm">
-              {seen.map((id) => (
-                <li key={id}>
-                  {sja.lines.find((l) => l.lineId === id)?.textNb ?? id}
-                  <HelpEn nb={sja.lines.find((l) => l.lineId === id)?.textNb ?? ''} line={sja.lines.find((l) => l.lineId === id)} sja={sja} />
-                </li>
-              ))}
-            </ul>
-            <p className="text-sm text-slate-700">{t('obsv.fedBack')}</p>
-          </>
+        {seen.length > 0 && <ul className="ml-5 list-disc text-sm">{listOf(seen)}</ul>}
+        {not.length > 0 && (
+          <div data-testid="observation-not-followed">
+            <p className="text-sm font-bold">{t('obsv.notFollowedTitle')}</p>
+            <ul className="ml-5 list-disc text-sm">{listOf(not)}</ul>
+          </div>
         )}
+        {(seen.length > 0 || not.length > 0) && <p className="text-sm text-slate-700">{t('obsv.fedBack')}</p>}
         {saveError && <ErrorBox message={`${t('s6.saveFailed')} ${saveError}`} onRetry={async () => setSaveError(await saveRun(sja.sjaId))} retryLabel={t('common.retry')} />}
       </Card>
     );
   }
 
+  const misIds = Object.entries(picked).filter(([, k]) => k === 'mis').map(([id]) => id);
+  const notIds = Object.entries(picked).filter(([, k]) => k === 'not').map(([id]) => id);
   return (
     <Card tone="amber" className="space-y-3">
       <h3 className="flex items-center gap-2 text-lg font-bold">
@@ -334,7 +361,7 @@ function Observation({ w, sja }: { w: Wizard; sja: Sja }) {
       <p className="text-base">{t('obsv.text')}</p>
       {!picking ? (
         <div className="grid gap-2">
-          <Button disabled={Boolean(w.busy)} onClick={() => save([])} data-testid="observe-none">
+          <Button disabled={Boolean(w.busy)} onClick={() => save([], [])} data-testid="observe-none">
             {t('obsv.nothing')}
           </Button>
           <Button disabled={Boolean(w.busy)} onClick={() => setPicking(true)} data-testid="observe-some">
@@ -344,6 +371,7 @@ function Observation({ w, sja }: { w: Wizard; sja: Sja }) {
       ) : (
         <div className="space-y-2">
           <p className="text-sm font-bold">{t('obsv.which')}</p>
+          <p className="text-sm text-slate-700">{t('obsv.kindHint')}</p>
           <div className="space-y-1">{first.map(row)}</div>
           {rest.length > 0 && (
             <details>
@@ -351,10 +379,10 @@ function Observation({ w, sja }: { w: Wizard; sja: Sja }) {
               <div className="space-y-1">{rest.map(row)}</div>
             </details>
           )}
-          <Button variant="primary" className="w-full" disabled={picked.length === 0 || Boolean(w.busy)} onClick={() => save(picked)} data-testid="observe-save">
+          <Button variant="primary" className="w-full" disabled={misIds.length + notIds.length === 0 || Boolean(w.busy)} onClick={() => save(misIds, notIds)} data-testid="observe-save">
             {t('obsv.save')}
           </Button>
-          <Button variant="ghost" onClick={() => { setPicking(false); setPicked([]); }}>
+          <Button variant="ghost" onClick={() => { setPicking(false); setPicked({}); }}>
             {t('common.back')}
           </Button>
         </div>
@@ -409,6 +437,9 @@ export function Step6({ w, pack }: { w: Wizard; pack: DataPack }) {
           </ol>
           <Link to={`/runs/${sja.sjaId}`} className="flex min-h-11 items-center justify-center gap-2 rounded-lg bg-blue-700 px-4 py-2 text-base font-semibold text-white hover:bg-blue-800" data-testid="open-record">
             <Icon name="doc" /> {t('s6.openRecord')}
+          </Link>
+          <Link to={`/runs/${sja.sjaId}/summary`} className="flex min-h-11 items-center justify-center gap-2 rounded-lg border border-blue-700 px-4 py-2 text-base font-semibold text-blue-800" data-testid="open-summary-signed">
+            {t('rec.summaryLink')}
           </Link>
         </Card>
 

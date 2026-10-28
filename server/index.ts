@@ -21,6 +21,11 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const dataDir = process.env.SJA_DATA_DIR ? path.resolve(process.env.SJA_DATA_DIR) : path.join(root, 'data');
 const evidenceDir = process.env.SJA_EVIDENCE_DIR ? path.resolve(process.env.SJA_EVIDENCE_DIR) : path.join(root, 'evidence');
 const isProd = process.argv.includes('--prod');
+/** lab: every screen. field: the clean version for people outside the group (V1). */
+const appMode: 'lab' | 'field' = process.env.APP_MODE === 'field' ? 'field' : 'lab';
+// While the prototype is shared through a tunnel (npm run share), anyone with the address could
+// otherwise overwrite or reset the reviewers' keys and corrections. PACK_READONLY=1 refuses both.
+const packReadOnly = process.env.PACK_READONLY === '1';
 const port = Number(process.env.PORT ?? 5173);
 
 function buildGateway(): Gateway {
@@ -34,6 +39,11 @@ function buildGateway(): Gateway {
         ? openAiCompatibleProvider(key, process.env.LLM_BASE_URL ?? 'https://api.openai.com/v1')
         : anthropicProvider(key, process.env.LLM_BASE_URL_ANTHROPIC ?? 'https://api.anthropic.com');
   }
+  // Optional second provider for back-translation only (P5), e.g. a local Ollama model next to a hosted one.
+  // Always OpenAI-compatible. The key may be any text for Ollama.
+  const btUrl = process.env.BACKTRANSLATE_BASE_URL ?? '';
+  const providerFor: Partial<Record<Task, Provider>> = {};
+  if (mode !== 'replay' && btUrl) providerFor.P5 = { ...openAiCompatibleProvider(process.env.BACKTRANSLATE_API_KEY || 'none', btUrl), name: 'openai-compatible (back-translation)' };
   const def = process.env.MODEL_DEFAULT ?? '';
   const models = {} as Record<Task, string>;
   for (const t of TASKS) models[t] = process.env[`MODEL_${t}`] || (t === 'P5' ? process.env.MODEL_BACKTRANSLATE || def : def);
@@ -41,12 +51,25 @@ function buildGateway(): Gateway {
   return new Gateway({
     mode,
     provider,
+    providerFor,
     models,
     temperature: temp === undefined || temp === '' ? null : Number(temp),
     promptsDir: path.join(root, 'prompts'),
     fixturesDir: path.join(dataDir, 'fixtures', 'llm'),
     evidenceDir,
+    limits: {
+      ...(numEnv('LLM_MAX_PARALLEL') !== null ? { maxParallel: numEnv('LLM_MAX_PARALLEL')! } : {}),
+      ...(numEnv('LLM_MIN_INTERVAL_MS') !== null ? { minIntervalMs: numEnv('LLM_MIN_INTERVAL_MS')! } : {}),
+      ...(numEnv('LLM_RATE_LIMIT_WAITS') !== null ? { rateLimitWaits: numEnv('LLM_RATE_LIMIT_WAITS')! } : {}),
+    },
   });
+}
+
+function numEnv(name: string): number | null {
+  const v = process.env[name];
+  if (v === undefined || v.trim() === '') return null;
+  const n = Number(v);
+  return Number.isFinite(n) && n >= 0 ? n : null;
 }
 
 const gateway = buildGateway();
@@ -73,8 +96,12 @@ app.get(
       mode: cfg.mode,
       provider: cfg.provider?.name ?? (cfg.mode === 'replay' ? 'replay' : 'none'),
       configured: cfg.mode === 'replay' || Boolean(cfg.provider),
+      appMode,
+      packReadOnly,
+      rateLimitWaits: gateway.rateLimitWaits,
+      backTranslationProvider: cfg.providerFor?.P5?.name ?? null,
       models: cfg.mode === 'replay' ? {} : cfg.models,
-      backTranslationUsesSameModel: cfg.models.P5 === cfg.models.P4,
+      backTranslationUsesSameModel: cfg.models.P5 === cfg.models.P4 && !cfg.providerFor?.P5,
       promptVersions: Object.fromEntries(TASKS.map((t) => [t, gateway.prompts[t].version])),
       fixtures: gateway.store.count(),
     });
@@ -107,8 +134,9 @@ app.get(
 
 // ---- /api/data: seed data pack, working data pack, fixtures ----
 app.get('/api/data/pack', wrap((_req, res) => res.json(loadPack(dataDir))));
-app.put('/api/data/pack', wrap((req, res) => res.json(savePack(dataDir, req.body))));
-app.post('/api/data/pack/reset', wrap((_req, res) => res.json(resetPack(dataDir))));
+const READ_ONLY_MSG = 'The data pack is read-only while the prototype is shared (PACK_READONLY=1). Keys and corrections cannot be changed in this session.';
+app.put('/api/data/pack', wrap((req, res) => (packReadOnly ? res.status(403).json({ error: READ_ONLY_MSG, code: 'read_only' }) : res.json(savePack(dataDir, req.body)))));
+app.post('/api/data/pack/reset', wrap((_req, res) => (packReadOnly ? res.status(403).json({ error: READ_ONLY_MSG, code: 'read_only' }) : res.json(resetPack(dataDir)))));
 app.get('/api/data/hazards', wrap((_req, res) => res.json(loadHazards(dataDir))));
 app.get('/api/data/fixtures', wrap((_req, res) => res.json(loadFixtures(dataDir))));
 

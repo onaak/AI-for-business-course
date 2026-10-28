@@ -51,6 +51,7 @@ export async function shot(page: Page, name: string) {
 /** Home → Foreman → load a saved test job → continue to step 2. */
 export async function startJob(page: Page, fixtureId: string) {
   await page.goto('/');
+  await page.getByTestId('tab-foreman').click();
   await page.getByTestId('tile-foreman').click();
   await page.getByTestId('fixture-select').selectOption(fixtureId);
 }

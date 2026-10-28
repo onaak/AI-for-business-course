@@ -38,6 +38,11 @@ const safeStorage = createJSONStorage(() => ({
 
 interface AppState {
   lang: 'nb' | 'en';
+  /** Chosen with the eye switch in the header (full or clean view). The server's APP_MODE=field always wins. */
+  viewMode: 'lab' | 'field';
+  /** The role tab open on Home. */
+  homeTab: HomeTab;
+  setHomeTab: (tab: HomeTab) => void;
   reviewer: ReviewerSession | null;
   config: ServerConfig | null;
   pack: DataPack | null;
@@ -45,6 +50,7 @@ interface AppState {
   fixtures: Record<string, any> | null;
   loadError: string | null;
   setLang: (lang: 'nb' | 'en') => void;
+  setViewMode: (mode: 'lab' | 'field') => void;
   setReviewer: (r: ReviewerSession | null) => void;
   load: () => Promise<void>;
   setPack: (pack: DataPack) => void;
@@ -54,6 +60,9 @@ export const useApp = create<AppState>()(
   persist(
     (set) => ({
       lang: 'nb',
+      viewMode: 'lab',
+      homeTab: 'foreman',
+      setHomeTab: (homeTab) => set({ homeTab }),
       reviewer: null,
       config: null,
       pack: null,
@@ -61,6 +70,7 @@ export const useApp = create<AppState>()(
       fixtures: null,
       loadError: null,
       setLang: (lang) => set({ lang }),
+      setViewMode: (viewMode) => set({ viewMode }),
       setReviewer: (reviewer) => set({ reviewer }),
       setPack: (pack) => set({ pack }),
       load: async () => {
@@ -72,9 +82,21 @@ export const useApp = create<AppState>()(
         }
       },
     }),
-    { name: 'sja-forstatt-app', storage: safeStorage, partialize: (s) => ({ lang: s.lang, reviewer: s.reviewer }) as AppState },
+    { name: 'sja-forstatt-app', storage: safeStorage, partialize: (s) => ({ lang: s.lang, reviewer: s.reviewer, viewMode: s.viewMode, homeTab: s.homeTab }) as AppState },
   ),
 );
+
+/**
+ * Field mode (V1): the clean version for people outside the group. No test bench, baseline
+ * timer, saved-runs list, observer link, trace panel, English toggle or technical status.
+ * Forced by the server (APP_MODE=field), or chosen with the eye switch in the header.
+ */
+export type HomeTab = 'foreman' | 'worker' | 'manager' | 'reviewer' | 'project';
+
+export function isFieldMode(s: Pick<AppState, 'config' | 'viewMode'>): boolean {
+  return s.config?.appMode === 'field' || s.viewMode === 'field';
+}
+export const useFieldMode = () => useApp(isFieldMode);
 
 // ---------- SJAs and their traces ----------
 

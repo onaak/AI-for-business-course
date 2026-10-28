@@ -4,23 +4,24 @@
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { api, type RunSummary } from '../api';
-import { CriticalMark, langName, OriginBadge, SectionHeading } from '../components/sja';
+import { CriticalMark, langName, OriginBadge, SectionHeading, SourceRef, sourceText } from '../components/sja';
 import { HelpEn } from '../components/HelpEn';
 import { TracePanel } from '../components/TracePanel';
 import { Button, Card, Chip, Collapsible, download, ErrorBox, Icon, Layout, Notice, Spinner } from '../components/ui';
 import { activeLines, allFlags } from '../core/flags';
 import { FOREMAN_CATEGORIES, fmtDuration, foremanTime, judgedCounts, PHASE_OF, TIME_CATEGORIES, TOTAL_CATEGORIES, totalTime, unverifiedReuse } from '../core/metrics';
 import { findSourceTerms } from '../core/rules/glossary';
-import { needsObservation, upgradeSja } from '../core/rules/understanding';
+import { linesForQuestion, needsObservation, upgradeSja } from '../core/rules/understanding';
 import { observationUnsaved, saveRun } from './foreman/useWizard';
 import { SECTIONS, type ReviewerJudgements, type RunRecord } from '../core/types';
-import { useT } from '../i18n';
+import { useT, useUiLang } from '../i18n';
 import { buildRunRecord, lineLangLabel, modeLabel, recordToMarkdown } from '../record';
-import { useApp, useSjas } from '../state/stores';
+import { PrivacyPanel } from '../components/Privacy';
+import { useApp, useFieldMode, useSjas } from '../state/stores';
 
 export function RunsList() {
   const t = useT();
-  const ui = useApp((s) => s.lang);
+  const ui = useUiLang();
   const pack = useApp((s) => s.pack);
   const jobName = (templateId: string) => pack?.templates.find((x) => x.templateId === templateId)?.jobType[ui] ?? templateId;
   const [runs, setRuns] = useState<RunSummary[] | null>(null);
@@ -83,7 +84,7 @@ export function RunsList() {
 
 function Judgements({ rec, onSave }: { rec: RunRecord; onSave: (j: ReviewerJudgements) => void }) {
   const t = useT();
-  const ui = useApp((s) => s.lang);
+  const ui = useUiLang();
   const reviewer = useApp((s) => s.reviewer);
   const pack = useApp((s) => s.pack);
   const [j, setJ] = useState<ReviewerJudgements>(rec.judgements ?? { terms: {}, residual: {}, routes: {} });
@@ -163,10 +164,11 @@ function Judgements({ rec, onSave }: { rec: RunRecord; onSave: (j: ReviewerJudge
 export function RunRecordScreen() {
   const { runId = '' } = useParams();
   const t = useT();
-  const ui = useApp((s) => s.lang);
+  const ui = useUiLang();
   const pack = useApp((s) => s.pack);
   const hazardsAll = useApp((s) => s.hazards);
   const localSja = useSjas((s) => s.sjas[runId]);
+  const field = useFieldMode();
   const [saved, setSaved] = useState<RunRecord | null>(null);
   const [loading, setLoading] = useState(true);
   const [message, setMessage] = useState<string | null>(null);
@@ -278,11 +280,20 @@ export function RunRecordScreen() {
             {fact(t('rec.reuseRate'), <><span data-testid="record-reuse">{rec.metrics.reuseRate.reused} {t('common.of')} {rec.metrics.reuseRate.total}</span> {t('rec.reuseLines')}</>)}
             {fact(t('rec.verifiedTemplate'), reuse.total === 0 ? '–' : reuse.unverified === 0 ? t('common.yes') : t('rec.verifiedTemplateNo', { n: reuse.total - reuse.unverified, total: reuse.total }), 'record-verified-template')}
             {fact(t('rec.flags'), flagLine)}
+            {fact(
+              t('rec.memory'),
+              <span data-testid="record-memory">
+                {t('rec.memoryValue', {
+                  memory: activeLines(sja).reduce((a, l) => a + Object.values(l.byLang).filter((e) => e.source === 'memory').length, 0),
+                  calls: rec.events.filter((e) => e.type === 'model_call').length,
+                })}
+              </span>,
+            )}
             {fact(t('rec.oralLines'), oral.length === 0 ? t('rec.none') : String(oral.length))}
             {fact(t('rec.understanding'), understandingLine)}
             {fact(t('rec.observation'), observationLine, 'record-observation')}
             {fact(t('rec.totalTime'), <><strong>{fmtDuration(totalTime(rec.timings))}</strong> <span className="text-slate-600">({t('rec.totalTimeHint')})</span></>)}
-            {fact(t('rec.withoutHelp'), <>{assists === 0 ? t('common.yes') : t('common.no')} <span className="text-slate-600">({t('rec.assists')}: <span data-testid="record-assists">{assists}</span>)</span></>)}
+            {!field && fact(t('rec.withoutHelp'), <>{assists === 0 ? t('common.yes') : t('common.no')} <span className="text-slate-600">({t('rec.assists')}: <span data-testid="record-assists">{assists}</span>)</span></>)}
           </dl>
           {needsObservation(sja) && localSja && (
             <Link to={`/foreman/${runId}`} className="no-print flex items-center gap-2 rounded-lg border-2 border-amber-500 bg-amber-50 p-3 text-base font-semibold text-slate-900" data-testid="record-observe-link">
@@ -292,8 +303,11 @@ export function RunRecordScreen() {
         </Card>
 
         <div className="no-print flex flex-wrap gap-2">
-          <Button variant="primary" onClick={exportMd} data-testid="export-md">{t('rec.exportMd')}</Button>
-          <Button onClick={exportJson} data-testid="export-json">{t('rec.exportJson')}</Button>
+          <Link to={`/runs/${runId}/summary`} className="inline-flex min-h-11 items-center gap-2 rounded-lg bg-blue-700 px-4 py-2 text-base font-semibold text-white hover:bg-blue-800" data-testid="open-summary">
+            <Icon name="doc" /> {t('rec.summaryLink')}
+          </Link>
+          <Button onClick={exportMd} data-testid="export-md">{t('rec.exportMd')}</Button>
+          {!field && <Button onClick={exportJson} data-testid="export-json">{t('rec.exportJson')}</Button>}
           <Button onClick={() => window.print()}>{t('rec.print')}</Button>
           {localSja && (!saved || !signed) && <Button onClick={() => save(buildRunRecord(localSja))} data-testid="save-run">{t('rec.saveNow')}</Button>}
           {localSja && !signed && (
@@ -326,7 +340,7 @@ export function RunRecordScreen() {
                           {l.critical && <CriticalMark />}
                           {l.techRecheck !== 'none' && <Chip wrap tone={l.techRecheck === 'confirmed' ? 'green' : 'amber'}>{t('rec.techRecheck')}: {t(`recheck.${l.techRecheck}`)}</Chip>}
                           {l.aiSuggestion === 'accepted' && <Chip tone="slate">{t('s3.aiAccepted')}</Chip>}
-                          <span className="text-xs text-slate-600">{h ? `${t('line.source')}: ${h.sourceId}, ${h.sourceDetail}` : t('line.unsourced')}</span>
+                          <SourceRef hazardRef={h ? l.hazardRef : null} hazards={hazards} paramLine={Boolean(template?.lines.find((x) => x.lineId === l.templateLineId)?.parameterRefs.length)} />
                         </p>
                         {l.removalReason && <p className="text-sm">{t('rec.removalReason')}: {l.removalReason}</p>}
                         {l.origin !== 'removed' &&
@@ -417,17 +431,41 @@ export function RunRecordScreen() {
                   )}
                 </>
               )}
+              {u.paths && (
+                <div data-testid="record-paths">
+                  <p className="font-semibold">{t('rec.paths')}</p>
+                  <p>{t('s5.pathCounts', { conversation: u.paths.conversation, written: u.paths.written, questionsOnly: u.paths.questionsOnly })}</p>
+                  {u.fallbackReasons && Object.keys(u.fallbackReasons).length > 0 && (
+                    <p>
+                      {t('rec.reasons')}: {Object.entries(u.fallbackReasons).map(([r, n]) => `${t(`reason.${r}`)} (${n})`).join('; ')}
+                    </p>
+                  )}
+                </div>
+              )}
               <div>
                 <p className="font-semibold">{t('s5.questionTitle')}</p>
-                <ul className="ml-5 list-disc">
-                  {u.perQuestion.map((p) => (
-                    <li key={p.questionId}>
-                      {template?.questions.find((q) => q.questionId === p.questionId)?.byLang[ui === 'nb' ? 'nb' : 'en']?.text ?? p.questionId}
-                      <br />
-                      {t('s5.rightFirst')}: <strong>{p.correctFirst} {t('common.of')} {p.respondents}</strong>
-                      {p.respondents - p.correctFirst > 0 ? ` · ${p.rebriefConfirmed ? t('rec.rebriefDone') : t('rec.open')}` : ''}
-                    </li>
-                  ))}
+                <ul className="ml-5 list-disc" data-testid="record-questions">
+                  {u.perQuestion.filter((p) => p.respondents > 0).map((p) => {
+                    const q = template?.questions.find((x) => x.questionId === p.questionId);
+                    const linked = q ? linesForQuestion(sja, q) : [];
+                    return (
+                      <li key={p.questionId}>
+                        {q?.byLang[ui === 'nb' ? 'nb' : 'en']?.text ?? p.questionId}
+                        <br />
+                        {t('s5.rightFirst')}: <strong>{p.correctFirst} {t('common.of')} {p.respondents}</strong>
+                        {p.respondents - p.correctFirst > 0 ? ` · ${p.rebriefConfirmed ? t('rec.rebriefDone') : t('rec.open')}` : ''}
+                        {linked.map((l) => {
+                          const src = sourceText(hazards, l.hazardRef, ui);
+                          return (
+                            <span key={l.lineId} className="block text-xs text-slate-700">
+                              → {l.textNb}
+                              {src ? ` (${t('line.source')}: ${src.label})` : ''}
+                            </span>
+                          );
+                        })}
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
               <div>
@@ -445,7 +483,7 @@ export function RunRecordScreen() {
             <tbody>
               {TIME_CATEGORIES.filter((c) => c !== 'understanding').sort((a, b) => TOTAL_CATEGORIES.indexOf(a) - TOTAL_CATEGORIES.indexOf(b)).map((c) => (
                 <tr key={c} data-testid={`timing-${c}`} data-ms={rec.timings[c] ?? 0}>
-                  <td className="py-0.5 pr-4 text-xs font-bold uppercase tracking-wide text-slate-500">{t(`phase.${PHASE_OF[c]}`)}</td>
+                  <td className="py-0.5 pr-4 text-xs font-bold uppercase tracking-wide text-slate-600">{t(`phase.${PHASE_OF[c]}`)}</td>
                   <td className="py-0.5 pr-6">{t(`cat.${c}`)}</td>
                   <td className="py-0.5 text-right font-mono">{fmtDuration(rec.timings[c] ?? 0)}</td>
                 </tr>
@@ -455,7 +493,7 @@ export function RunRecordScreen() {
                 <td className="py-1 text-right font-mono" data-testid="timing-total">{fmtDuration(totalTime(rec.timings))}</td>
               </tr>
               <tr data-testid="timing-understanding" data-ms={rec.timings.understanding ?? 0}>
-                <td className="py-0.5 pr-4 pt-3 text-xs font-bold uppercase tracking-wide text-slate-500">{t('phase.understanding')}</td>
+                <td className="py-0.5 pr-4 pt-3 text-xs font-bold uppercase tracking-wide text-slate-600">{t('phase.understanding')}</td>
                 <td className="py-0.5 pr-6 pt-3">{t('cat.understanding')}</td>
                 <td className="py-0.5 pt-3 text-right font-mono">{fmtDuration(rec.timings.understanding ?? 0)}</td>
               </tr>
@@ -482,15 +520,23 @@ export function RunRecordScreen() {
           </dl>
         </Collapsible>
 
-        <div className="no-print">
-          <Collapsible title={t('rec.judgements')} summary={t('rec.judgementsSummary')} testid="record-judgements">
-            <Judgements rec={{ ...rec, sja }} onSave={(j) => save({ ...rec, sja, judgements: j, savedAt: new Date().toISOString() })} />
-          </Collapsible>
-        </div>
-
-        <Collapsible title={t('rec.trace')} summary={t('rec.traceSummary', { n: rec.trace.length })} testid="record-trace">
-          <TracePanel trace={rec.trace} />
+        <Collapsible title={t('rec.privacyTitle')} summary={t('privacy.title')} testid="record-privacy">
+          <PrivacyPanel testid="privacy-record" />
         </Collapsible>
+
+        {!field && (
+          <div className="no-print">
+            <Collapsible title={t('rec.judgements')} summary={t('rec.judgementsSummary')} testid="record-judgements">
+              <Judgements rec={{ ...rec, sja }} onSave={(j) => save({ ...rec, sja, judgements: j, savedAt: new Date().toISOString() })} />
+            </Collapsible>
+          </div>
+        )}
+
+        {!field && (
+          <Collapsible title={t('rec.trace')} summary={t('rec.traceSummary', { n: rec.trace.length })} testid="record-trace">
+            <TracePanel trace={rec.trace} />
+          </Collapsible>
+        )}
       </article>
     </Layout>
   );

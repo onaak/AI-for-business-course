@@ -7,6 +7,7 @@ import { extractJson, loadPrompts, renderPrompt } from '../../server/gateway';
 import { anthropicProvider } from '../../server/providers/anthropic';
 import { openAiCompatibleProvider } from '../../server/providers/openai-compatible';
 import { replayKey, type ReplayFixture } from '../../server/providers/replay';
+import { RateLimitError, retryAfterMs } from '../../server/providers/types';
 import { outputSchemas, TASKS } from '../../src/core/schemas';
 import { dataDir, makeGateway, root } from '../helpers';
 
@@ -106,6 +107,64 @@ describe('Gateway', () => {
     expect(call).toMatchObject({ mode: 'replay', fixtureOrigin: 'recorded', model: 'model-x', parsed: { text: 'Hei' } });
   });
 
+  it('"too many requests" is waited out and tried again, and does not use up the one retry (F3)', async () => {
+    let n = 0;
+    const waits: number[] = [];
+    const gw = makeGateway({
+      mode: 'live',
+      models: { P5: 'm' },
+      provider: { name: 'busy', complete: async () => (++n <= 2 ? Promise.reject(new RateLimitError('429', n === 1 ? 1500 : null)) : 'oops') },
+      limits: { sleep: async (ms) => void waits.push(ms) },
+    });
+    // Two waits (1.5 s from Retry-After, then 4 s backoff), then malformed output: one retry, then the error.
+    await expect(gw.call('P5', { lang: 'pl', text: 'x' }, 'run-rl')).rejects.toThrow(/failed after one retry/);
+    expect(waits).toEqual([1500, 4000]);
+    expect(n).toBe(4); // 2 rate-limited + first attempt + the one retry
+    expect(gw.rateLimitWaits).toBe(2);
+    // The wait is logged with the call, so machine time can be reported with and without it.
+    const logged = JSON.parse(readFileSync(path.join(gw.cfg.evidenceDir, 'calls', 'run-rl.jsonl'), 'utf8').trim().split('\n').pop()!);
+    expect(logged.rateLimitWaitMs).toBe(5500);
+  });
+
+  it('gives up after the configured number of waits', async () => {
+    const gw = makeGateway({
+      mode: 'live',
+      models: { P5: 'm' },
+      provider: { name: 'always-busy', complete: async () => Promise.reject(new RateLimitError('429', 10)) },
+      limits: { rateLimitWaits: 2, sleep: async () => {} },
+    });
+    await expect(gw.call('P5', { lang: 'pl', text: 'x' }, 'run-rl2')).rejects.toThrow(/failed after one retry: .*429/);
+  });
+
+  it('runs at most maxParallel model calls at once', async () => {
+    let active = 0;
+    let peak = 0;
+    const gw = makeGateway({
+      mode: 'live',
+      models: { P5: 'm' },
+      provider: {
+        name: 'slow',
+        complete: async () => {
+          active += 1;
+          peak = Math.max(peak, active);
+          await new Promise((r) => setTimeout(r, 20));
+          active -= 1;
+          return '{"text":"ok"}';
+        },
+      },
+      limits: { maxParallel: 2 },
+    });
+    await Promise.all(Array.from({ length: 6 }, (_, i) => gw.call('P5', { lang: 'pl', text: `x${i}` }, 'run-par')));
+    expect(peak).toBe(2);
+  });
+
+  it('reads Retry-After as seconds or as a date', () => {
+    expect(retryAfterMs('3')).toBe(3000);
+    expect(retryAfterMs(null)).toBeNull();
+    expect(retryAfterMs('soon')).toBeNull();
+    expect(retryAfterMs(new Date(Date.now() + 5000).toUTCString())).toBeGreaterThan(3000);
+  });
+
   it('live mode without a provider or model fails with a clear message', async () => {
     await expect(makeGateway({ mode: 'live' }).call('P5', { lang: 'pl', text: 'x' }, 'r')).rejects.toThrow(/No model provider is configured/);
   });
@@ -125,6 +184,11 @@ describe('Provider adapters against a local stand-in server (no real model)', ()
         res.setHeader('content-type', 'application/json');
         if (req.url === '/v1/messages') res.end(JSON.stringify({ content: [{ type: 'text', text: '{"text":"fra anthropic-format"}' }] }));
         else if (req.url === '/v1/chat/completions') res.end(JSON.stringify({ choices: [{ message: { content: '{"text":"fra openai-format"}' } }] }));
+        else if (req.url === '/busy/chat/completions') {
+          res.statusCode = 429;
+          res.setHeader('retry-after', '7');
+          res.end('{"error":"rate limit"}');
+        }
         else {
           res.statusCode = 500;
           res.end('{"error":"nope"}');
@@ -153,6 +217,12 @@ describe('Provider adapters against a local stand-in server (no real model)', ()
     expect(req.headers.authorization).toBe('Bearer k-456');
     expect(req.body.temperature).toBeUndefined();
     expect(req.body.messages.map((m: any) => m.role)).toEqual(['system', 'user']);
+  });
+  it('HTTP 429 from the provider becomes a wait with the Retry-After time', async () => {
+    const waits: number[] = [];
+    const gw = makeGateway({ mode: 'live', models: { P5: 'm' }, provider: openAiCompatibleProvider('k', `${base}/busy`), limits: { rateLimitWaits: 1, sleep: async (ms) => void waits.push(ms) } });
+    await expect(gw.call('P5', { lang: 'pl', text: 'x' }, 'run-429')).rejects.toThrow(/429/);
+    expect(waits[0]).toBe(7000);
   });
   it('a provider error becomes a retry and then a visible error', async () => {
     const gw = makeGateway({ mode: 'live', models: { P5: 'm' }, provider: openAiCompatibleProvider('k', `${base}/nowhere`) });

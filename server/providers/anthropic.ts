@@ -1,5 +1,5 @@
 // Adapter for the Anthropic Messages API. The key stays on the server.
-import { GatewayError, type Provider } from './types';
+import { GatewayError, RATE_LIMIT_STATUSES, RateLimitError, retryAfterMs, type Provider } from './types';
 
 export function anthropicProvider(apiKey: string, baseUrl = 'https://api.anthropic.com'): Provider {
   return {
@@ -17,6 +17,9 @@ export function anthropicProvider(apiKey: string, baseUrl = 'https://api.anthrop
         headers: { 'content-type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01' },
         body: JSON.stringify(body),
       });
+      if (RATE_LIMIT_STATUSES.has(res.status)) {
+        throw new RateLimitError(`Model provider answered ${res.status} (too many requests or overloaded): ${(await res.text()).slice(0, 200)}`, retryAfterMs(res.headers.get('retry-after')));
+      }
       if (!res.ok) {
         throw new GatewayError(502, `Model provider answered ${res.status}: ${(await res.text()).slice(0, 300)}`, 'provider_error');
       }

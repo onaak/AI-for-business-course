@@ -5,19 +5,39 @@ import { makeFlag } from '../util';
 
 export const UNIT_SYMBOLS = ['km/t', 'km/h', 'm/s', 'mm', 'cm', 'kg', 'kN', '°C', '%', 'm', 't', 'l'];
 
+/**
+ * The same unit written another way. Russian writes units in Cyrillic ("2 м", "25 кг"),
+ * and Norwegian "km/t" is "km/h" elsewhere. Without this, a correct Russian line would be
+ * flagged as a number or unit mismatch (R3).
+ */
+export const UNIT_ALIASES: Record<string, string> = {
+  'km/t': 'km/h',
+  'км/ч': 'km/h',
+  'м/с': 'm/s',
+  мм: 'mm',
+  см: 'cm',
+  кг: 'kg',
+  кН: 'kN',
+  м: 'm',
+  т: 't',
+  л: 'l',
+};
+const canonicalUnit = (u: string) => UNIT_ALIASES[u] ?? u;
+const ALL_UNITS = [...new Set([...UNIT_SYMBOLS, ...Object.keys(UNIT_ALIASES)])].sort((a, b) => b.length - a.length);
+
 export interface NumberToken {
   value: string; // canonical: decimal point
   unit: string | null;
 }
 
-const unitAlt = UNIT_SYMBOLS.map((u) => u.replace(/\//g, '\\/')).join('|');
+const unitAlt = ALL_UNITS.map((u) => u.replace(/\//g, '\\/')).join('|');
 const numberRe = new RegExp(`(\\d+(?:[.,]\\d+)?)(?:\\s?(${unitAlt})(?![\\p{L}\\p{N}]))?`, 'gu');
 
 export function extractNumbers(text: string): NumberToken[] {
   const out: NumberToken[] = [];
   for (const m of text.matchAll(numberRe)) {
     const value = String(parseFloat(m[1].replace(',', '.')));
-    out.push({ value, unit: m[2] ?? null });
+    out.push({ value, unit: m[2] ? canonicalUnit(m[2]) : null });
   }
   return out;
 }

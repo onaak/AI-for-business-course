@@ -1,12 +1,18 @@
 {
   "templateId": "lifting",
-  "note": "References were drafted by the builder from public pages on arbeidstilsynet.no (read 5 October 2026), at the level of paragraph headings. No technical reviewer has checked that each line matches its reference. EBA guidance was not available to the builder. Lines with no entry here show as \"unsourced\".",
+  "note": "References were drafted by the builder from public pages on arbeidstilsynet.no (read 5 October 2026). On 26 October 2026 every paragraph number was checked against the list of sections in the English version of the regulation on arbeidstilsynet.no, and lines with no public source were marked \"Firmapraksis\" (firm practice). Which paragraph a line belongs to is the builder's judgement. No technical reviewer has checked it yet.",
   "sources": [
     {
       "sourceId": "FUA-18",
       "title": "Forskrift om utførelse av arbeid, kapittel 18: Arbeid med løfteutstyr",
       "publisher": "Arbeidstilsynet (regelverk)",
       "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/18/"
+    },
+    {
+      "sourceId": "FIRMA",
+      "title": "Firmapraksis: ingen offentlig kilde",
+      "publisher": "Firmaets egne rutiner og hovedentreprenørens plassregler (må bekreftes av firmaet)",
+      "url": ""
     }
   ],
   "entries": [
@@ -16,7 +22,12 @@
       "textNb": "Planlegg løfteoperasjonen og avtal roller og kommunikasjon.",
       "critical": true,
       "sourceId": "FUA-18",
-      "sourceDetail": "§ 18-6 Tiltak ved løfteoperasjoner"
+      "sourceDetail": "§ 18-6 Tiltak ved løfteoperasjoner",
+      "paragraph": "§ 18-6",
+      "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/18/",
+      "tags": [
+        "lifting"
+      ]
     },
     {
       "hazardId": "lh-02",
@@ -24,7 +35,12 @@
       "textNb": "Ingen under hengende last; hold faresonen avsperret.",
       "critical": true,
       "sourceId": "FUA-18",
-      "sourceDetail": "§ 18-3 Fare når last løftes"
+      "sourceDetail": "§ 18-3 Fare når last løftes",
+      "paragraph": "§ 18-3",
+      "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/18/",
+      "tags": [
+        "lifting"
+      ]
     },
     {
       "hazardId": "lh-03",
@@ -32,7 +48,12 @@
       "textNb": "Løfteutstyret skal stå stabilt og ha tilstrekkelig styrke for lasten.",
       "critical": true,
       "sourceId": "FUA-18",
-      "sourceDetail": "§ 18-1 Styrke og stabilitet; § 18-4 Mobilt eller flyttbart arbeidsutstyr som løfter last"
+      "sourceDetail": "§ 18-1 Styrke og stabilitet; § 18-4 Mobilt eller flyttbart arbeidsutstyr som løfter last",
+      "paragraph": "§ 18-1, § 18-4",
+      "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/18/",
+      "tags": [
+        "lifting"
+      ]
     },
     {
       "hazardId": "lh-04",
@@ -40,7 +61,12 @@
       "textNb": "Løfteredskap skal være merket med kapasitet og kontrolleres før bruk.",
       "critical": true,
       "sourceId": "FUA-18",
-      "sourceDetail": "§ 18-2 Merking av arbeidsutstyr til løfting av last"
+      "sourceDetail": "§ 18-2 Merking av arbeidsutstyr til løfting av last",
+      "paragraph": "§ 18-2",
+      "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/18/",
+      "tags": [
+        "lifting"
+      ]
     },
     {
       "hazardId": "lh-05",
@@ -48,7 +74,12 @@
       "textNb": "Fritt hengende last skal styres og sikres under løftet.",
       "critical": true,
       "sourceId": "FUA-18",
-      "sourceDetail": "§ 18-5 Bruk av arbeidsutstyr til å løfte fritt hengende last"
+      "sourceDetail": "§ 18-5 Bruk av arbeidsutstyr til å løfte fritt hengende last",
+      "paragraph": "§ 18-5",
+      "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/18/",
+      "tags": [
+        "lifting"
+      ]
     },
     {
       "hazardId": "lh-06",
@@ -56,7 +87,78 @@
       "textNb": "Løft over personer eller arbeidsplasser i bruk skal unngås.",
       "critical": true,
       "sourceId": "FUA-18",
-      "sourceDetail": "§ 18-3 Fare når last løftes"
+      "sourceDetail": "§ 18-3 Fare når last løftes",
+      "paragraph": "§ 18-3",
+      "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/18/",
+      "tags": [
+        "lifting"
+      ]
+    },
+    {
+      "hazardId": "lh-07",
+      "section": "controls",
+      "textNb": "Sikkerhetsavstand til kraftlinjer.",
+      "critical": true,
+      "sourceId": "FIRMA",
+      "sourceDetail": "Avstanden avtales med netteier før løftet. Byggeren fant ingen kontrollert paragraf.",
+      "tags": [
+        "lifting",
+        "electrical"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "hazardId": "lh-08",
+      "section": "ppe",
+      "textNb": "Hjelm, vernesko og synlighetstøy for alle i området; hansker for anhuker.",
+      "critical": true,
+      "sourceId": "FIRMA",
+      "sourceDetail": "Firmaets og hovedentreprenørens krav til verneutstyr på byggeplassen.",
+      "tags": [
+        "lifting",
+        "ppe"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "hazardId": "lh-09",
+      "section": "stop",
+      "textNb": "Stans løftet når vind eller vær gjør det usikkert.",
+      "critical": true,
+      "sourceId": "FUA-18",
+      "sourceDetail": "§ 18-6 Measures in connection with lifting operations (engelsk tittel). Byggerens kobling, ikke kontrollert.",
+      "paragraph": "§ 18-6",
+      "tags": [
+        "lifting"
+      ],
+      "riskLevel": "red",
+      "url": "https://www.arbeidstilsynet.no/regelverk/forskrifter/forskrift-om-utforelse-av-arbeid/3/18/"
+    },
+    {
+      "hazardId": "lh-10",
+      "section": "stop",
+      "textNb": "Alle kan si stopp, og kranføreren stanser straks.",
+      "critical": true,
+      "sourceId": "FIRMA",
+      "sourceDetail": "Firmaets løfterutine.",
+      "tags": [
+        "lifting"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "hazardId": "lh-11",
+      "section": "emergency",
+      "textNb": "Ved ulykke: 113, basen, førstehjelpsutstyr og møteplass.",
+      "critical": true,
+      "sourceId": "FIRMA",
+      "sourceDetail": "Firmaets beredskapsrutine.",
+      "tags": [
+        "lifting",
+        "emergency"
+      ],
+      "riskLevel": "red"
     }
-  ]
+  ],
+  "checkedAt": "2026-10-26"
 }

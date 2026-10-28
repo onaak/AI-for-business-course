@@ -1,7 +1,7 @@
 // Shared data model. Follows implementation_plan.md section 6, with the small
 // additions listed in ASSUMPTIONS.md (parameter defaults, per-language check state).
 
-export type Lang = 'nb' | 'en' | 'pl' | 'lt';
+export type Lang = 'nb' | 'en' | 'pl' | 'lt' | 'ru';
 /** A crew language. May be a code outside Lang, which D4 then reports as unsupported. */
 export type CrewLang = string;
 
@@ -19,6 +19,8 @@ export type VerificationState = 'draft' | 'languageChecked' | 'technicallyChecke
 export interface DataPack {
   version: number; // raised by hand when a revision is complete (SC-10)
   hash: string; // content hash, stored in every run
+  /** Hash of the seed data last merged into this working pack (new templates, languages, fields). */
+  seedHash?: string;
   languages: Lang[]; // supported target languages = listed here (SC-03)
   glossary: GlossaryTerm[];
   templates: Template[];
@@ -53,6 +55,14 @@ export type Parameter =
 export type Section = 'steps' | 'hazards' | 'controls' | 'ppe' | 'stop' | 'emergency';
 export const SECTIONS: Section[] = ['steps', 'hazards', 'controls', 'ppe', 'stop', 'emergency'];
 
+/** Classification for the rules library (B1). A line can carry several. */
+export type Tag = 'height' | 'lifting' | 'painting' | 'chemicals' | 'dust' | 'noise' | 'vibration' | 'fire' | 'concrete' | 'electrical' | 'ppe' | 'emergency';
+export const TAGS: Tag[] = ['height', 'lifting', 'painting', 'chemicals', 'concrete', 'dust', 'noise', 'vibration', 'fire', 'electrical', 'ppe', 'emergency'];
+/** Green: low, yellow: moderate, red: high risk, as the interviewed firm grades risk (B2). */
+export type RiskLevel = 'green' | 'yellow' | 'red';
+/** GHS hazard pictograms (CLP). Language-independent, shown to workers next to product lines (K3). */
+export type Ghs = 'GHS01' | 'GHS02' | 'GHS03' | 'GHS04' | 'GHS05' | 'GHS06' | 'GHS07' | 'GHS08' | 'GHS09';
+
 export interface TemplateLine {
   lineId: string;
   section: Section;
@@ -64,6 +74,26 @@ export interface TemplateLine {
   termIds: string[];
   keyTechnical: KeyState;
   translations: Partial<Record<Lang, { text: string; keyLanguage: KeyState }>>;
+  tags?: Tag[];
+  riskLevel?: RiskLevel;
+  /** Pictograms shown next to the line (product lines). */
+  ghs?: Ghs[];
+  /** The line is in the SJA only when the foreman picked this product (K1). */
+  onlyWithProduct?: string;
+}
+
+/**
+ * A product used in today's job (K1). SYNTHETIC examples in the prototype: the names are
+ * invented, the hazard classes are typical of the product type. Not a real product's data sheet.
+ */
+export interface Product {
+  productId: string;
+  name: LangText;
+  ghs: Ghs[];
+  /** H-statements (CLP), as codes. */
+  hCodes: string[];
+  /** Where the lines come from: "Sikkerhetsdatablad, eksempel, revisjon …". */
+  sdsNote: string;
 }
 
 export interface Question {
@@ -81,6 +111,9 @@ export interface Template {
   parameters: Parameter[];
   lines: TemplateLine[];
   questions: Question[];
+  products?: Product[];
+  /** Questions for the stand-alone set (test 5). Default: the first four. */
+  standaloneQuestionIds?: string[];
 }
 
 export interface HazardSource {
@@ -97,11 +130,19 @@ export interface HazardEntry {
   critical: boolean;
   sourceId: string;
   sourceDetail: string;
+  /** Paragraph-level reference (Q1), e.g. "§ 17-1". Absent for firm practice. */
+  paragraph?: string;
+  /** Link to the paragraph or section. */
+  url?: string;
+  tags?: Tag[];
+  riskLevel?: RiskLevel;
 }
 
 export interface HazardList {
   templateId: string;
   note: string;
+  /** When the references were last read against the source. */
+  checkedAt?: string;
   sources: HazardSource[];
   entries: HazardEntry[];
 }
@@ -151,7 +192,8 @@ export interface Flag {
   termId?: string;
 }
 
-export type TargetSource = 'verifiedReuse' | 'draftReuse' | 'machineNew' | 'reviewerCorrected';
+/** 'memory': a changed or new line whose exact Norwegian text is already verified elsewhere (L1). */
+export type TargetSource = 'verifiedReuse' | 'draftReuse' | 'machineNew' | 'reviewerCorrected' | 'memory';
 export type CheckState = 'reused' | 'pending' | 'checked' | 'error' | 'blocked';
 
 export interface SjaLineLang {
@@ -237,12 +279,29 @@ export interface UnderstandingResult {
   recheck?: boolean;
   /** Only on runs signed before the v3 check: the earlier line-level teach-back, kept as recorded. */
   legacyTeachBack?: { lineId: string; outcome: string }[];
+  /** How the workers were checked (U1): talk with the foreman, written answers, or multiple choice only. Counts. */
+  paths?: Record<CheckPath, number>;
+  /** Why the conversation was not possible, as counts (U1). */
+  fallbackReasons?: Record<string, number>;
 }
+
+/**
+ * U1 (decided 26 Oct 2026): conversation first. If it is not possible, the worker writes the
+ * explanation in his own language, the model translates it, and the foreman judges it; this
+ * may end in "signed". Multiple choice alone is the last resort and ends in "signed with fallback".
+ */
+export type CheckPath = 'conversation' | 'written' | 'questionsOnly';
+export const CHECK_PATHS: CheckPath[] = ['conversation', 'written', 'questionsOnly'];
+export const FALLBACK_REASONS = ['noCommonLanguage', 'lateArrival', 'other'] as const;
+export type FallbackReason = (typeof FALLBACK_REASONS)[number];
 
 /** What the foreman saw when the job started (brief v3, step 4). An empty list means nothing was misunderstood. */
 export interface StartObservation {
   at: string;
+  /** Lines that were misunderstood. */
   lineIds: string[];
+  /** Lines that were understood but not followed, e.g. protective equipment taken off (I4). */
+  notFollowed?: string[];
 }
 
 export interface Sja {
@@ -262,6 +321,8 @@ export interface Sja {
   specificsConfirmed: boolean;
   languages: CrewLang[];
   crewFlags: { newWorker: boolean; firstTimeJobType: boolean };
+  /** Products picked for today's job (K1). */
+  products?: string[];
   lines: SjaLine[];
   sjaFlags: Flag[]; // flags on the whole SJA (unsupported language)
   contentConfirmed: boolean;
@@ -309,7 +370,7 @@ export interface LogEvent {
   count?: number;
 }
 
-export type Task = 'P1' | 'P2' | 'P3' | 'P4' | 'P5' | 'P6';
+export type Task = 'P1' | 'P2' | 'P3' | 'P4' | 'P5' | 'P6' | 'P7';
 
 /** Evidence store: synthetic content only. */
 export interface ModelCall {
@@ -326,6 +387,8 @@ export interface ModelCall {
   parsed: unknown;
   durationMs: number;
   retries: number;
+  /** Part of durationMs spent waiting after "too many requests" (free tiers). Absent when there was no wait. */
+  rateLimitWaitMs?: number;
   at: string;
   error?: string;
 }

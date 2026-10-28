@@ -14,6 +14,10 @@ import type { Flag, ModelCall, ModelClient, RunRecord } from '../core/types';
 import { LANG_NAMES, mapLimit, nowIso, uid } from '../core/util';
 import { aiUseSummary, benchMarkdown, promptsExport, testLogCsv, testLogMarkdown, verificationSummaryMarkdown } from '../record';
 import { useApp, useLog, type BenchRun, type TestLogRow } from '../state/stores';
+import { BenchU4 } from './BenchU4';
+
+/** The T6 pair fixtures: seeded errors and clean controls per language (Russian added 26 Oct 2026, R4). */
+export const T6_FIXTURES = ['seeded-errors.pl', 'seeded-errors.lt', 'seeded-errors.ru', 'controls.pl', 'controls.lt', 'controls.ru'];
 
 function recording(): { client: ModelClient; calls: ModelCall[] } {
   const calls: ModelCall[] = [];
@@ -70,15 +74,15 @@ export default function Bench() {
   const [progress, setProgress] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [note, setNote] = useState<string | null>(null);
-  const [langSel, setLangSel] = useState<'both' | 'pl' | 'lt'>('both');
+  const [langSel, setLangSel] = useState<'both' | 'pl' | 'lt' | 'ru'>('both');
   const [pasted, setPasted] = useState('Sperr av området under arbeidsstedet. | Wygrodź teren nad miejscem pracy.');
   const [pasteLang, setPasteLang] = useState('pl');
   const [pasteCritical, setPasteCritical] = useState(true);
   const [p3, setP3] = useState<{ id: string; text: string; out?: P3Output['lines'][number]; error?: string; origin?: string }[] | null>(null);
   const [p1, setP1] = useState<{ out?: P1Output; error?: string; origin?: string } | null>(null);
 
-  const pairs: PairFixture[] = useMemo(() => (fixtures ? ['seeded-errors.pl', 'seeded-errors.lt', 'controls.pl', 'controls.lt'].flatMap((k) => fixtures[k]?.pairs ?? []) : []), [fixtures]);
-  const confirmed = fixtures ? ['seeded-errors.pl', 'seeded-errors.lt', 'controls.pl', 'controls.lt'].every((k) => fixtures[k]?.status === 'confirmed') : false;
+  const pairs: PairFixture[] = useMemo(() => (fixtures ? T6_FIXTURES.flatMap((k) => fixtures[k]?.pairs ?? []) : []), [fixtures]);
+  const confirmed = fixtures ? T6_FIXTURES.every((k) => fixtures[k]?.status === 'confirmed') : false;
   if (!pack || !config || !fixtures) return <Layout title="Test bench" english>Loading …</Layout>;
 
   const replay = config.mode === 'replay';
@@ -243,9 +247,10 @@ export default function Bench() {
           <p className="text-sm text-slate-700">Runs the check engine on each source and target pair. Pass marks set in advance: at least 8 of 10 seeded errors flagged; at most 2 of 10 controls flagged red; at least 2 of the non-glossary errors flagged.</p>
           <div className="flex flex-wrap items-center gap-2">
             <select className={`${inputClass} !w-auto`} value={langSel} onChange={(e) => setLangSel(e.target.value as 'both')} aria-label="Language" data-testid="bench-lang">
-              <option value="both">Polish and Lithuanian</option>
+              <option value="both">Polish, Lithuanian and Russian</option>
               <option value="pl">Polish</option>
               <option value="lt">Lithuanian</option>
+              <option value="ru">Russian</option>
             </select>
             <Button variant="primary" disabled={Boolean(busy)} onClick={() => runPairs(selected, 'pairs')} data-testid="bench-run-t6">
               Run {selected.length} pairs
@@ -266,7 +271,7 @@ export default function Bench() {
                     <div key={lang} className="rounded-lg border border-slate-300 p-3 text-sm" data-testid={`bench-summary-${lang}`}>
                       <h3 className="text-base font-bold">{LANG_NAMES[lang]?.en}</h3>
                       <dl className="mt-1 grid grid-cols-[1fr_auto] gap-x-3 gap-y-0.5">
-                        <dt>Seeded errors flagged, rules alone (D1, D2)</dt><dd className="font-bold" data-testid={`caught-rules-${lang}`}>{s.caughtRulesOnly} of {s.seeded}</dd>
+                        <dt>Seeded errors flagged, rules alone (D1, D2). Needs no model: reportable now as "deterministic checks only" once the fixtures are confirmed (F5)</dt><dd className="font-bold" data-testid={`caught-rules-${lang}`}>{s.caughtRulesOnly} of {s.seeded}</dd>
                         <dt>Seeded errors flagged, rules plus back-translation</dt><dd className="font-bold" data-testid={`caught-all-${lang}`}>{s.caughtAll} of {s.seeded}</dd>
                         <dt>Non-glossary errors flagged</dt><dd className="font-bold">{s.nonGlossaryCaught} of {s.nonGlossary}</dd>
                         <dt>Controls flagged red</dt><dd className="font-bold">{s.controlsFlaggedRed} of {s.controls}</dd>
@@ -415,6 +420,8 @@ export default function Bench() {
         </Card>
 
         {/* ---------- foreman tests ---------- */}
+        <BenchU4 pack={pack} samples={fixtures['written-answers']?.answers ?? []} status={fixtures['written-answers']?.status ?? 'unconfirmed'} />
+
         <Card className="space-y-3">
           <h2 className="text-lg font-bold">T1, T2, T5, T8 Tests with people</h2>
           <p className="text-sm text-slate-700">Start a foreman run with a test number, so that its log events and its saved record carry that number. Use the observer control in the corner of the foreman screens to count assists. T5 and T8 use the baseline timer and the standalone question set.</p>

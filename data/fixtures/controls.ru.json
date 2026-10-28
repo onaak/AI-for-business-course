@@ -1,0 +1,96 @@
+{
+  "status": "unconfirmed",
+  "note": "Written by the builder. A native speaker must confirm each seeded error is wrong, and each control is right, before any T6 result is reported. Until then results are labelled \"unconfirmed fixtures\". For the Moldovan workers at the interviewed firm Russian is a second language; a Russian reviewer should still be a native or fluent reader.",
+  "pairs": [
+    {
+      "id": "ru-c01",
+      "lang": "ru",
+      "kind": "control",
+      "source": "Rekkverk skal være montert på alle åpne sider før arbeidet starter.",
+      "target": "Перед началом работы со всех открытых сторон должно быть установлено защитное ограждение.",
+      "critical": true,
+      "note": "Stored translation of template line h-08."
+    },
+    {
+      "id": "ru-c02",
+      "lang": "ru",
+      "kind": "control",
+      "source": "Bruk fallsikringssele festet til godkjent forankringspunkt der rekkverk mangler.",
+      "target": "Там, где нет защитного ограждения, используйте страховочную привязь, пристёгнутую к утверждённой точке крепления.",
+      "critical": true,
+      "note": "Stored translation of template line h-09."
+    },
+    {
+      "id": "ru-c03",
+      "lang": "ru",
+      "kind": "control",
+      "source": "Sperr av området under arbeidsstedet.",
+      "target": "Оградите зону под рабочим местом.",
+      "critical": true,
+      "note": "Stored translation of template line h-10."
+    },
+    {
+      "id": "ru-c04",
+      "lang": "ru",
+      "kind": "control",
+      "source": "Stige skal bare brukes til kortvarig arbeid og skal sikres mot å gli.",
+      "target": "Приставную лестницу можно использовать только для кратковременной работы, и она должна быть защищена от скольжения.",
+      "critical": true,
+      "note": "Stored translation of template line h-13."
+    },
+    {
+      "id": "ru-c05",
+      "lang": "ru",
+      "kind": "control",
+      "source": "Stans arbeidet når vindstyrken er over vindgrensen.",
+      "target": "Остановите работу, когда скорость ветра выше допустимого предела.",
+      "critical": true,
+      "note": "Stored translation of template line h-18."
+    },
+    {
+      "id": "ru-c06",
+      "lang": "ru",
+      "kind": "control",
+      "source": "Kontroller at løfteredskapet har WLL som dekker lastens vekt.",
+      "target": "Проверьте, что рабочая нагрузка (WLL) грузозахватных приспособлений соответствует массе груза.",
+      "critical": true,
+      "note": "Stored translation of template line l-09."
+    },
+    {
+      "id": "ru-c07",
+      "lang": "ru",
+      "kind": "control",
+      "source": "Ingen skal oppholde seg under hengende last.",
+      "target": "Никто не должен находиться под подвешенным грузом.",
+      "critical": true,
+      "note": "Stored translation of template line l-11."
+    },
+    {
+      "id": "ru-c08",
+      "lang": "ru",
+      "kind": "control",
+      "source": "Sperr av faresonen rundt løftet.",
+      "target": "Оградите опасную зону вокруг места подъёма.",
+      "critical": true,
+      "note": "Stored translation of template line l-12."
+    },
+    {
+      "id": "ru-c09",
+      "lang": "ru",
+      "kind": "control",
+      "source": "Bruk styretau for å styre lasten. Ikke styr lasten med hendene.",
+      "target": "Направляйте груз оттяжкой. Не направляйте груз руками.",
+      "critical": true,
+      "note": "Stored translation of template line l-14."
+    },
+    {
+      "id": "ru-c10",
+      "lang": "ru",
+      "kind": "control",
+      "source": "Hold sikkerhetsavstand til kraftlinjer.",
+      "target": "Соблюдайте безопасное расстояние до линий электропередачи.",
+      "critical": true,
+      "note": "Stored translation of template line l-16."
+    }
+  ]
+}

@@ -4,7 +4,8 @@
     "nb": "Løfteoperasjon med kran",
     "en": "Lifting with a crane",
     "pl": "Podnoszenie ładunku żurawiem",
-    "lt": "Krovinio kėlimas kranu"
+    "lt": "Krovinio kėlimas kranu",
+    "ru": "Подъём груза краном"
   },
   "parameters": [
     {
@@ -13,7 +14,8 @@
         "nb": "Lastens vekt",
         "en": "Load weight",
         "pl": "Masa ładunku",
-        "lt": "Krovinio svoris"
+        "lt": "Krovinio svoris",
+        "ru": "Масса груза"
       },
       "type": "number",
       "unitSymbol": "kg",
@@ -27,7 +29,8 @@
         "nb": "Løfteutstyr",
         "en": "Lifting equipment",
         "pl": "Urządzenie podnoszące",
-        "lt": "Kėlimo įrenginys"
+        "lt": "Kėlimo įrenginys",
+        "ru": "Грузоподъёмное оборудование"
       },
       "type": "choice",
       "default": "mobileCrane",
@@ -38,7 +41,8 @@
             "nb": "Mobilkran",
             "en": "Mobile crane",
             "pl": "Żuraw samojezdny",
-            "lt": "Mobilusis kranas"
+            "lt": "Mobilusis kranas",
+            "ru": "Автокран"
           }
         },
         {
@@ -47,7 +51,8 @@
             "nb": "Lastebilkran",
             "en": "Lorry loader crane",
             "pl": "Żuraw przeładunkowy (HDS)",
-            "lt": "Kranas-manipuliatorius"
+            "lt": "Kranas-manipuliatorius",
+            "ru": "Кран-манипулятор"
           }
         },
         {
@@ -56,7 +61,8 @@
             "nb": "Teleskoptruck",
             "en": "Telehandler",
             "pl": "Ładowarka teleskopowa",
-            "lt": "Teleskopinis krautuvas"
+            "lt": "Teleskopinis krautuvas",
+            "ru": "Телескопический погрузчик"
           }
         }
       ]
@@ -67,7 +73,8 @@
         "nb": "Løftehøyde",
         "en": "Lifting height",
         "pl": "Wysokość podnoszenia",
-        "lt": "Kėlimo aukštis"
+        "lt": "Kėlimo aukštis",
+        "ru": "Высота подъёма"
       },
       "type": "number",
       "unitSymbol": "m",
@@ -81,7 +88,8 @@
         "nb": "Vindgrense",
         "en": "Wind limit",
         "pl": "Limit wiatru",
-        "lt": "Vėjo riba"
+        "lt": "Vėjo riba",
+        "ru": "Предел по ветру"
       },
       "type": "number",
       "unitSymbol": "m/s",
@@ -123,8 +131,17 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Масса груза: {weight} кг",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting"
+      ]
     },
     {
       "lineId": "l-02",
@@ -158,8 +175,17 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Грузоподъёмное оборудование: {equipment}",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting"
+      ]
     },
     {
       "lineId": "l-03",
@@ -193,8 +219,17 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Высота подъёма: {liftHeight} м",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting"
+      ]
     },
     {
       "lineId": "l-04",
@@ -226,8 +261,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Перед началом подъёма обсудите этот SJA со всей бригадой.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting"
+      ],
+      "riskLevel": "green"
     },
     {
       "lineId": "l-05",
@@ -263,8 +308,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Договоритесь, кто крановщик, кто стропальщик и кто сигнальщик.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting"
+      ],
+      "riskLevel": "yellow"
     },
     {
       "lineId": "l-06",
@@ -298,8 +353,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Опасность: подвешенный груз падает или раскачивается.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "l-07",
@@ -333,8 +398,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Опасность: защемление между грузом и неподвижными конструкциями.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "l-08",
@@ -370,8 +445,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Опасность: кран опрокидывается из-за слабого основания или слишком тяжёлого груза.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "l-09",
@@ -408,8 +493,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Проверьте, что рабочая нагрузка (WLL) грузозахватных приспособлений соответствует массе груза.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "l-10",
@@ -444,8 +539,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Перед использованием проверьте грузовые стропы и скобы на повреждения.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "l-11",
@@ -479,8 +584,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Никто не должен находиться под подвешенным грузом.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "l-12",
@@ -517,8 +632,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Оградите опасную зону вокруг места подъёма.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "l-13",
@@ -555,8 +680,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Кран должен стоять на несущем основании с полностью выдвинутыми выносными опорами.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "l-14",
@@ -590,8 +725,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Направляйте груз оттяжкой. Не направляйте груз руками.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting"
+      ],
+      "riskLevel": "yellow"
     },
     {
       "lineId": "l-15",
@@ -627,8 +772,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Крановщик и сигнальщик должны всё время иметь радиосвязь или прямую видимость.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "l-16",
@@ -637,7 +792,7 @@
       "parameterRefs": [],
       "dependsOnParameters": [],
       "critical": true,
-      "sourceRef": null,
+      "sourceRef": "lh-07",
       "termIds": [
         "safety-distance",
         "power-line"
@@ -663,8 +818,19 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Соблюдайте безопасное расстояние до линий электропередачи.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting",
+        "electrical"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "l-17",
@@ -673,7 +839,7 @@
       "parameterRefs": [],
       "dependsOnParameters": [],
       "critical": true,
-      "sourceRef": null,
+      "sourceRef": "lh-08",
       "termIds": [
         "helmet",
         "footwear",
@@ -700,8 +866,19 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Каску, защитную обувь и сигнальную одежду должны носить все, кто находится в зоне.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting",
+        "ppe"
+      ],
+      "riskLevel": "yellow"
     },
     {
       "lineId": "l-18",
@@ -710,7 +887,7 @@
       "parameterRefs": [],
       "dependsOnParameters": [],
       "critical": false,
-      "sourceRef": null,
+      "sourceRef": "lh-08",
       "termIds": [
         "slinger",
         "gloves"
@@ -736,8 +913,19 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Стропальщик должен работать в перчатках.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting",
+        "ppe"
+      ],
+      "riskLevel": "green"
     },
     {
       "lineId": "l-19",
@@ -771,8 +959,17 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Предел по ветру: {wind} м/с",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting"
+      ]
     },
     {
       "lineId": "l-20",
@@ -783,7 +980,7 @@
         "wind"
       ],
       "critical": true,
-      "sourceRef": null,
+      "sourceRef": "lh-09",
       "termIds": [
         "wind-speed"
       ],
@@ -808,8 +1005,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Остановите подъём, когда скорость ветра выше допустимого предела.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "l-21",
@@ -843,8 +1050,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Остановите подъём, если кто-то входит в опасную зону.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "l-22",
@@ -853,7 +1070,7 @@
       "parameterRefs": [],
       "dependsOnParameters": [],
       "critical": true,
-      "sourceRef": null,
+      "sourceRef": "lh-10",
       "termIds": [
         "crane-operator"
       ],
@@ -878,8 +1095,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Любой может сказать «стоп». Крановщик должен сразу остановиться.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "l-23",
@@ -888,7 +1115,7 @@
       "parameterRefs": [],
       "dependsOnParameters": [],
       "critical": true,
-      "sourceRef": null,
+      "sourceRef": "lh-11",
       "termIds": [
         "foreman"
       ],
@@ -913,8 +1140,19 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "При несчастном случае: позвоните 113 и сообщите бригадиру.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting",
+        "emergency"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "l-24",
@@ -923,7 +1161,7 @@
       "parameterRefs": [],
       "dependsOnParameters": [],
       "critical": false,
-      "sourceRef": null,
+      "sourceRef": "lh-11",
       "termIds": [
         "first-aid",
         "assembly-point"
@@ -949,8 +1187,19 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Аптечка первой помощи и место сбора должны быть известны всем.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "lifting",
+        "emergency"
+      ],
+      "riskLevel": "yellow"
     }
   ],
   "questions": [
@@ -1004,6 +1253,17 @@
             "Greitai ją pasiimu.",
             "Palaukiu, kol krovinys bus nuleistas.",
             "Paprašau krano operatoriaus pakelti krovinį aukščiau ir ją pasiimu."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Груз висит в воздухе, а вы уронили перчатку прямо под ним. Что вы делаете?",
+          "options": [
+            "Быстро поднимаю её.",
+            "Жду, пока груз опустят.",
+            "Прошу крановщика поднять груз выше и забираю перчатку."
           ],
           "keyLanguage": {
             "given": false
@@ -1066,6 +1326,17 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Пока груз в воздухе, ветер усиливается и теперь выше допустимого предела. Что вы делаете?",
+          "options": [
+            "Заканчиваем подъём как можно быстрее.",
+            "Прекращаем подъём и безопасно опускаем груз.",
+            "Удерживаем груз руками."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
         }
       }
     },
@@ -1120,6 +1391,17 @@
             "Garsiai pasakau „stop“, ir kėlimas sustabdomas.",
             "Pamoju jam pasitraukti, o kėlimas tęsiamas.",
             "Tai signalininko atsakomybė, todėl nieko nedarau."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Незнакомый человек заходит в огороженную зону во время подъёма. Что вы делаете?",
+          "options": [
+            "Громко говорю «стоп», и подъём останавливают.",
+            "Машу ему, чтобы ушёл, и подъём продолжается.",
+            "Это обязанность сигнальщика, поэтому я ничего не делаю."
           ],
           "keyLanguage": {
             "given": false
@@ -1181,8 +1463,297 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Груз начинает раскачиваться в сторону стены. Как вы его направляете?",
+          "options": [
+            "Отталкиваю его руками.",
+            "Использую оттяжку и держусь на расстоянии.",
+            "Встаю между грузом и стеной."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
         }
       }
+    },
+    {
+      "questionId": "q-l5",
+      "linkedLineIds": [
+        "l-10"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "Du ser at en løftestropp har en flenge. Hva gjør du?",
+          "options": [
+            "Jeg bruker den, lasten er lett.",
+            "Jeg tar den ut av bruk og sier fra.",
+            "Jeg snur den så flengen havner på innsiden."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "You see that a lifting sling has a tear. What do you do?",
+          "options": [
+            "I use it, the load is light.",
+            "I take it out of use and report it.",
+            "I turn it so that the tear is on the inside."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Widzisz, że zawiesie ma rozdarcie. Co robisz?",
+          "options": [
+            "Używam go, ładunek jest lekki.",
+            "Wycofuję je z użycia i zgłaszam.",
+            "Obracam je tak, żeby rozdarcie było od środka."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Matote, kad kėlimo stropas įplyšęs. Ką darote?",
+          "options": [
+            "Naudoju jį, krovinys lengvas.",
+            "Nebenaudoju jo ir pranešu.",
+            "Apverčiu jį, kad įplyšimas būtų viduje."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Вы видите, что на грузовом стропе разрыв. Что вы делаете?",
+          "options": [
+            "Использую его, груз лёгкий.",
+            "Вывожу его из работы и сообщаю.",
+            "Поворачиваю его так, чтобы разрыв оказался внутри."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "q-l6",
+      "linkedLineIds": [
+        "l-22"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "Du ser noe farlig under løftet, men du er ikke signalgiver. Hva gjør du?",
+          "options": [
+            "Jeg sier stopp. Alle kan si stopp.",
+            "Jeg venter, det er signalgiverens jobb.",
+            "Jeg sier fra etter løftet."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "You see something dangerous during the lift, but you are not the signaller. What do you do?",
+          "options": [
+            "I say stop. Anyone can say stop.",
+            "I wait, it is the signaller’s job.",
+            "I tell someone after the lift."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Widzisz coś niebezpiecznego podczas podnoszenia, ale nie jesteś sygnalistą. Co robisz?",
+          "options": [
+            "Mówię „stop”. Każdy może powiedzieć „stop”.",
+            "Czekam, to zadanie sygnalisty.",
+            "Mówię o tym po zakończeniu podnoszenia."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Kėlimo metu matote kažką pavojingo, bet nesate signalininkas. Ką darote?",
+          "options": [
+            "Sakau „stop“. Kiekvienas gali pasakyti „stop“.",
+            "Laukiu, tai signalininko darbas.",
+            "Pasakau po kėlimo."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Во время подъёма вы видите что-то опасное, но вы не сигнальщик. Что вы делаете?",
+          "options": [
+            "Говорю «стоп». Любой может сказать «стоп».",
+            "Жду, это работа сигнальщика.",
+            "Сообщаю после подъёма."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 0,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "q-l7",
+      "linkedLineIds": [
+        "l-16"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "Lasten skal løftes nær en kraftlinje. Hva gjelder?",
+          "options": [
+            "Vi holder sikkerhetsavstand til kraftlinjen.",
+            "Det går bra hvis vi er forsiktige.",
+            "Vi løfter fort forbi linjen."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "The load is to be lifted close to an overhead power line. What applies?",
+          "options": [
+            "We keep a safety distance from the power line.",
+            "It is fine if we are careful.",
+            "We lift quickly past the line."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Ładunek ma być podniesiony w pobliżu linii energetycznej. Co obowiązuje?",
+          "options": [
+            "Zachowujemy bezpieczną odległość od linii.",
+            "Wszystko w porządku, jeśli jesteśmy ostrożni.",
+            "Szybko przenosimy ładunek obok linii."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Krovinys bus keliamas šalia elektros linijos. Kas galioja?",
+          "options": [
+            "Laikomės saugaus atstumo nuo elektros linijos.",
+            "Viskas gerai, jei būsime atsargūs.",
+            "Greitai pakeliame pro liniją."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Груз нужно поднять рядом с линией электропередачи. Что действует?",
+          "options": [
+            "Соблюдаем безопасное расстояние до линии.",
+            "Ничего страшного, если мы осторожны.",
+            "Быстро проносим груз мимо линии."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 0,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "q-l8",
+      "linkedLineIds": [
+        "l-15"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "Kranføreren mister radiosambandet med signalgiveren under løftet, og de ser ikke hverandre. Hva skal skje?",
+          "options": [
+            "Kranføreren fortsetter forsiktig.",
+            "Løftet stanses til de har samband eller fri sikt igjen.",
+            "Anhukeren roper til kranføreren."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "During the lift the crane operator loses radio contact with the signaller, and they cannot see each other. What must happen?",
+          "options": [
+            "The crane operator carries on carefully.",
+            "The lift is stopped until they have contact or a clear line of sight again.",
+            "The slinger shouts to the crane operator."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Podczas podnoszenia operator żurawia traci łączność radiową z sygnalistą i nie widzą się nawzajem. Co musi się stać?",
+          "options": [
+            "Operator ostrożnie kontynuuje.",
+            "Podnoszenie zostaje wstrzymane, dopóki znów nie będą mieli łączności lub dobrej widoczności.",
+            "Hakowy krzyczy do operatora."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Kėlimo metu krano operatorius netenka radijo ryšio su signalininku, ir jie nemato vienas kito. Kas turi įvykti?",
+          "options": [
+            "Krano operatorius atsargiai tęsia.",
+            "Kėlimas sustabdomas, kol vėl bus ryšys arba jie matys vienas kitą.",
+            "Stropuotojas šaukia krano operatoriui."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Во время подъёма крановщик теряет радиосвязь с сигнальщиком, и они не видят друг друга. Что должно произойти?",
+          "options": [
+            "Крановщик осторожно продолжает.",
+            "Подъём останавливают, пока снова не будет связи или прямой видимости.",
+            "Стропальщик кричит крановщику."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      }
     }
+  ],
+  "standaloneQuestionIds": [
+    "q-l1",
+    "q-l2",
+    "q-l3",
+    "q-l4"
   ]
 }

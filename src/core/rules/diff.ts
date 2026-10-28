@@ -11,6 +11,12 @@ export function supportedLangs(sja: Pick<Sja, 'languages'>, pack: DataPack): Lan
   return sja.languages.filter((l) => isSupported(l, pack)) as Lang[];
 }
 
+/** The template lines in today's SJA: product lines only for the products the foreman picked (K1). */
+export function templateLinesFor(template: Template, products: string[] | undefined): TemplateLine[] {
+  const picked = new Set(products ?? []);
+  return template.lines.filter((tl) => !tl.onlyWithProduct || picked.has(tl.onlyWithProduct));
+}
+
 export function changedParameters(template: Template, values: Record<string, number | string>): string[] {
   return template.parameters.filter((p) => values[p.key] !== undefined && values[p.key] !== p.default).map((p) => p.key);
 }
@@ -128,9 +134,10 @@ export function applyOperations(args: {
   hazards: HazardList | undefined;
   pack: DataPack;
   langs: Lang[];
+  products?: string[];
 }): ApplyResult {
   const { template, values, operations, hazards, pack, langs } = args;
-  const lines = template.lines.map((tl) => lineFromTemplate(tl, template, values, langs));
+  const lines = templateLinesFor(template, args.products).map((tl) => lineFromTemplate(tl, template, values, langs));
   const warnings: string[] = [];
   const hazardById = new Map((hazards?.entries ?? []).map((h) => [h.hazardId, h]));
   let added = 0;

@@ -51,6 +51,18 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "страховочная привязь",
+        "stems": [
+          "привяз"
+        ],
+        "forbidden": [
+          "пояс"
+        ],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -93,6 +105,17 @@
         "stems": [
           "tvirtinimo",
           "tašk"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "точка крепления",
+        "stems": [
+          "точк",
+          "креплен"
         ],
         "forbidden": [],
         "keyLanguage": {
@@ -144,6 +167,17 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "страховочный строп",
+        "stems": [
+          "страховочн",
+          "строп"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -183,6 +217,16 @@
         "approved": "apsauginis turėklas",
         "stems": [
           "turėkl"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "защитное ограждение",
+        "stems": [
+          "огражден"
         ],
         "forbidden": [],
         "keyLanguage": {
@@ -232,6 +276,16 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "бортовая доска",
+        "stems": [
+          "бортов"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -271,6 +325,16 @@
         "approved": "pastoliai",
         "stems": [
           "pastol"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "строительные леса",
+        "stems": [
+          "леса|лесов"
         ],
         "forbidden": [],
         "keyLanguage": {
@@ -323,6 +387,17 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "передвижные леса",
+        "stems": [
+          "передвижн",
+          "леса|лесов"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -364,6 +439,16 @@
         "approved": "kopėčios",
         "stems": [
           "kopėči"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "приставная лестница",
+        "stems": [
+          "лестниц"
         ],
         "forbidden": [],
         "keyLanguage": {
@@ -415,6 +500,17 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "рабочая высота",
+        "stems": [
+          "рабоч",
+          "высот"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -456,6 +552,17 @@
         "stems": [
           "stog",
           "krašt"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "край крыши",
+        "stems": [
+          "край|краю|края|крае",
+          "крыш"
         ],
         "forbidden": [],
         "keyLanguage": {
@@ -507,6 +614,17 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "проём в перекрытии",
+        "stems": [
+          "проём|проем",
+          "перекрыт"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -553,6 +671,17 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "падающие предметы",
+        "stems": [
+          "падающ",
+          "предмет"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -592,6 +721,16 @@
         "approved": "aptverti",
         "stems": [
           "aptv"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "оградить",
+        "stems": [
+          "оград|огорож"
         ],
         "forbidden": [],
         "keyLanguage": {
@@ -644,6 +783,17 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "опасная зона",
+        "stems": [
+          "опасн",
+          "зон"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -688,6 +838,16 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "защитная каска",
+        "stems": [
+          "каск"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -727,6 +887,16 @@
         "approved": "pasmakrės dirželis",
         "stems": [
           "pasmakr"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "подбородочный ремень",
+        "stems": [
+          "подбородоч"
         ],
         "forbidden": [],
         "keyLanguage": {
@@ -777,6 +947,16 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "защитная обувь",
+        "stems": [
+          "обув"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -816,6 +996,16 @@
         "approved": "apsauginės pirštinės",
         "stems": [
           "pirštin"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "защитные перчатки",
+        "stems": [
+          "перчат"
         ],
         "forbidden": [],
         "keyLanguage": {
@@ -867,6 +1057,17 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "сигнальная одежда",
+        "stems": [
+          "сигнальн",
+          "одежд"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -906,6 +1107,16 @@
         "approved": "apsauginiai akiniai",
         "stems": [
           "akin"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "защитные очки",
+        "stems": [
+          "очк"
         ],
         "forbidden": [],
         "keyLanguage": {
@@ -953,6 +1164,16 @@
         "stems": [
           "vėjo",
           "grei"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "скорость ветра",
+        "stems": [
+          "ветр|ветер"
         ],
         "forbidden": [],
         "keyLanguage": {
@@ -1006,6 +1227,17 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "остановить работу",
+        "stems": [
+          "останов",
+          "работ"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -1047,6 +1279,16 @@
         "approved": "kranas",
         "stems": [
           "kran"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "кран",
+        "stems": [
+          "кран"
         ],
         "forbidden": [],
         "keyLanguage": {
@@ -1098,6 +1340,16 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "автокран",
+        "stems": [
+          "автокран"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -1138,6 +1390,16 @@
         "approved": "kranas-manipuliatorius",
         "stems": [
           "manipuliator"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "кран-манипулятор",
+        "stems": [
+          "манипулятор"
         ],
         "forbidden": [],
         "keyLanguage": {
@@ -1189,6 +1451,17 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "телескопический погрузчик",
+        "stems": [
+          "телескопич",
+          "погрузчик"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -1230,6 +1503,16 @@
         "stems": [
           "kran",
           "operator"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "крановщик",
+        "stems": [
+          "крановщ"
         ],
         "forbidden": [],
         "keyLanguage": {
@@ -1279,6 +1562,16 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "стропальщик",
+        "stems": [
+          "стропальщ"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -1318,6 +1611,16 @@
         "approved": "signalininkas",
         "stems": [
           "signalinink"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "сигнальщик",
+        "stems": [
+          "сигнальщ"
         ],
         "forbidden": [],
         "keyLanguage": {
@@ -1377,6 +1680,18 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "грузовой строп",
+        "stems": [
+          "строп"
+        ],
+        "forbidden": [
+          "стяжн"
+        ],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -1417,6 +1732,16 @@
         "approved": "apkaba",
         "stems": [
           "apkab"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "такелажная скоба",
+        "stems": [
+          "скоб"
         ],
         "forbidden": [],
         "keyLanguage": {
@@ -1468,6 +1793,16 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "крюк",
+        "stems": [
+          "крюк"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -1514,6 +1849,17 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "подвешенный груз",
+        "stems": [
+          "подвешенн",
+          "груз"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -1554,6 +1900,16 @@
         "approved": "leistina darbinė apkrova (WLL)",
         "stems": [
           "wll|leistin"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "рабочая нагрузка (WLL)",
+        "stems": [
+          "wll|нагрузк"
         ],
         "forbidden": [],
         "keyLanguage": {
@@ -1605,6 +1961,16 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "оттяжка",
+        "stems": [
+          "оттяжк"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -1650,6 +2016,16 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "выносные опоры",
+        "stems": [
+          "опор"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -1690,6 +2066,16 @@
         "approved": "atramų padėklai",
         "stems": [
           "padėkl"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "подкладки под опоры",
+        "stems": [
+          "подкладк"
         ],
         "forbidden": [],
         "keyLanguage": {
@@ -1742,6 +2128,16 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "линия электропередачи",
+        "stems": [
+          "электропередач|лэп"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -1788,6 +2184,17 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "безопасное расстояние",
+        "stems": [
+          "безопасн",
+          "расстоян"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -1827,6 +2234,16 @@
         "approved": "prispaudimo pavojus",
         "stems": [
           "prispaud"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "опасность защемления",
+        "stems": [
+          "защемлен|зажат"
         ],
         "forbidden": [],
         "keyLanguage": {
@@ -1878,6 +2295,16 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "радиосвязь",
+        "stems": [
+          "радиосвяз|рац"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -1917,6 +2344,16 @@
         "approved": "kėlimo reikmenys",
         "stems": [
           "kėlimo reikmen"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "грузозахватные приспособления",
+        "stems": [
+          "грузозахват"
         ],
         "forbidden": [],
         "keyLanguage": {
@@ -1968,6 +2405,17 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "первая помощь",
+        "stems": [
+          "перв",
+          "помощ"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -2009,6 +2457,17 @@
         "stems": [
           "susirinkim",
           "viet"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "место сбора",
+        "stems": [
+          "мест",
+          "сбор"
         ],
         "forbidden": [],
         "keyLanguage": {
@@ -2060,6 +2519,16 @@
         "keyLanguage": {
           "given": false
         }
+      },
+      "ru": {
+        "approved": "бригадир",
+        "stems": [
+          "бригадир"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
       }
     },
     "keyTechnical": {
@@ -2101,6 +2570,784 @@
         "stems": [
           "gelbėjim",
           "plan"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "план спасения",
+        "stems": [
+          "план",
+          "спасен"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "respirator",
+    "conceptEn": "respiratory protection",
+    "definition": "Equipment that protects the lungs: a half mask with the right filter, or a fresh-air mask. Not an ordinary dust mask unless the data sheet allows it.",
+    "critical": true,
+    "nbForms": [
+      "åndedrettsvern"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "respiratory protection",
+        "stems": [
+          "respirat"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "ochrona dróg oddechowych",
+        "stems": [
+          "oddechow"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "kvėpavimo takų apsaugos priemonės",
+        "stems": [
+          "kvėpavim"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "средства защиты органов дыхания",
+        "stems": [
+          "дыхан|респиратор"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "ventilation",
+    "conceptEn": "ventilation",
+    "definition": "Fresh air through the room: mechanical extraction or open windows and doors, so that solvent vapour does not build up.",
+    "critical": true,
+    "nbForms": [
+      "ventilasjon",
+      "lufting"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "ventilation",
+        "stems": [
+          "ventilat"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "wentylacja",
+        "stems": [
+          "wentyl"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "vėdinimas",
+        "stems": [
+          "vėdin"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "вентиляция",
+        "stems": [
+          "вентил|провет"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "solvent",
+    "conceptEn": "solvent",
+    "definition": "A liquid that dissolves paint or varnish and evaporates, e.g. white spirit. The vapour harms the nervous system and can catch fire.",
+    "critical": true,
+    "nbForms": [
+      "løsemiddel",
+      "løsemidler",
+      "løsningsmiddel"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "solvent",
+        "stems": [
+          "solvent"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "rozpuszczalnik",
+        "stems": [
+          "rozpuszczal"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "tirpiklis",
+        "stems": [
+          "tirpikl"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "растворитель",
+        "stems": [
+          "растворител"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "isocyanate",
+    "conceptEn": "isocyanates",
+    "definition": "Chemicals in the hardener of two-component polyurethane products. Can cause asthma. Only trained workers may use them.",
+    "critical": true,
+    "nbForms": [
+      "isocyanat"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "isocyanates",
+        "stems": [
+          "isocyanat"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "izocyjaniany",
+        "stems": [
+          "izocyjan"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "izocianatai",
+        "stems": [
+          "izocianat"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "изоцианаты",
+        "stems": [
+          "изоцианат"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "sds",
+    "conceptEn": "safety data sheet",
+    "definition": "The supplier's sheet for a chemical product: hazards, protective equipment, first aid, storage. Section 8 is protective equipment, section 4 first aid.",
+    "critical": false,
+    "nbForms": [
+      "sikkerhetsdatablad",
+      "datablad"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "safety data sheet",
+        "stems": [
+          "data sheet|datasheet|sds"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "karta charakterystyki",
+        "stems": [
+          "charakterystyk"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "saugos duomenų lapas",
+        "stems": [
+          "duomen"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "паспорт безопасности",
+        "stems": [
+          "паспорт"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "substance-index",
+    "conceptEn": "substance index (stoffkartotek)",
+    "definition": "The firm's register of the hazardous chemicals in use, with their safety data sheets. Required by the regulations, kept in Norwegian, and must be easy to reach.",
+    "critical": false,
+    "nbForms": [
+      "stoffkartotek"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "substance index",
+        "stems": [
+          "substance index|chemical register"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "rejestr substancji chemicznych",
+        "stems": [
+          "rejestr"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "cheminių medžiagų registras",
+        "stems": [
+          "registr"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "реестр химических веществ",
+        "stems": [
+          "реестр"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "open-flame",
+    "conceptEn": "open flame",
+    "definition": "Fire, a lighter, a cigarette or a gas burner. Not the same as a spark from a tool.",
+    "critical": true,
+    "nbForms": [
+      "åpen flamme",
+      "åpen ild"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "open flame",
+        "stems": [
+          "flame"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "otwarty ogień",
+        "stems": [
+          "ogie|ogni"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "atvira ugnis",
+        "stems": [
+          "ugn"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "открытый огонь",
+        "stems": [
+          "огон|огн"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "wet-concrete",
+    "conceptEn": "wet concrete",
+    "definition": "Fresh, unset concrete or mortar. Strongly alkaline: burns the skin and the eyes.",
+    "critical": true,
+    "nbForms": [
+      "våt betong",
+      "fersk betong",
+      "=sement",
+      "=sementen",
+      "sementbasert"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "wet concrete",
+        "stems": [
+          "concrete|cement"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "mokry beton",
+        "stems": [
+          "beton|cement"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "šlapias betonas",
+        "stems": [
+          "beton|cement"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "свежий бетон",
+        "stems": [
+          "бетон|цемент"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "formwork",
+    "conceptEn": "formwork",
+    "definition": "The temporary moulds, with ties and props, that hold the concrete until it has set.",
+    "critical": true,
+    "nbForms": [
+      "forskaling"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "formwork",
+        "stems": [
+          "formwork|shuttering"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "szalunek",
+        "stems": [
+          "szalun"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "klojiniai",
+        "stems": [
+          "klojin"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "опалубка",
+        "stems": [
+          "опалуб"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "poker-vibrator",
+    "conceptEn": "poker vibrator",
+    "definition": "The handheld rod that is pushed into the concrete to remove air. Vibrates the hands and arms.",
+    "critical": false,
+    "nbForms": [
+      "vibrasjonsstav",
+      "vibrator"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "poker vibrator",
+        "stems": [
+          "vibrator"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "wibrator wgłębny",
+        "stems": [
+          "wibrator"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "giluminis vibratorius",
+        "stems": [
+          "vibrator"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "глубинный вибратор",
+        "stems": [
+          "вибратор"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "hearing-protection",
+    "conceptEn": "hearing protection",
+    "definition": "Ear defenders or ear plugs.",
+    "critical": false,
+    "nbForms": [
+      "hørselvern"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "hearing protection",
+        "stems": [
+          "hearing protect|ear defender|ear protect"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "ochronniki słuchu",
+        "stems": [
+          "słuch"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "klausos apsaugos priemonės",
+        "stems": [
+          "klaus"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "средства защиты слуха",
+        "stems": [
+          "слух"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "concrete-pump",
+    "conceptEn": "concrete pump",
+    "definition": "The pump and its hose that carry concrete to the pour. A blocked hose can whip when the pressure is released.",
+    "critical": true,
+    "nbForms": [
+      "betongpumpe",
+      "pumpeslange"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "concrete pump",
+        "stems": [
+          "pump"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "pompa do betonu",
+        "stems": [
+          "pomp"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "betono siurblys",
+        "stems": [
+          "siurbl"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "бетононасос",
+        "stems": [
+          "бетононасос|насос"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "eye-wash",
+    "conceptEn": "eye wash",
+    "definition": "Rinsing the eye with an eye-wash bottle or clean running water.",
+    "critical": true,
+    "nbForms": [
+      "øyeskyll"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "eye wash",
+        "stems": [
+          "eye wash|eyewash"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "płukanie oczu",
+        "stems": [
+          "płuk|przepłuk"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "akių plovimas",
+        "stems": [
+          "plov|praplau"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "промывание глаз",
+        "stems": [
+          "промыв|промой"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      }
+    },
+    "keyTechnical": {
+      "given": false
+    }
+  },
+  {
+    "termId": "hazardous-waste",
+    "conceptEn": "hazardous waste",
+    "definition": "Waste that must be kept apart and delivered to an approved receiver: paint and solvent residues, soaked rags, empty cans with residue.",
+    "critical": false,
+    "nbForms": [
+      "farlig avfall"
+    ],
+    "byLang": {
+      "en": {
+        "approved": "hazardous waste",
+        "stems": [
+          "hazardous waste"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "pl": {
+        "approved": "odpady niebezpieczne",
+        "stems": [
+          "odpad"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "lt": {
+        "approved": "pavojingosios atliekos",
+        "stems": [
+          "atliek"
+        ],
+        "forbidden": [],
+        "keyLanguage": {
+          "given": false
+        }
+      },
+      "ru": {
+        "approved": "опасные отходы",
+        "stems": [
+          "отход"
         ],
         "forbidden": [],
         "keyLanguage": {

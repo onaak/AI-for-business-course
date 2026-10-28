@@ -6,6 +6,7 @@ import { en, workerEn } from './en';
 import { workerLt } from './lt';
 import { nb } from './nb';
 import { workerPl } from './pl';
+import { workerRu } from './ru';
 
 export type Key = keyof typeof nb;
 export type UiLang = 'nb' | 'en';
@@ -22,6 +23,7 @@ export const LangOverride = createContext<UiLang | null>(null);
 
 export function useUiLang(): UiLang {
   const stored = useApp((s) => s.lang);
+  // The clean view keeps the NO/EN choice (decided 26 Oct): English help lines then show as in the full view.
   return useContext(LangOverride) ?? stored;
 }
 
@@ -32,7 +34,7 @@ export function useT() {
 }
 
 export type WorkerKey = keyof typeof workerEn;
-const workerTables: Record<string, Record<WorkerKey, string>> = { en: workerEn, pl: workerPl, lt: workerLt };
+const workerTables: Record<string, Record<WorkerKey, string>> = { en: workerEn, pl: workerPl, lt: workerLt, ru: workerRu };
 
 /** Worker-facing strings: the worker's language only. */
 export function workerT(lang: string) {

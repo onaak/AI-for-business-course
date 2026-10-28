@@ -35,6 +35,7 @@ export function lineLangLabel(entry: SjaLineLang | undefined, lang: UiLang): str
   if (entry.checkState === 'error') return t('rec.notChecked');
   if (entry.checkState === 'pending' || entry.checkState === 'blocked') return t('rec.notChecked');
   if (entry.source === 'reviewerCorrected') return t('rec.reviewerCorrected');
+  if (entry.source === 'memory') return t('rec.fromMemory');
   if (entry.source === 'machineNew') return entry.flags.some((f) => f.status === 'open') ? t('rec.machineFlagged') : t('rec.machineChecked');
   return `${t('rec.reusedAs')} ${t(`verif.${entry.verification}`)}`;
 }
@@ -83,6 +84,7 @@ export function recordToMarkdown(rec: RunRecord, lang: UiLang, hazards?: HazardL
   out.push(`- ${t('rec.parameters')}: ${Object.entries(sja.parameterValues).map(([k, v]) => `${k} = ${v}`).join(', ')}`);
   out.push(`- ${t('rec.languages')}: ${langs.map((l) => LANG_NAMES[l]?.[lang] ?? l).join(', ')}`);
   out.push(`- ${t('rec.freeText')}: ${sja.freeText || '–'}`);
+  if (sja.products?.length) out.push(`- ${t('s1.products')}: ${sja.products.map((id) => template?.products?.find((p) => p.productId === id)?.name[lang] ?? id).join(', ')}`);
   out.push(`- ${t('rec.specifics')}: ${sja.specifics.map((s) => s.text).join(' / ') || '–'}`);
   out.push(`- ${t('s1.newWorker')}: ${sja.crewFlags.newWorker ? t('common.yes') : t('common.no')}; ${t('s1.firstTime')}: ${sja.crewFlags.firstTimeJobType ? t('common.yes') : t('common.no')}`, '');
   const rr = reuseRate(sja);
@@ -96,7 +98,8 @@ export function recordToMarkdown(rec: RunRecord, lang: UiLang, hazards?: HazardL
       ['#', t('rec.section'), t('rec.origin'), t('line.critical'), t('rec.norwegian'), t('line.source')],
       lines.map((l) => {
         const h = hazards?.entries.find((e) => e.hazardId === l.hazardRef);
-        return [l.lineId, t(`section.${l.section}`), t(`origin.${l.origin}`), l.critical ? t('common.yes') : '', l.textNb + (l.removalReason ? ` (${t('rec.removalReason')}: ${l.removalReason})` : ''), h ? `${h.sourceId}, ${h.sourceDetail}` : t('line.unsourced')];
+        const src = h ? (h.sourceId === 'FIRMA' ? t('line.firmPractice') : `${hazards?.sources.find((x) => x.sourceId === h.sourceId)?.title.split(',')[0] ?? h.sourceId}${h.paragraph ? ` ${h.paragraph}` : `: ${h.sourceDetail}`}`) : t('line.unsourced');
+        return [l.lineId, t(`section.${l.section}`), t(`origin.${l.origin}`), l.critical ? t('common.yes') : '', l.textNb + (l.removalReason ? ` (${t('rec.removalReason')}: ${l.removalReason})` : ''), src];
       }),
     ),
     '',
@@ -147,10 +150,13 @@ export function recordToMarkdown(rec: RunRecord, lang: UiLang, hazards?: HazardL
       out.push(`${t('s5.keyTitle')}:`, '', ...u.keyLineIds.map((id) => `- ${lineText(id)}`), '');
       if (u.misunderstood.length) out.push(`${t('s5.misunderstoodTitle')}:`, '', ...u.misunderstood.map((m) => `- ${lineText(m.lineId)} (${m.count})`), '');
     }
-    out.push(table([t('s5.questionTitle'), t('s5.rightFirst'), t('s5.rebrief')], u.perQuestion.map((p) => [template?.questions.find((q) => q.questionId === p.questionId)?.byLang[lang === 'nb' ? 'nb' : 'en']?.text ?? p.questionId, `${p.correctFirst} ${t('common.of')} ${p.respondents}`, p.respondents - p.correctFirst > 0 ? (p.rebriefConfirmed ? t('rec.rebriefDone') : t('rec.open')) : '–'])), '');
+    if (u.paths) out.push(`${t('rec.paths')}: ${t('s5.pathCounts', { conversation: u.paths.conversation, written: u.paths.written, questionsOnly: u.paths.questionsOnly })}`, '');
+    if (u.fallbackReasons && Object.keys(u.fallbackReasons).length) out.push(`${t('rec.reasons')}: ${Object.entries(u.fallbackReasons).map(([r, n]) => `${t(`reason.${r}`)} (${n})`).join('; ')}`, '');
+    out.push(table([t('s5.questionTitle'), t('s5.rightFirst'), t('s5.rebrief')], u.perQuestion.filter((p) => p.respondents > 0).map((p) => [template?.questions.find((q) => q.questionId === p.questionId)?.byLang[lang === 'nb' ? 'nb' : 'en']?.text ?? p.questionId, `${p.correctFirst} ${t('common.of')} ${p.respondents}`, p.respondents - p.correctFirst > 0 ? (p.rebriefConfirmed ? t('rec.rebriefDone') : t('rec.open')) : '–'])), '');
     const o = sja.observation;
     out.push(`${t('rec.observation')}: ${!o && u.legacyTeachBack ? '–' : !o ? t('rec.observationPending') : o.lineIds.length === 0 ? `${t('obsv.none')} (${o.at})` : `${o.lineIds.length === 1 ? t('obsv.noted.one') : t('obsv.noted', { n: o.lineIds.length })} (${o.at})`}`, '');
     if (o?.lineIds.length) out.push(...o.lineIds.map((id) => `- ${lineText(id)}`), '');
+    if (o?.notFollowed?.length) out.push(`${t('obsv.notFollowedTitle')}:`, '', ...o.notFollowed.map((id) => `- ${lineText(id)}`), '');
     out.push(t('rec.understandingNote'), '');
   }
 

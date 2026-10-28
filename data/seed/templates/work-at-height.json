@@ -4,7 +4,8 @@
     "nb": "Arbeid i høyden",
     "en": "Work at height",
     "pl": "Praca na wysokości",
-    "lt": "Darbas aukštyje"
+    "lt": "Darbas aukštyje",
+    "ru": "Работа на высоте"
   },
   "parameters": [
     {
@@ -13,7 +14,8 @@
         "nb": "Arbeidshøyde",
         "en": "Working height",
         "pl": "Wysokość robocza",
-        "lt": "Darbo aukštis"
+        "lt": "Darbo aukštis",
+        "ru": "Рабочая высота"
       },
       "type": "number",
       "unitSymbol": "m",
@@ -27,7 +29,8 @@
         "nb": "Atkomst",
         "en": "Access",
         "pl": "Dostęp",
-        "lt": "Patekimas"
+        "lt": "Patekimas",
+        "ru": "Доступ"
       },
       "type": "choice",
       "default": "scaffold",
@@ -38,7 +41,8 @@
             "nb": "Stillas",
             "en": "Scaffold",
             "pl": "Rusztowanie",
-            "lt": "Pastoliai"
+            "lt": "Pastoliai",
+            "ru": "Леса"
           }
         },
         {
@@ -47,7 +51,8 @@
             "nb": "Rullestillas",
             "en": "Mobile scaffold",
             "pl": "Rusztowanie przejezdne",
-            "lt": "Mobilieji pastoliai"
+            "lt": "Mobilieji pastoliai",
+            "ru": "Передвижные леса"
           }
         },
         {
@@ -56,7 +61,8 @@
             "nb": "Stige",
             "en": "Ladder",
             "pl": "Drabina",
-            "lt": "Kopėčios"
+            "lt": "Kopėčios",
+            "ru": "Приставная лестница"
           }
         }
       ]
@@ -67,7 +73,8 @@
         "nb": "Vindgrense",
         "en": "Wind limit",
         "pl": "Limit wiatru",
-        "lt": "Vėjo riba"
+        "lt": "Vėjo riba",
+        "ru": "Предел по ветру"
       },
       "type": "number",
       "unitSymbol": "m/s",
@@ -111,8 +118,17 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Рабочая высота: {height} м",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height"
+      ]
     },
     {
       "lineId": "h-02",
@@ -146,8 +162,17 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Доступ: {access}",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height"
+      ]
     },
     {
       "lineId": "h-03",
@@ -179,8 +204,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Перед началом работы обсудите этот SJA со всей бригадой.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height"
+      ],
+      "riskLevel": "green"
     },
     {
       "lineId": "h-04",
@@ -214,8 +249,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Перед подъёмом проверьте путь доступа и рабочее место.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height"
+      ],
+      "riskLevel": "yellow"
     },
     {
       "lineId": "h-05",
@@ -247,8 +292,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Опасность: падение с высоты.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "h-06",
@@ -282,8 +337,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Опасность: падающие предметы попадают в людей под рабочим местом.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "h-07",
@@ -292,7 +357,7 @@
       "parameterRefs": [],
       "dependsOnParameters": [],
       "critical": false,
-      "sourceRef": null,
+      "sourceRef": "hh-11",
       "termIds": [],
       "keyTechnical": {
         "given": false
@@ -315,8 +380,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Опасность: скользкое или неустойчивое основание.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height"
+      ],
+      "riskLevel": "yellow"
     },
     {
       "lineId": "h-08",
@@ -352,8 +427,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Перед началом работы со всех открытых сторон должно быть установлено защитное ограждение.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "h-09",
@@ -391,8 +476,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Там, где нет защитного ограждения, используйте страховочную привязь, пристёгнутую к утверждённой точке крепления.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "h-10",
@@ -426,8 +521,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Оградите зону под рабочим местом.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "h-11",
@@ -459,8 +564,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Закрепите инструменты и материалы так, чтобы они не могли упасть.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height"
+      ],
+      "riskLevel": "yellow"
     },
     {
       "lineId": "h-12",
@@ -496,8 +611,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Леса должны быть проверены и допущены к работе перед использованием.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "h-13",
@@ -533,8 +658,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Приставную лестницу можно использовать только для кратковременной работы, и она должна быть защищена от скольжения.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height"
+      ],
+      "riskLevel": "yellow"
     },
     {
       "lineId": "h-14",
@@ -566,8 +701,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Во время работы должны присутствовать не менее 2 человек.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height"
+      ],
+      "riskLevel": "yellow"
     },
     {
       "lineId": "h-15",
@@ -576,7 +721,7 @@
       "parameterRefs": [],
       "dependsOnParameters": [],
       "critical": true,
-      "sourceRef": null,
+      "sourceRef": "hh-13",
       "termIds": [
         "helmet",
         "chin-strap"
@@ -602,8 +747,19 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Защитная каска с подбородочным ремнём должна быть надета всё время.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height",
+        "ppe"
+      ],
+      "riskLevel": "yellow"
     },
     {
       "lineId": "h-16",
@@ -612,7 +768,7 @@
       "parameterRefs": [],
       "dependsOnParameters": [],
       "critical": false,
-      "sourceRef": null,
+      "sourceRef": "hh-13",
       "termIds": [
         "footwear",
         "gloves"
@@ -638,8 +794,19 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Носите защитную обувь и перчатки.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height",
+        "ppe"
+      ],
+      "riskLevel": "green"
     },
     {
       "lineId": "h-17",
@@ -673,8 +840,17 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Предел по ветру: {wind} м/с",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height"
+      ]
     },
     {
       "lineId": "h-18",
@@ -685,7 +861,7 @@
         "wind"
       ],
       "critical": true,
-      "sourceRef": null,
+      "sourceRef": "hh-12",
       "termIds": [
         "stop-work",
         "wind-speed"
@@ -711,8 +887,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Остановите работу, когда скорость ветра выше допустимого предела.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "h-19",
@@ -748,8 +934,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Остановите работу, если защитное ограждение или точка крепления повреждены или отсутствуют.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "h-20",
@@ -781,8 +977,18 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Никто не должен работать на высоте в одиночку.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height"
+      ],
+      "riskLevel": "yellow"
     },
     {
       "lineId": "h-21",
@@ -791,7 +997,7 @@
       "parameterRefs": [],
       "dependsOnParameters": [],
       "critical": true,
-      "sourceRef": null,
+      "sourceRef": "hh-14",
       "termIds": [
         "foreman"
       ],
@@ -816,8 +1022,19 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "При несчастном случае: позвоните 113 и сообщите бригадиру.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height",
+        "emergency"
+      ],
+      "riskLevel": "red"
     },
     {
       "lineId": "h-22",
@@ -852,8 +1069,19 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "План спасения человека, висящего в страховочной привязи, должен быть известен всем.",
+          "keyLanguage": {
+            "given": false
+          }
         }
-      }
+      },
+      "tags": [
+        "height",
+        "emergency"
+      ],
+      "riskLevel": "red"
     }
   ],
   "questions": [
@@ -907,6 +1135,17 @@
             "Dirbu atsargiai ir laikausi atokiau nuo krašto.",
             "Naudoju viso kūno saugos diržus, pritvirtintus prie patvirtinto tvirtinimo taško.",
             "Paprašau kolegos, kad mane prilaikytų."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Вам нужно работать у края, где нет защитного ограждения. Что вы делаете?",
+          "options": [
+            "Работаю осторожно и держусь подальше от края.",
+            "Использую страховочную привязь, пристёгнутую к утверждённой точке крепления.",
+            "Прошу коллегу меня держать."
           ],
           "keyLanguage": {
             "given": false
@@ -969,6 +1208,17 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Пока вы на лесах, ветер усиливается и теперь выше допустимого предела. Что вы делаете?",
+          "options": [
+            "Сначала заканчиваю то, что делаю.",
+            "Прекращаю работу и спускаюсь.",
+            "Продолжаю, но крепко держусь."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
         }
       }
     },
@@ -1023,6 +1273,17 @@
             "Leidžiu jam eiti, jei jis su šalmu.",
             "Sustabdau jį. Zona apačioje turi būti aptverta.",
             "Šaukiu, kad paskubėtų."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Коллега хочет пройти под рабочим местом, чтобы что-то взять, пока вы работаете наверху. Что вы делаете?",
+          "options": [
+            "Пропускаю его, если на нём каска.",
+            "Останавливаю его. Зона внизу должна быть огорожена.",
+            "Кричу ему, чтобы он поторопился."
           ],
           "keyLanguage": {
             "given": false
@@ -1084,8 +1345,298 @@
           "keyLanguage": {
             "given": false
           }
+        },
+        "ru": {
+          "text": "Вы видите, что ограждение на лесах расшаталось. Что вы делаете?",
+          "options": [
+            "Прекращаю работу и сообщаю бригадиру.",
+            "Сам закрепляю его, как могу, и продолжаю.",
+            "Держусь подальше от этой стороны и продолжаю."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
         }
       }
+    },
+    {
+      "questionId": "q-h5",
+      "linkedLineIds": [
+        "h-13"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "Du skal arbeide en hel dag fra en stige. Er det riktig?",
+          "options": [
+            "Ja, hvis stigen står stødig.",
+            "Nei. Stige skal bare brukes til kortvarig arbeid. Bruk stillas.",
+            "Ja, hvis en kollega holder stigen."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "You are to work a whole day from a ladder. Is that right?",
+          "options": [
+            "Yes, if the ladder stands firmly.",
+            "No. A ladder may only be used for short work. Use a scaffold.",
+            "Yes, if a colleague holds the ladder."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Masz pracować cały dzień z drabiny. Czy to prawidłowe?",
+          "options": [
+            "Tak, jeśli drabina stoi stabilnie.",
+            "Nie. Drabiny można używać tylko do krótkotrwałej pracy. Użyj rusztowania.",
+            "Tak, jeśli kolega trzyma drabinę."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Turite visą dieną dirbti nuo kopėčių. Ar tai teisinga?",
+          "options": [
+            "Taip, jei kopėčios stovi tvirtai.",
+            "Ne. Kopėčios gali būti naudojamos tik trumpalaikiam darbui. Naudokite pastolius.",
+            "Taip, jei kolega laiko kopėčias."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Вам нужно целый день работать с приставной лестницы. Это правильно?",
+          "options": [
+            "Да, если лестница стоит устойчиво.",
+            "Нет. Лестницу можно использовать только для кратковременной работы. Используйте леса.",
+            "Да, если коллега держит лестницу."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "q-h6",
+      "linkedLineIds": [
+        "h-20",
+        "h-14"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "Kollegaen din går hjem, og du er alene igjen i høyden. Hva gjør du?",
+          "options": [
+            "Jeg gjør ferdig jobben alene.",
+            "Jeg stanser. Ingen skal arbeide alene i høyden.",
+            "Jeg ringer ham hvis noe skjer."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "Your colleague goes home, and you are left alone at height. What do you do?",
+          "options": [
+            "I finish the job alone.",
+            "I stop. Nobody may work alone at height.",
+            "I call him if something happens."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Twój kolega idzie do domu i zostajesz sam na wysokości. Co robisz?",
+          "options": [
+            "Kończę pracę sam.",
+            "Przerywam. Nikt nie może pracować sam na wysokości.",
+            "Dzwonię do niego, jeśli coś się stanie."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Jūsų kolega išeina namo, ir jūs liekate aukštyje vienas. Ką darote?",
+          "options": [
+            "Baigiu darbą vienas.",
+            "Sustoju. Niekas negali dirbti aukštyje vienas.",
+            "Paskambinsiu jam, jei kas nors nutiks."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Ваш коллега уходит домой, и вы остаётесь на высоте один. Что вы делаете?",
+          "options": [
+            "Заканчиваю работу один.",
+            "Прекращаю работу. Никто не должен работать на высоте в одиночку.",
+            "Позвоню ему, если что-то случится."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "q-h7",
+      "linkedLineIds": [
+        "h-22"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "En kollega henger i selen etter et fall. Hva gjør du?",
+          "options": [
+            "Jeg venter til han klarer å komme seg opp selv.",
+            "Jeg følger redningsplanen og varsler med en gang.",
+            "Jeg prøver å dra ham opp alene."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "A colleague is hanging in his harness after a fall. What do you do?",
+          "options": [
+            "I wait until he manages to get up by himself.",
+            "I follow the rescue plan and raise the alarm at once.",
+            "I try to pull him up on my own."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Kolega wisi w szelkach po upadku. Co robisz?",
+          "options": [
+            "Czekam, aż sam się wydostanie.",
+            "Postępuję zgodnie z planem ratunkowym i od razu alarmuję.",
+            "Próbuję sam go wciągnąć."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Kolega po kritimo kabo saugos diržuose. Ką darote?",
+          "options": [
+            "Laukiu, kol jis pats išsikapstys.",
+            "Vadovaujuosi gelbėjimo planu ir iškart pranešu.",
+            "Bandau jį ištraukti vienas."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Коллега после падения висит в страховочной привязи. Что вы делаете?",
+          "options": [
+            "Жду, пока он сам выберется.",
+            "Действую по плану спасения и сразу поднимаю тревогу.",
+            "Пытаюсь вытащить его в одиночку."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "q-h8",
+      "linkedLineIds": [
+        "h-12"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "Du vet ikke om stillaset er kontrollert. Hva gjør du?",
+          "options": [
+            "Jeg går opp og ser etter selv.",
+            "Jeg går ikke opp før det er kontrollert og godkjent.",
+            "Jeg bruker det hvis andre har brukt det i dag."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "You do not know whether the scaffold has been inspected. What do you do?",
+          "options": [
+            "I go up and look for myself.",
+            "I do not go up until it has been inspected and approved.",
+            "I use it if others have used it today."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Nie wiesz, czy rusztowanie zostało sprawdzone. Co robisz?",
+          "options": [
+            "Wchodzę i sam sprawdzam.",
+            "Nie wchodzę, dopóki nie zostanie sprawdzone i zatwierdzone.",
+            "Używam go, jeśli inni używali go dzisiaj."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Nežinote, ar pastoliai patikrinti. Ką darote?",
+          "options": [
+            "Užlipu ir pats apžiūriu.",
+            "Nelipu, kol jie nebus patikrinti ir patvirtinti.",
+            "Naudoju juos, jei kiti šiandien jais naudojosi."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Вы не знаете, проверены ли леса. Что вы делаете?",
+          "options": [
+            "Поднимаюсь и сам смотрю.",
+            "Не поднимаюсь, пока леса не проверят и не допустят к работе.",
+            "Пользуюсь ими, если другие сегодня ими пользовались."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      }
     }
+  ],
+  "standaloneQuestionIds": [
+    "q-h1",
+    "q-h2",
+    "q-h3",
+    "q-h4"
   ]
 }

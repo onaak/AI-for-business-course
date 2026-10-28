@@ -14,7 +14,7 @@ function Entry({ e, open }: { e: TraceEntry; open: boolean }) {
   return (
     <li className={`rounded-lg border bg-white p-3 ${open ? 'border-blue-600 ring-2 ring-blue-200' : 'border-slate-200'}`} data-testid={`trace-${e.kind}`}>
       <div className="flex flex-wrap items-center gap-2">
-        <span className="text-sm font-bold text-slate-500">{e.seq}</span>
+        <span className="text-sm font-bold text-slate-600">{e.seq}</span>
         <Chip tone={tone[e.kind]}>{t(`trace.kind.${e.kind}`)}</Chip>
         <strong className="text-sm">{e.title}</strong>
         {c && (

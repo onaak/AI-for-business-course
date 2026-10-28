@@ -2,7 +2,7 @@ import { useState, type ButtonHTMLAttributes, type ReactNode } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BANNER_EN, BANNER_NB } from '../core/types';
 import { LangOverride, useT, useUiLang } from '../i18n';
-import { useApp } from '../state/stores';
+import { useApp, useFieldMode } from '../state/stores';
 
 type Variant = 'primary' | 'secondary' | 'danger' | 'ghost' | 'success';
 const variants: Record<Variant, string> = {
@@ -136,6 +136,38 @@ export function LangToggle() {
   );
 }
 
+/**
+ * Full or clean view, switched in the header like the language (V1). The clean view is how a
+ * manager or foreman outside the group sees the tool: no test pages, reviewer tiles or technical
+ * status. Not offered when the server forces the clean view (APP_MODE=field, npm run share).
+ */
+export function ViewToggle() {
+  const t = useT();
+  const forced = useApp((s) => s.config?.appMode === 'field');
+  const viewMode = useApp((s) => s.viewMode);
+  const setViewMode = useApp((s) => s.setViewMode);
+  if (forced) return null;
+  return (
+    <div className="inline-flex items-stretch overflow-hidden rounded-lg border border-slate-400" role="group" aria-label={t('view.label')} title={t('view.title')} data-testid="view-toggle">
+      <span className="flex items-center bg-slate-100 px-2 text-slate-700">
+        <Icon name="eye" />
+      </span>
+      {(['lab', 'field'] as const).map((m) => (
+        <button
+          key={m}
+          type="button"
+          aria-pressed={viewMode === m}
+          onClick={() => setViewMode(m)}
+          className={`min-h-11 border-l border-slate-300 px-2.5 text-sm font-bold ${viewMode === m ? 'bg-slate-900 text-white' : 'bg-white text-slate-800'}`}
+          data-testid={`view-${m}`}
+        >
+          {m === 'lab' ? t('view.full') : t('view.clean')}
+        </button>
+      ))}
+    </div>
+  );
+}
+
 export function ModeChip() {
   const config = useApp((s) => s.config);
   const t = useT();
@@ -154,6 +186,7 @@ export function ModeChip() {
 function LayoutInner({ children, title, wide, back, english }: { children: ReactNode; title?: string; wide: boolean; back: boolean; english: boolean }) {
   const t = useT();
   const loc = useLocation();
+  const field = useFieldMode();
   return (
     <div className="min-h-screen">
       <div className="screen-chrome sticky top-0 z-30">
@@ -161,17 +194,21 @@ function LayoutInner({ children, title, wide, back, english }: { children: React
         <header className="no-print flex items-center justify-between gap-2 border-b border-slate-300 bg-white px-3 py-2">
           <div className="flex min-w-0 items-center gap-2">
             {back && loc.pathname !== '/' && (
-              <Link to="/" className="inline-flex min-h-11 items-center rounded-lg px-2 text-sm font-semibold text-blue-800 underline">
+              <Link to="/" className="inline-flex min-h-11 shrink-0 items-center whitespace-nowrap rounded-lg px-2 text-sm font-semibold text-blue-800 underline">
                 {t('nav.home')}
               </Link>
             )}
-            <span className="truncate text-base font-bold">{title ?? 'SJA Forstått'}</span>
+            {/* On a phone the two switches leave no room for the title next to "Home"; each screen has its own heading. */}
+            <span className={`truncate text-base font-bold ${back && loc.pathname !== '/' ? 'hidden sm:inline' : ''}`}>{title ?? 'SJA Forstått'}</span>
           </div>
           <div className="flex shrink-0 items-center gap-2">
-            <span className="hidden sm:inline-flex">
-              <ModeChip />
-            </span>
+            {!field && (
+              <span className="hidden sm:inline-flex">
+                <ModeChip />
+              </span>
+            )}
             {english ? <Chip tone="slate">English only</Chip> : <LangToggle />}
+            <ViewToggle />
           </div>
         </header>
       </div>

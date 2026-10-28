@@ -109,8 +109,7 @@ export function HelpEn({ nb, line, sja, className = '' }: { nb: string; line?: P
   const { en, state } = useHelpText(nb, line, sja);
   if (ui !== 'en' || !nb.trim()) return null;
   return (
-    <span lang="en" className={`mt-0.5 block text-[13px] italic leading-snug text-slate-500 ${className}`} data-testid="help-en" title={t('help.title')}>
-      <span className="not-italic font-semibold uppercase tracking-wide text-[10px] text-slate-400">{t('help.label')}</span>{' '}
+    <span lang="en" className={`mt-0.5 block text-[13px] italic leading-snug text-slate-600 ${className}`} data-testid="help-en" title={t('help.title')}>
       {state === 'ok' ? en : state === 'pending' ? t('help.pending') : t('help.none')}
     </span>
   );

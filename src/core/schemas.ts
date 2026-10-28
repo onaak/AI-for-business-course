@@ -10,9 +10,12 @@ const keyState = z.object({
   date: z.string().optional(),
 });
 
-const lang = z.enum(['nb', 'en', 'pl', 'lt']);
+const lang = z.enum(['nb', 'en', 'pl', 'lt', 'ru']);
 const langText = z.partialRecord(lang, z.string());
 const section = z.enum(['steps', 'hazards', 'controls', 'ppe', 'stop', 'emergency']);
+const tag = z.enum(['height', 'lifting', 'painting', 'chemicals', 'dust', 'noise', 'vibration', 'fire', 'concrete', 'electrical', 'ppe', 'emergency']);
+const riskLevel = z.enum(['green', 'yellow', 'red']);
+const ghs = z.enum(['GHS01', 'GHS02', 'GHS03', 'GHS04', 'GHS05', 'GHS06', 'GHS07', 'GHS08', 'GHS09']);
 
 const glossaryLangEntry = z.object({
   approved: z.string().min(1),
@@ -61,6 +64,18 @@ const templateLine = z.object({
   termIds: z.array(z.string()),
   keyTechnical: keyState,
   translations: z.partialRecord(lang, z.object({ text: z.string().min(1), keyLanguage: keyState })),
+  tags: z.array(tag).optional(),
+  riskLevel: riskLevel.optional(),
+  ghs: z.array(ghs).optional(),
+  onlyWithProduct: z.string().optional(),
+});
+
+const product = z.object({
+  productId: z.string().min(1),
+  name: langText,
+  ghs: z.array(ghs),
+  hCodes: z.array(z.string()),
+  sdsNote: z.string(),
 });
 
 const question = z.object({
@@ -78,11 +93,14 @@ export const templateSchema = z.object({
   parameters: z.array(parameter),
   lines: z.array(templateLine).min(1),
   questions: z.array(question),
+  products: z.array(product).optional(),
+  standaloneQuestionIds: z.array(z.string()).optional(),
 });
 
 export const dataPackSchema = z.object({
   version: z.number().int().min(1),
   hash: z.string(),
+  seedHash: z.string().optional(),
   languages: z.array(lang),
   glossary: z.array(glossaryTermSchema),
   templates: z.array(templateSchema),
@@ -91,6 +109,7 @@ export const dataPackSchema = z.object({
 export const hazardListSchema = z.object({
   templateId: z.string(),
   note: z.string(),
+  checkedAt: z.string().optional(),
   sources: z.array(z.object({ sourceId: z.string(), title: z.string(), publisher: z.string(), url: z.string() })),
   entries: z.array(
     z.object({
@@ -100,6 +119,10 @@ export const hazardListSchema = z.object({
       critical: z.boolean(),
       sourceId: z.string(),
       sourceDetail: z.string(),
+      paragraph: z.string().optional(),
+      url: z.string().optional(),
+      tags: z.array(tag).optional(),
+      riskLevel: riskLevel.optional(),
     }),
   ),
 });
@@ -130,10 +153,18 @@ export const inputSchemas = {
     glossary: z.array(z.strictObject({ nb: z.string(), approved: z.string(), definition: z.string() })),
     enforceApprovedTerms: z.boolean(),
     attempt: z.number().int(),
+    // L2: up to three verified translations of similar lines, as examples. Absent when there are none.
+    examples: z.array(z.strictObject({ nb: z.string(), target: z.string() })).max(3).optional(),
   }),
   // P5 receives the target text only. There is no field for the source (architectural rule 3).
   P5: z.strictObject({ lang: z.string(), text: z.string() }),
   P6: z.strictObject({ source: z.string(), backTranslation: z.string(), critical: z.boolean() }),
+  // P7 (U2): a worker's written explanation, translated into Norwegian for the foreman to judge.
+  // The worker's text only: no name field exists, and the model is not told what the right answer is.
+  P7: z.strictObject({
+    lang: z.string(),
+    items: z.array(z.strictObject({ key: z.enum(['hazard', 'measure']), text: z.string().max(500) })).min(1).max(2),
+  }),
 } satisfies Record<Task, z.ZodType>;
 
 export type P1Input = z.infer<typeof inputSchemas.P1>;
@@ -142,6 +173,7 @@ export type P3Input = z.infer<typeof inputSchemas.P3>;
 export type P4Input = z.infer<typeof inputSchemas.P4>;
 export type P5Input = z.infer<typeof inputSchemas.P5>;
 export type P6Input = z.infer<typeof inputSchemas.P6>;
+export type P7Input = z.infer<typeof inputSchemas.P7>;
 
 // ---------- Model task outputs ----------
 
@@ -199,6 +231,16 @@ export const outputSchemas = {
     explanationNb: z.string(),
     explanationEn: z.string(),
   }),
+  P7: z.object({
+    items: z.array(
+      z.object({
+        key: z.enum(['hazard', 'measure']),
+        textNb: z.string(),
+        // True when the text cannot be translated: empty, not in the stated language, or unreadable. Not a judgement of the content.
+        unreadable: z.boolean().default(false),
+      }),
+    ),
+  }),
 } satisfies Record<Task, z.ZodType>;
 
 export type P1Output = z.infer<typeof outputSchemas.P1>;
@@ -207,5 +249,6 @@ export type P3Output = z.infer<typeof outputSchemas.P3>;
 export type P4Output = z.infer<typeof outputSchemas.P4>;
 export type P5Output = z.infer<typeof outputSchemas.P5>;
 export type P6Output = z.infer<typeof outputSchemas.P6>;
+export type P7Output = z.infer<typeof outputSchemas.P7>;
 
-export const TASKS: Task[] = ['P1', 'P2', 'P3', 'P4', 'P5', 'P6'];
+export const TASKS: Task[] = ['P1', 'P2', 'P3', 'P4', 'P5', 'P6', 'P7'];

@@ -80,9 +80,19 @@
   {
     "id": "T8",
     "type": "Comparison",
-    "scenario": "The same job done three ways: (i) a blank existing form filled in by hand in Norwegian, (ii) that text, or the firm's existing template, translated by a human who speaks the language, (iii) the flagship. All timed in the same categories, including checking and correction.",
-    "expected": "No pass mark. Report the three totals and where the time went.",
+    "scenario": "The same job done four ways: (i) a blank existing form filled in by hand in Norwegian, (ii) that text, or the firm's existing template, translated by a human who speaks the language, (iii) the flagship, (iv) the way the interviewed firm works now: a manager drafts the SJA with a general chatbot (ChatGPT or Claude) and translates it with a chatbot. All timed in the same categories, including checking and correction. For (iv), paste the chatbot's translation into the bench's \"Check any translation\" and count what the check engine flags.",
+    "expected": "No pass mark. Report the four totals and where the time went, and for (iv) how many errors the check found in the chatbot translation.",
     "where": "people",
     "fixtureIds": []
+  },
+  {
+    "id": "U4",
+    "type": "Key assumption (written path)",
+    "scenario": "6 to 10 written explanations in Lithuanian, Polish and Russian (some right, some subtly wrong) are machine-translated (P7) and judged, from the translation alone, by a person who does not read those languages. Test bench, card U4.",
+    "expected": "Every subtly wrong answer is judged \"misunderstood\", and at most one judgement is wrong (builder's proposal, to be confirmed by the group before testing). If the translation hides wrong answers, the written path cannot end in \"signed\".",
+    "where": "bench",
+    "fixtureIds": [
+      "written-answers"
+    ]
   }
 ]

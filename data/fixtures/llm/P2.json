@@ -1,409 +1,494 @@
 {
- "1dec43880a2f493d78705fa7": {
+ "14ad1b27e9e87c3cdcddfef6": {
   "task": "P2",
   "promptVersion": "1.0.0",
-  "inputHash": "1dec43880a2f493d78705fa7",
+  "inputHash": "14ad1b27e9e87c3cdcddfef6",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.908Z",
+  "recordedAt": "2026-10-26T17:14:22.309Z",
   "input": {
-   "jobType": "Arbeid i høyden",
+   "jobType": "Maling og overflatebehandling innendørs",
    "lines": [
     {
-     "lineId": "h-01",
+     "lineId": "p-01",
      "section": "steps",
-     "text": "Arbeidshøyde: 8 m",
+     "text": "Arbeidshøyde: 2 m",
      "critical": false
     },
     {
-     "lineId": "h-02",
+     "lineId": "p-02",
      "section": "steps",
-     "text": "Atkomst: Stillas",
+     "text": "Lufting: åpne vinduer og dører",
      "critical": false
     },
     {
-     "lineId": "h-03",
+     "lineId": "p-03",
      "section": "steps",
      "text": "Gå gjennom denne SJA-en med hele laget før arbeidet starter.",
      "critical": false
     },
     {
-     "lineId": "h-04",
+     "lineId": "p-04",
      "section": "steps",
-     "text": "Kontroller atkomsten og arbeidsstedet før dere går opp.",
+     "text": "Les sikkerhetsdatabladet for hvert produkt før bruk. Stoffkartoteket finner du: i HMS-appen på telefonen.",
      "critical": false
     },
     {
-     "lineId": "h-05",
+     "lineId": "p-05",
      "section": "hazards",
-     "text": "Fare: fall fra høyde.",
+     "text": "Fare: innånding av damp fra løsemidler gir hodepine, svimmelhet og skade på nervesystemet.",
      "critical": true
     },
     {
-     "lineId": "h-06",
+     "lineId": "p-06",
      "section": "hazards",
-     "text": "Fare: fallende gjenstander treffer personer under arbeidsstedet.",
+     "text": "Fare: maling, lakk og herder på huden gir eksem og allergi.",
      "critical": true
     },
     {
-     "lineId": "h-07",
+     "lineId": "p-07",
      "section": "hazards",
-     "text": "Fare: glatt eller ustabilt underlag.",
+     "text": "Fare: damp fra løsemidler kan ta fyr.",
+     "critical": true
+    },
+    {
+     "lineId": "p-08",
+     "section": "hazards",
+     "text": "Fare: fall fra stige eller bukk.",
+     "critical": true
+    },
+    {
+     "lineId": "p-09",
+     "section": "hazards",
+     "text": "Fare: slipestøv i lufta og i øynene.",
      "critical": false
     },
     {
-     "lineId": "h-08",
+     "lineId": "p-10",
      "section": "controls",
-     "text": "Rekkverk skal være montert på alle åpne sider før arbeidet starter.",
+     "text": "Sørg for god ventilasjon hele tiden. Uten lufting skal det ikke brukes produkter med løsemidler.",
      "critical": true
     },
     {
-     "lineId": "h-09",
+     "lineId": "p-11",
      "section": "controls",
-     "text": "Bruk fallsikringssele festet til godkjent forankringspunkt der rekkverk mangler.",
+     "text": "Ingen åpen flamme, røyking eller gnistgivende verktøy der det brukes løsemidler.",
      "critical": true
     },
     {
-     "lineId": "h-10",
+     "lineId": "p-12",
      "section": "controls",
-     "text": "Sperr av området under arbeidsstedet.",
+     "text": "Hold beholderne lukket når de ikke er i bruk, og oppbevar dem utenfor rommet det males i.",
      "critical": true
     },
     {
-     "lineId": "h-11",
-     "section": "controls",
-     "text": "Sikre verktøy og materialer slik at de ikke kan falle ned.",
-     "critical": true
-    },
-    {
-     "lineId": "h-12",
-     "section": "controls",
-     "text": "Stillaset skal være kontrollert og godkjent før bruk.",
-     "critical": true
-    },
-    {
-     "lineId": "h-13",
+     "lineId": "p-13",
      "section": "controls",
      "text": "Stige skal bare brukes til kortvarig arbeid og skal sikres mot å gli.",
      "critical": true
     },
     {
-     "lineId": "h-14",
+     "lineId": "p-14",
      "section": "controls",
-     "text": "Minst 2 personer skal være til stede under arbeidet.",
-     "critical": true
-    },
-    {
-     "lineId": "h-15",
-     "section": "ppe",
-     "text": "Hjelm med hakestropp skal brukes hele tiden.",
-     "critical": true
-    },
-    {
-     "lineId": "h-16",
-     "section": "ppe",
-     "text": "Bruk vernesko og hansker.",
+     "text": "Tomme bokser, filler og rester med løsemidler er farlig avfall og skal i egen beholder.",
      "critical": false
     },
     {
-     "lineId": "h-17",
-     "section": "stop",
-     "text": "Vindgrense: 15 m/s",
+     "lineId": "p-15",
+     "section": "controls",
+     "text": "Vask hendene med såpe og vann før pause og etter arbeidet. Ikke spis i rommet det males i.",
+     "critical": false
+    },
+    {
+     "lineId": "p-16",
+     "section": "ppe",
+     "text": "Bruk tette hansker av nitril ved arbeid med maling, lakk og løsemidler.",
      "critical": true
     },
     {
-     "lineId": "h-18",
-     "section": "stop",
-     "text": "Stans arbeidet når vindstyrken er over vindgrensen.",
+     "lineId": "p-17",
+     "section": "ppe",
+     "text": "Bruk vernebriller ved sliping og ved arbeid over hodehøyde.",
+     "critical": false
+    },
+    {
+     "lineId": "p-18",
+     "section": "ppe",
+     "text": "Bruk åndedrettsvern med riktig filter når sikkerhetsdatabladet krever det, og alltid ved sprøyting.",
      "critical": true
     },
     {
-     "lineId": "h-19",
-     "section": "stop",
-     "text": "Stans arbeidet hvis rekkverk eller forankringspunkt er skadet eller mangler.",
+     "lineId": "p-24",
+     "section": "controls",
+     "text": "Herderen i 2-komponent lakk inneholder isocyanater. Bare den som har fått opplæring i isocyanater, får bruke produktet.",
      "critical": true
     },
     {
-     "lineId": "h-20",
-     "section": "stop",
-     "text": "Ingen skal arbeide alene i høyden.",
+     "lineId": "p-25",
+     "section": "ppe",
+     "text": "Ved sprøyting av lakk med isocyanater: friskluftmaske, heldekkende verneklær og tette hansker.",
      "critical": true
     },
     {
-     "lineId": "h-21",
+     "lineId": "p-19",
+     "section": "stop",
+     "text": "Stans arbeidet og gå ut i frisk luft ved hodepine, svimmelhet eller kvalme.",
+     "critical": true
+    },
+    {
+     "lineId": "p-20",
+     "section": "stop",
+     "text": "Stans arbeidet hvis ventilasjonen stopper.",
+     "critical": true
+    },
+    {
+     "lineId": "p-21",
      "section": "emergency",
      "text": "Ved ulykke: ring 113 og varsle basen.",
      "critical": true
     },
     {
-     "lineId": "h-22",
+     "lineId": "p-22",
      "section": "emergency",
-     "text": "Redningsplan for person som henger i fallsikringssele skal være kjent for alle.",
+     "text": "Maling i øynene: bruk øyeskyll eller rent vann i minst 15 minutter, og kontakt lege.",
      "critical": true
     }
    ],
    "specifics": [
-    "Montering av takvinduer.",
-    "Arbeid på taket utenfor stillaset.",
-    "Vinduene heises opp med vinsj."
+    "Lakkering av gulv i en leilighet med 2-komponent lakk.",
+    "Rommet har bare ett lite vindu."
    ],
    "hazards": [
     {
-     "hazardId": "hh-01",
+     "hazardId": "pd-01",
      "section": "steps",
-     "text": "Risikovurder arbeidet på stedet sammen med laget før oppstart."
+     "text": "Risikovurder arbeidet med kjemikalier og gå gjennom SJA-en med laget før oppstart."
     },
     {
-     "hazardId": "hh-02",
-     "section": "controls",
-     "text": "Stillas skal kontrolleres før bruk, og atkomsten skal være sikker."
+     "hazardId": "pd-02",
+     "section": "steps",
+     "text": "Les sikkerhetsdatabladet og vit hvor stoffkartoteket er."
     },
     {
-     "hazardId": "hh-03",
+     "hazardId": "pd-03",
      "section": "hazards",
-     "text": "Fall fra høyde."
+     "text": "Innånding av løsemiddeldamp."
     },
     {
-     "hazardId": "hh-04",
-     "section": "controls",
-     "text": "Hindre at gjenstander faller ned, og hold området under arbeidsstedet avsperret."
+     "hazardId": "pd-04",
+     "section": "hazards",
+     "text": "Hudkontakt med maling, lakk og herder."
     },
     {
-     "hazardId": "hh-05",
-     "section": "controls",
-     "text": "Rekkverk som kollektiv sikring mot fall."
+     "hazardId": "pd-05",
+     "section": "hazards",
+     "text": "Brann og eksplosjon fra løsemiddeldamp."
     },
     {
-     "hazardId": "hh-06",
-     "section": "controls",
-     "text": "Personlig fallsikringsutstyr festet til godkjent forankringspunkt, med plan for redning."
+     "hazardId": "pd-06",
+     "section": "hazards",
+     "text": "Fall fra stige eller bukk."
     },
     {
-     "hazardId": "hh-07",
-     "section": "controls",
-     "text": "Stige bare til kortvarig arbeid, sikret mot å gli."
+     "hazardId": "pd-07",
+     "section": "hazards",
+     "text": "Slipestøv fra maling og sparkel."
     },
     {
-     "hazardId": "hh-08",
+     "hazardId": "pd-08",
      "section": "controls",
-     "text": "Minst to personer i laget ved arbeid med fallsikringsutstyr."
+     "text": "God ventilasjon; ikke løsemiddelbaserte produkter uten lufting."
     },
     {
-     "hazardId": "hh-09",
+     "hazardId": "pd-09",
      "section": "controls",
-     "text": "Rullestillas skal sikres mot velting og låses før bruk."
+     "text": "Ingen tennkilder der det brukes brannfarlige produkter."
     },
     {
-     "hazardId": "hh-10",
+     "hazardId": "pd-10",
      "section": "controls",
-     "text": "Brukere av stillas skal ha fått opplæring."
+     "text": "Oppbevaring og håndtering av kjemikalier."
+    },
+    {
+     "hazardId": "pd-11",
+     "section": "controls",
+     "text": "Farlig avfall samles i egen beholder."
+    },
+    {
+     "hazardId": "pd-12",
+     "section": "controls",
+     "text": "Hygiene: vask før pause, ikke spis på arbeidsstedet."
+    },
+    {
+     "hazardId": "pd-13",
+     "section": "ppe",
+     "text": "Hansker, vernebriller og åndedrettsvern etter sikkerhetsdatabladet."
+    },
+    {
+     "hazardId": "pd-14",
+     "section": "controls",
+     "text": "Isocyanater: opplæring og særlige krav til verneutstyr."
+    },
+    {
+     "hazardId": "pd-15",
+     "section": "emergency",
+     "text": "Førstehjelp ved kjemikalier i øyne eller på hud."
+    },
+    {
+     "hazardId": "pd-16",
+     "section": "emergency",
+     "text": "Ved ulykke: ring 113 og varsle basen."
+    },
+    {
+     "hazardId": "pd-17",
+     "section": "stop",
+     "text": "Stans ved symptomer eller når ventilasjonen svikter."
     }
    ]
   },
-  "rawOutput": "{\"operations\":[{\"op\":\"add\",\"text\":\"Bruk sele ved behov.\",\"section\":\"controls\",\"afterLineId\":\"h-09\",\"hazardRef\":\"hh-06\",\"critical\":true},{\"op\":\"add\",\"text\":\"Vinsjen skal ha lastbrems og være festet til bærende konstruksjon.\",\"section\":\"controls\",\"afterLineId\":\"h-11\",\"hazardRef\":null,\"critical\":true}]}"
+  "rawOutput": "{\"operations\":[{\"op\":\"add\",\"text\":\"Sett opp mekanisk ventilasjon før lakkeringen starter, fordi rommet bare har ett lite vindu.\",\"section\":\"controls\",\"afterLineId\":\"p-10\",\"hazardRef\":\"pd-08\",\"critical\":true},{\"op\":\"add\",\"text\":\"Bare de som har opplæring i isocyanater, skal blande og påføre lakken.\",\"section\":\"controls\",\"afterLineId\":\"p-24\",\"hazardRef\":\"pd-14\",\"critical\":true}]}"
  },
- "300e6f3502f32c299b668b2a": {
+ "153469e264004e85d47ad4ca": {
   "task": "P2",
   "promptVersion": "1.0.0",
-  "inputHash": "300e6f3502f32c299b668b2a",
+  "inputHash": "153469e264004e85d47ad4ca",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.813Z",
+  "recordedAt": "2026-10-26T17:14:22.331Z",
   "input": {
-   "jobType": "Løfteoperasjon med kran",
+   "jobType": "Betongstøp",
    "lines": [
     {
-     "lineId": "l-01",
+     "lineId": "c-01",
      "section": "steps",
-     "text": "Lastens vekt: 850 kg",
+     "text": "Støpemetode: betongpumpe",
      "critical": false
     },
     {
-     "lineId": "l-02",
+     "lineId": "c-02",
      "section": "steps",
-     "text": "Løfteutstyr: Mobilkran",
+     "text": "Forskalingshøyde: 3 m",
      "critical": false
     },
     {
-     "lineId": "l-03",
+     "lineId": "c-03",
      "section": "steps",
-     "text": "Løftehøyde: 6 m",
+     "text": "Gå gjennom denne SJA-en med hele laget før støpen starter.",
      "critical": false
     },
     {
-     "lineId": "l-04",
+     "lineId": "c-04",
      "section": "steps",
-     "text": "Gå gjennom denne SJA-en med hele laget før løftet starter.",
-     "critical": false
-    },
-    {
-     "lineId": "l-05",
-     "section": "steps",
-     "text": "Avtal hvem som er kranfører, anhuker og signalgiver.",
+     "text": "Kontroller forskaling, stag og avstivning før støpen starter.",
      "critical": true
     },
     {
-     "lineId": "l-06",
+     "lineId": "c-05",
+     "section": "steps",
+     "text": "Les sikkerhetsdatabladet for sement og tilsetningsstoffer. Stoffkartoteket finner du: i brakka på byggeplassen.",
+     "critical": false
+    },
+    {
+     "lineId": "c-06",
      "section": "hazards",
-     "text": "Fare: hengende last faller ned eller svinger.",
+     "text": "Fare: våt betong gir etseskader på hud og øyne.",
      "critical": true
     },
     {
-     "lineId": "l-07",
+     "lineId": "c-07",
      "section": "hazards",
-     "text": "Fare: klemfare mellom last og faste konstruksjoner.",
+     "text": "Fare: forskalingen gir etter under støpen.",
      "critical": true
     },
     {
-     "lineId": "l-08",
+     "lineId": "c-08",
      "section": "hazards",
-     "text": "Fare: kranen velter på grunn av svakt underlag eller for tung last.",
+     "text": "Fare: pumpeslangen slår når det blir propp, eller når trykket slippes.",
      "critical": true
     },
     {
-     "lineId": "l-09",
+     "lineId": "c-09",
+     "section": "hazards",
+     "text": "Fare: vibrasjoner i hender og armer fra vibrasjonsstaven.",
+     "critical": false
+    },
+    {
+     "lineId": "c-10",
+     "section": "hazards",
+     "text": "Fare: støy fra pumpe, bil og vibrator.",
+     "critical": false
+    },
+    {
+     "lineId": "c-11",
      "section": "controls",
-     "text": "Kontroller at løfteredskapet har WLL som dekker lastens vekt.",
+     "text": "Unngå hudkontakt med våt betong. Bytt klær som er gjennomvåte av betong.",
      "critical": true
     },
     {
-     "lineId": "l-10",
+     "lineId": "c-12",
      "section": "controls",
-     "text": "Kontroller løftestropper og sjakler for skader før bruk.",
+     "text": "Ingen skal stå foran enden av pumpeslangen når pumpen starter eller en propp løses.",
      "critical": true
     },
     {
-     "lineId": "l-11",
+     "lineId": "c-13",
      "section": "controls",
-     "text": "Ingen skal oppholde seg under hengende last.",
+     "text": "Hold avstand til betongbilen når den rygger. Signalgiveren dirigerer.",
      "critical": true
     },
     {
-     "lineId": "l-12",
+     "lineId": "c-14",
      "section": "controls",
-     "text": "Sperr av faresonen rundt løftet.",
-     "critical": true
+     "text": "Bytt på hvem som bruker vibrasjonsstaven, og ta pauser.",
+     "critical": false
     },
     {
-     "lineId": "l-13",
+     "lineId": "c-15",
      "section": "controls",
-     "text": "Kranen skal stå på bæredyktig underlag med støttebena helt ute.",
+     "text": "Når forskalingen er høyere enn 2 m, skal det arbeides fra en plattform med rekkverk.",
      "critical": true
     },
     {
-     "lineId": "l-14",
-     "section": "controls",
-     "text": "Bruk styretau for å styre lasten. Ikke styr lasten med hendene.",
+     "lineId": "c-16",
+     "section": "ppe",
+     "text": "Bruk tette hansker med lange mansjetter, og støvler som betongen ikke kan renne ned i.",
      "critical": true
     },
     {
-     "lineId": "l-15",
-     "section": "controls",
-     "text": "Kranfører og signalgiver skal ha radiosamband eller fri sikt hele tiden.",
+     "lineId": "c-17",
+     "section": "ppe",
+     "text": "Bruk vernebriller under støpen.",
      "critical": true
     },
     {
-     "lineId": "l-16",
-     "section": "controls",
-     "text": "Hold sikkerhetsavstand til kraftlinjer.",
-     "critical": true
+     "lineId": "c-18",
+     "section": "ppe",
+     "text": "Bruk hørselvern nær pumpe og vibrator.",
+     "critical": false
     },
     {
-     "lineId": "l-17",
+     "lineId": "c-19",
      "section": "ppe",
      "text": "Hjelm, vernesko og synlighetstøy skal brukes av alle i området.",
      "critical": true
     },
     {
-     "lineId": "l-18",
+     "lineId": "c-24",
      "section": "ppe",
-     "text": "Anhuker skal bruke hansker.",
-     "critical": false
-    },
-    {
-     "lineId": "l-19",
-     "section": "stop",
-     "text": "Vindgrense: 12 m/s",
+     "text": "Sement er etsende for øynene og kan gi allergi på huden. Bruk støvmaske P2 når tørr sement blandes.",
      "critical": true
     },
     {
-     "lineId": "l-20",
+     "lineId": "c-20",
      "section": "stop",
-     "text": "Stans løftet når vindstyrken er over vindgrensen.",
+     "text": "Stans støpen hvis forskalingen beveger seg, knaker eller lekker.",
      "critical": true
     },
     {
-     "lineId": "l-21",
+     "lineId": "c-21",
      "section": "stop",
-     "text": "Stans løftet hvis noen går inn i faresonen.",
+     "text": "Stans betongpumpen før noen løser en propp i slangen.",
      "critical": true
     },
     {
-     "lineId": "l-22",
-     "section": "stop",
-     "text": "Alle kan si stopp. Kranføreren skal stanse straks.",
+     "lineId": "c-22",
+     "section": "emergency",
+     "text": "Betong i øynene: bruk øyeskyll eller rent vann i minst 15 minutter, og kontakt lege.",
      "critical": true
     },
     {
-     "lineId": "l-23",
+     "lineId": "c-23",
      "section": "emergency",
      "text": "Ved ulykke: ring 113 og varsle basen.",
      "critical": true
-    },
-    {
-     "lineId": "l-24",
-     "section": "emergency",
-     "text": "Førstehjelpsutstyr og møteplass skal være kjent for alle.",
-     "critical": false
     }
    ],
    "specifics": [
-    "Løft av 6 bunter takstoler opp på taket.",
-    "Løftet går over gangveien ved inngangen.",
-    "Lasten er lang og utsatt for vind."
+    "Støp av en vegg på 3 meter med betongpumpe.",
+    "Betongbilen rygger inn fra veien, over fortauet."
    ],
    "hazards": [
     {
-     "hazardId": "lh-01",
+     "hazardId": "cd-01",
      "section": "steps",
-     "text": "Planlegg løfteoperasjonen og avtal roller og kommunikasjon."
+     "text": "Gå gjennom SJA-en med laget før støpen."
     },
     {
-     "hazardId": "lh-02",
-     "section": "controls",
-     "text": "Ingen under hengende last; hold faresonen avsperret."
+     "hazardId": "cd-02",
+     "section": "steps",
+     "text": "Les sikkerhetsdatabladet og vit hvor stoffkartoteket er."
     },
     {
-     "hazardId": "lh-03",
-     "section": "controls",
-     "text": "Løfteutstyret skal stå stabilt og ha tilstrekkelig styrke for lasten."
+     "hazardId": "cd-03",
+     "section": "hazards",
+     "text": "Våt betong og sement gir etseskader på hud og øyne."
     },
     {
-     "hazardId": "lh-04",
+     "hazardId": "cd-04",
      "section": "controls",
-     "text": "Løfteredskap skal være merket med kapasitet og kontrolleres før bruk."
+     "text": "Unngå hudkontakt med våt betong."
     },
     {
-     "hazardId": "lh-05",
+     "hazardId": "cd-05",
      "section": "controls",
-     "text": "Fritt hengende last skal styres og sikres under løftet."
+     "text": "Forskaling, stag og avstivning kontrolleres før og under støp."
     },
     {
-     "hazardId": "lh-06",
+     "hazardId": "cd-06",
      "section": "controls",
-     "text": "Løft over personer eller arbeidsplasser i bruk skal unngås."
+     "text": "Betongpumpe og slange: ingen foran slangeenden, stans pumpen før propp løses."
+    },
+    {
+     "hazardId": "cd-07",
+     "section": "controls",
+     "text": "Avstand til betongbil som rygger; signalgiver."
+    },
+    {
+     "hazardId": "cd-08",
+     "section": "hazards",
+     "text": "Hånd-arm-vibrasjoner fra vibrasjonsstav."
+    },
+    {
+     "hazardId": "cd-09",
+     "section": "hazards",
+     "text": "Støy fra pumpe, bil og vibrator."
+    },
+    {
+     "hazardId": "cd-10",
+     "section": "controls",
+     "text": "Arbeid i høyden ved forskalingen: plattform med rekkverk."
+    },
+    {
+     "hazardId": "cd-11",
+     "section": "ppe",
+     "text": "Hansker, støvler, vernebriller og hørselvern etter risiko og sikkerhetsdatablad."
+    },
+    {
+     "hazardId": "cd-12",
+     "section": "emergency",
+     "text": "Førstehjelp ved betong i øyne eller på hud."
+    },
+    {
+     "hazardId": "cd-13",
+     "section": "emergency",
+     "text": "Ved ulykke: ring 113 og varsle basen."
+    },
+    {
+     "hazardId": "cd-14",
+     "section": "ppe",
+     "text": "Hjelm, vernesko og synlighetstøy for alle i området."
     }
    ]
   },
-  "rawOutput": "{\"operations\":[{\"op\":\"modify\",\"lineId\":\"l-12\",\"text\":\"Sperr av faresonen rundt løftet, også gangveien ved inngangen.\",\"hazardRef\":\"lh-02\"},{\"op\":\"add\",\"text\":\"Ikke løft over gangveien mens personer oppholder seg der.\",\"section\":\"controls\",\"afterLineId\":\"l-11\",\"hazardRef\":\"lh-06\",\"critical\":true},{\"op\":\"add\",\"text\":\"Bruk to styretau fordi lasten er lang.\",\"section\":\"controls\",\"afterLineId\":\"l-14\",\"hazardRef\":\"lh-05\",\"critical\":true}]}"
+  "rawOutput": "{\"operations\":[{\"op\":\"add\",\"text\":\"Betongbilen rygger inn over fortauet. Sperr av fortauet, og la signalgiveren dirigere bilen.\",\"section\":\"controls\",\"afterLineId\":\"c-13\",\"hazardRef\":\"cd-07\",\"critical\":true}]}"
  },
- "517f9490b6aeb37e466cb68e": {
+ "1fb8ba85ab5731d33cef2bf1": {
   "task": "P2",
   "promptVersion": "1.0.0",
-  "inputHash": "517f9490b6aeb37e466cb68e",
+  "inputHash": "1fb8ba85ab5731d33cef2bf1",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.896Z",
+  "recordedAt": "2026-10-26T17:14:22.272Z",
   "input": {
    "jobType": "Løfteoperasjon med kran",
    "lines": [
@@ -587,18 +672,43 @@
      "hazardId": "lh-06",
      "section": "controls",
      "text": "Løft over personer eller arbeidsplasser i bruk skal unngås."
+    },
+    {
+     "hazardId": "lh-07",
+     "section": "controls",
+     "text": "Sikkerhetsavstand til kraftlinjer."
+    },
+    {
+     "hazardId": "lh-08",
+     "section": "ppe",
+     "text": "Hjelm, vernesko og synlighetstøy for alle i området; hansker for anhuker."
+    },
+    {
+     "hazardId": "lh-09",
+     "section": "stop",
+     "text": "Stans løftet når vind eller vær gjør det usikkert."
+    },
+    {
+     "hazardId": "lh-10",
+     "section": "stop",
+     "text": "Alle kan si stopp, og kranføreren stanser straks."
+    },
+    {
+     "hazardId": "lh-11",
+     "section": "emergency",
+     "text": "Ved ulykke: 113, basen, førstehjelpsutstyr og møteplass."
     }
    ]
   },
   "rawOutput": "{\"operations\":[{\"op\":\"modify\",\"lineId\":\"l-12\",\"text\":\"Sperr av faresonen rundt løftet og hold porten stengt under løftet.\",\"hazardRef\":\"lh-02\"}]}"
  },
- "7e4bf5fd7ea09827c2389936": {
+ "40d06d27b9eade998f3c15e5": {
   "task": "P2",
   "promptVersion": "1.0.0",
-  "inputHash": "7e4bf5fd7ea09827c2389936",
+  "inputHash": "40d06d27b9eade998f3c15e5",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.861Z",
+  "recordedAt": "2026-10-26T17:14:22.237Z",
   "input": {
    "jobType": "Arbeid i høyden",
    "lines": [
@@ -790,9 +900,472 @@
      "hazardId": "hh-10",
      "section": "controls",
      "text": "Brukere av stillas skal ha fått opplæring."
+    },
+    {
+     "hazardId": "hh-11",
+     "section": "hazards",
+     "text": "Glatt eller ustabilt underlag på arbeidsstedet."
+    },
+    {
+     "hazardId": "hh-12",
+     "section": "stop",
+     "text": "Stans arbeid i høyden når vær og vind setter sikkerheten i fare."
+    },
+    {
+     "hazardId": "hh-13",
+     "section": "ppe",
+     "text": "Hjelm med hakestropp, vernesko og hansker."
+    },
+    {
+     "hazardId": "hh-14",
+     "section": "emergency",
+     "text": "Ved ulykke: ring 113 og varsle basen."
     }
    ]
   },
   "rawOutput": "{\"operations\":[{\"op\":\"add\",\"text\":\"Utsparingen i dekket ved trappa skal dekkes til og merkes.\",\"section\":\"controls\",\"afterLineId\":\"h-09\",\"hazardRef\":null,\"critical\":true},{\"op\":\"modify\",\"lineId\":\"h-10\",\"text\":\"Sperr av fortauet under stillaset før arbeidet starter.\",\"hazardRef\":\"hh-04\"},{\"op\":\"add\",\"text\":\"Alle som går opp på stillaset skal ha fått opplæring.\",\"section\":\"controls\",\"afterLineId\":\"h-12\",\"hazardRef\":\"hh-10\",\"critical\":false}]}"
+ },
+ "4c54f81d1f9e8b917b7f2627": {
+  "task": "P2",
+  "promptVersion": "1.0.0",
+  "inputHash": "4c54f81d1f9e8b917b7f2627",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.179Z",
+  "input": {
+   "jobType": "Løfteoperasjon med kran",
+   "lines": [
+    {
+     "lineId": "l-01",
+     "section": "steps",
+     "text": "Lastens vekt: 850 kg",
+     "critical": false
+    },
+    {
+     "lineId": "l-02",
+     "section": "steps",
+     "text": "Løfteutstyr: Mobilkran",
+     "critical": false
+    },
+    {
+     "lineId": "l-03",
+     "section": "steps",
+     "text": "Løftehøyde: 6 m",
+     "critical": false
+    },
+    {
+     "lineId": "l-04",
+     "section": "steps",
+     "text": "Gå gjennom denne SJA-en med hele laget før løftet starter.",
+     "critical": false
+    },
+    {
+     "lineId": "l-05",
+     "section": "steps",
+     "text": "Avtal hvem som er kranfører, anhuker og signalgiver.",
+     "critical": true
+    },
+    {
+     "lineId": "l-06",
+     "section": "hazards",
+     "text": "Fare: hengende last faller ned eller svinger.",
+     "critical": true
+    },
+    {
+     "lineId": "l-07",
+     "section": "hazards",
+     "text": "Fare: klemfare mellom last og faste konstruksjoner.",
+     "critical": true
+    },
+    {
+     "lineId": "l-08",
+     "section": "hazards",
+     "text": "Fare: kranen velter på grunn av svakt underlag eller for tung last.",
+     "critical": true
+    },
+    {
+     "lineId": "l-09",
+     "section": "controls",
+     "text": "Kontroller at løfteredskapet har WLL som dekker lastens vekt.",
+     "critical": true
+    },
+    {
+     "lineId": "l-10",
+     "section": "controls",
+     "text": "Kontroller løftestropper og sjakler for skader før bruk.",
+     "critical": true
+    },
+    {
+     "lineId": "l-11",
+     "section": "controls",
+     "text": "Ingen skal oppholde seg under hengende last.",
+     "critical": true
+    },
+    {
+     "lineId": "l-12",
+     "section": "controls",
+     "text": "Sperr av faresonen rundt løftet.",
+     "critical": true
+    },
+    {
+     "lineId": "l-13",
+     "section": "controls",
+     "text": "Kranen skal stå på bæredyktig underlag med støttebena helt ute.",
+     "critical": true
+    },
+    {
+     "lineId": "l-14",
+     "section": "controls",
+     "text": "Bruk styretau for å styre lasten. Ikke styr lasten med hendene.",
+     "critical": true
+    },
+    {
+     "lineId": "l-15",
+     "section": "controls",
+     "text": "Kranfører og signalgiver skal ha radiosamband eller fri sikt hele tiden.",
+     "critical": true
+    },
+    {
+     "lineId": "l-16",
+     "section": "controls",
+     "text": "Hold sikkerhetsavstand til kraftlinjer.",
+     "critical": true
+    },
+    {
+     "lineId": "l-17",
+     "section": "ppe",
+     "text": "Hjelm, vernesko og synlighetstøy skal brukes av alle i området.",
+     "critical": true
+    },
+    {
+     "lineId": "l-18",
+     "section": "ppe",
+     "text": "Anhuker skal bruke hansker.",
+     "critical": false
+    },
+    {
+     "lineId": "l-19",
+     "section": "stop",
+     "text": "Vindgrense: 12 m/s",
+     "critical": true
+    },
+    {
+     "lineId": "l-20",
+     "section": "stop",
+     "text": "Stans løftet når vindstyrken er over vindgrensen.",
+     "critical": true
+    },
+    {
+     "lineId": "l-21",
+     "section": "stop",
+     "text": "Stans løftet hvis noen går inn i faresonen.",
+     "critical": true
+    },
+    {
+     "lineId": "l-22",
+     "section": "stop",
+     "text": "Alle kan si stopp. Kranføreren skal stanse straks.",
+     "critical": true
+    },
+    {
+     "lineId": "l-23",
+     "section": "emergency",
+     "text": "Ved ulykke: ring 113 og varsle basen.",
+     "critical": true
+    },
+    {
+     "lineId": "l-24",
+     "section": "emergency",
+     "text": "Førstehjelpsutstyr og møteplass skal være kjent for alle.",
+     "critical": false
+    }
+   ],
+   "specifics": [
+    "Løft av 6 bunter takstoler opp på taket.",
+    "Løftet går over gangveien ved inngangen.",
+    "Lasten er lang og utsatt for vind."
+   ],
+   "hazards": [
+    {
+     "hazardId": "lh-01",
+     "section": "steps",
+     "text": "Planlegg løfteoperasjonen og avtal roller og kommunikasjon."
+    },
+    {
+     "hazardId": "lh-02",
+     "section": "controls",
+     "text": "Ingen under hengende last; hold faresonen avsperret."
+    },
+    {
+     "hazardId": "lh-03",
+     "section": "controls",
+     "text": "Løfteutstyret skal stå stabilt og ha tilstrekkelig styrke for lasten."
+    },
+    {
+     "hazardId": "lh-04",
+     "section": "controls",
+     "text": "Løfteredskap skal være merket med kapasitet og kontrolleres før bruk."
+    },
+    {
+     "hazardId": "lh-05",
+     "section": "controls",
+     "text": "Fritt hengende last skal styres og sikres under løftet."
+    },
+    {
+     "hazardId": "lh-06",
+     "section": "controls",
+     "text": "Løft over personer eller arbeidsplasser i bruk skal unngås."
+    },
+    {
+     "hazardId": "lh-07",
+     "section": "controls",
+     "text": "Sikkerhetsavstand til kraftlinjer."
+    },
+    {
+     "hazardId": "lh-08",
+     "section": "ppe",
+     "text": "Hjelm, vernesko og synlighetstøy for alle i området; hansker for anhuker."
+    },
+    {
+     "hazardId": "lh-09",
+     "section": "stop",
+     "text": "Stans løftet når vind eller vær gjør det usikkert."
+    },
+    {
+     "hazardId": "lh-10",
+     "section": "stop",
+     "text": "Alle kan si stopp, og kranføreren stanser straks."
+    },
+    {
+     "hazardId": "lh-11",
+     "section": "emergency",
+     "text": "Ved ulykke: 113, basen, førstehjelpsutstyr og møteplass."
+    }
+   ]
+  },
+  "rawOutput": "{\"operations\":[{\"op\":\"modify\",\"lineId\":\"l-12\",\"text\":\"Sperr av faresonen rundt løftet, også gangveien ved inngangen.\",\"hazardRef\":\"lh-02\"},{\"op\":\"add\",\"text\":\"Ikke løft over gangveien mens personer oppholder seg der.\",\"section\":\"controls\",\"afterLineId\":\"l-11\",\"hazardRef\":\"lh-06\",\"critical\":true},{\"op\":\"add\",\"text\":\"Bruk to styretau fordi lasten er lang.\",\"section\":\"controls\",\"afterLineId\":\"l-14\",\"hazardRef\":\"lh-05\",\"critical\":true}]}"
+ },
+ "587ff5dbb2fda4d91b487999": {
+  "task": "P2",
+  "promptVersion": "1.0.0",
+  "inputHash": "587ff5dbb2fda4d91b487999",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.283Z",
+  "input": {
+   "jobType": "Arbeid i høyden",
+   "lines": [
+    {
+     "lineId": "h-01",
+     "section": "steps",
+     "text": "Arbeidshøyde: 8 m",
+     "critical": false
+    },
+    {
+     "lineId": "h-02",
+     "section": "steps",
+     "text": "Atkomst: Stillas",
+     "critical": false
+    },
+    {
+     "lineId": "h-03",
+     "section": "steps",
+     "text": "Gå gjennom denne SJA-en med hele laget før arbeidet starter.",
+     "critical": false
+    },
+    {
+     "lineId": "h-04",
+     "section": "steps",
+     "text": "Kontroller atkomsten og arbeidsstedet før dere går opp.",
+     "critical": false
+    },
+    {
+     "lineId": "h-05",
+     "section": "hazards",
+     "text": "Fare: fall fra høyde.",
+     "critical": true
+    },
+    {
+     "lineId": "h-06",
+     "section": "hazards",
+     "text": "Fare: fallende gjenstander treffer personer under arbeidsstedet.",
+     "critical": true
+    },
+    {
+     "lineId": "h-07",
+     "section": "hazards",
+     "text": "Fare: glatt eller ustabilt underlag.",
+     "critical": false
+    },
+    {
+     "lineId": "h-08",
+     "section": "controls",
+     "text": "Rekkverk skal være montert på alle åpne sider før arbeidet starter.",
+     "critical": true
+    },
+    {
+     "lineId": "h-09",
+     "section": "controls",
+     "text": "Bruk fallsikringssele festet til godkjent forankringspunkt der rekkverk mangler.",
+     "critical": true
+    },
+    {
+     "lineId": "h-10",
+     "section": "controls",
+     "text": "Sperr av området under arbeidsstedet.",
+     "critical": true
+    },
+    {
+     "lineId": "h-11",
+     "section": "controls",
+     "text": "Sikre verktøy og materialer slik at de ikke kan falle ned.",
+     "critical": true
+    },
+    {
+     "lineId": "h-12",
+     "section": "controls",
+     "text": "Stillaset skal være kontrollert og godkjent før bruk.",
+     "critical": true
+    },
+    {
+     "lineId": "h-13",
+     "section": "controls",
+     "text": "Stige skal bare brukes til kortvarig arbeid og skal sikres mot å gli.",
+     "critical": true
+    },
+    {
+     "lineId": "h-14",
+     "section": "controls",
+     "text": "Minst 2 personer skal være til stede under arbeidet.",
+     "critical": true
+    },
+    {
+     "lineId": "h-15",
+     "section": "ppe",
+     "text": "Hjelm med hakestropp skal brukes hele tiden.",
+     "critical": true
+    },
+    {
+     "lineId": "h-16",
+     "section": "ppe",
+     "text": "Bruk vernesko og hansker.",
+     "critical": false
+    },
+    {
+     "lineId": "h-17",
+     "section": "stop",
+     "text": "Vindgrense: 15 m/s",
+     "critical": true
+    },
+    {
+     "lineId": "h-18",
+     "section": "stop",
+     "text": "Stans arbeidet når vindstyrken er over vindgrensen.",
+     "critical": true
+    },
+    {
+     "lineId": "h-19",
+     "section": "stop",
+     "text": "Stans arbeidet hvis rekkverk eller forankringspunkt er skadet eller mangler.",
+     "critical": true
+    },
+    {
+     "lineId": "h-20",
+     "section": "stop",
+     "text": "Ingen skal arbeide alene i høyden.",
+     "critical": true
+    },
+    {
+     "lineId": "h-21",
+     "section": "emergency",
+     "text": "Ved ulykke: ring 113 og varsle basen.",
+     "critical": true
+    },
+    {
+     "lineId": "h-22",
+     "section": "emergency",
+     "text": "Redningsplan for person som henger i fallsikringssele skal være kjent for alle.",
+     "critical": true
+    }
+   ],
+   "specifics": [
+    "Montering av takvinduer.",
+    "Arbeid på taket utenfor stillaset.",
+    "Vinduene heises opp med vinsj."
+   ],
+   "hazards": [
+    {
+     "hazardId": "hh-01",
+     "section": "steps",
+     "text": "Risikovurder arbeidet på stedet sammen med laget før oppstart."
+    },
+    {
+     "hazardId": "hh-02",
+     "section": "controls",
+     "text": "Stillas skal kontrolleres før bruk, og atkomsten skal være sikker."
+    },
+    {
+     "hazardId": "hh-03",
+     "section": "hazards",
+     "text": "Fall fra høyde."
+    },
+    {
+     "hazardId": "hh-04",
+     "section": "controls",
+     "text": "Hindre at gjenstander faller ned, og hold området under arbeidsstedet avsperret."
+    },
+    {
+     "hazardId": "hh-05",
+     "section": "controls",
+     "text": "Rekkverk som kollektiv sikring mot fall."
+    },
+    {
+     "hazardId": "hh-06",
+     "section": "controls",
+     "text": "Personlig fallsikringsutstyr festet til godkjent forankringspunkt, med plan for redning."
+    },
+    {
+     "hazardId": "hh-07",
+     "section": "controls",
+     "text": "Stige bare til kortvarig arbeid, sikret mot å gli."
+    },
+    {
+     "hazardId": "hh-08",
+     "section": "controls",
+     "text": "Minst to personer i laget ved arbeid med fallsikringsutstyr."
+    },
+    {
+     "hazardId": "hh-09",
+     "section": "controls",
+     "text": "Rullestillas skal sikres mot velting og låses før bruk."
+    },
+    {
+     "hazardId": "hh-10",
+     "section": "controls",
+     "text": "Brukere av stillas skal ha fått opplæring."
+    },
+    {
+     "hazardId": "hh-11",
+     "section": "hazards",
+     "text": "Glatt eller ustabilt underlag på arbeidsstedet."
+    },
+    {
+     "hazardId": "hh-12",
+     "section": "stop",
+     "text": "Stans arbeid i høyden når vær og vind setter sikkerheten i fare."
+    },
+    {
+     "hazardId": "hh-13",
+     "section": "ppe",
+     "text": "Hjelm med hakestropp, vernesko og hansker."
+    },
+    {
+     "hazardId": "hh-14",
+     "section": "emergency",
+     "text": "Ved ulykke: ring 113 og varsle basen."
+    }
+   ]
+  },
+  "rawOutput": "{\"operations\":[{\"op\":\"add\",\"text\":\"Bruk sele ved behov.\",\"section\":\"controls\",\"afterLineId\":\"h-09\",\"hazardRef\":\"hh-06\",\"critical\":true},{\"op\":\"add\",\"text\":\"Vinsjen skal ha lastbrems og være festet til bærende konstruksjon.\",\"section\":\"controls\",\"afterLineId\":\"h-11\",\"hazardRef\":null,\"critical\":true}]}"
  }
 }

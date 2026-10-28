@@ -59,7 +59,7 @@ export function startJob(ctx: FlowCtx, id: string, over: Partial<flow.SjaInit> =
   return flow.createSja(
     ctx.pack,
     ctx.template,
-    { header: HEADER, parameterValues: job.parameterValues, freeText: job.freeText, languages: job.languages, crewFlags: job.crewFlags, fixtureId: id, ...over },
+    { header: HEADER, parameterValues: job.parameterValues, freeText: job.freeText, languages: job.languages, crewFlags: job.crewFlags, products: job.products, fixtureId: id, ...over },
     `test-${id}`,
   );
 }

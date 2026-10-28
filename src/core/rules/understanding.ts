@@ -6,7 +6,7 @@
 // "what do you do if …" question. The foreman then watches the start of the job.
 // Results are counts. No names, no per-person results.
 import { activeLines } from '../flags';
-import type { Question, Sja, SjaLine, Template, UnderstandingResult } from '../types';
+import type { CheckPath, FallbackReason, Question, Sja, SjaLine, Template, UnderstandingResult } from '../types';
 
 export function understandingTrigger(sja: Pick<Sja, 'lines' | 'crewFlags'>): { required: boolean; reason: string[] } {
   const reason: string[] = [];
@@ -16,8 +16,12 @@ export function understandingTrigger(sja: Pick<Sja, 'lines' | 'crewFlags'>): { r
   return { required: reason.length > 0, reason };
 }
 
-/** v3: one scenario question per worker (v2 asked three). */
+/** v3: one scenario question per worker (v2 asked three). Also in the written path (U2). */
 export const QUESTIONS_PER_CHECK = 1;
+/** Multiple choice only (U1, the last resort): three questions, because there is no explanation. */
+export const QUESTIONS_FALLBACK = 3;
+/** Questions in the stand-alone set (test 5) when a template does not list them. Kept at the original four. */
+export const STANDALONE_DEFAULT = 4;
 /** More points than this is more than a foreman can listen for in one explanation. */
 export const MAX_KEY_LINES = 5;
 
@@ -35,13 +39,45 @@ export const NO_CHECK: UnderstandingResult = {
 
 const isTodaysChange = (l: SjaLine) => l.origin !== 'removed' && l.critical && (l.origin === 'changed' || l.origin === 'new');
 
-/** Pre-approved questions only. The one that tests a changed line comes first, then critical ones. */
+/**
+ * The pool of pre-approved questions for this SJA, in order of priority (Q3): those that test a
+ * changed line first, then safety-critical ones, then the rest. Questions about a product line
+ * count only when that product is in today's SJA. Each worker gets the question in the pool that
+ * the fewest workers have answered so far, so workers checked one after another on the same phone
+ * get different questions.
+ */
 export function selectQuestions(sja: Pick<Sja, 'lines'>, template: Template): Question[] {
   const changed = new Set(
     sja.lines.filter((l) => l.origin === 'changed' && l.templateLineId).map((l) => l.templateLineId as string),
   );
+  const present = new Set(sja.lines.filter((l) => l.origin !== 'removed' && l.templateLineId).map((l) => l.templateLineId as string));
+  const usable = template.questions.filter((q) => q.linkedLineIds.some((id) => present.has(id)));
   const score = (q: Question) => (q.linkedLineIds.some((id) => changed.has(id)) ? 0 : q.critical ? 1 : 2);
-  return [...template.questions].sort((a, b) => score(a) - score(b)).slice(0, QUESTIONS_PER_CHECK);
+  return [...usable].sort((a, b) => score(a) - score(b));
+}
+
+/**
+ * The next question(s) for one worker: from the pool, in this worker's language, the ones
+ * answered by the fewest workers so far; ties keep the pool's order.
+ */
+export function nextQuestionIds(u: Pick<UnderstandingResult, 'questionIds' | 'perQuestion'>, template: Template, lang: string | null, n = QUESTIONS_PER_CHECK): string[] {
+  const asked = (id: string) => u.perQuestion.find((p) => p.questionId === id)?.respondents ?? 0;
+  const inLang = u.questionIds.filter((id) => {
+    const q = template.questions.find((x) => x.questionId === id);
+    return q && (!lang || q.byLang[lang as 'pl']);
+  });
+  return inLang
+    .map((id, i) => ({ id, i, n: asked(id) }))
+    .sort((a, b) => a.n - b.n || a.i - b.i)
+    .slice(0, n)
+    .map((x) => x.id);
+}
+
+/** The questions of the stand-alone set (test 5). Fixed, so both arms of the test get the same set. */
+export function standaloneQuestions(template: Template): Question[] {
+  const ids = template.standaloneQuestionIds;
+  if (ids?.length) return ids.map((id) => template.questions.find((q) => q.questionId === id)).filter((q): q is Question => Boolean(q));
+  return template.questions.slice(0, STANDALONE_DEFAULT);
 }
 
 /**
@@ -92,6 +128,9 @@ export function initUnderstanding(sja: Sja, template: Template): UnderstandingRe
     perQuestion: questionIds.map((id) => (keep && prev.perQuestion.find((p) => p.questionId === id)) || fresh(id)),
     completed: false,
     basis,
+    // Checks recorded before the paths existed were all conversations.
+    paths: keep ? (prev.paths ? { ...prev.paths } : { ...emptyPaths(), conversation: prev.respondents }) : emptyPaths(),
+    fallbackReasons: keep && prev.fallbackReasons ? { ...prev.fallbackReasons } : {},
     ...(changedSinceChecked || (comparable && prev.recheck && prev.respondents === 0) ? { recheck: true } : {}),
   };
 }
@@ -103,11 +142,20 @@ export function isComplete(u: UnderstandingResult): boolean {
   return !u.perQuestion.some((p) => p.respondents - p.correctFirst > 0 && !p.rebriefConfirmed);
 }
 
-/** One worker's check. `misunderstood` lists the key points the worker got wrong before the new walkthrough. */
+export const emptyPaths = (): Record<CheckPath, number> => ({ conversation: 0, written: 0, questionsOnly: 0 });
+
+/**
+ * One worker's check. `misunderstood` lists the key points the worker got wrong before the new walkthrough.
+ * `path` says how the worker was checked (U1); `teachBack` is 'none' only in the multiple-choice fallback,
+ * where nobody judged an explanation.
+ */
 export interface WorkerCheck {
-  teachBack: 'ok' | 'rebriefed';
+  teachBack: 'ok' | 'rebriefed' | 'none';
   misunderstood: string[];
   answers: { questionId: string; correct: boolean }[];
+  path?: CheckPath;
+  /** Why the conversation was not possible (written and questions-only paths). */
+  reason?: FallbackReason;
 }
 
 /**
@@ -126,8 +174,15 @@ export function recordWorker(u: UnderstandingResult, check: WorkerCheck): Unders
   }
   // Someone has been checked again, so the note about the earlier checks being set aside has done its job.
   const { recheck: _setAside, ...rest } = u;
+  const path: CheckPath = check.path ?? 'conversation';
+  const paths = { ...emptyPaths(), ...(u.paths ?? {}) };
+  paths[path] += 1;
+  const fallbackReasons = { ...(u.fallbackReasons ?? {}) };
+  if (path !== 'conversation' && check.reason) fallbackReasons[check.reason] = (fallbackReasons[check.reason] ?? 0) + 1;
   const next: UnderstandingResult = {
     ...rest,
+    paths,
+    fallbackReasons,
     respondents: u.respondents + 1,
     teachBack: { ok: u.teachBack.ok + (check.teachBack === 'ok' ? 1 : 0), rebriefed: u.teachBack.rebriefed + (check.teachBack === 'rebriefed' ? 1 : 0) },
     misunderstood,

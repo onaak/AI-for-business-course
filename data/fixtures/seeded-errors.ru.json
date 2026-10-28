@@ -1,0 +1,116 @@
+{
+  "status": "unconfirmed",
+  "note": "Written by the builder. A native speaker must confirm each seeded error is wrong, and each control is right, before any T6 result is reported. Until then results are labelled \"unconfirmed fixtures\". For the Moldovan workers at the interviewed firm Russian is a second language; a Russian reviewer should still be a native or fluent reader.",
+  "pairs": [
+    {
+      "id": "ru-s01",
+      "lang": "ru",
+      "kind": "seeded",
+      "source": "Bruk fallsikringssele festet til godkjent forankringspunkt der rekkverk mangler.",
+      "target": "Там, где нет защитного ограждения, используйте предохранительный пояс, пристёгнутый к утверждённой точке крепления.",
+      "critical": true,
+      "errorType": "forbidden term",
+      "glossaryCatchable": true,
+      "note": "A safety belt (waist belt) where a fall-arrest harness is meant."
+    },
+    {
+      "id": "ru-s02",
+      "lang": "ru",
+      "kind": "seeded",
+      "source": "Kontroller løftestropper og sjakler for skader før bruk.",
+      "target": "Перед использованием проверьте стяжные ремни и скобы на повреждения.",
+      "critical": true,
+      "errorType": "forbidden term",
+      "glossaryCatchable": true,
+      "note": "Lashing straps where lifting slings are meant."
+    },
+    {
+      "id": "ru-s03",
+      "lang": "ru",
+      "kind": "seeded",
+      "source": "Sperr av faresonen rundt løftet.",
+      "target": "Оградите место вокруг подъёма.",
+      "critical": true,
+      "errorType": "glossary term",
+      "glossaryCatchable": true,
+      "note": "\"the place\" where the danger zone is meant."
+    },
+    {
+      "id": "ru-s04",
+      "lang": "ru",
+      "kind": "seeded",
+      "source": "Fare: kranen velter på grunn av svakt underlag eller for tung last.",
+      "target": "Опасность: подъёмник опрокидывается из-за слабого основания или слишком тяжёлого груза.",
+      "critical": true,
+      "errorType": "glossary term",
+      "glossaryCatchable": true,
+      "note": "\"подъёмник\" (hoist) where the crane is meant."
+    },
+    {
+      "id": "ru-s05",
+      "lang": "ru",
+      "kind": "seeded",
+      "source": "Minst 2 personer skal være til stede under arbeidet.",
+      "target": "Во время работы должны присутствовать не менее 3 человек.",
+      "critical": true,
+      "errorType": "number",
+      "glossaryCatchable": false,
+      "note": "2 changed to 3."
+    },
+    {
+      "id": "ru-s06",
+      "lang": "ru",
+      "kind": "seeded",
+      "source": "Ingen skal oppholde seg under hengende last.",
+      "target": "Каждый может находиться под подвешенным грузом.",
+      "critical": true,
+      "errorType": "negation",
+      "glossaryCatchable": false,
+      "note": "Negation dropped: \"anyone may\" for \"nobody may\"."
+    },
+    {
+      "id": "ru-s07",
+      "lang": "ru",
+      "kind": "seeded",
+      "source": "Hjelm med hakestropp skal brukes hele tiden.",
+      "target": "Защитную каску с подбородочным ремнём можно носить всё время.",
+      "critical": true,
+      "errorType": "obligation",
+      "glossaryCatchable": false,
+      "note": "\"must\" turned into \"may\"."
+    },
+    {
+      "id": "ru-s08",
+      "lang": "ru",
+      "kind": "seeded",
+      "source": "Stige skal bare brukes til kortvarig arbeid og skal sikres mot å gli.",
+      "target": "Приставную лестницу можно использовать, и она должна быть защищена от скольжения.",
+      "critical": true,
+      "errorType": "omitted condition",
+      "glossaryCatchable": false,
+      "note": "The condition \"only for short work\" is omitted."
+    },
+    {
+      "id": "ru-s09",
+      "lang": "ru",
+      "kind": "seeded",
+      "source": "Sperr av området under arbeidsstedet.",
+      "target": "Оградите зону над рабочим местом.",
+      "critical": true,
+      "errorType": "direction",
+      "glossaryCatchable": false,
+      "note": "\"above\" for \"below\"."
+    },
+    {
+      "id": "ru-s10",
+      "lang": "ru",
+      "kind": "seeded",
+      "source": "Sikre verktøy og materialer slik at de ikke kan falle ned.",
+      "target": "Застрахуйте инструменты и материалы так, чтобы они не могли упасть.",
+      "critical": true,
+      "errorType": "similar word",
+      "glossaryCatchable": false,
+      "note": "\"застрахуйте\" (insure) for \"secure\" (закрепите). A wrong word that translates back to the original word."
+    }
+  ]
+}

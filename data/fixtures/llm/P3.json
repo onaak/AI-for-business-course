@@ -5,7 +5,7 @@
   "inputHash": "0905c9b7d8cb78ee10ddd881",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.862Z",
+  "recordedAt": "2026-10-26T17:14:22.238Z",
   "input": {
    "lines": [
     {
@@ -23,7 +23,7 @@
   "inputHash": "102b8274330ccafd2b69a7ef",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.913Z",
+  "recordedAt": "2026-10-26T17:14:22.290Z",
   "input": {
    "lines": [
     {
@@ -41,7 +41,7 @@
   "inputHash": "11965640bbdea675cd75fd82",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.816Z",
+  "recordedAt": "2026-10-26T17:14:22.187Z",
   "input": {
    "lines": [
     {
@@ -59,12 +59,48 @@
   "inputHash": "13fb27e2fa21c5de175eed17",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.862Z",
+  "recordedAt": "2026-10-26T17:14:22.238Z",
   "input": {
    "lines": [
     {
      "lineId": "ny-1",
      "text": "Utsparingen i dekket ved trappa skal dekkes til og merkes.",
+     "critical": true
+    }
+   ]
+  },
+  "rawOutput": "{\"lines\":[{\"lineId\":\"ny-1\",\"status\":\"clear\"}]}"
+ },
+ "149f73e0f4d10eb8ab1af05c": {
+  "task": "P3",
+  "promptVersion": "1.0.0",
+  "inputHash": "149f73e0f4d10eb8ab1af05c",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.311Z",
+  "input": {
+   "lines": [
+    {
+     "lineId": "ny-1",
+     "text": "Sett opp mekanisk ventilasjon før lakkeringen starter, fordi rommet bare har ett lite vindu.",
+     "critical": true
+    }
+   ]
+  },
+  "rawOutput": "{\"lines\":[{\"lineId\":\"ny-1\",\"status\":\"clear\"}]}"
+ },
+ "1871fce5fcb3815f1edc99ed": {
+  "task": "P3",
+  "promptVersion": "1.0.0",
+  "inputHash": "1871fce5fcb3815f1edc99ed",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.333Z",
+  "input": {
+   "lines": [
+    {
+     "lineId": "ny-1",
+     "text": "Betongbilen rygger inn over fortauet. Sperr av fortauet, og la signalgiveren dirigere bilen.",
      "critical": true
     }
    ]
@@ -77,7 +113,7 @@
   "inputHash": "381b9c2b7c21654f7c09c543",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:53.017Z",
+  "recordedAt": "2026-10-26T17:14:22.526Z",
   "input": {
    "lines": [
     {
@@ -95,7 +131,7 @@
   "inputHash": "42fc8ca31794c68fc235707a",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.910Z",
+  "recordedAt": "2026-10-26T17:14:22.284Z",
   "input": {
    "lines": [
     {
@@ -113,7 +149,7 @@
   "inputHash": "5b13f3bef8d0e4bd8ff3c25a",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.816Z",
+  "recordedAt": "2026-10-26T17:14:22.186Z",
   "input": {
    "lines": [
     {
@@ -131,7 +167,7 @@
   "inputHash": "6021dc0ea461853647dc13e8",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.862Z",
+  "recordedAt": "2026-10-26T17:14:22.238Z",
   "input": {
    "lines": [
     {
@@ -143,13 +179,31 @@
   },
   "rawOutput": "{\"lines\":[{\"lineId\":\"ny-2\",\"status\":\"clear\"}]}"
  },
+ "7c486bbb607f77dade4169db": {
+  "task": "P3",
+  "promptVersion": "1.0.0",
+  "inputHash": "7c486bbb607f77dade4169db",
+  "origin": "scripted",
+  "model": "scripted-demo (no model was called)",
+  "recordedAt": "2026-10-26T17:14:22.312Z",
+  "input": {
+   "lines": [
+    {
+     "lineId": "ny-2",
+     "text": "Bare de som har opplæring i isocyanater, skal blande og påføre lakken.",
+     "critical": true
+    }
+   ]
+  },
+  "rawOutput": "{\"lines\":[{\"lineId\":\"ny-2\",\"status\":\"clear\"}]}"
+ },
  "96dcfcaf2f641a4ca2a98a53": {
   "task": "P3",
   "promptVersion": "1.0.0",
   "inputHash": "96dcfcaf2f641a4ca2a98a53",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.887Z",
+  "recordedAt": "2026-10-26T17:14:22.263Z",
   "input": {
    "lines": [
     {
@@ -167,7 +221,7 @@
   "inputHash": "99d8549fb01eebf3584cc914",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.816Z",
+  "recordedAt": "2026-10-26T17:14:22.186Z",
   "input": {
    "lines": [
     {
@@ -185,7 +239,7 @@
   "inputHash": "9e2a8d3a1d698df2e354d85c",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.897Z",
+  "recordedAt": "2026-10-26T17:14:22.274Z",
   "input": {
    "lines": [
     {
@@ -203,7 +257,7 @@
   "inputHash": "b1b85226ab9f4e5d57d06881",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:53.017Z",
+  "recordedAt": "2026-10-26T17:14:22.526Z",
   "input": {
    "lines": [
     {
@@ -221,7 +275,7 @@
   "inputHash": "dee90b577664fb538e7f26f1",
   "origin": "scripted",
   "model": "scripted-demo (no model was called)",
-  "recordedAt": "2026-10-05T13:30:52.910Z",
+  "recordedAt": "2026-10-26T17:14:22.285Z",
   "input": {
    "lines": [
     {
