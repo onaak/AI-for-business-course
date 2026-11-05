@@ -1,0 +1,184 @@
+{
+  "status": "unconfirmed",
+  "note": "U4 (26 Oct 2026). Written by the builder: short written explanations as a worker might give them, some right and some subtly wrong, with a Norwegian translation that a translation step should give. Used in two places: as stored sample answers in the demo (replay mode cannot translate text you type yourself), and in the test bench, where a person who does not read the language judges each answer from the translation alone. A native speaker must confirm each answer and its translation before a result is reported.",
+  "answers": [
+    {
+      "id": "ws-01",
+      "lang": "lt",
+      "templateId": "lifting",
+      "keyLineIds": [
+        "l-11",
+        "l-12",
+        "l-14"
+      ],
+      "intended": "correct",
+      "hazard": "Krovinys gali nukristi arba siūbuoti ir prispausti žmogų.",
+      "measure": "Niekas nestovi po kroviniu, zona aptverta, krovinį kreipiame virve, ne rankomis.",
+      "translation": {
+        "hazard": "Lasten kan falle ned eller svinge og klemme en person.",
+        "measure": "Ingen står under lasten, området er sperret av, vi styrer lasten med tau, ikke med hendene."
+      },
+      "note": ""
+    },
+    {
+      "id": "ws-02",
+      "lang": "lt",
+      "templateId": "lifting",
+      "keyLineIds": [
+        "l-11",
+        "l-12",
+        "l-14"
+      ],
+      "intended": "subtlyWrong",
+      "hazard": "Kranas gali apvirsti.",
+      "measure": "Kai krovinys kabo, galima trumpai praeiti po juo, jei esi su šalmu.",
+      "translation": {
+        "hazard": "Kranen kan velte.",
+        "measure": "Når lasten henger, kan man gå kort under den hvis man har hjelm."
+      },
+      "note": "Says it is fine to walk under a suspended load with a helmet. The key point is the opposite."
+    },
+    {
+      "id": "ws-03",
+      "lang": "pl",
+      "templateId": "lifting",
+      "keyLineIds": [
+        "l-11",
+        "l-12",
+        "l-14"
+      ],
+      "intended": "correct",
+      "hazard": "Ładunek może spaść albo się zakołysać.",
+      "measure": "Nikt nie stoi pod ładunkiem, strefa jest wygrodzona, prowadzimy ładunek liną.",
+      "translation": {
+        "hazard": "Lasten kan falle ned eller svinge.",
+        "measure": "Ingen står under lasten, sonen er sperret av, vi styrer lasten med tau."
+      },
+      "note": ""
+    },
+    {
+      "id": "ws-04",
+      "lang": "ru",
+      "templateId": "painting",
+      "keyLineIds": [
+        "p-10",
+        "p-11",
+        "p-24"
+      ],
+      "intended": "correct",
+      "hazard": "Пары растворителя вредны для головы и могут загореться.",
+      "measure": "Ставим вытяжку, окно открыто, не курим, лак смешивает только тот, кто обучен.",
+      "translation": {
+        "hazard": "Damp fra løsemiddel er skadelig for hodet og kan ta fyr.",
+        "measure": "Vi setter opp avtrekk, vinduet er åpent, vi røyker ikke, lakken blandes bare av den som har opplæring."
+      },
+      "note": ""
+    },
+    {
+      "id": "ws-05",
+      "lang": "ru",
+      "templateId": "painting",
+      "keyLineIds": [
+        "p-10",
+        "p-19",
+        "p-11"
+      ],
+      "intended": "subtlyWrong",
+      "hazard": "Краска сильно пахнет.",
+      "measure": "Если болит голова, можно надеть маску и продолжать.",
+      "translation": {
+        "hazard": "Malingen lukter sterkt.",
+        "measure": "Hvis hodet verker, kan man ta på en maske og fortsette."
+      },
+      "note": "Says to carry on with a mask when the head aches. The SJA says stop and go out into fresh air."
+    },
+    {
+      "id": "ws-06",
+      "lang": "lt",
+      "templateId": "painting",
+      "keyLineIds": [
+        "p-10",
+        "p-11",
+        "p-24"
+      ],
+      "intended": "correct",
+      "hazard": "Tirpiklių garai kenkia ir gali užsidegti.",
+      "measure": "Vėdiname, nerūkome, laką maišo tik apmokyti.",
+      "translation": {
+        "hazard": "Damp fra løsemidler er skadelig og kan ta fyr.",
+        "measure": "Vi lufter, vi røyker ikke, lakken blandes bare av de som har opplæring."
+      },
+      "note": ""
+    },
+    {
+      "id": "ws-07",
+      "lang": "ru",
+      "templateId": "concrete",
+      "keyLineIds": [
+        "c-12",
+        "c-21",
+        "c-11"
+      ],
+      "intended": "correct",
+      "hazard": "Шланг может ударить, а бетон жжёт кожу.",
+      "measure": "Не стоим перед шлангом, насос останавливают перед чисткой пробки, бетон смываем водой.",
+      "translation": {
+        "hazard": "Slangen kan slå, og betongen brenner huden.",
+        "measure": "Vi står ikke foran slangen, pumpen stanses før proppen løses, betong vaskes av med vann."
+      },
+      "note": ""
+    },
+    {
+      "id": "ws-08",
+      "lang": "pl",
+      "templateId": "concrete",
+      "keyLineIds": [
+        "c-12",
+        "c-21",
+        "c-11"
+      ],
+      "intended": "subtlyWrong",
+      "hazard": "Wąż może się zatkać.",
+      "measure": "Gdy wąż się zatka, mocno trzymam koniec węża, żeby nie uderzył.",
+      "translation": {
+        "hazard": "Slangen kan gå tett.",
+        "measure": "Når slangen går tett, holder jeg enden av slangen godt fast så den ikke slår."
+      },
+      "note": "Says to hold the end of the hose. The SJA says nobody stands in front of the hose end."
+    },
+    {
+      "id": "ws-09",
+      "lang": "lt",
+      "templateId": "work-at-height",
+      "keyLineIds": [
+        "h-09",
+        "h-10"
+      ],
+      "intended": "subtlyWrong",
+      "hazard": "Galima nukristi iš aukščio.",
+      "measure": "Kur nėra turėklų, dirbame atsargiai prie krašto.",
+      "translation": {
+        "hazard": "Man kan falle fra høyden.",
+        "measure": "Der det ikke er rekkverk, arbeider vi forsiktig ved kanten."
+      },
+      "note": "Leaves out the harness. \"Careful at the edge\" is not the measure."
+    },
+    {
+      "id": "ws-10",
+      "lang": "ru",
+      "templateId": "work-at-height",
+      "keyLineIds": [
+        "h-09",
+        "h-10"
+      ],
+      "intended": "correct",
+      "hazard": "Можно упасть, и сверху на людей могут падать инструменты.",
+      "measure": "Пристёгиваемся привязью к точке крепления, зона внизу огорожена.",
+      "translation": {
+        "hazard": "Man kan falle, og verktøy kan falle ned på folk.",
+        "measure": "Vi fester oss med sele til forankringspunktet, området under er sperret av."
+      },
+      "note": ""
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "unsupportedLanguage": {
+    "id": "edge-ro",
+    "lang": "ro",
+    "kind": "control",
+    "source": "Sperr av området under arbeidsstedet.",
+    "target": "Îngrădiți zona de sub locul de muncă.",
+    "critical": true,
+    "note": "Romanian is not in the data pack. Expected: UNSUPPORTED_LANGUAGE and nothing else."
+  },
+  "missingGlossaryTerm": {
+    "id": "edge-term",
+    "lang": "pl",
+    "source": "Vinsjen skal ha lastbrems og være festet til bærende konstruksjon.",
+    "critical": true,
+    "note": "\"vinsj\" (winch) has no glossary entry. Expected: TERM_NOT_IN_GLOSSARY, red."
+  }
+}

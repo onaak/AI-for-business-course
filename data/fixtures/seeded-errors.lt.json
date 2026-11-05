@@ -1,0 +1,116 @@
+{
+  "status": "unconfirmed",
+  "note": "Written by the builder. A native speaker must confirm each seeded error is wrong, and each control is right, before any T6 result is reported. Until then results are labelled \"unconfirmed fixtures\".",
+  "pairs": [
+    {
+      "id": "lt-s01",
+      "lang": "lt",
+      "kind": "seeded",
+      "source": "Bruk fallsikringssele festet til godkjent forankringspunkt der rekkverk mangler.",
+      "target": "Kur nėra apsauginių turėklų, naudokite juosmens diržą, pritvirtintą prie patvirtinto tvirtinimo taško.",
+      "critical": true,
+      "errorType": "forbidden term",
+      "glossaryCatchable": true,
+      "note": "A waist belt where a fall-arrest harness is meant."
+    },
+    {
+      "id": "lt-s02",
+      "lang": "lt",
+      "kind": "seeded",
+      "source": "Kontroller løftestropper og sjakler for skader før bruk.",
+      "target": "Prieš naudodami patikrinkite, ar tvirtinimo diržai ir apkabos nepažeisti.",
+      "critical": true,
+      "errorType": "forbidden term",
+      "glossaryCatchable": true,
+      "note": "Lashing straps where lifting slings are meant."
+    },
+    {
+      "id": "lt-s03",
+      "lang": "lt",
+      "kind": "seeded",
+      "source": "Sperr av faresonen rundt løftet.",
+      "target": "Aptverkite vietą aplink kėlimą.",
+      "critical": true,
+      "errorType": "glossary term",
+      "glossaryCatchable": true,
+      "note": "\"the place\" where the danger zone is meant."
+    },
+    {
+      "id": "lt-s04",
+      "lang": "lt",
+      "kind": "seeded",
+      "source": "Fare: kranen velter på grunn av svakt underlag eller for tung last.",
+      "target": "Pavojus: keltuvas apvirsta dėl silpno pagrindo arba per sunkaus krovinio.",
+      "critical": true,
+      "errorType": "glossary term",
+      "glossaryCatchable": true,
+      "note": "\"keltuvas\" (hoist) where the crane is meant."
+    },
+    {
+      "id": "lt-s05",
+      "lang": "lt",
+      "kind": "seeded",
+      "source": "Minst 2 personer skal være til stede under arbeidet.",
+      "target": "Darbo metu turi būti ne mažiau kaip 3 asmenys.",
+      "critical": true,
+      "errorType": "number",
+      "glossaryCatchable": false,
+      "note": "2 changed to 3."
+    },
+    {
+      "id": "lt-s06",
+      "lang": "lt",
+      "kind": "seeded",
+      "source": "Ingen skal oppholde seg under hengende last.",
+      "target": "Kiekvienas gali būti po pakabintu kroviniu.",
+      "critical": true,
+      "errorType": "negation",
+      "glossaryCatchable": false,
+      "note": "Negation dropped: \"anyone may\" for \"nobody may\"."
+    },
+    {
+      "id": "lt-s07",
+      "lang": "lt",
+      "kind": "seeded",
+      "source": "Hjelm med hakestropp skal brukes hele tiden.",
+      "target": "Apsauginį šalmą su pasmakrės dirželiu galima dėvėti visą laiką.",
+      "critical": true,
+      "errorType": "obligation",
+      "glossaryCatchable": false,
+      "note": "\"must\" turned into \"may\"."
+    },
+    {
+      "id": "lt-s08",
+      "lang": "lt",
+      "kind": "seeded",
+      "source": "Stige skal bare brukes til kortvarig arbeid og skal sikres mot å gli.",
+      "target": "Kopėčios gali būti naudojamos ir turi būti apsaugotos nuo slydimo.",
+      "critical": true,
+      "errorType": "omitted condition",
+      "glossaryCatchable": false,
+      "note": "The condition \"only for short work\" is omitted."
+    },
+    {
+      "id": "lt-s09",
+      "lang": "lt",
+      "kind": "seeded",
+      "source": "Sperr av området under arbeidsstedet.",
+      "target": "Aptverkite zoną virš darbo vietos.",
+      "critical": true,
+      "errorType": "direction",
+      "glossaryCatchable": false,
+      "note": "\"above\" for \"below\"."
+    },
+    {
+      "id": "lt-s10",
+      "lang": "lt",
+      "kind": "seeded",
+      "source": "Sikre verktøy og materialer slik at de ikke kan falle ned.",
+      "target": "Apdrauskite įrankius ir medžiagas, kad jie negalėtų nukristi.",
+      "critical": true,
+      "errorType": "similar word",
+      "glossaryCatchable": false,
+      "note": "\"apdrauskite\" (insure) for \"secure\". A wrong word that translates back to the original word."
+    }
+  ]
+}

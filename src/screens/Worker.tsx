@@ -1,0 +1,658 @@
+/** A stored sample answer for the written path (U2, U4). */
+interface WrittenSample {
+  id: string;
+  lang: string;
+  hazard: string;
+  measure: string;
+}
+
+/** Pictograms of the product a line comes from (K3). */
+function ghsOf(line: SjaLine, pack: DataPack | null): Ghs[] {
+  if (!pack || !line.templateLineId) return [];
+  for (const t of pack.templates) {
+    const tl = t.lines.find((x) => x.lineId === line.templateLineId && x.ghs);
+    if (tl?.ghs) return tl.ghs;
+  }
+  return [];
+}
+
+// Worker kiosk (F-10, as changed by service brief v3): one device is passed from worker
+// to worker. No name is asked. Each worker reads the SJA, explains the key hazard and
+// the safety measure to the foreman in their own words (teach-back) and answers one
+// "what do you do if …" question. The tool keeps counts only. Worker text is in the
+// worker's language, in large type; the foreman's part is in the foreman's language.
+import { useEffect, useState, type ReactNode } from 'react';
+import { GhsRow } from '../components/Ghs';
+import { Link, useParams } from 'react-router-dom';
+import { TeachBackJudge, type TeachBackResult } from '../components/TeachBack';
+import { Button, ErrorBox, Icon, inputClass, Layout, Notice, Spinner } from '../components/ui';
+import { activeLines, isBlocking } from '../core/flags';
+import * as flow from '../core/flow';
+import { supportedLangs } from '../core/rules/diff';
+import { linesForQuestion, nextQuestionIds, QUESTIONS_FALLBACK, QUESTIONS_PER_CHECK, standaloneQuestions } from '../core/rules/understanding';
+import type { P7Output } from '../core/schemas';
+import { BANNER_EN, FALLBACK_REASONS, SECTIONS, type CheckPath, type DataPack, type FallbackReason, type Ghs, type Question, type SjaLine } from '../core/types';
+import { LANG_NAMES, uid } from '../core/util';
+import { useT, useUiLang, workerT } from '../i18n';
+import { makeFlowCtx } from '../state/ctx';
+import { useApp, useLog, useSjas, type StandaloneResult } from '../state/stores';
+import { timing } from '../state/timing';
+
+function KioskFrame({ lang, children, exitTo, exitLabel, counter, hideExit = false }: { lang: string | null; children: ReactNode; exitTo: string; exitLabel: string; counter: string; hideExit?: boolean }) {
+  const wt = workerT(lang ?? 'en');
+  return (
+    <div className="min-h-screen bg-white" lang={lang ?? undefined}>
+      <div className="sticky top-0 z-30">
+        <div role="note" data-testid="prototype-banner" className="bg-amber-300 px-3 py-1.5 text-center text-xs font-bold leading-snug text-slate-950">
+          {lang ? wt('banner') : BANNER_EN}
+        </div>
+        <div className="flex items-center justify-between border-b border-slate-300 bg-slate-50 px-3 py-1 text-sm">
+          <span className="font-semibold text-slate-700" data-testid="kiosk-counter">{counter}</span>
+          {/* While a worker is confirming, the phone goes back to the foreman only through the confirmation. */}
+          {!hideExit && (
+            <Link to={exitTo} className="inline-flex min-h-11 items-center font-semibold text-blue-800 underline" data-testid="kiosk-exit">
+              {exitLabel}
+            </Link>
+          )}
+        </div>
+      </div>
+      <main className="mx-auto max-w-xl px-4 py-5 text-[19px] leading-relaxed">{children}</main>
+    </div>
+  );
+}
+
+function LanguagePicker({ langs, onPick }: { langs: string[]; onPick: (l: string) => void }) {
+  return (
+    <div className="space-y-3">
+      {langs.map((l) => (
+        <Button key={l} variant="primary" className="w-full !py-4 text-xl" onClick={() => onPick(l)} data-testid={`kiosk-lang-${l}`}>
+          {LANG_NAMES[l]?.own ?? l}
+        </Button>
+      ))}
+    </div>
+  );
+}
+
+/** Scenario questions, one at a time. Records the first answer to each. A wrong answer never ends the flow.
+ * `explain` (Q4): after the answer, the worker sees the SJA line(s) the question is about, in their own language. */
+function QuestionRunner({ lang, questions, onDone, nextLabel, explain }: { lang: string; questions: Question[]; onDone: (answers: { questionId: string; correct: boolean }[]) => void; nextLabel?: string; explain?: (q: Question) => SjaLine[] }) {
+  const wt = workerT(lang);
+  const usable = questions.filter((q) => q.byLang[lang as 'pl']);
+  const [index, setIndex] = useState(0);
+  const [answers, setAnswers] = useState<{ questionId: string; correct: boolean }[]>([]);
+  const [feedback, setFeedback] = useState<null | boolean>(null);
+  const q = usable[index];
+
+  useEffect(() => {
+    if (usable.length === 0) onDone([]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  if (!q) return null;
+  const text = q.byLang[lang as 'pl']!;
+  const lines = feedback !== null && explain ? explain(q) : [];
+
+  const answer = (i: number) => {
+    if (feedback !== null) return;
+    const correct = i === q.correctIndex;
+    setAnswers((a) => [...a, { questionId: q.questionId, correct }]);
+    setFeedback(correct);
+  };
+  const next = () => {
+    setFeedback(null);
+    if (index + 1 >= usable.length) onDone(answers);
+    else setIndex(index + 1);
+  };
+
+  return (
+    <div className="space-y-4" data-testid="kiosk-question" data-question-id={q.questionId}>
+      <p className="text-base font-semibold text-slate-600">{usable.length === 1 ? wt('oneQuestion') : wt('questionOf', { n: index + 1, total: usable.length })}</p>
+      <h2 className="text-2xl font-bold leading-snug">{text.text}</h2>
+      <div className="space-y-3">
+        {text.options.map((o, i) => (
+          <Button key={i} className="w-full !justify-start !py-4 text-[19px]" disabled={feedback !== null} onClick={() => answer(i)} data-testid={`kiosk-option-${i}`} data-correct={i === q.correctIndex ? 'yes' : 'no'}>
+            {o}
+          </Button>
+        ))}
+      </div>
+      {feedback === true && (
+        <div className="rounded-xl border-2 border-emerald-600 bg-emerald-50 p-4" data-testid="kiosk-correct">
+          <p className="flex items-center gap-2 text-xl font-bold text-emerald-900">
+            <Icon name="check" className="h-6 w-6" /> {wt('correct')}
+          </p>
+        </div>
+      )}
+      {feedback === false && (
+        <div className="rounded-xl border-2 border-amber-600 bg-amber-50 p-4" data-testid="kiosk-talk">
+          <p className="flex items-start gap-2 text-xl font-bold text-amber-950">
+            <Icon name="voice" className="mt-1 h-6 w-6" /> {wt('talkToForeman')}
+          </p>
+        </div>
+      )}
+      {lines.length > 0 && (
+        <section className="rounded-xl bg-blue-50 p-3" data-testid="kiosk-in-sja">
+          <h3 className="text-base font-bold text-blue-950">{wt('inYourSja')}</h3>
+          <ul className="mt-2 space-y-2">
+            {lines.map((l) => (
+              <WorkerLine key={l.lineId} line={l} lang={lang} strong />
+            ))}
+          </ul>
+        </section>
+      )}
+      {feedback !== null && (
+        <Button variant="primary" className="w-full !py-4 text-xl" onClick={next} data-testid="kiosk-next">
+          {nextLabel ?? wt('next')}
+        </Button>
+      )}
+    </div>
+  );
+}
+
+function DonePanel({ lang, onNext, passOn, finish, talk = false }: { lang: string; onNext: () => void; passOn?: string; finish?: ReactNode; talk?: boolean }) {
+  const wt = workerT(lang);
+  return (
+    <div className="space-y-5 text-center" data-testid="kiosk-done">
+      {talk ? (
+        <div className="rounded-xl border-2 border-amber-600 bg-amber-50 p-4 text-left" data-testid="kiosk-done-talk">
+          <p className="flex items-start gap-2 text-xl font-bold text-amber-950">
+            <Icon name="voice" className="mt-1 h-6 w-6" /> {wt('talkToForeman')}
+          </p>
+        </div>
+      ) : (
+        <>
+          <Icon name="check" className="mx-auto h-16 w-16 text-emerald-700" />
+          <h2 className="text-2xl font-bold">{wt('done')}</h2>
+        </>
+      )}
+      <p className="text-xl">{passOn ?? wt('passOn')}</p>
+      <Button variant="primary" className="w-full !py-4 text-xl" onClick={onNext} data-testid="kiosk-next-worker">
+        {wt('nextWorker')}
+      </Button>
+      {finish}
+    </div>
+  );
+}
+
+/** One line of the SJA as the worker sees it. A line with no checked text in this language is briefed orally. */
+function WorkerLine({ line, lang, strong = false }: { line: SjaLine; lang: string; strong?: boolean }) {
+  const wt = workerT(lang);
+  const pack = useApp((s) => s.pack);
+  const e = line.byLang[lang];
+  const ghs = ghsOf(line, pack);
+  // A worker never reads a translation that is unchecked, or that the tool has flagged and nobody has handled yet.
+  const flagged = Boolean(e?.flags.some((f) => isBlocking(f, line.critical)));
+  const oral = !e || e.oralFallback || !e.text || flagged || e.checkState === 'error' || e.checkState === 'pending' || e.checkState === 'blocked';
+  return (
+    <li className={`rounded-lg border p-3 ${strong ? 'border-2 border-blue-600 bg-white' : line.critical ? 'border-l-8 border-rose-500' : 'border-slate-200'}`}>
+      {oral ? (
+        <p className="flex items-start gap-2 font-semibold text-amber-950">
+          <Icon name="voice" className="mt-1 h-6 w-6" /> {wt('oralPoint')}
+        </p>
+      ) : (
+        <p className={strong ? 'font-semibold' : ''}>{e.text}</p>
+      )}
+      {ghs.length > 0 && (
+        <p className="mt-2">
+          <GhsRow codes={ghs} lang={lang} size={44} labels />
+        </p>
+      )}
+      {line.critical && !strong && (
+        <p className="mt-1 flex items-center gap-1 text-sm font-bold text-rose-800">
+          <Icon name="warn" className="h-4 w-4" /> {wt('important')}
+        </p>
+      )}
+    </li>
+  );
+}
+
+/** /worker/:sjaId – the understanding check inside the foreman flow. */
+type KioskPhase = 'language' | 'read' | 'explain' | 'noTalk' | 'write' | 'judge' | 'question' | 'reexplain' | 'confirm' | 'done';
+
+export function WorkerKiosk() {
+  const { sjaId = '' } = useParams();
+  const t = useT();
+  const ui = useUiLang();
+  const pack = useApp((s) => s.pack);
+  const config = useApp((s) => s.config);
+  const fixtures = useApp((s) => s.fixtures);
+  const sja = useSjas((s) => s.sjas[sjaId]);
+  const [lang, setLang] = useState<string | null>(null);
+  const [phase, setPhase] = useState<KioskPhase>('language');
+  const [teach, setTeach] = useState<TeachBackResult | null>(null);
+  // The questions this worker answered wrongly; the foreman goes through them again before the worker confirms.
+  const [wrongIds, setWrongIds] = useState<string[]>([]);
+  // How this worker is checked (U1), and why the conversation was not possible.
+  const [path, setPath] = useState<CheckPath>('conversation');
+  const [reason, setReason] = useState<FallbackReason | null>(null);
+  // The question(s) for this worker, fixed when the worker starts (Q3: rotation).
+  const [asked, setAsked] = useState<string[]>([]);
+  // The written answers (U2). Kept in this screen only, until the foreman has judged them.
+  const [written, setWritten] = useState({ hazard: '', measure: '' });
+  const [translation, setTranslation] = useState<P7Output['items'] | null>(null);
+  const [busy, setBusy] = useState(false);
+  const [writeError, setWriteError] = useState<string | null>(null);
+
+  useEffect(() => {
+    timing.enter(sjaId, 'understanding', 'kiosk');
+    return () => timing.close();
+  }, [sjaId]);
+  useEffect(() => {
+    // Braces matter: newer browsers return a Promise from scrollTo, and React treats an effect's return value as its clean-up.
+    window.scrollTo({ top: 0 });
+  }, [phase]);
+
+  if (!pack || !sja) return <Layout>{t('common.loading')}</Layout>;
+  const template = pack.templates.find((x) => x.templateId === sja.templateId)!;
+  const langs = supportedLangs(sja, pack);
+  const u = sja.understanding;
+  const closed = sja.status === 'signed' || sja.status === 'signedWithFallback' || !u.required;
+  if (closed && phase !== 'done' && phase !== 'confirm') {
+    return (
+      <Layout title={t('wizard.title')}>
+        <div className="space-y-3" data-testid="kiosk-closed">
+          <Notice tone="amber">{u.required ? t('kiosk.closedSigned') : t('kiosk.closedNotRequired')}</Notice>
+          <Link to={`/foreman/${sjaId}`} className="inline-flex min-h-11 items-center font-semibold text-blue-800 underline">
+            {t('rec.backToWizard')}
+          </Link>
+        </div>
+      </Layout>
+    );
+  }
+  // 5 Nov 2026: the foreman reads the whole SJA aloud to the crew before the phone goes to anyone.
+  if (!u.readAloud && phase === 'language') {
+    return (
+      <Layout title={t('wizard.title')}>
+        <div className="space-y-3" data-testid="kiosk-read-aloud-first">
+          <Notice tone="amber">{t('s5.readFirst')}</Notice>
+          <Link to={`/foreman/${sjaId}`} className="inline-flex min-h-11 items-center font-semibold text-blue-800 underline">
+            {t('rec.backToWizard')}
+          </Link>
+        </div>
+      </Layout>
+    );
+  }
+  const keyLines = u.keyLineIds.map((id) => sja.lines.find((l) => l.lineId === id)).filter((l): l is SjaLine => Boolean(l));
+  const todays = activeLines(sja).filter((l) => l.origin === 'changed' || l.origin === 'new');
+  const wt = workerT(lang ?? 'en');
+  const askedQuestions = asked.map((id) => template.questions.find((q) => q.questionId === id)).filter((q): q is Question => Boolean(q));
+  const explain = (q: Question) => linesForQuestion(sja, q);
+  const replay = config?.mode === 'replay';
+  const samples = ((fixtures?.['written-answers']?.answers ?? []) as WrittenSample[]).filter((w) => w.lang === lang);
+
+  const reset = () => {
+    setLang(null);
+    setPhase('language');
+    setPath('conversation');
+    setReason(null);
+    setAsked([]);
+    setWritten({ hazard: '', measure: '' });
+    setTranslation(null);
+    setWriteError(null);
+  };
+  const startQuestions = (n: number) => {
+    const current = useSjas.getState().sjas[sjaId];
+    setAsked(nextQuestionIds(current.understanding, template, lang, n));
+    setPhase('question');
+  };
+  // The worker is recorded once, at the end: how they were checked, the foreman's judgement of the explanation (if any) and the first answer to each question.
+  const finish = (result: TeachBackResult | null, answers: { questionId: string; correct: boolean }[]) => {
+    const current = useSjas.getState().sjas[sjaId];
+    const check = { ...(result ?? { teachBack: 'none' as const, misunderstood: [] }), answers, path, ...(reason ? { reason } : {}) };
+    useSjas.getState().put(flow.recordWorkerCheck(makeFlowCtx(current), current, lang ?? '', check));
+    setTeach(null);
+    const wrong = answers.filter((a) => !a.correct).map((a) => a.questionId);
+    setWrongIds(wrong);
+    // The written text and its translation are not kept (U3).
+    setWritten({ hazard: '', measure: '' });
+    setTranslation(null);
+    // A wrong answer: the foreman goes through the point again first. Then the worker confirms (5 Nov 2026).
+    setPhase(wrong.length > 0 ? 'reexplain' : 'confirm');
+  };
+  // After going through the point again, the open re-brief for those questions is done for this worker.
+  const reexplained = () => {
+    let current = useSjas.getState().sjas[sjaId];
+    for (const id of wrongIds) current = flow.confirmRebrief(makeFlowCtx(current), current, id);
+    useSjas.getState().put(current);
+    setWrongIds([]);
+    setPhase('confirm');
+  };
+  // "I have understood the SJA – sign": a time stamp and the language, no name. Only then does the phone go back.
+  const confirm = () => {
+    const current = useSjas.getState().sjas[sjaId];
+    useSjas.getState().put(flow.recordConfirmation(makeFlowCtx(current), current, lang ?? ''));
+    setPhase('done');
+  };
+  const sendWritten = async () => {
+    if (!lang) return;
+    setBusy(true);
+    setWriteError(null);
+    try {
+      const current = useSjas.getState().sjas[sjaId];
+      const items = await flow.translateWorkerAnswer(makeFlowCtx(current), current, lang, [
+        { key: 'hazard', text: written.hazard.trim() },
+        { key: 'measure', text: written.measure.trim() },
+      ]);
+      setTranslation(items);
+      setPhase('judge');
+    } catch (e) {
+      setWriteError(replay ? t('written.demoOnly') : `${t('written.failed')} ${e instanceof Error ? e.message : String(e)}`);
+    } finally {
+      setBusy(false);
+    }
+  };
+  const foremanZone = (children: ReactNode) => (
+    <section className="rounded-xl border-2 border-slate-400 bg-slate-100 p-3 text-base" lang={ui} data-testid="foreman-zone">
+      <p className="mb-2 flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-slate-700">
+        <Icon name="person" className="h-4 w-4" /> {t('teach.foremanZone')}
+      </p>
+      {children}
+    </section>
+  );
+
+  return (
+    <KioskFrame lang={lang} exitTo={`/foreman/${sjaId}`} exitLabel={t('kiosk.exit')} counter={`${t('s5.respondents')}: ${u.respondents}`} hideExit={phase === 'confirm' || phase === 'reexplain'}>
+      {phase === 'language' && (
+        <div className="space-y-4">
+          <p className="text-base font-semibold text-slate-700" lang={ui}>{t('kiosk.pickLang')}</p>
+          <LanguagePicker langs={langs} onPick={(l) => { setLang(l); setPhase('read'); }} />
+        </div>
+      )}
+
+      {phase === 'read' && lang && (
+        <div className="space-y-4" data-testid="kiosk-read">
+          <h1 className="text-2xl font-bold">{template.jobType[lang as 'pl'] ?? template.jobType.nb}</h1>
+          <p className="text-slate-700">{wt('readFirst')}</p>
+          {todays.length > 0 && (
+            <section className="rounded-xl bg-blue-50 p-3" data-testid="kiosk-today">
+              <h2 className="text-lg font-bold text-blue-950">{wt('newToday')}</h2>
+              <ul className="mt-2 space-y-3">
+                {todays.map((l) => (
+                  <WorkerLine key={l.lineId} line={l} lang={lang} strong />
+                ))}
+              </ul>
+            </section>
+          )}
+          <h2 className="pt-2 text-lg font-bold">{wt('wholeSja')}</h2>
+          {SECTIONS.map((sec) => {
+            const lines = activeLines(sja).filter((l) => l.section === sec);
+            if (!lines.length) return null;
+            return (
+              <section key={sec}>
+                <h3 className="mt-2 text-base font-bold uppercase tracking-wide text-slate-600">{wt(`section_${sec}`)}</h3>
+                <ul className="mt-2 space-y-3">
+                  {lines.map((l) => (
+                    <WorkerLine key={l.lineId} line={l} lang={lang} />
+                  ))}
+                </ul>
+              </section>
+            );
+          })}
+          <Button variant="primary" className="w-full !py-4 text-xl" onClick={() => setPhase('explain')} data-testid="kiosk-read-done">
+            {wt('readDone')}
+          </Button>
+        </div>
+      )}
+
+      {phase === 'explain' && lang && (
+        <div className="space-y-5" data-testid="kiosk-explain">
+          <div className="space-y-3">
+            <h2 className="text-2xl font-bold leading-snug">{wt('explainTitle')}</h2>
+            <ol className="ml-6 list-decimal space-y-2 text-xl font-semibold">
+              <li>{wt('explainHazard')}</li>
+              <li>{wt('explainMeasure')}</li>
+            </ol>
+            <p className="text-slate-700">{wt('explainHint')}</p>
+          </div>
+          {foremanZone(
+            <>
+              <TeachBackJudge
+                lines={keyLines}
+                sja={sja}
+                onDone={(r) => {
+                  setPath('conversation');
+                  setTeach(r);
+                  startQuestions(QUESTIONS_PER_CHECK);
+                }}
+              />
+              <button type="button" className="mt-3 inline-flex min-h-11 items-center text-sm font-semibold text-blue-800 underline" onClick={() => setPhase('noTalk')} data-testid="kiosk-no-talk">
+                {t('kiosk.noTalk')}
+              </button>
+            </>,
+          )}
+        </div>
+      )}
+
+      {phase === 'noTalk' && lang &&
+        foremanZone(
+          <div className="space-y-3" data-testid="kiosk-no-talk-panel">
+            <p className="text-base font-bold">{t('kiosk.noTalkWhy')}</p>
+            <div className="grid gap-2">
+              {FALLBACK_REASONS.map((r) => (
+                <label key={r} className="flex min-h-11 cursor-pointer items-center gap-3 rounded-lg border border-slate-300 bg-white px-3 py-2">
+                  <input type="radio" name="no-talk-reason" className="h-5 w-5" checked={reason === r} onChange={() => setReason(r)} data-testid={`reason-${r}`} />
+                  <span>{t(`reason.${r}`)}</span>
+                </label>
+              ))}
+            </div>
+            <div className="grid gap-2">
+              <Button variant="primary" disabled={!reason} onClick={() => { setPath('written'); setPhase('write'); }} data-testid="path-written">
+                {t('kiosk.pathWritten')}
+              </Button>
+              <p className="text-sm text-slate-700">{t('kiosk.pathWrittenHint')}</p>
+              <Button disabled={!reason} onClick={() => { setPath('questionsOnly'); startQuestions(QUESTIONS_FALLBACK); }} data-testid="path-questions">
+                {t('kiosk.pathQuestions')}
+              </Button>
+              <p className="text-sm text-slate-700">{t('kiosk.pathQuestionsHint')}</p>
+              <Button variant="ghost" onClick={() => setPhase('explain')}>
+                {t('common.back')}
+              </Button>
+            </div>
+          </div>,
+        )}
+
+      {phase === 'write' && lang && (
+        <div className="space-y-4" data-testid="kiosk-write">
+          <h2 className="text-2xl font-bold leading-snug">{wt('writeTitle')}</h2>
+          <p className="text-slate-700">{wt('writeHint')}</p>
+          <p className="flex items-start gap-2 rounded-lg bg-amber-50 p-2 font-semibold text-amber-950">
+            <Icon name="warn" className="mt-1 h-5 w-5" /> {wt('noNames')}
+          </p>
+          <label className="block">
+            <span className="mb-1 block text-lg font-semibold">1. {wt('explainHazard')}</span>
+            <textarea className={`${inputClass} text-[19px]`} rows={3} maxLength={500} value={written.hazard} onChange={(e) => setWritten((w) => ({ ...w, hazard: e.target.value }))} data-testid="write-hazard" />
+          </label>
+          <label className="block">
+            <span className="mb-1 block text-lg font-semibold">2. {wt('explainMeasure')}</span>
+            <textarea className={`${inputClass} text-[19px]`} rows={3} maxLength={500} value={written.measure} onChange={(e) => setWritten((w) => ({ ...w, measure: e.target.value }))} data-testid="write-measure" />
+          </label>
+          {replay && samples.length > 0 && (
+            <details className="rounded-lg border border-violet-300 bg-violet-50 p-2" data-testid="write-samples">
+              <summary className="min-h-11 cursor-pointer py-2 font-semibold text-violet-950">{wt('demoSample')}</summary>
+              <p className="text-sm text-violet-950" lang={ui}>{t('written.demoSampleHint')}</p>
+              <div className="mt-2 grid gap-2">
+                {samples.map((w) => (
+                  <Button key={w.id} className="!justify-start text-left text-base" onClick={() => setWritten({ hazard: w.hazard, measure: w.measure })} data-testid={`sample-${w.id}`}>
+                    {w.hazard}
+                  </Button>
+                ))}
+              </div>
+            </details>
+          )}
+          {busy && <Spinner label={wt('translating')} />}
+          {writeError && (
+            <div lang={ui}>
+              <ErrorBox message={writeError} />
+              <Button className="mt-2 w-full" onClick={() => { setPath('questionsOnly'); startQuestions(QUESTIONS_FALLBACK); }} data-testid="written-to-questions">
+                {t('written.useQuestions')}
+              </Button>
+            </div>
+          )}
+          <Button variant="primary" className="w-full !py-4 text-xl" disabled={busy || !written.hazard.trim() || !written.measure.trim()} onClick={sendWritten} data-testid="write-send">
+            {wt('send')}
+          </Button>
+        </div>
+      )}
+
+      {phase === 'judge' && lang && translation && (
+        <div className="space-y-4" data-testid="kiosk-judge">
+          <p className="text-xl font-semibold">{wt('waitForeman')}</p>
+          {foremanZone(
+            <div className="space-y-3">
+              <p className="text-base font-bold">{t('written.title')}</p>
+              <p className="rounded bg-violet-100 px-2 py-1 text-sm font-semibold text-violet-950" data-testid="written-label">{t('written.label')}</p>
+              {(['hazard', 'measure'] as const).map((k) => {
+                const item = translation.find((x) => x.key === k);
+                return (
+                  <div key={k} className="rounded-lg border border-slate-300 bg-white p-2" data-testid={`written-${k}`}>
+                    <p className="text-xs font-bold uppercase tracking-wide text-slate-600">{t(`written.${k}`)}</p>
+                    <p className="text-base">{item?.textNb || '–'}</p>
+                    {item?.unreadable && <p className="text-sm font-semibold text-rose-800">{t('written.unreadable')}</p>}
+                  </div>
+                );
+              })}
+              <TeachBackJudge
+                lines={keyLines}
+                sja={sja}
+                onDone={(r) => {
+                  setTeach(r);
+                  startQuestions(QUESTIONS_PER_CHECK);
+                }}
+              />
+              <p className="text-xs text-slate-600">{t('written.notKept')}</p>
+            </div>,
+          )}
+        </div>
+      )}
+
+      {phase === 'question' && lang && (
+        <QuestionRunner
+          key={`${lang}-${u.respondents}-${path}`}
+          lang={lang}
+          questions={askedQuestions}
+          explain={explain}
+          onDone={(answers) => finish(path === 'questionsOnly' ? null : teach, answers)}
+        />
+      )}
+      {phase === 'reexplain' && lang &&
+        foremanZone(
+          <div className="space-y-3" data-testid="kiosk-reexplain">
+            <p className="text-lg font-bold">{t('kiosk.reexplainTitle')}</p>
+            <p className="text-sm text-slate-800">{t('kiosk.reexplainText')}</p>
+            <ul className="space-y-2">
+              {wrongIds
+                .map((id) => template.questions.find((q) => q.questionId === id))
+                .filter((q): q is Question => Boolean(q))
+                .flatMap((q) => linesForQuestion(sja, q))
+                .map((l) => (
+                  <li key={l.lineId} className="rounded-lg border border-slate-300 bg-white p-2 text-[15px]">
+                    {l.textNb}
+                  </li>
+                ))}
+            </ul>
+            <Button variant="primary" className="w-full" onClick={reexplained} data-testid="kiosk-reexplained">
+              {t('kiosk.reexplainDone')}
+            </Button>
+          </div>,
+        )}
+      {phase === 'confirm' && lang && (
+        <div className="space-y-5" data-testid="kiosk-confirm">
+          <h2 className="text-2xl font-bold leading-snug">{wt('confirmTitle')}</h2>
+          <p className="text-lg text-slate-800">{wt('confirmText')}</p>
+          <Button variant="success" className="w-full !py-5 text-xl" onClick={confirm} data-testid="kiosk-confirm-sign">
+            <Icon name="check" className="h-6 w-6" /> {wt('confirmSign')}
+          </Button>
+          <button type="button" className="inline-flex min-h-11 items-center text-base font-semibold text-blue-800 underline" onClick={() => setPhase('reexplain')} data-testid="kiosk-confirm-question">
+            {wt('confirmNotYet')}
+          </button>
+        </div>
+      )}
+      {phase === 'done' && lang && (
+        <DonePanel
+          lang={lang}
+          passOn={wt('passBack')}
+          onNext={reset}
+          finish={
+            <Link to={`/foreman/${sjaId}`} lang={ui} className="flex min-h-12 items-center justify-center rounded-lg border border-slate-400 bg-white px-4 py-2 text-base font-semibold text-slate-900" data-testid="kiosk-finish">
+              {t('kiosk.finish')}
+            </Link>
+          }
+        />
+      )}
+    </KioskFrame>
+  );
+}
+
+/** /worker/questions/:templateId – the question set on its own, without the SJA (AC-17). For the baseline arm of T5. */
+export function StandaloneQuestions() {
+  const { templateId = '' } = useParams();
+  const t = useT();
+  const ui = useUiLang();
+  const pack = useApp((s) => s.pack);
+  const [label, setLabel] = useState('T5 baseline');
+  const [arm, setArm] = useState<'baseline' | 'flagship'>('baseline');
+  const [sessionId] = useState(() => uid('session'));
+  const [started, setStarted] = useState(false);
+  const [lang, setLang] = useState<string | null>(null);
+  const [phase, setPhase] = useState<'language' | 'questions' | 'done'>('language');
+  const result = useLog((s) => s.standalone.find((r) => r.sessionId === sessionId));
+
+  if (!pack) return <Layout>{t('common.loading')}</Layout>;
+  const template = pack.templates.find((x) => x.templateId === templateId);
+  if (!template) return <Layout>{t('common.notFound')}</Layout>;
+
+  const finish = (answers: { questionId: string; correct: boolean }[]) => {
+    const prev: StandaloneResult = useLog.getState().standalone.find((r) => r.sessionId === sessionId) ?? {
+      sessionId,
+      at: new Date().toISOString(),
+      templateId,
+      label,
+      arm,
+      respondents: 0,
+      perQuestion: standaloneQuestions(template).map((q) => ({ questionId: q.questionId, respondents: 0, correctFirst: 0 })),
+    };
+    useLog.getState().putStandalone({
+      ...prev,
+      respondents: prev.respondents + 1,
+      perQuestion: prev.perQuestion.map((p) => {
+        const a = answers.find((x) => x.questionId === p.questionId);
+        return a ? { ...p, respondents: p.respondents + 1, correctFirst: p.correctFirst + (a.correct ? 1 : 0) } : p;
+      }),
+    });
+    useLog.getState().add({ runId: sessionId, testId: 'T5', arm, actor: 'worker', type: 'standalone_respondent', step: 'understanding', languagePair: `nb-${lang}`, count: answers.filter((a) => a.correct).length, packVersion: pack.version });
+    setPhase('done');
+  };
+
+  if (!started) {
+    return (
+      <Layout title={t('standalone.title')}>
+        <div className="space-y-4">
+          <p className="text-base">{t('standalone.intro')}</p>
+          <label className="block">
+            <span className="mb-1 block text-sm font-semibold">{t('standalone.label')}</span>
+            <input className={inputClass} value={label} onChange={(e) => setLabel(e.target.value)} />
+          </label>
+          <label className="block">
+            <span className="mb-1 block text-sm font-semibold">{t('standalone.arm')}</span>
+            <select className={inputClass} value={arm} onChange={(e) => setArm(e.target.value as 'baseline' | 'flagship')}>
+              <option value="baseline">{t('standalone.baseline')}</option>
+              <option value="flagship">{t('standalone.flagship')}</option>
+            </select>
+          </label>
+          <p className="text-sm text-slate-700">
+            {template.jobType[ui] ?? template.jobType.nb}: {standaloneQuestions(template).length} {t('standalone.questions')}
+          </p>
+          <Button variant="primary" className="w-full" onClick={() => setStarted(true)} data-testid="standalone-start">
+            {t('standalone.start')}
+          </Button>
+        </div>
+      </Layout>
+    );
+  }
+
+  return (
+    <KioskFrame lang={lang} exitTo="/baseline" exitLabel={t('kiosk.exitObserver')} counter={`${t('s5.respondents')}: ${result?.respondents ?? 0}`}>
+      {phase === 'language' && <LanguagePicker langs={pack.languages} onPick={(l) => { setLang(l); setPhase('questions'); }} />}
+      {phase === 'questions' && lang && <QuestionRunner key={`${lang}-${result?.respondents ?? 0}`} lang={lang} questions={standaloneQuestions(template)} onDone={finish} />}
+      {phase === 'done' && lang && <DonePanel lang={lang} onNext={() => { setLang(null); setPhase('language'); }} />}
+    </KioskFrame>
+  );
+}

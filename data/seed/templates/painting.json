@@ -1,0 +1,2025 @@
+{
+  "templateId": "painting",
+  "jobType": {
+    "nb": "Maling og overflatebehandling innendørs",
+    "en": "Indoor painting and surface treatment",
+    "pl": "Malowanie i obróbka powierzchni wewnątrz",
+    "lt": "Dažymas ir paviršių apdirbimas patalpose",
+    "ru": "Покраска и обработка поверхностей в помещении"
+  },
+  "parameters": [
+    {
+      "key": "workHeight",
+      "label": {
+        "nb": "Arbeidshøyde",
+        "en": "Working height",
+        "pl": "Wysokość robocza",
+        "lt": "Darbo aukštis",
+        "ru": "Рабочая высота"
+      },
+      "type": "number",
+      "unitSymbol": "m",
+      "min": 0,
+      "max": 5,
+      "default": 2
+    },
+    {
+      "key": "ventilation",
+      "label": {
+        "nb": "Lufting",
+        "en": "Ventilation",
+        "pl": "Wentylacja",
+        "lt": "Vėdinimas",
+        "ru": "Вентиляция"
+      },
+      "type": "choice",
+      "default": "window",
+      "options": [
+        {
+          "key": "mechanical",
+          "label": {
+            "nb": "mekanisk avtrekk",
+            "en": "mechanical extraction",
+            "pl": "wentylacja mechaniczna",
+            "lt": "mechaninis ištraukimas",
+            "ru": "механическая вытяжка"
+          }
+        },
+        {
+          "key": "window",
+          "label": {
+            "nb": "åpne vinduer og dører",
+            "en": "open windows and doors",
+            "pl": "otwarte okna i drzwi",
+            "lt": "atidaryti langai ir durys",
+            "ru": "открытые окна и двери"
+          }
+        },
+        {
+          "key": "none",
+          "label": {
+            "nb": "ingen lufting mulig",
+            "en": "no ventilation possible",
+            "pl": "brak możliwości wentylacji",
+            "lt": "vėdinti neįmanoma",
+            "ru": "проветривание невозможно"
+          }
+        }
+      ]
+    },
+    {
+      "key": "stoffkartotek",
+      "label": {
+        "nb": "Hvor stoffkartoteket er",
+        "en": "Where the substance index is",
+        "pl": "Gdzie jest rejestr substancji",
+        "lt": "Kur yra cheminių medžiagų registras",
+        "ru": "Где находится реестр химических веществ"
+      },
+      "type": "choice",
+      "default": "app",
+      "options": [
+        {
+          "key": "app",
+          "label": {
+            "nb": "i HMS-appen på telefonen",
+            "en": "in the HSE app on your phone",
+            "pl": "w aplikacji BHP w telefonie",
+            "lt": "DSS programėlėje telefone",
+            "ru": "в приложении по охране труда в телефоне"
+          }
+        },
+        {
+          "key": "site",
+          "label": {
+            "nb": "i brakka på byggeplassen",
+            "en": "in the site hut",
+            "pl": "w kontenerze na budowie",
+            "lt": "statybvietės vagonėlyje",
+            "ru": "в бытовке на стройплощадке"
+          }
+        },
+        {
+          "key": "foreman",
+          "label": {
+            "nb": "hos basen",
+            "en": "with the foreman",
+            "pl": "u brygadzisty",
+            "lt": "pas brigadininką",
+            "ru": "у бригадира"
+          }
+        }
+      ]
+    }
+  ],
+  "lines": [
+    {
+      "lineId": "p-01",
+      "section": "steps",
+      "textNb": "Arbeidshøyde: {workHeight} m",
+      "parameterRefs": [
+        "workHeight"
+      ],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": null,
+      "termIds": [
+        "working-height"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Working height: {workHeight} m",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Wysokość robocza: {workHeight} m",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Darbo aukštis: {workHeight} m",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Рабочая высота: {workHeight} м",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "painting",
+        "height"
+      ]
+    },
+    {
+      "lineId": "p-02",
+      "section": "steps",
+      "textNb": "Lufting: {ventilation}",
+      "parameterRefs": [
+        "ventilation"
+      ],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": null,
+      "termIds": [
+        "ventilation"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Ventilation: {ventilation}",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Wentylacja: {ventilation}",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Vėdinimas: {ventilation}",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Вентиляция: {ventilation}",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "painting",
+        "chemicals"
+      ]
+    },
+    {
+      "lineId": "p-03",
+      "section": "steps",
+      "textNb": "Gå gjennom denne SJA-en med hele laget før arbeidet starter.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": "pd-01",
+      "termIds": [],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Go through this SJA with the whole crew before work starts.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Przed rozpoczęciem pracy omów tę analizę SJA z całą brygadą.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Prieš pradėdami darbą aptarkite šią SJA su visa brigada.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Перед началом работы обсудите этот SJA со всей бригадой.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "painting"
+      ],
+      "riskLevel": "green"
+    },
+    {
+      "lineId": "p-04",
+      "section": "steps",
+      "textNb": "Les sikkerhetsdatabladet for hvert produkt før bruk. Stoffkartoteket finner du: {stoffkartotek}.",
+      "parameterRefs": [
+        "stoffkartotek"
+      ],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": "pd-02",
+      "termIds": [
+        "sds",
+        "substance-index"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Read the safety data sheet for each product before use. You find the substance index: {stoffkartotek}.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Przed użyciem przeczytaj kartę charakterystyki każdego produktu. Rejestr substancji chemicznych znajdziesz: {stoffkartotek}.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Prieš naudodami perskaitykite kiekvieno produkto saugos duomenų lapą. Cheminių medžiagų registrą rasite: {stoffkartotek}.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Перед использованием прочитайте паспорт безопасности каждого продукта. Реестр химических веществ находится: {stoffkartotek}.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "chemicals",
+        "painting"
+      ],
+      "riskLevel": "green"
+    },
+    {
+      "lineId": "p-05",
+      "section": "hazards",
+      "textNb": "Fare: innånding av damp fra løsemidler gir hodepine, svimmelhet og skade på nervesystemet.",
+      "parameterRefs": [],
+      "dependsOnParameters": [
+        "ventilation"
+      ],
+      "critical": true,
+      "sourceRef": "pd-03",
+      "termIds": [
+        "solvent"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Hazard: breathing in solvent vapour causes headache, dizziness and damage to the nervous system.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Zagrożenie: wdychanie oparów rozpuszczalników powoduje ból głowy, zawroty głowy i uszkodzenie układu nerwowego.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Pavojus: įkvėpti tirpiklių garai sukelia galvos skausmą, svaigulį ir pažeidžia nervų sistemą.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Опасность: вдыхание паров растворителей вызывает головную боль, головокружение и поражает нервную систему.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "chemicals",
+        "painting"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "lineId": "p-06",
+      "section": "hazards",
+      "textNb": "Fare: maling, lakk og herder på huden gir eksem og allergi.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "pd-04",
+      "termIds": [],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Hazard: paint, varnish and hardener on the skin cause eczema and allergy.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Zagrożenie: farba, lakier i utwardzacz na skórze powodują egzemę i alergię.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Pavojus: dažai, lakas ir kietiklis ant odos sukelia egzemą ir alergiją.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Опасность: краска, лак и отвердитель на коже вызывают экзему и аллергию.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "chemicals"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "lineId": "p-07",
+      "section": "hazards",
+      "textNb": "Fare: damp fra løsemidler kan ta fyr.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "pd-05",
+      "termIds": [
+        "solvent"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Hazard: solvent vapour can catch fire.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Zagrożenie: opary rozpuszczalników mogą się zapalić.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Pavojus: tirpiklių garai gali užsidegti.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Опасность: пары растворителей могут воспламениться.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "chemicals",
+        "fire"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "lineId": "p-08",
+      "section": "hazards",
+      "textNb": "Fare: fall fra stige eller bukk.",
+      "parameterRefs": [],
+      "dependsOnParameters": [
+        "workHeight"
+      ],
+      "critical": true,
+      "sourceRef": "pd-06",
+      "termIds": [
+        "ladder"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Hazard: fall from a ladder or trestle.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Zagrożenie: upadek z drabiny lub kozła.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Pavojus: nukritimas nuo kopėčių arba ožio.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Опасность: падение с приставной лестницы или подмостей.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "height"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "lineId": "p-09",
+      "section": "hazards",
+      "textNb": "Fare: slipestøv i lufta og i øynene.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": "pd-07",
+      "termIds": [],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Hazard: sanding dust in the air and in the eyes.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Zagrożenie: pył ze szlifowania w powietrzu i w oczach.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Pavojus: šlifavimo dulkės ore ir akyse.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Опасность: пыль от шлифовки в воздухе и в глазах.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "dust"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "lineId": "p-10",
+      "section": "controls",
+      "textNb": "Sørg for god ventilasjon hele tiden. Uten lufting skal det ikke brukes produkter med løsemidler.",
+      "parameterRefs": [],
+      "dependsOnParameters": [
+        "ventilation"
+      ],
+      "critical": true,
+      "sourceRef": "pd-08",
+      "termIds": [
+        "ventilation",
+        "solvent"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Keep good ventilation all the time. Without ventilation, products with solvents must not be used.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Przez cały czas zapewnij dobrą wentylację. Bez wentylacji nie wolno używać produktów z rozpuszczalnikami.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Visą laiką užtikrinkite gerą vėdinimą. Be vėdinimo negalima naudoti produktų su tirpikliais.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Всё время обеспечивайте хорошую вентиляцию. Без вентиляции нельзя использовать продукты с растворителями.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "chemicals",
+        "painting"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "lineId": "p-11",
+      "section": "controls",
+      "textNb": "Ingen åpen flamme, røyking eller gnistgivende verktøy der det brukes løsemidler.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "pd-09",
+      "termIds": [
+        "open-flame",
+        "solvent"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "No open flame, no smoking and no tools that make sparks where solvents are used.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Tam, gdzie używa się rozpuszczalników, nie wolno używać otwartego ognia, palić ani używać narzędzi iskrzących.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Ten, kur naudojami tirpikliai, negalima naudoti atviros ugnies, rūkyti ar naudoti kibirkščiuojančių įrankių.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Там, где используются растворители, запрещены открытый огонь, курение и искрящие инструменты.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "chemicals",
+        "fire"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "lineId": "p-12",
+      "section": "controls",
+      "textNb": "Hold beholderne lukket når de ikke er i bruk, og oppbevar dem utenfor rommet det males i.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "pd-10",
+      "termIds": [],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Keep containers closed when they are not in use, and store them outside the room being painted.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Trzymaj pojemniki zamknięte, gdy nie są używane, i przechowuj je poza malowanym pomieszczeniem.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Nenaudojamas talpas laikykite uždarytas ir laikykite jas už dažomos patalpos ribų.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Держите ёмкости закрытыми, когда они не используются, и храните их вне помещения, которое красят.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "chemicals"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "lineId": "p-13",
+      "section": "controls",
+      "textNb": "Stige skal bare brukes til kortvarig arbeid og skal sikres mot å gli.",
+      "parameterRefs": [],
+      "dependsOnParameters": [
+        "workHeight"
+      ],
+      "critical": true,
+      "sourceRef": "pd-06",
+      "termIds": [
+        "ladder"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "A ladder may only be used for short work and must be secured against slipping.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Drabina może być używana tylko do krótkotrwałej pracy i musi być zabezpieczona przed poślizgiem.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Kopėčios gali būti naudojamos tik trumpalaikiam darbui ir turi būti apsaugotos nuo slydimo.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Приставную лестницу можно использовать только для кратковременной работы, и она должна быть защищена от скольжения.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "height"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "lineId": "p-14",
+      "section": "controls",
+      "textNb": "Tomme bokser, filler og rester med løsemidler er farlig avfall og skal i egen beholder.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": "pd-11",
+      "termIds": [
+        "solvent",
+        "hazardous-waste"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Empty cans, rags and residues with solvents are hazardous waste and go in a separate container.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Puste puszki, szmaty i resztki z rozpuszczalnikami to odpady niebezpieczne i trafiają do osobnego pojemnika.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Tuščios skardinės, skudurai ir likučiai su tirpikliais yra pavojingosios atliekos ir dedami į atskirą talpą.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Пустые банки, ветошь и остатки с растворителями являются опасными отходами и собираются в отдельную ёмкость.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "chemicals"
+      ],
+      "riskLevel": "green"
+    },
+    {
+      "lineId": "p-15",
+      "section": "controls",
+      "textNb": "Vask hendene med såpe og vann før pause og etter arbeidet. Ikke spis i rommet det males i.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": "pd-12",
+      "termIds": [],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Wash your hands with soap and water before a break and after work. Do not eat in the room being painted.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Przed przerwą i po pracy umyj ręce mydłem i wodą. Nie jedz w malowanym pomieszczeniu.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Prieš pertrauką ir po darbo nusiplaukite rankas muilu ir vandeniu. Nevalgykite dažomoje patalpoje.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Мойте руки с мылом перед перерывом и после работы. Не ешьте в помещении, которое красят.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "chemicals"
+      ],
+      "riskLevel": "green"
+    },
+    {
+      "lineId": "p-16",
+      "section": "ppe",
+      "textNb": "Bruk tette hansker av nitril ved arbeid med maling, lakk og løsemidler.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "pd-13",
+      "termIds": [
+        "gloves",
+        "solvent"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Wear tight nitrile gloves when working with paint, varnish and solvents.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Podczas pracy z farbą, lakierem i rozpuszczalnikami używaj szczelnych nitrylowych rękawic ochronnych.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Dirbdami su dažais, laku ir tirpikliais mūvėkite sandarias nitrilines apsaugines pirštines.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "При работе с краской, лаком и растворителями надевайте плотные нитриловые защитные перчатки.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "ppe",
+        "chemicals"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "lineId": "p-17",
+      "section": "ppe",
+      "textNb": "Bruk vernebriller ved sliping og ved arbeid over hodehøyde.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": "pd-13",
+      "termIds": [
+        "goggles"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Wear safety glasses when sanding and when working above head height.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Podczas szlifowania i pracy powyżej wysokości głowy noś okulary ochronne.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Šlifuodami ir dirbdami aukščiau galvos dėvėkite apsauginius akinius.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "При шлифовке и работе выше уровня головы надевайте защитные очки.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "ppe",
+        "dust"
+      ],
+      "riskLevel": "yellow"
+    },
+    {
+      "lineId": "p-18",
+      "section": "ppe",
+      "textNb": "Bruk åndedrettsvern med riktig filter når sikkerhetsdatabladet krever det, og alltid ved sprøyting.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "pd-13",
+      "termIds": [
+        "respirator",
+        "sds"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Wear respiratory protection with the right filter when the safety data sheet requires it, and always when spraying.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Używaj ochrony dróg oddechowych z właściwym filtrem, gdy wymaga tego karta charakterystyki, i zawsze podczas natrysku.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Naudokite kvėpavimo takų apsaugos priemones su tinkamu filtru, kai to reikalauja saugos duomenų lapas, ir visada purkšdami.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Используйте средства защиты органов дыхания с правильным фильтром, когда этого требует паспорт безопасности, и всегда при распылении.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "ppe",
+        "chemicals"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "lineId": "p-23",
+      "section": "ppe",
+      "textNb": "Løsemiddelbasert grunning er brannfarlig og gir døsighet. Bruk åndedrettsvern med A-filter.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "pd-13",
+      "termIds": [
+        "solvent",
+        "respirator"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Solvent-based primer is flammable and makes you drowsy. Wear respiratory protection with an A filter.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Grunt rozpuszczalnikowy jest łatwopalny i powoduje senność. Używaj ochrony dróg oddechowych z filtrem A.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Tirpiklinis gruntas yra degus ir sukelia mieguistumą. Naudokite kvėpavimo takų apsaugos priemones su A filtru.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Грунтовка на растворителе легко воспламеняется и вызывает сонливость. Используйте средства защиты органов дыхания с фильтром A.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "ppe",
+        "chemicals"
+      ],
+      "riskLevel": "red",
+      "ghs": [
+        "GHS02",
+        "GHS07",
+        "GHS08"
+      ],
+      "onlyWithProduct": "pr-primer-solvent"
+    },
+    {
+      "lineId": "p-24",
+      "section": "controls",
+      "textNb": "Herderen i 2-komponent lakk inneholder isocyanater. Bare den som har fått opplæring i isocyanater, får bruke produktet.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "pd-14",
+      "termIds": [
+        "isocyanate"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "The hardener in 2-component varnish contains isocyanates. Only those trained in isocyanates may use the product.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Utwardzacz w lakierze 2-składnikowym zawiera izocyjaniany. Produktu mogą używać tylko osoby przeszkolone w zakresie izocyjanianów.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "2 komponentų lako kietiklyje yra izocianatų. Produktą gali naudoti tik tie, kurie apmokyti dirbti su izocianatais.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Отвердитель 2-компонентного лака содержит изоцианаты. Пользоваться продуктом могут только те, кто прошёл обучение по работе с изоцианатами.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "chemicals"
+      ],
+      "riskLevel": "red",
+      "ghs": [
+        "GHS07",
+        "GHS08"
+      ],
+      "onlyWithProduct": "pr-2k-pu"
+    },
+    {
+      "lineId": "p-25",
+      "section": "ppe",
+      "textNb": "Ved sprøyting av lakk med isocyanater: friskluftmaske, heldekkende verneklær og tette hansker.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "pd-14",
+      "termIds": [
+        "isocyanate",
+        "gloves"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "When spraying varnish with isocyanates: fresh-air mask, full-cover protective clothing and tight gloves.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Przy natrysku lakieru z izocyjanianami: maska z doprowadzeniem świeżego powietrza, kombinezon ochronny i szczelne rękawice ochronne.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Purškiant laką su izocianatais: kaukė su šviežio oro tiekimu, viską dengiantys apsauginiai drabužiai ir sandarios apsauginės pirštinės.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "При распылении лака с изоцианатами: маска с подачей свежего воздуха, закрытая защитная одежда и плотные защитные перчатки.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "ppe",
+        "chemicals"
+      ],
+      "riskLevel": "red",
+      "ghs": [
+        "GHS08"
+      ],
+      "onlyWithProduct": "pr-2k-pu"
+    },
+    {
+      "lineId": "p-26",
+      "section": "ppe",
+      "textNb": "Sparkel: bruk støvmaske P2 ved sliping, og støvsug i stedet for å feie.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": false,
+      "sourceRef": "pd-13",
+      "termIds": [],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Filler: wear a P2 dust mask when sanding, and vacuum instead of sweeping.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Szpachlówka: podczas szlifowania noś maskę przeciwpyłową P2 i odkurzaj zamiast zamiatać.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Glaistas: šlifuodami dėvėkite P2 respiratorių nuo dulkių ir siurbkite, o ne šluokite.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Шпаклёвка: при шлифовке надевайте противопылевую маску P2 и пылесосьте вместо того, чтобы подметать.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "ppe",
+        "dust"
+      ],
+      "riskLevel": "yellow",
+      "onlyWithProduct": "pr-filler"
+    },
+    {
+      "lineId": "p-19",
+      "section": "stop",
+      "textNb": "Stans arbeidet og gå ut i frisk luft ved hodepine, svimmelhet eller kvalme.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "pd-17",
+      "termIds": [
+        "stop-work"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Stop work and go out into fresh air if you get a headache, dizziness or nausea.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Przerwij pracę i wyjdź na świeże powietrze, jeśli pojawi się ból głowy, zawroty głowy lub mdłości.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Sustabdykite darbą ir išeikite į gryną orą, jei skauda galvą, svaigsta ar pykina.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Остановите работу и выйдите на свежий воздух при головной боли, головокружении или тошноте.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "chemicals",
+        "emergency"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "lineId": "p-20",
+      "section": "stop",
+      "textNb": "Stans arbeidet hvis ventilasjonen stopper.",
+      "parameterRefs": [],
+      "dependsOnParameters": [
+        "ventilation"
+      ],
+      "critical": true,
+      "sourceRef": "pd-17",
+      "termIds": [
+        "stop-work",
+        "ventilation"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Stop work if the ventilation stops.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Przerwij pracę, jeśli wentylacja przestanie działać.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Sustabdykite darbą, jei vėdinimas sustoja.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Остановите работу, если вентиляция перестала работать.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "chemicals"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "lineId": "p-21",
+      "section": "emergency",
+      "textNb": "Ved ulykke: ring 113 og varsle basen.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "pd-16",
+      "termIds": [
+        "foreman"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "In an accident: call 113 and alert the foreman.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "W razie wypadku: zadzwoń pod 113 i powiadom brygadzistę.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Įvykus nelaimingam atsitikimui: skambinkite 113 ir praneškite brigadininkui.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "При несчастном случае: позвоните 113 и сообщите бригадиру.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "emergency"
+      ],
+      "riskLevel": "red"
+    },
+    {
+      "lineId": "p-22",
+      "section": "emergency",
+      "textNb": "Maling i øynene: bruk øyeskyll eller rent vann i minst 15 minutter, og kontakt lege.",
+      "parameterRefs": [],
+      "dependsOnParameters": [],
+      "critical": true,
+      "sourceRef": "pd-15",
+      "termIds": [
+        "eye-wash"
+      ],
+      "keyTechnical": {
+        "given": false
+      },
+      "translations": {
+        "en": {
+          "text": "Paint in the eyes: use an eye wash or clean water for at least 15 minutes, and contact a doctor.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Farba w oczach: stosuj płukanie oczu płynem do płukania lub czystą wodą przez co najmniej 15 minut i skontaktuj się z lekarzem.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Dažai pateko į akis: naudokite akių plovimo priemonę arba švarų vandenį ne mažiau kaip 15 minučių ir kreipkitės į gydytoją.",
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Краска попала в глаза: проводите промывание глаз средством для промывания или чистой водой не менее 15 минут и обратитесь к врачу.",
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "tags": [
+        "emergency",
+        "chemicals"
+      ],
+      "riskLevel": "red"
+    }
+  ],
+  "questions": [
+    {
+      "questionId": "qp-1",
+      "linkedLineIds": [
+        "p-10"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "Lufta i rommet blir tung, og du kjenner lukten av løsemidler. Vinduet kan ikke åpnes. Hva gjør du?",
+          "options": [
+            "Jeg tar en pause og fortsetter etterpå.",
+            "Jeg stanser og sier fra til basen. Uten lufting skal vi ikke bruke produkter med løsemidler.",
+            "Jeg maler fortere for å bli ferdig."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "The air in the room gets heavy, and you smell solvents. The window cannot be opened. What do you do?",
+          "options": [
+            "I take a break and continue afterwards.",
+            "I stop and tell the foreman. Without ventilation we must not use products with solvents.",
+            "I paint faster to finish."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Powietrze w pomieszczeniu robi się ciężkie i czujesz zapach rozpuszczalników. Okna nie da się otworzyć. Co robisz?",
+          "options": [
+            "Robię przerwę i potem kontynuuję.",
+            "Przerywam i mówię brygadziście. Bez wentylacji nie wolno używać produktów z rozpuszczalnikami.",
+            "Maluję szybciej, żeby skończyć."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Oras patalpoje tampa sunkus, ir jaučiate tirpiklių kvapą. Lango atidaryti negalima. Ką darote?",
+          "options": [
+            "Padarau pertrauką ir paskui tęsiu.",
+            "Sustoju ir pasakau brigadininkui. Be vėdinimo negalima naudoti produktų su tirpikliais.",
+            "Dažau greičiau, kad baigčiau."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Воздух в помещении становится тяжёлым, и вы чувствуете запах растворителей. Окно открыть нельзя. Что вы делаете?",
+          "options": [
+            "Делаю перерыв и потом продолжаю.",
+            "Останавливаюсь и сообщаю бригадиру. Без вентиляции нельзя использовать продукты с растворителями.",
+            "Крашу быстрее, чтобы закончить."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "qp-2",
+      "linkedLineIds": [
+        "p-11"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "En kollega vil tenne en sigarett i rommet der dere lakkerer. Hva gjør du?",
+          "options": [
+            "Det går bra hvis vinduet er åpent.",
+            "Jeg stopper ham. Ingen åpen flamme eller røyking der det brukes løsemidler.",
+            "Jeg flytter meg til den andre siden av rommet."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "A colleague wants to light a cigarette in the room where you are varnishing. What do you do?",
+          "options": [
+            "It is fine if the window is open.",
+            "I stop him. No open flame or smoking where solvents are used.",
+            "I move to the other side of the room."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Kolega chce zapalić papierosa w pomieszczeniu, w którym lakierujecie. Co robisz?",
+          "options": [
+            "Wszystko w porządku, jeśli okno jest otwarte.",
+            "Powstrzymuję go. Tam, gdzie używa się rozpuszczalników, nie wolno używać otwartego ognia ani palić.",
+            "Przechodzę na drugą stronę pomieszczenia."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Kolega nori užsidegti cigaretę patalpoje, kurioje lakuojate. Ką darote?",
+          "options": [
+            "Viskas gerai, jei langas atidarytas.",
+            "Sustabdau jį. Ten, kur naudojami tirpikliai, negalima naudoti atviros ugnies ir rūkyti.",
+            "Pereinu į kitą patalpos pusę."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Коллега хочет закурить в помещении, где вы лакируете. Что вы делаете?",
+          "options": [
+            "Ничего страшного, если окно открыто.",
+            "Останавливаю его. Где используются растворители, нельзя открытый огонь и курение.",
+            "Перехожу на другую сторону помещения."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "qp-3",
+      "linkedLineIds": [
+        "p-19"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "Du får hodepine og blir svimmel mens du maler. Hva gjør du?",
+          "options": [
+            "Jeg stanser, går ut i frisk luft og sier fra til basen.",
+            "Jeg tar en tablett og fortsetter.",
+            "Jeg setter meg ned i rommet en stund."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "You get a headache and feel dizzy while painting. What do you do?",
+          "options": [
+            "I stop, go out into fresh air and tell the foreman.",
+            "I take a tablet and carry on.",
+            "I sit down in the room for a while."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Podczas malowania boli cię głowa i masz zawroty. Co robisz?",
+          "options": [
+            "Przerywam, wychodzę na świeże powietrze i mówię brygadziście.",
+            "Biorę tabletkę i pracuję dalej.",
+            "Siadam na chwilę w pomieszczeniu."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Dažant pradeda skaudėti galvą ir svaigti. Ką darote?",
+          "options": [
+            "Sustoju, išeinu į gryną orą ir pasakau brigadininkui.",
+            "Išgeriu tabletę ir tęsiu.",
+            "Kurį laiką pasėdžiu patalpoje."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Во время покраски у вас болит голова и кружится голова. Что вы делаете?",
+          "options": [
+            "Прекращаю работу, выхожу на свежий воздух и сообщаю бригадиру.",
+            "Принимаю таблетку и продолжаю.",
+            "Сажусь на время в этом помещении."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 0,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "qp-4",
+      "linkedLineIds": [
+        "p-22"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "Du får maling i øyet. Hva gjør du først?",
+          "options": [
+            "Jeg gnir øyet med en klut.",
+            "Jeg skyller øyet med øyeskyll eller rent vann i minst 15 minutter.",
+            "Jeg venter og ser om det går over."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "You get paint in your eye. What do you do first?",
+          "options": [
+            "I rub the eye with a cloth.",
+            "I rinse the eye with an eye wash or clean water for at least 15 minutes.",
+            "I wait and see if it passes."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Farba dostała ci się do oka. Co robisz najpierw?",
+          "options": [
+            "Przecieram oko szmatką.",
+            "Płuczę oko płynem do płukania lub czystą wodą przez co najmniej 15 minut.",
+            "Czekam, czy przejdzie."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Dažų pateko į akį. Ką darote pirmiausia?",
+          "options": [
+            "Patrinu akį skudurėliu.",
+            "Plaunu akį akių plovimo priemone arba švariu vandeniu ne mažiau kaip 15 minučių.",
+            "Laukiu, ar praeis."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Вам в глаз попала краска. Что вы делаете сначала?",
+          "options": [
+            "Тру глаз тряпкой.",
+            "Промываю глаз средством для промывания или чистой водой не менее 15 минут.",
+            "Жду, пройдёт ли само."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "qp-5",
+      "linkedLineIds": [
+        "p-16"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "Du skal lakkere, og nitrilhanskene er brukt opp. Hva gjør du?",
+          "options": [
+            "Jeg lakkerer uten hansker og vasker hendene etterpå.",
+            "Jeg henter nye tette hansker før jeg begynner.",
+            "Jeg bruker arbeidshansker av tøy."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "You are about to varnish, and the nitrile gloves have run out. What do you do?",
+          "options": [
+            "I varnish without gloves and wash my hands afterwards.",
+            "I fetch new tight gloves before I start.",
+            "I use cloth work gloves."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Masz lakierować, a rękawice nitrylowe się skończyły. Co robisz?",
+          "options": [
+            "Lakieruję bez rękawic i potem myję ręce.",
+            "Przed rozpoczęciem przynoszę nowe szczelne rękawice.",
+            "Używam materiałowych rękawic roboczych."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Turite lakuoti, o nitrilinės pirštinės baigėsi. Ką darote?",
+          "options": [
+            "Lakuoju be pirštinių ir paskui nusiplaunu rankas.",
+            "Prieš pradėdamas atsinešu naujas sandarias pirštines.",
+            "Mūviu medžiagines darbo pirštines."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Вам нужно лакировать, а нитриловые перчатки закончились. Что вы делаете?",
+          "options": [
+            "Лакирую без перчаток, а потом мою руки.",
+            "Перед началом беру новые плотные перчатки.",
+            "Надеваю тканевые рабочие перчатки."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "qp-6",
+      "linkedLineIds": [
+        "p-14"
+      ],
+      "critical": false,
+      "byLang": {
+        "nb": {
+          "text": "Hvor skal fillene med løsemidler etter jobben?",
+          "options": [
+            "I den vanlige søppelsekken.",
+            "I egen beholder for farlig avfall.",
+            "I en haug i hjørnet til neste dag."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "Where do the rags with solvents go after the job?",
+          "options": [
+            "In the ordinary rubbish bag.",
+            "In a separate container for hazardous waste.",
+            "In a pile in the corner until the next day."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Gdzie po pracy trafiają szmaty z rozpuszczalnikami?",
+          "options": [
+            "Do zwykłego worka na śmieci.",
+            "Do osobnego pojemnika na odpady niebezpieczne.",
+            "Na stos w kącie do następnego dnia."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Kur po darbo dedami skudurai su tirpikliais?",
+          "options": [
+            "Į paprastą šiukšlių maišą.",
+            "Į atskirą talpą pavojingosioms atliekoms.",
+            "Į krūvą kampe iki kitos dienos."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Куда после работы девать ветошь с растворителями?",
+          "options": [
+            "В обычный мешок для мусора.",
+            "В отдельную ёмкость для опасных отходов.",
+            "В кучу в углу до следующего дня."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "qp-7",
+      "linkedLineIds": [
+        "p-24"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "Du har ikke hatt opplæring i isocyanater, og du blir bedt om å blande 2-komponent lakk. Hva gjør du?",
+          "options": [
+            "Jeg blander forsiktig med hansker.",
+            "Jeg sier at jeg ikke har opplæring, og at jeg ikke kan bruke produktet.",
+            "Jeg spør en kollega hvordan det gjøres, og prøver."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "You have not been trained in isocyanates, and you are asked to mix 2-component varnish. What do you do?",
+          "options": [
+            "I mix carefully with gloves on.",
+            "I say that I have not been trained and cannot use the product.",
+            "I ask a colleague how to do it and give it a try."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Nie przeszedłeś szkolenia z izocyjanianów, a proszą cię o wymieszanie lakieru 2-składnikowego. Co robisz?",
+          "options": [
+            "Mieszam ostrożnie w rękawicach.",
+            "Mówię, że nie mam szkolenia i nie mogę używać tego produktu.",
+            "Pytam kolegę, jak to zrobić, i próbuję."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Nesate apmokytas dirbti su izocianatais, o jūsų prašo sumaišyti 2 komponentų laką. Ką darote?",
+          "options": [
+            "Atsargiai maišau mūvėdamas pirštines.",
+            "Sakau, kad nesu apmokytas ir negaliu naudoti šio produkto.",
+            "Paklausiu kolegos, kaip tai daroma, ir pabandau."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Вы не проходили обучение по изоцианатам, а вас просят смешать 2-компонентный лак. Что вы делаете?",
+          "options": [
+            "Осторожно смешиваю в перчатках.",
+            "Говорю, что не прошёл обучение и не могу использовать продукт.",
+            "Спрашиваю коллегу, как это делается, и пробую."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "qp-8",
+      "linkedLineIds": [
+        "p-04"
+      ],
+      "critical": false,
+      "byLang": {
+        "nb": {
+          "text": "Du vet ikke hvilket verneutstyr et produkt krever. Hvor finner du det?",
+          "options": [
+            "I sikkerhetsdatabladet i stoffkartoteket.",
+            "Jeg søker på nettet.",
+            "Jeg spør den som brukte det sist."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "You do not know what protective equipment a product needs. Where do you find out?",
+          "options": [
+            "In the safety data sheet in the substance index.",
+            "I search the internet.",
+            "I ask whoever used it last."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Nie wiesz, jakiego sprzętu ochronnego wymaga produkt. Gdzie to sprawdzisz?",
+          "options": [
+            "W karcie charakterystyki w rejestrze substancji chemicznych.",
+            "Szukam w internecie.",
+            "Pytam osobę, która używała go ostatnio."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Nežinote, kokių apsaugos priemonių reikia produktui. Kur tai sužinosite?",
+          "options": [
+            "Saugos duomenų lape cheminių medžiagų registre.",
+            "Ieškau internete.",
+            "Paklausiu to, kuris naudojo paskutinis."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Вы не знаете, какие средства защиты нужны для продукта. Где это узнать?",
+          "options": [
+            "В паспорте безопасности в реестре химических веществ.",
+            "Ищу в интернете.",
+            "Спрашиваю того, кто пользовался им последним."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 0,
+      "keyTechnical": {
+        "given": false
+      }
+    },
+    {
+      "questionId": "qp-9",
+      "linkedLineIds": [
+        "p-13"
+      ],
+      "critical": true,
+      "byLang": {
+        "nb": {
+          "text": "Du skal male taket i et rom en hel dag fra en stige. Er det riktig?",
+          "options": [
+            "Ja, hvis stigen står stødig.",
+            "Nei. Stige skal bare brukes til kortvarig arbeid. Bruk bukk eller rullestillas.",
+            "Ja, hvis en kollega holder stigen."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "en": {
+          "text": "You are to paint a ceiling for a whole day from a ladder. Is that right?",
+          "options": [
+            "Yes, if the ladder stands firmly.",
+            "No. A ladder may only be used for short work. Use a trestle or a mobile scaffold.",
+            "Yes, if a colleague holds the ladder."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "pl": {
+          "text": "Masz cały dzień malować sufit z drabiny. Czy to prawidłowe?",
+          "options": [
+            "Tak, jeśli drabina stoi stabilnie.",
+            "Nie. Drabiny można używać tylko do krótkotrwałej pracy. Użyj kozła lub rusztowania przejezdnego.",
+            "Tak, jeśli kolega trzyma drabinę."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "lt": {
+          "text": "Turite visą dieną dažyti lubas nuo kopėčių. Ar tai teisinga?",
+          "options": [
+            "Taip, jei kopėčios stovi tvirtai.",
+            "Ne. Kopėčios gali būti naudojamos tik trumpalaikiam darbui. Naudokite ožį arba mobiliuosius pastolius.",
+            "Taip, jei kolega laiko kopėčias."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        },
+        "ru": {
+          "text": "Вам нужно целый день красить потолок с приставной лестницы. Это правильно?",
+          "options": [
+            "Да, если лестница стоит устойчиво.",
+            "Нет. Лестницу можно использовать только для кратковременной работы. Используйте подмости или передвижные леса.",
+            "Да, если коллега держит лестницу."
+          ],
+          "keyLanguage": {
+            "given": false
+          }
+        }
+      },
+      "correctIndex": 1,
+      "keyTechnical": {
+        "given": false
+      }
+    }
+  ],
+  "products": [
+    {
+      "productId": "pr-water-paint",
+      "name": {
+        "nb": "Vannbasert interiørmaling (eksempel)",
+        "en": "Water-based interior paint (example)",
+        "pl": "Farba wodna do wnętrz (przykład)",
+        "lt": "Vandeniniai vidaus dažai (pavyzdys)",
+        "ru": "Водоэмульсионная краска для помещений (пример)"
+      },
+      "ghs": [],
+      "hCodes": [
+        "EUH208"
+      ],
+      "sdsNote": "Syntetisk eksempel: vanlig klassifisering for vannbasert maling. Ikke et ekte sikkerhetsdatablad."
+    },
+    {
+      "productId": "pr-primer-solvent",
+      "name": {
+        "nb": "Løsemiddelbasert grunning (eksempel)",
+        "en": "Solvent-based primer (example)",
+        "pl": "Grunt rozpuszczalnikowy (przykład)",
+        "lt": "Tirpiklinis gruntas (pavyzdys)",
+        "ru": "Грунтовка на растворителе (пример)"
+      },
+      "ghs": [
+        "GHS02",
+        "GHS07",
+        "GHS08"
+      ],
+      "hCodes": [
+        "H226",
+        "H304",
+        "H336",
+        "EUH066"
+      ],
+      "sdsNote": "Syntetisk eksempel: typisk klassifisering for grunning med white spirit. Ikke et ekte sikkerhetsdatablad."
+    },
+    {
+      "productId": "pr-2k-pu",
+      "name": {
+        "nb": "2-komponent polyuretanlakk (eksempel)",
+        "en": "2-component polyurethane varnish (example)",
+        "pl": "2-składnikowy lakier poliuretanowy (przykład)",
+        "lt": "2 komponentų poliuretano lakas (pavyzdys)",
+        "ru": "2-компонентный полиуретановый лак (пример)"
+      },
+      "ghs": [
+        "GHS02",
+        "GHS07",
+        "GHS08"
+      ],
+      "hCodes": [
+        "H226",
+        "H317",
+        "H332",
+        "H334",
+        "H335",
+        "EUH204"
+      ],
+      "sdsNote": "Syntetisk eksempel: typisk klassifisering for herder med isocyanater. Ikke et ekte sikkerhetsdatablad."
+    },
+    {
+      "productId": "pr-filler",
+      "name": {
+        "nb": "Sparkelmasse (eksempel)",
+        "en": "Filler (example)",
+        "pl": "Szpachlówka (przykład)",
+        "lt": "Glaistas (pavyzdys)",
+        "ru": "Шпаклёвка (пример)"
+      },
+      "ghs": [],
+      "hCodes": [],
+      "sdsNote": "Syntetisk eksempel: ikke merkepliktig, men slipestøv er helseskadelig. Ikke et ekte sikkerhetsdatablad."
+    }
+  ],
+  "standaloneQuestionIds": [
+    "qp-1",
+    "qp-2",
+    "qp-3",
+    "qp-4"
+  ]
+}

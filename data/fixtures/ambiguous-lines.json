@@ -1,0 +1,14 @@
+[
+  {
+    "id": "amb-1",
+    "text": "Sikre området før løft.",
+    "critical": true,
+    "note": "Secure the area before lifting: how, by whom, how far?"
+  },
+  {
+    "id": "amb-2",
+    "text": "Bruk sele ved behov.",
+    "critical": true,
+    "note": "Use a harness if needed: when is it needed?"
+  }
+]
